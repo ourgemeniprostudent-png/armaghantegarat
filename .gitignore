@@ -1,0 +1,12 @@
+.runtime/
+.DS_Store
+.env
+.env.*
+!.env.example
+LOCAL-ACCESS.txt
+*.sqlite
+*.sqlite-*
+*.db
+*.log
+*.pid
+__pycache__/

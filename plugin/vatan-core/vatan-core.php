@@ -2,14 +2,15 @@
 /**
  * Plugin Name: VATAN Core
  * Description: Product and media management, persistent inquiries and Multisite setup for Armaghan Tejarat Vatan.
- * Version: 1.0.1
+ * Version: 1.1.0
  * Requires at least: 6.6
  * Requires PHP: 8.1
  * Author: VATAN
  * License: GPL-2.0-or-later
  */
 if (!defined('ABSPATH')) exit;
-define('VATAN_CORE_VERSION','1.0.1');
+define('VATAN_CORE_VERSION','1.1.0');
+require_once __DIR__.'/includes/sections.php';
 function vatan_core_categories(){return ['coffee'=>'قهوه','rice'=>'برنج','dried-fruits'=>'خشکبار','spices'=>'ادویه','legumes'=>'حبوبات'];}
 function vatan_customer_types(){return ['cafe'=>'کافه','restaurant'=>'رستوران','hotel'=>'هتل','organization'=>'سازمان','store'=>'فروشگاه','wholesale'=>'عمده‌فروش / بنکدار','personal'=>'شخصی','other'=>'سایر'];}
 function vatan_core_register(){
@@ -68,17 +69,7 @@ function vatan_submit_lead(){
  wp_safe_redirect(add_query_arg('reference',$reference,home_url('/thank-you/')),303);exit;
 }
 add_action('admin_post_nopriv_vatan_inquiry','vatan_submit_lead');add_action('admin_post_vatan_inquiry','vatan_submit_lead');
-function vatan_inquiry_form(){
- $errors=[];$data=[];$token=isset($_GET['form_error'])?sanitize_text_field(wp_unslash($_GET['form_error'])):'';
- if(preg_match('/^[a-zA-Z0-9]{40}$/D',$token)){$stored=get_transient('vatan_error_'.$token);if($stored){$errors=$stored['errors'];$data=$stored['data'];}}
- $cat=isset($_GET['category'])?sanitize_key($_GET['category']):'';if(!isset(vatan_core_categories()[$cat]))$cat='';if(!isset($data['category']))$data['category']=$cat;
- if(empty($data['product'])&&isset($_GET['product']))$data['product']=mb_substr(sanitize_text_field(wp_unslash($_GET['product'])),0,150);
- $field=function($key,$label,$type='text',$required=false,$attrs='')use($data,$errors){?><div class="field"><label for="vatan-<?php echo esc_attr($key); ?>"><?php echo esc_html($label); ?><?php if($required)echo ' <span class="required">*</span>'; ?></label><input id="vatan-<?php echo esc_attr($key); ?>" name="<?php echo esc_attr($key); ?>" type="<?php echo esc_attr($type); ?>" value="<?php echo esc_attr($data[$key]??''); ?>" <?php if($required)echo 'required'; ?> <?php echo $attrs; ?> <?php if(isset($errors[$key]))echo 'aria-invalid="true" aria-describedby="error-'.esc_attr($key).'"'; ?>><?php if(isset($errors[$key]))echo '<p class="field-error" id="error-'.esc_attr($key).'">'.esc_html($errors[$key]).'</p>'; ?></div><?php };
- $select=function($key,$label,$options,$required=false)use($data,$errors){?><div class="field"><label for="vatan-<?php echo esc_attr($key); ?>"><?php echo esc_html($label); ?><?php if($required)echo ' <span class="required">*</span>'; ?></label><select id="vatan-<?php echo esc_attr($key); ?>" name="<?php echo esc_attr($key); ?>" <?php if($required)echo 'required'; ?> <?php if(isset($errors[$key]))echo 'aria-invalid="true" aria-describedby="error-'.esc_attr($key).'"'; ?>><option value="">انتخاب کنید</option><?php foreach($options as $v=>$l)echo '<option value="'.esc_attr($v).'" '.selected($data[$key]??'',$v,false).'>'.esc_html($l).'</option>'; ?></select><?php if(isset($errors[$key]))echo '<p class="field-error" id="error-'.esc_attr($key).'">'.esc_html($errors[$key]).'</p>'; ?></div><?php };
- ob_start();if($errors){?><div class="form-status" role="alert" tabindex="-1"><strong>درخواست هنوز ثبت نشده است.</strong><p>اطلاعات واردشده حفظ شده؛ موارد زیر را اصلاح کنید.</p><ul><?php foreach($errors as $k=>$e){echo '<li><a href="#'.esc_attr($k==='general'?'inquiry-form':'vatan-'.$k).'">'.esc_html($e).'</a></li>';} ?></ul></div><?php } ?>
- <form id="inquiry-form" data-inquiry-form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>"><input type="hidden" name="action" value="vatan_inquiry"><?php wp_nonce_field('vatan_inquiry','vatan_nonce'); ?><input type="hidden" name="request_key" value="<?php echo esc_attr(wp_generate_password(40,false,false)); ?>"><input type="hidden" name="source_url" value="<?php echo esc_url($data['source_url']??wp_get_referer()?:home_url('/inquiry/')); ?>"><div class="honeypot" aria-hidden="true"><label>وب‌سایت<input name="website" tabindex="-1" autocomplete="off"></label></div><div class="form-grid"><?php $field('name','نام و نام خانوادگی','text',true,'autocomplete="name" minlength="2" maxlength="80"');$field('mobile','شماره موبایل','tel',true,'autocomplete="tel" inputmode="tel" dir="ltr" maxlength="20"');$field('company','نام مجموعه','text',false,'autocomplete="organization" maxlength="150"');$field('city','شهر','text',true,'autocomplete="address-level2" maxlength="80"');$select('customer_type','نوع مشتری',vatan_customer_types(),true);$select('category','گروه محصول',vatan_core_categories(),true);$field('product','محصول موردنظر','text',false,'maxlength="150"');$field('quantity','مقدار تقریبی و واحد','text',false,'placeholder="مثلاً ۲۰ کیلوگرم" maxlength="150"');$select('preferred_time','زمان ترجیحی تماس',['morning'=>'صبح','noon'=>'ظهر','afternoon'=>'عصر']);?><div class="field full"><label for="vatan-notes">توضیحات درخواست</label><textarea name="notes" id="vatan-notes" maxlength="1000"><?php echo esc_textarea($data['notes']??''); ?></textarea></div><div class="field full"><label class="consent" for="vatan-consent"><input type="checkbox" id="vatan-consent" name="consent" value="1" required <?php checked($data['consent']??'','1'); ?>><span>با استفاده از اطلاعاتم برای پاسخ به این درخواست و <a class="text-link" href="<?php echo esc_url(home_url('/privacy/')); ?>">حریم خصوصی</a> موافقم. <span class="required">*</span></span></label></div></div><div class="actions"><button class="button" type="submit">ثبت درخواست و دریافت کد پیگیری</button></div><p class="form-note">ثبت درخواست به معنی تایید موجودی یا نهایی‌شدن سفارش نیست. فیلدهای ستاره‌دار ضروری‌اند.</p></form>
- <?php return ob_get_clean();
-}
+require_once __DIR__.'/includes/inquiry-form.php';
 add_shortcode('vatan_inquiry','vatan_inquiry_form');
 add_action('add_meta_boxes',function(){add_meta_box('vatan-product-specs','مشخصات محصول','vatan_product_fields','vatan_product','normal','high');add_meta_box('vatan-media','فایل رسانه و متن پیاده‌شده','vatan_media_fields','vatan_episode','normal','high');add_meta_box('vatan-lead','اطلاعات و پیگیری درخواست','vatan_lead_fields','vatan_lead','normal','high');});
 function vatan_product_fields($post){wp_nonce_field('vatan_meta','vatan_meta_nonce');$value=get_post_meta($post->ID,'_vatan_specs',true);echo '<p>هر مشخصه در یک خط با جداکننده |؛ فقط اطلاعات تاییدشده.</p><textarea name="vatan_specs" rows="8" style="width:100%" placeholder="خاستگاه | برزیل">'.esc_textarea($value).'</textarea>';echo '<p><label>وضعیت استعلام <input name="vatan_availability" value="'.esc_attr(get_post_meta($post->ID,'_vatan_availability',true)).'" placeholder="برای شرایط تامین استعلام بگیرید"></label></p>';}

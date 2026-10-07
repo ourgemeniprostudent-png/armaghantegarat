@@ -73,7 +73,7 @@ dots.forEach(button=>button.addEventListener('click',()=>go(Number(button.datase
 root.querySelectorAll('[data-revolver-step]').forEach(button=>button.addEventListener('click',()=>go(index+Number(button.dataset.revolverStep),'select')));
 items.forEach((item,i)=>item.addEventListener('click',()=>{if(now()-lastDragAt>400)go(i,'select')}));
 stage.addEventListener('keydown',event=>{
- if(event.repeat||event.metaKey||event.ctrlKey||event.altKey||event.shiftKey||event.target.closest('a,input,textarea,select'))return;
+ if(event.repeat||event.metaKey||event.ctrlKey||event.altKey||event.shiftKey||event.target.closest('a,input,textarea,select,video,audio'))return;
  if(event.key==='ArrowDown'||event.key==='ArrowUp'){
   event.preventDefault();const direction=event.key==='ArrowDown'?1:-1;
   if((index===0&&direction<0)||(index===count-1&&direction>0)){window.scrollBy({top:direction*innerHeight*.6,behavior:reduce.matches?'instant':'smooth'});return}
@@ -108,7 +108,7 @@ window.addEventListener('touchmove',event=>{
 },{passive:false});
 window.addEventListener('touchend',()=>{touch=null},{passive:true});window.addEventListener('touchcancel',()=>{touch=null},{passive:true});
 reduce.addEventListener('change',draw);
-window.addEventListener('resize',measure,{passive:true});new ResizeObserver(measure).observe(document.querySelector('.category-strip'));
+window.addEventListener('resize',measure,{passive:true});(()=>{const anchor=document.querySelector('.category-strip')||document.querySelector('.ag-gallery-intro');if(anchor)new ResizeObserver(measure).observe(anchor)})();
 window.addEventListener('pageshow',measure);
 document.querySelectorAll('a[href="#import-categories"]').forEach(link=>link.addEventListener('click',event=>{
  event.preventDefault();measure();go(0,'entry');wheelConsumed=false;wheelAt=-Infinity;

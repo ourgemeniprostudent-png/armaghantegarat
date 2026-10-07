@@ -1,5 +1,6 @@
 <?php
 if (!defined('ABSPATH')) exit;
+require_once __DIR__.'/inc/sections.php';
 add_action('after_setup_theme', function () {
     load_theme_textdomain('vatan-authority', get_template_directory() . '/languages');
     add_theme_support('title-tag'); add_theme_support('post-thumbnails');
@@ -8,25 +9,33 @@ add_action('after_setup_theme', function () {
     register_nav_menus(['primary'=>'منوی اصلی','footer'=>'منوی پایین سایت']);
 });
 add_action('wp_enqueue_scripts', function () {
+    wp_enqueue_style('armaghan-interior', vatan_asset('interior.css'), ['armaghan-home-story'], filemtime(get_template_directory().'/assets/interior.css'));
+    wp_enqueue_script('armaghan-interior', vatan_asset('interior.js'), ['vatan-site'], filemtime(get_template_directory().'/assets/interior.js'), true);
     wp_enqueue_style('vatan-theme', get_stylesheet_uri(), [], filemtime(get_template_directory().'/style.css'));
     wp_enqueue_style('armaghan-video-hero', vatan_asset('video-hero.css'), ['vatan-theme'], filemtime(get_template_directory().'/assets/video-hero.css'));
     wp_enqueue_script('vatan-site', get_template_directory_uri().'/assets/site.js', [], filemtime(get_template_directory().'/assets/site.js'), true);
     wp_enqueue_script('armaghan-video-hero', vatan_asset('video-hero.js'), ['vatan-site'], filemtime(get_template_directory().'/assets/video-hero.js'), true);
-    if (is_front_page()) {
+    if (is_front_page() || is_page(['products','solutions'])) {
         wp_enqueue_style('armaghan-product-revolver', vatan_asset('product-revolver.css'), ['armaghan-video-hero'], filemtime(get_template_directory().'/assets/product-revolver.css'));
         wp_enqueue_script('armaghan-product-revolver', vatan_asset('product-revolver.js'), ['vatan-site'], filemtime(get_template_directory().'/assets/product-revolver.js'), true);
         wp_enqueue_style('armaghan-cooperation-gallery', vatan_asset('cooperation-gallery.css'), ['armaghan-product-revolver'], filemtime(get_template_directory().'/assets/cooperation-gallery.css'));
         wp_enqueue_script('armaghan-cooperation-gallery', vatan_asset('cooperation-gallery.js'), ['armaghan-product-revolver'], filemtime(get_template_directory().'/assets/cooperation-gallery.js'), true);
-        wp_enqueue_style('armaghan-home-story', vatan_asset('home-story.css'), ['armaghan-cooperation-gallery'], filemtime(get_template_directory().'/assets/home-story.css'));
-        wp_enqueue_script('armaghan-home-story', vatan_asset('home-story.js'), ['vatan-site'], filemtime(get_template_directory().'/assets/home-story.js'), true);
     }
+        wp_enqueue_style('armaghan-home-story', vatan_asset('home-story.css'), ['armaghan-video-hero'], filemtime(get_template_directory().'/assets/home-story.css'));
+    if(is_front_page())wp_enqueue_script('armaghan-home-story', vatan_asset('home-story.js'), ['vatan-site'], filemtime(get_template_directory().'/assets/home-story.js'), true);
 });
 function vatan_url($path='') { return home_url('/'.ltrim($path,'/')); }
 function vatan_asset($file) { return get_template_directory_uri().'/assets/'.$file; }
 function armaghan_video_asset($file) { return add_query_arg('v', filemtime(get_template_directory().'/assets/media/'.$file), vatan_asset('media/'.$file)); }
 function vatan_option($name,$default='') { return get_option('vatan_'.$name,$default); }
 function vatan_categories() { return ['coffee'=>['قهوه','COFFEE','انتخاب قهوه برای کافه و کسب‌وکار شما'], 'rice'=>['برنج','RICE','برای نیاز روزانه و سفارش عمده'], 'dried-fruits'=>['خشکبار','NUTS & DRIED FRUITS','آجیل و خشکبار برای کسب‌وکارها'], 'spices'=>['ادویه','SPICES','طعم و عطر، متناسب با نیاز شما'], 'legumes'=>['حبوبات','LEGUMES','استعلام تامین و سفارش عمده']]; }
-function vatan_logo() { if(has_custom_logo()){echo '<span class="custom-brand-mark">'.wp_get_attachment_image(get_theme_mod('custom_logo'),'thumbnail',false,['alt'=>'نشان ارمغان تجارت وطن']).'</span>';}else{ ?><span class="brand-mark"><img src="<?php echo esc_url(vatan_asset('brand-original.png')); ?>" alt="نشان طلایی ارمغان تجارت وطن" width="499" height="1080"></span><?php } ?><span class="brand-name">ارمغان تجارت وطن</span><?php }
+function vatan_logo() {
+ $identity=ag_section('identity','global');$saved=get_post_meta((int)get_option('page_on_front'),'_armaghan_identity',true);
+ if(isset($saved['identity']['logo'])&&$saved['identity']['logo']!=='asset:brand-original.png')echo '<span class="custom-brand-mark"><img src="'.esc_url(ag_media_url($identity['logo'])).'" alt="'.esc_attr($identity['title']).'"></span>';
+ elseif(has_custom_logo())echo '<span class="custom-brand-mark">'.wp_get_attachment_image(get_theme_mod('custom_logo'),'thumbnail',false,['alt'=>$identity['title']]).'</span>';
+ else echo '<span class="brand-mark"><img src="'.esc_url(vatan_asset('brand-original.png')).'" alt="نشان طلایی ارمغان تجارت وطن" width="499" height="1080"></span>';
+ echo '<span class="brand-name">'.esc_html($identity['title']).'</span>';
+}
 function vatan_intro($title,$description='',$eyebrow='ارمغان تجارت وطن') { ?><section class="page-intro"><div class="wrap"><div class="breadcrumb"><a href="<?php echo esc_url(home_url('/')); ?>">خانه</a> / <?php echo esc_html($title); ?></div><span class="eyebrow"><?php echo esc_html($eyebrow); ?></span><h1><?php echo esc_html($title); ?></h1><?php if($description) echo '<p>'.esc_html($description).'</p>'; ?></div></section><?php }
 function vatan_empty($title,$text,$category='') { ?><div class="empty"><h2><?php echo esc_html($title); ?></h2><p><?php echo esc_html($text); ?></p><a class="button" href="<?php echo esc_url(add_query_arg('category',$category,vatan_url('inquiry/'))); ?>">درخواست مشاوره</a></div><?php }
 function vatan_product_card($post) { $terms=get_the_terms($post->ID,'vatan_category'); ?><article class="product-card"><?php if(has_post_thumbnail($post)) echo get_the_post_thumbnail($post,'large',['class'=>'product-image']); ?><span class="eyebrow"><?php echo esc_html($terms&&!is_wp_error($terms)?$terms[0]->name:'محصول'); ?></span><h2><a href="<?php echo esc_url(get_permalink($post)); ?>"><?php echo esc_html(get_the_title($post)); ?></a></h2><p><?php echo esc_html(wp_trim_words(get_the_excerpt($post),24)); ?></p><a class="text-link" href="<?php echo esc_url(get_permalink($post)); ?>">مشخصات و استعلام</a></article><?php }
@@ -43,11 +52,6 @@ add_action('wp_head',function(){
     if(is_singular('vatan_product')){$product=['@context'=>'https://schema.org','@type'=>'Product','name'=>get_the_title(),'description'=>wp_strip_all_tags(get_the_excerpt()),'url'=>get_permalink()];if(has_post_thumbnail())$product['image']=get_the_post_thumbnail_url(null,'large');echo '<script type="application/ld+json">'.wp_json_encode($product,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES).'</script>';}
 });
 add_filter('wp_robots',function($robots){if(is_page(['inquiry','thank-you','search'])){$robots['noindex']=true;unset($robots['index']);}return $robots;});
-add_action('customize_register',function($customizer){
- $customizer->add_section('vatan_home',['title'=>'صفحه اصلی ارمغان تجارت وطن','priority'=>30]);
- foreach(['trade_line_one'=>['تیتر اصلی، خط اول','از مبدا،'],'trade_line_two'=>['تیتر اصلی، خط دوم','تا بازار ایران.'],'trade_description'=>['توضیح اصلی','واردات مستقیم و تامین عمده قهوه، برنج، خشکبار، ادویه و حبوبات؛ برای بازار و کسب‌وکار ایران.']] as $key=>$args){$customizer->add_setting('vatan_'.$key,['default'=>$args[1],'sanitize_callback'=>'sanitize_text_field']);$customizer->add_control('vatan_'.$key,['label'=>$args[0],'section'=>'vatan_home','type'=>'text']);}
-});
-
 // Keep Persian display copy free of hamza while leaving links and stored inquiries intact.
 function armaghan_copy_without_hamza($text) {
     if (!is_string($text)) return $text;

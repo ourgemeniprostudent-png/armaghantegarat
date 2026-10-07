@@ -5,7 +5,7 @@ from pathlib import Path
 from urllib.request import urlopen,Request
 root=Path(__file__).resolve().parent.parent
 url=(root/'.runtime/site-url.txt').read_text().strip()
-routes=['/','/products/','/products/coffee/','/products/rice/','/products/dried-fruits/','/products/spices/','/products/legumes/','/solutions/','/about/','/contact/','/inquiry/','/media/','/blog/','/faq/','/privacy/','/search/','/blog/2026/10/06/follow-up-your-inquiry/','/blog/2026/10/06/business-inquiry-checklist/','/blog/2026/10/06/coffee-inquiry-guide/']
+routes=['/','/products/','/products/coffee/','/products/rice/','/products/dried-fruits/','/products/spices/','/products/legumes/','/solutions/','/solutions/b2b-supply/','/thank-you/','/about/','/contact/','/inquiry/','/media/','/blog/','/faq/','/privacy/','/search/','/blog/2026/10/06/follow-up-your-inquiry/','/blog/2026/10/06/business-inquiry-checklist/','/blog/2026/10/06/coffee-inquiry-guide/']
 results=[]
 for route in routes:
  with urlopen(url+route,timeout=20) as r:
@@ -17,7 +17,7 @@ for route in routes:
    lower=page[page.index('id="home-about"'):page.index('</main>')]
    assert not re.search(r'href="[^"]*/inquiry/',lower), 'Duplicate lower-home inquiry CTA'
   results.append({'route':route,'status':r.status})
-for route in ['/wp-content/themes/vatan-authority/assets/home-story.css','/wp-content/themes/vatan-authority/assets/home-story.js','/wp-content/themes/vatan-authority/assets/cooperation/shipping.webp','/wp-content/themes/vatan-authority/assets/fonts/PeydaWebFaNum-Regular.woff2']:
+for route in ['/wp-content/themes/vatan-authority/assets/interior.css','/wp-content/themes/vatan-authority/assets/interior.js','/wp-content/themes/vatan-authority/assets/home-story.css','/wp-content/themes/vatan-authority/assets/home-story.js','/wp-content/themes/vatan-authority/assets/cooperation/shipping.webp','/wp-content/themes/vatan-authority/assets/fonts/PeydaWebFaNum-Regular.woff2']:
  with urlopen(url+route,timeout=20) as r:assert r.status==200 and len(r.read())>0,route
 for filename in ['hero-h264.mp4','hero-av1.mp4']:
  req=Request(url+'/wp-content/themes/vatan-authority/assets/media/'+filename,method='HEAD')
@@ -26,6 +26,6 @@ try:
  with urlopen(url+'/en/',timeout=20) as r:assert r.status==404,'English pending site should stay hidden'
 except Exception as exc:
  if getattr(exc,'code',None)!=404:raise
-report={'site':url,'routes':results,'assets':'passed','pending_english':'404 as expected','home_version':'1.7.0'}
+report={'site':url,'routes':results,'assets':'passed','pending_english':'404 as expected','home_design':'approved 1.7 layout, section editable','theme_version':'1.8.0'}
 (root/'.runtime/smoke-report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
 print(f'Passed: {len(results)} public routes, CSS/JS/font/images/videos, homepage continuity, pending /en.')

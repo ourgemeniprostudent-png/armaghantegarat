@@ -18,7 +18,7 @@ function draw(initial=false){
   card.style.opacity=active?'1':far?'0':'.74';card.style.zIndex=String(4-Math.abs(d));card.style.pointerEvents=far?'none':'auto';card.dataset.distance=String(d);card.classList.toggle('is-active',active);card.tabIndex=active?0:-1;card.setAttribute('aria-hidden',String(!active));
   if(recycle)requestAnimationFrame(()=>requestAnimationFrame(()=>card.classList.remove('flow-recycle')));
  });
- copy.forEach((p,i)=>{p.classList.toggle('is-active',i===index);p.setAttribute('aria-hidden',String(i!==index))});
+ copy.forEach((p,i)=>{p.inert=i!==index;p.classList.toggle('is-active',i===index);p.setAttribute('aria-hidden',String(i!==index))});
  dots.forEach((b,i)=>b.setAttribute('aria-current',String(i===index)));
  root.querySelectorAll('[data-flow-step]').forEach(b=>{b.disabled=Number(b.dataset.flowStep)<0?index===0:index===count-1});
  root.dataset.activeIndex=String(index);
@@ -60,7 +60,7 @@ cards.forEach((card,i)=>card.addEventListener('click',e=>{if(e.detail===0||now()
 dialog.querySelector('[data-flow-close]').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('close',()=>{document.documentElement.classList.remove('flow-dialog-open');returnFocus?.focus({preventScroll:true})});
 stage.addEventListener('keydown',e=>{
- if(e.repeat||e.metaKey||e.ctrlKey||e.altKey||e.shiftKey||e.target.closest('a,input,textarea,select'))return;
+ if(e.repeat||e.metaKey||e.ctrlKey||e.altKey||e.shiftKey||e.target.closest('a,input,textarea,select,video,audio'))return;
  const direction=['ArrowRight','ArrowDown'].includes(e.key)?1:['ArrowLeft','ArrowUp'].includes(e.key)?-1:0;
  if(!direction)return;e.preventDefault();
  if((index===0&&direction<0)||(index===count-1&&direction>0)){window.scrollBy({top:direction*innerHeight*.6,behavior:reduce.matches?'instant':'smooth'});return}
@@ -83,6 +83,6 @@ window.addEventListener('touchmove',e=>{
  e.preventDefault();if(Math.max(Math.abs(dx),Math.abs(dy))>=28){touch.handled=true;lastPointerAt=now();go(index+direction,'touch')}
 },{passive:false});
 window.addEventListener('touchend',()=>{touch=null},{passive:true});window.addEventListener('touchcancel',()=>{touch=null},{passive:true});
-window.addEventListener('resize',measure,{passive:true});new ResizeObserver(measure).observe(document.querySelector('.category-strip'));window.addEventListener('pageshow',measure);reduce.addEventListener('change',()=>{lane.style.setProperty('--flow-bend','0deg');draw(true)});
+window.addEventListener('resize',measure,{passive:true});(()=>{const anchor=document.querySelector('.category-strip')||document.querySelector('.ag-gallery-intro');if(anchor)new ResizeObserver(measure).observe(anchor)})();window.addEventListener('pageshow',measure);reduce.addEventListener('change',()=>{lane.style.setProperty('--flow-bend','0deg');draw(true)});
 root.classList.add('flow-enhanced');measure();
 })();

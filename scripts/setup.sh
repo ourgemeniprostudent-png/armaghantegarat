@@ -49,5 +49,10 @@ if [[ ! -f .runtime/public-seed-imported ]]; then
  wp --url="$TASK_URL/en/" option update WPLANG en_US
  touch .runtime/public-seed-imported
 fi
+# Development media defaults: enough for the unchanged hero videos. Preserve later admin choices.
+if [[ ! -f .runtime/media-limits-ready ]]; then
+ wp eval 'if ((int)get_site_option("fileupload_maxk",1500)<=1500) update_site_option("fileupload_maxk",102400); if ((int)get_site_option("blog_upload_space",100)<=100) update_site_option("blog_upload_space",1024);'
+ touch .runtime/media-limits-ready
+fi
 printf '%s\n' "$TASK_URL" > .runtime/site-url.txt
 printf 'Setup complete. Private development credentials: .runtime/access.txt\nStart: bash scripts/start.sh\n'

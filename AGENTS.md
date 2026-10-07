@@ -30,3 +30,9 @@ This repository contains the approved WordPress implementation transferred from 
 - PHP lint changed PHP files; `node --check` changed JS; `python3 scripts/smoke.py` with the development server running.
 - Test the routes and behavior affected by a change. For visual edits, review the result at desktop and small mobile widths using available tools; report unavailable browser validation accurately.
 - Commit source changes and export intentionally changed public content; saved Cloud state is not a replacement for Git. Avoid modifying the approved design while simply setting up the environment.
+
+## Section editing from 1.8
+
+- Read `docs/EDITING-fa.md`. Every page, article and product category exposes native section editing for text, images and videos. Maintain this standard for future work.
+- Public defaults live in `plugin/vatan-core/content/sections-fa.json`; saved post/term metadata takes precedence. Never reset it on setup or upgrade. Keep the plugin deployable in a normal WordPress plugins directory.
+- Static previews come from `scripts/export-preview.py`; only anonymous public HTML and referenced media belong on gh-pages. Never export form tokens, credentials, database files or private inquiries.

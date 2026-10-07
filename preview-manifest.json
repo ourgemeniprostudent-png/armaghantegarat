@@ -1,5 +1,5 @@
 {
-  "source_commit": "acd893b79d38b9f1c6eaa646675c41587b49f87a",
+  "source_commit": "27ae803f4111f07bc8b406b706023884544088b8",
   "routes": [
     {
       "route": "/",
@@ -94,63 +94,63 @@
     },
     {
       "path": "404.html",
-      "bytes": 20701,
-      "sha256": "88166a764003b22b8449eddb94be5b8ef326391037952abd61f974006f0e1bf7"
+      "bytes": 21617,
+      "sha256": "51c51094a44d9ab9ca637eef266298cbdb31adde9f8713902115979494437b28"
     },
     {
       "path": "README.md",
       "bytes": 395,
-      "sha256": "cad2c3b9e5c89c15f646c892b78365595ab734a304c3da01bf3d859614d3e748"
+      "sha256": "9fb9b3c8aaeb17d567c45047879813de71451fab299eb4890bf7590d3184bebd"
     },
     {
       "path": "about/index.html",
-      "bytes": 29235,
-      "sha256": "be8765a4e419d1490ee93cb2211c3dcf14e5add8f51cde5af5745b258aa3d55a"
+      "bytes": 35250,
+      "sha256": "e3f5e4bbdddc5815c8e6f9d6b7827e55f2611c46e47c5ea44980e17148a260b8"
     },
     {
       "path": "blog/2026/10/06/business-inquiry-checklist/index.html",
-      "bytes": 27973,
-      "sha256": "6ee1d7b711c4fe811f888819c9916febe74785a585ee33b9e21842551c917539"
+      "bytes": 37866,
+      "sha256": "decfc9cb68fc774c21fbc28c61ec26d41261c8dffecaf3749990182e03cb535c"
     },
     {
       "path": "blog/2026/10/06/coffee-inquiry-guide/index.html",
-      "bytes": 28100,
-      "sha256": "1336ef2578ae74aacda932be4b40c46848e33540856f0dc7c4a82b32b7657040"
+      "bytes": 37976,
+      "sha256": "07bc332a1cbe2df416dfbf08bbf1ffa3a5102ec0ded0bcb3a631949c1cf40db5"
     },
     {
       "path": "blog/2026/10/06/follow-up-your-inquiry/index.html",
-      "bytes": 27877,
-      "sha256": "b4b8e848b7b533b520134c7e328f72d7cc7bdad15f2e4323af551cae323d9b2c"
+      "bytes": 37902,
+      "sha256": "9ff9f528e1c9b537d480a10f8cea1f107ae4e0a1057d938ad223a2c3d34b078a"
     },
     {
       "path": "blog/index.html",
-      "bytes": 27429,
-      "sha256": "f7df48bb3f00e9601dbcaf4c7da60ed35e40f4ca614f3ef398cae03a6ee2c10b"
+      "bytes": 28800,
+      "sha256": "f3922084c9bf8a5e0f026978acc90cedecb357a877b43fef78ed3c4b84b5abb1"
     },
     {
       "path": "contact/index.html",
-      "bytes": 29487,
-      "sha256": "5a90481ab17045721fa519293e3a0650ea2ed9fcf9f52afc64e747db88393504"
+      "bytes": 34414,
+      "sha256": "4d13e0c6531484af57a8a7d67ac5dd428720dec8618089e090c67e80ed5294c3"
     },
     {
       "path": "faq/index.html",
-      "bytes": 29326,
-      "sha256": "3bbca98e5de978da1a78341f5355b4ea67d828ae90a778fbdf47267587d00074"
+      "bytes": 32828,
+      "sha256": "8183423374e3cabdb74f9ae8e4b51732d487b7496f3076011253397044fc9842"
     },
     {
       "path": "index.html",
       "bytes": 50785,
-      "sha256": "5dc8be622cf90ab8e3958bd4116a986030a646caa92983f2c93662754daea316"
+      "sha256": "59ed57c2368bcd15f5b9be9c154650045dd2c688378b63ff4f86db3a826c85c5"
     },
     {
       "path": "inquiry/index.html",
-      "bytes": 32538,
-      "sha256": "e1b081b59cb9f28140669fa5401cdac705428db37016a8a96bdbb6b2d675b134"
+      "bytes": 36562,
+      "sha256": "30c9399a2a98974d6bbaaca02018c15767d4259f7208ce4a8aad3da723456bb9"
     },
     {
       "path": "media/index.html",
-      "bytes": 25204,
-      "sha256": "8064d3322841d8caa1eac7601493233abf9cec238268d47ad9415305f37fc682"
+      "bytes": 30560,
+      "sha256": "2642636a82250da9c7062f280b2c413f39c0a80d2cc0c6cdf29ab9e4e5711a67"
     },
     {
       "path": "preview-guard.js",
@@ -159,58 +159,68 @@
     },
     {
       "path": "privacy/index.html",
-      "bytes": 29179,
-      "sha256": "e8064e1e5a9fb720c03d8aa4505457f8ce89d00f5aa1b7c7cf2333c7b22fda18"
+      "bytes": 30559,
+      "sha256": "cdef615b1973c8dd9bb195ff68150a40192cdcf5ddad102b5d5fc12eab478c97"
     },
     {
       "path": "products/coffee/index.html",
-      "bytes": 29269,
-      "sha256": "27be871af1df9300bb0d3cfb82ccfff7117abac37c5ae5295255a1597821f2bc"
+      "bytes": 33742,
+      "sha256": "462e70fff1c12cb5752b6c6ae3b0dbe0c049adf512c70b70f58a18d91be97161"
     },
     {
       "path": "products/dried-fruits/index.html",
-      "bytes": 29334,
-      "sha256": "ee557a513be839ee8be103dcf0e273274b5cbdfb69d275f18bb55fc99b9d7170"
+      "bytes": 33846,
+      "sha256": "cdbe8ab37b78b066a80ba1b55b19346926dd1a08984b523a2dcfc9a599f6c8bd"
     },
     {
       "path": "products/index.html",
-      "bytes": 39230,
-      "sha256": "fb50f1d47cd516a9df5b12e3d49c3e9709a79142fec8c432e936f51b4a60d2cd"
+      "bytes": 47448,
+      "sha256": "600e834b53e6dfbff9e0817b72a1f4683a08ed01d88791c635e58a5a4bb4ee26"
     },
     {
       "path": "products/legumes/index.html",
-      "bytes": 29302,
-      "sha256": "98f5432772ae0893292fe4e21674b22a998e61a836b76de0bf7ff3ab45a25b3f"
+      "bytes": 33742,
+      "sha256": "ac86c85f3df7d54d53e54a1357d841f53224dd3d54800f9b5728ebcb0166cef7"
     },
     {
       "path": "products/rice/index.html",
-      "bytes": 29244,
-      "sha256": "cdc7f02e0190c0009dbf5d350f549c3be8312108b5b17dc294716c12b6c8706c"
+      "bytes": 33623,
+      "sha256": "da61312eef806830526977523f4f09ad6b2ca6098a0bdcf2453ac88307741423"
     },
     {
       "path": "products/spices/index.html",
-      "bytes": 29321,
-      "sha256": "4aeef0c5e6cb2bab845acc551204b2ea0b024dcd64ffee7d4605d97e0b5599a0"
+      "bytes": 33755,
+      "sha256": "0e644a0db6b119a5e6ee784e6934dd071209f85fef23c70ab5cb2b766a730c0e"
     },
     {
       "path": "search/index.html",
-      "bytes": 25255,
-      "sha256": "d91ee5bf2614001eed0d84ffa1a6923008771cf7c9cf65c271d43fb15be80d0d"
+      "bytes": 26572,
+      "sha256": "97e781299c3c159929845ada4b7b5d422ee9715f07e4b6d6681e3e66c53051d1"
     },
     {
       "path": "solutions/b2b-supply/index.html",
-      "bytes": 29882,
-      "sha256": "9908a5a291a450d5482779a34273d1ab53951baaafcd66a5067edf46b55641c5"
+      "bytes": 34826,
+      "sha256": "707dc2ad9515b5de5e6488f636e22c7bf879d1ade7e3434886db2ad3a927a280"
     },
     {
       "path": "solutions/index.html",
-      "bytes": 38956,
-      "sha256": "334140314fdb76e8e26a95ecb0010a1ed5e1896480c2d6be0f85395f936f106e"
+      "bytes": 44341,
+      "sha256": "35e7b7169daac5832369f7c658a01c90d6fb3c7c7c909811448755b2ee098aa2"
     },
     {
       "path": "thank-you/index.html",
-      "bytes": 24903,
-      "sha256": "7de8385dddfd3c72215011e46acbe0243e46b68cf22e477d9c3fe5217c9d244f"
+      "bytes": 26223,
+      "sha256": "47b1d4481bde035a590cfd8e9347fc5bf980755194551b4c0dbae88abaa37d89"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/art-direction.css",
+      "bytes": 27683,
+      "sha256": "09c002f3050406fe3587dd3bd661504a40850cc6635ef57d90eae6005f269880"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/art-direction.js",
+      "bytes": 5902,
+      "sha256": "3e59f398323dd991bf463860ae15e2711b710d57764302e632f902bc77e2b2d4"
     },
     {
       "path": "wp-content/themes/vatan-authority/assets/brand-original.png",
@@ -370,7 +380,7 @@
     {
       "path": "wp-content/themes/vatan-authority/style.css",
       "bytes": 15634,
-      "sha256": "cf39aa037407907b5247e61ee9b7f7c71b4c752f04a6416ed6bb264c01048c4a"
+      "sha256": "3c5bead6d465f22d97049e4d9a5192423e6d0d242ad44edd9f076aae7d676595"
     }
   ]
 }

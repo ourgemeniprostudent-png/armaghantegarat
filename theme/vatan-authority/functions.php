@@ -1,6 +1,7 @@
 <?php
 if (!defined('ABSPATH')) exit;
 require_once __DIR__.'/inc/sections.php';
+require_once __DIR__.'/inc/art-direction.php';
 require_once __DIR__.'/inc/public-search.php';
 add_action('after_setup_theme', function () {
     load_theme_textdomain('vatan-authority', get_template_directory() . '/languages');
@@ -12,6 +13,10 @@ add_action('after_setup_theme', function () {
 add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style('armaghan-interior', vatan_asset('interior.css'), ['armaghan-home-story'], filemtime(get_template_directory().'/assets/interior.css'));
     wp_enqueue_script('armaghan-interior', vatan_asset('interior.js'), ['vatan-site'], filemtime(get_template_directory().'/assets/interior.js'), true);
+    if(!is_front_page()) {
+        wp_enqueue_style('armaghan-art', vatan_asset('art-direction.css'), ['armaghan-interior'], filemtime(get_template_directory().'/assets/art-direction.css'));
+        wp_enqueue_script('armaghan-art', vatan_asset('art-direction.js'), ['armaghan-interior'], filemtime(get_template_directory().'/assets/art-direction.js'), true);
+    }
     wp_enqueue_style('vatan-theme', get_stylesheet_uri(), [], filemtime(get_template_directory().'/style.css'));
     wp_enqueue_style('armaghan-video-hero', vatan_asset('video-hero.css'), ['vatan-theme'], filemtime(get_template_directory().'/assets/video-hero.css'));
     wp_enqueue_script('vatan-site', get_template_directory_uri().'/assets/site.js', [], filemtime(get_template_directory().'/assets/site.js'), true);

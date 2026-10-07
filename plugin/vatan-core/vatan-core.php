@@ -2,14 +2,14 @@
 /**
  * Plugin Name: VATAN Core
  * Description: Product and media management, persistent inquiries and Multisite setup for Armaghan Tejarat Vatan.
- * Version: 1.1.0
+ * Version: 1.2.0
  * Requires at least: 6.6
  * Requires PHP: 8.1
  * Author: VATAN
  * License: GPL-2.0-or-later
  */
 if (!defined('ABSPATH')) exit;
-define('VATAN_CORE_VERSION','1.1.0');
+define('VATAN_CORE_VERSION','1.2.0');
 require_once __DIR__.'/includes/sections.php';
 function vatan_core_categories(){return ['coffee'=>'قهوه','rice'=>'برنج','dried-fruits'=>'خشکبار','spices'=>'ادویه','legumes'=>'حبوبات'];}
 function vatan_customer_types(){return ['cafe'=>'کافه','restaurant'=>'رستوران','hotel'=>'هتل','organization'=>'سازمان','store'=>'فروشگاه','wholesale'=>'عمده‌فروش / بنکدار','personal'=>'شخصی','other'=>'سایر'];}

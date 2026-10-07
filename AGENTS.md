@@ -36,3 +36,10 @@ This repository contains the approved WordPress implementation transferred from 
 - Read `docs/EDITING-fa.md`. Every page, article and product category exposes native section editing for text, images and videos. Maintain this standard for future work.
 - Public defaults live in `plugin/vatan-core/content/sections-fa.json`; saved post/term metadata takes precedence. Never reset it on setup or upgrade. Keep the plugin deployable in a normal WordPress plugins directory.
 - Static previews come from `scripts/export-preview.py`; only anonymous public HTML and referenced media belong on gh-pages. Never export form tokens, credentials, database files or private inquiries.
+
+## Interior art direction from 1.9
+
+- Interior-only assets in assets/art-direction.css/js and inc/art-direction.php carry the new design; keep approved home assets separate.
+- Preserve ivory reading surfaces for journal/articles, native section fields, meaningful reduced-motion and no-JS behavior.
+- Route diagrams are conceptual, not actual shipping routes or office coordinates. Use transferred company/contact facts; original reference documents are absent from this checkout.
+- Native article bodies and public seed content must stay aligned when intentionally editing copy. Preserve revisions and existing administrator edits on upgrade; never reset the database.

@@ -1,1 +1,6 @@
-<?php get_header(); ?><section class="error-hero"><div class="wrap"><div class="error-number">404</div><h1 style="font-size:2.7rem">این صفحه پیدا نشد.</h1><p>ممکن است نشانی تغییر کرده باشد. از محصولات یا صفحه اصلی ادامه دهید.</p><div class="actions" style="justify-content:center"><a class="button" href="<?php echo esc_url(home_url('/')); ?>">صفحه اصلی</a><a class="button ghost" href="<?php echo esc_url(vatan_url('products/')); ?>">محصولات وطن</a></div></div></section><?php get_footer(); ?>
+<?php get_header();$identity=ag_section('identity','global'); ?>
+<div class="ag-interior ag-art-page"><section class="ag-error-art">
+<?php ag_art_motif(); ?>
+<div class="wrap"><div class="error-number" aria-hidden="true">۴۰۴</div><h1><?php ag_text($identity,'error_title'); ?></h1><p><?php ag_text($identity,'error_body'); ?></p><div class="actions"><a class="button" href="<?php echo esc_url(home_url('/')); ?>"><?php ag_text($identity,'error_home'); ?></a><a class="home-route-link" href="<?php echo esc_url(vatan_url('products/')); ?>"><?php ag_text($identity,'error_products'); ?> <span class="ag-symbol" aria-hidden="true">↗</span></a></div></div>
+</section></div>
+<?php get_footer(); ?>

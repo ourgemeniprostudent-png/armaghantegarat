@@ -46,19 +46,20 @@ function ag_inner_nav($context) {
     echo '</nav>';
 }
 function ag_render_page($context) {
-    echo '<div class="ag-interior ag-context-'.esc_attr(str_replace(':','-',$context)).'">';
+    echo '<div class="ag-interior ag-art-page ag-context-'.esc_attr(str_replace(':','-',$context)).'" data-ag-context="'.esc_attr($context).'">';
     foreach(ag_sections($context) as $id=>$section){
         $s=$section['values'];$layout=$section['layout'];if(str_starts_with($layout,'home-')||$layout==='article')continue;
         if($layout==='hero'){
             echo '<section class="ag-hero" id="'.esc_attr($id).'"><div class="wrap ag-hero-grid"><div class="ag-hero-copy" data-ag-reveal><div class="breadcrumb"><a href="'.esc_url(home_url('/')).'">خانه</a> / '.esc_html(is_tax('vatan_category')?get_queried_object()->name:(is_home()?get_the_title((int)get_option('page_for_posts')):get_the_title(get_queried_object_id()))).'</div>';
-            ag_heading($s,'h1');ag_body($s['body']??'');ag_action($s,'button trade-button');echo '</div>';ag_visual($s,true);echo '</div><div class="ag-hero-line" aria-hidden="true"></div></section>';ag_inner_nav($context);continue;
+            ag_heading($s,'h1');ag_body($s['body']??'');ag_action($s,'button trade-button');echo '</div>';ag_art_hero($s,$context);echo '</div><div class="ag-hero-foot wrap"><span>'.esc_html($s['foot_label']??$s['eyebrow']).'</span><a href="#'.esc_attr(array_keys(ag_sections($context))[1]??$id).'">'.esc_html($s['scroll_label']??'ادامه روایت').' <span class="ag-symbol" aria-hidden="true">↓</span></a></div><div class="ag-hero-line" aria-hidden="true"></div></section>';ag_inner_nav($context);continue;
         }
         if($layout==='product-gallery'||$layout==='flow-gallery'){
             echo '<div class="wrap ag-gallery-intro" id="'.esc_attr($id).'" data-ag-reveal>';ag_heading($s);ag_body($s['body']??'');echo '</div>';
             get_template_part('template-parts/'.($layout==='product-gallery'?'product-revolver':'cooperation-gallery'),null,['context'=>$context]);continue;
         }
         echo '<section class="ag-section ag-layout-'.esc_attr($layout).'" id="'.esc_attr($id).'"><div class="wrap">';
-        if(in_array($layout,['split','legal'],true)){
+        if(in_array($layout,['manifesto','route','dossier','fieldnotes'],true))ag_art_section($s,$layout);
+        elseif(in_array($layout,['split','legal'],true)){
             echo '<div class="ag-split"><div class="ag-copy" data-ag-reveal>';ag_heading($s);
             if(!empty($s['lead']))echo '<p class="ag-lead">'.esc_html($s['lead']).'</p>';ag_body($s['body']??'');ag_action($s);echo '</div>';ag_visual($s);echo '</div>';
         }elseif(in_array($layout,['cards','steps'],true)){
@@ -72,7 +73,7 @@ function ag_render_page($context) {
         }elseif($layout==='closing'){
             echo '<div class="ag-closing" data-ag-reveal><div>';ag_heading($s);ag_body($s['body']??'');echo '</div><div>';ag_action($s,'button trade-button');echo '</div></div>';ag_visual($s);
         }elseif($layout==='form'){
-            echo '<div class="ag-form-layout"><div class="ag-form-card"><span class="eyebrow">فرم درخواست</span><h2>'.esc_html($s['title']).'</h2><p>'.esc_html($s['body']).'</p>'.vatan_inquiry_form().'</div><aside class="ag-form-aside"><span class="ag-side-mark" aria-hidden="true">↗</span><h3>'.esc_html($s['sidebar_title']).'</h3>';ag_body($s['sidebar_body']);echo '<a class="home-route-link" href="'.esc_url(vatan_url('privacy/')).'">'.esc_html($s['privacy_label']).' <span class="ag-symbol" aria-hidden="true">↗</span></a><div class="ag-aside-phone"><span>گفتگو با دفتر</span><a dir="ltr" href="tel:'.esc_attr(preg_replace('/[^0-9+]/','',vatan_option('phone','02191028166'))).'">'.esc_html(vatan_option('phone','02191028166')).'</a></div></aside></div>';
+            echo '<div class="ag-form-layout"><div class="ag-form-card"><span class="eyebrow">فرم درخواست</span><h2>'.esc_html($s['title']).'</h2><p>'.esc_html($s['body']).'</p>'.vatan_inquiry_form().'</div><aside class="ag-form-aside"><span class="ag-side-mark" aria-hidden="true">↗</span><h3>'.esc_html($s['sidebar_title']).'</h3>';ag_body($s['sidebar_body']);echo '<div class="ag-form-live"><small>'.esc_html($s['summary_label']??'شرح کوتاه نیاز شما').'</small><p data-ag-form-summary data-empty="'.esc_attr($s['summary_empty']??'محصول را انتخاب کنید').'"></p></div><a class="home-route-link" href="'.esc_url(vatan_url('privacy/')).'">'.esc_html($s['privacy_label']).' <span class="ag-symbol" aria-hidden="true">↗</span></a><div class="ag-aside-phone"><span>گفتگو با دفتر</span><a dir="ltr" href="tel:'.esc_attr(preg_replace('/[^0-9+]/','',vatan_option('phone','02191028166'))).'">'.esc_html(vatan_option('phone','02191028166')).'</a></div></aside></div>';
         }elseif($layout==='contact'){
             echo '<div class="ag-contact-grid"><div class="ag-copy" data-ag-reveal>';ag_heading($s);ag_body($s['body']);echo '<div class="ag-phone"><span>'.esc_html($s['phone_label']).'</span><a dir="ltr" href="tel:'.esc_attr(preg_replace('/[^0-9+]/','',vatan_option('phone','02191028166'))).'">'.esc_html(vatan_option('phone','02191028166')).' <span class="ag-symbol" aria-hidden="true">↗</span></a><p>'.esc_html($s['phone_note']).'</p></div><div class="ag-address"><span>'.esc_html($s['address_label']).'</span><p>'.esc_html(vatan_option('address','تهران، سهروردی شمالی، کوچه زمانی، پلاک ۱۱، ساختمان ایلیا، طبقه ۳، واحد ۹')).'</p></div>';
             $wa=vatan_option('whatsapp');if($wa)echo '<a class="home-route-link" rel="noopener" target="_blank" href="https://wa.me/'.esc_attr(preg_replace('/\D/','',$wa)).'">گفتگو در واتس‌اپ <span class="ag-symbol" aria-hidden="true">↗</span></a>';

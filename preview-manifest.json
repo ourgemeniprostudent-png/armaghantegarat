@@ -117,63 +117,63 @@
     },
     {
       "path": "404.html",
-      "bytes": 23817,
-      "sha256": "dffccb22cf65487cbba4edc4e4842f5ebd4759e8e75e4246cb2a1f7eb00a726a"
+      "bytes": 23481,
+      "sha256": "9156325c3ada079783c129291b017bbcb21ffd245cce4b57752901a552de46a0"
     },
     {
       "path": "README.md",
-      "bytes": 464,
-      "sha256": "27b96f7041e489f5bdb608b94d640c50bb328138249fb2b3f9a75f4cae56ce6d"
+      "bytes": 865,
+      "sha256": "2ca57644b94c48563145f17286a9034609164ce371952dc52e0cf5b53bcf4383"
     },
     {
       "path": "about/index.html",
-      "bytes": 25850,
-      "sha256": "462a61ec8fceb2a96dbad5de9d79033def63df434b664475f1a3de7bad38f3a6"
+      "bytes": 25570,
+      "sha256": "cfb3ec13c8a32d39d7aa664c938fa697c7090eb94e238ba9be8b3c647a962c7d"
     },
     {
       "path": "blog/2026/10/06/business-inquiry-checklist/index.html",
-      "bytes": 25915,
-      "sha256": "fe03ddc35661f819043fa8631f971c8ca9a186cf9bf8deeae1ece7453cf48932"
+      "bytes": 26001,
+      "sha256": "28fc4295f91c447eb2fe589307fdddb91aec234c8e473161259256d5eba19615"
     },
     {
       "path": "blog/2026/10/06/coffee-inquiry-guide/index.html",
-      "bytes": 26054,
-      "sha256": "7e72815f3da0b07a81f3ce4b13914e06c650306fe50e6f3e43604f0f981c039a"
+      "bytes": 26146,
+      "sha256": "b263748fd5172c31db70999b66b8f01a2152ea09bdf0653d1895d41cb1438625"
     },
     {
       "path": "blog/2026/10/06/follow-up-your-inquiry/index.html",
-      "bytes": 25791,
-      "sha256": "ac5acbfee8267f7d1088125a48e95f98f6082c75383e59d04d50762b751ea3e8"
+      "bytes": 25881,
+      "sha256": "7a2f5ff689ba5c5a8b5e1e4f85d49b8f698492fe285ddc806ac206f8c63260b8"
     },
     {
       "path": "blog/index.html",
-      "bytes": 25500,
-      "sha256": "e5a5966223cff2631ae81e903178a8ff698ab64f5a244aee295e9d31922ef7e7"
+      "bytes": 25176,
+      "sha256": "3569daa0bbbb829624286f617adb77d369fd729955402fdc7420f725ddab3307"
     },
     {
       "path": "contact/index.html",
-      "bytes": 25316,
-      "sha256": "c0487e6983f6e52a8592c6e96779e5915845b443e9ae13d213bfd00368e9ac4f"
+      "bytes": 25035,
+      "sha256": "d85bd8a4b63795cbf7aac1944af75bc6b43ded5ed7af5d44f28251617d3556b6"
     },
     {
       "path": "faq/index.html",
-      "bytes": 26185,
-      "sha256": "95b969860c4fd89e7f7f82ae2a76a6efc71f843aa505ca9f02899b31bddf74a8"
+      "bytes": 25923,
+      "sha256": "ea440f746323125d2170b90e799dbc744de855edbc8fae8fd1d26dd853828254"
     },
     {
       "path": "index.html",
-      "bytes": 55120,
-      "sha256": "ae015d9cd5a3de1df7d4508d6169fd423ca2085b04999d2b95732c571d08b5dd"
+      "bytes": 54315,
+      "sha256": "3d58cd0956229e3b2018ccf22daa718f3d280bcbffc8995e61e401818a13184e"
     },
     {
       "path": "inquiry/index.html",
-      "bytes": 28854,
-      "sha256": "64275846eab5fd15ef1eec35629f0865bd2a516cfccc78a1b66164118485fed0"
+      "bytes": 28573,
+      "sha256": "de00fe7f44d87cce48c4e62d461f3bdbd1579c9597e0593af7adab22a37ddf3b"
     },
     {
       "path": "media/index.html",
-      "bytes": 24603,
-      "sha256": "9410e7037d3ab109c7cdc33d96e66ceb16138fb38144d6f1bdecd92690d5ef44"
+      "bytes": 24328,
+      "sha256": "6a63500bedb6c7bde59ac63857122614166c9117cec6fcbec60042bb3f17e719"
     },
     {
       "path": "preview-guard.js",
@@ -182,58 +182,58 @@
     },
     {
       "path": "privacy/index.html",
-      "bytes": 25895,
-      "sha256": "ebb39b882dc524edebc0feeb285c4bf8e22accb13d26374d17c27e5553486469"
+      "bytes": 25629,
+      "sha256": "7e506e60f86ac39bdd12cd7a27581c4f9e6f0e056ef3797e16383a65e6499c16"
     },
     {
       "path": "products/coffee/index.html",
-      "bytes": 25460,
-      "sha256": "f9f24c1722f87beffdd6d8d2a84c5e4c3726f35ea75060a8115a3a0281f5ed48"
+      "bytes": 25158,
+      "sha256": "480161784088b0ab662c6d029368b36f4cfeaade61a5677bb6869f1b5eb5f14e"
     },
     {
       "path": "products/dried-fruits/index.html",
-      "bytes": 25502,
-      "sha256": "e0066937b9ba191a35e62465f791471a6d7314ef5cbb3714aaff612fadc764f2"
+      "bytes": 25188,
+      "sha256": "84fd1bc09663085ef96162900181c764bb63bfa567861a6ad275ec46bd71c0a6"
     },
     {
       "path": "products/index.html",
-      "bytes": 25814,
-      "sha256": "a75030909546016d8ac581fd8b85a67574c7dec6ea33970c53c1b18d8d55061f"
+      "bytes": 25388,
+      "sha256": "d17c02e0160ee722cdb113cd282b26507a08ed3988ef95680d1834eb17f2b928"
     },
     {
       "path": "products/legumes/index.html",
-      "bytes": 25480,
-      "sha256": "3511dab9f04f8cede60102c53439a01a77e8884db9cc1d2ebdc7c0df96255f1e"
+      "bytes": 25176,
+      "sha256": "85eb4088769a622e7b189356665daa715cac4fcb721b46742ddd5df8b83eb750"
     },
     {
       "path": "products/rice/index.html",
-      "bytes": 25440,
-      "sha256": "39dc899bb5e42081716d0481aa4a1a7ebdb50e51de1bb90cf110eda69fdb7d13"
+      "bytes": 25142,
+      "sha256": "4a9b286089f9c67412ba9b2e8adb5427714a1f2d9b8747645d398805bfd8da73"
     },
     {
       "path": "products/spices/index.html",
-      "bytes": 25463,
-      "sha256": "e2cb795f3bc93022f9f9e81cd37f8405fa9df8964c5d79f721d0d53a34768e93"
+      "bytes": 25161,
+      "sha256": "e1c94b9888d30bc27415e5e60e9571ecaec80544baf8a1311e3b79478105c353"
     },
     {
       "path": "search/index.html",
-      "bytes": 24496,
-      "sha256": "cad85b3681bc4cde680f83e89aacbd530fb75805860f99334f403e7de9cbf98a"
+      "bytes": 24232,
+      "sha256": "38895b4bb81f895c1686a2cfc7ea685eb5905e1eb979069b0e4e9e1a8826ec20"
     },
     {
       "path": "solutions/b2b-supply/index.html",
-      "bytes": 26588,
-      "sha256": "5d0787a37605f2288219f267db65689e46464e152ac5c6cd33fcb11c673b4057"
+      "bytes": 26378,
+      "sha256": "b392d439828ecec4e2446e11f8aab6d8916a9efb263184d8c79905db8eb0591b"
     },
     {
       "path": "solutions/index.html",
-      "bytes": 26476,
-      "sha256": "5402e4ad02ff80da7d76123b1a076dc96dd2d427566365cc2c3ff172ceb00274"
+      "bytes": 26175,
+      "sha256": "906e14682d46d5e00886c6a18ac6435cefab7b7da0564838ca65e1a787c50593"
     },
     {
       "path": "thank-you/index.html",
-      "bytes": 24336,
-      "sha256": "023ef07ee3227518737b24f97e8df230b867e8be47bb931a9d5ecafe926d780d"
+      "bytes": 24075,
+      "sha256": "3a0f172cafc39646f18150b2668a87420331da075d735d243fda333f67aabd10"
     },
     {
       "path": "wp-content/themes/vatan-authority/assets/brand-original.png",
@@ -385,5 +385,7 @@
       "bytes": 15634,
       "sha256": "955c7a248fab403b7dd50f5fc3685f46f1f57e5c274902f0fd86abd6d17bb6ed"
     }
-  ]
+  ],
+  "preview_paths": "Relative document URLs; compatible with GitHub Pages and Githack.",
+  "video_origin": "https://raw.githubusercontent.com/ourgemeniprostudent-png/armaghantegarat/1fa3fe94ca8d09650398a054ef227f72d55f6ad2/"
 }

@@ -10,6 +10,7 @@ TASK_WP="$TASK_ROOT/.runtime/wordpress"
 command -v "$TASK_PHP" >/dev/null || { echo 'PHP missing. Run scripts/cloud-setup.sh on Linux.' >&2; exit 1; }
 "$TASK_PHP" -r 'if(PHP_VERSION_ID<80100||!extension_loaded("pdo_sqlite")){fwrite(STDERR,"PHP 8.1+ with pdo_sqlite is required.\n");exit(1);}'
 mkdir -p .runtime
+python3 scripts/assemble.py
 "$TASK_PHP" -r '$m=json_decode(file_get_contents("vendor/checksums.json"),true);foreach($m as $p=>$sha){if(hash_file("sha256","vendor/".$p)!==$sha){fwrite(STDERR,"Vendor checksum mismatch: ".$p."\n");exit(1);}}'
 if [[ -f .runtime/site-url.txt ]] && [[ "$(cat .runtime/site-url.txt)" != "$TASK_URL" ]]; then
  echo 'This workspace was initialized with another URL. Keep its original ARMAGHAN_SITE_URL or migrate the runtime separately; setup never resets existing content.' >&2; exit 1

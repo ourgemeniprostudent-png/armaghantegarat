@@ -1,0 +1,91 @@
+{
+  "chunk_bytes": 16777216,
+  "assets": [
+    {
+      "path": "vendor/wordpress-7.1.3.tar.gz",
+      "bytes": 21988655,
+      "sha256": "7c887eccc7a0e112e75fe466557e7d50e1f51fe54b3170e641d5204e1b2398df",
+      "parts": [
+        {
+          "path": "payload/wordpress-7.1.3.tar.gz/001.part",
+          "bytes": 16777216,
+          "sha256": "a06615455d3f6e23026c84b395fc65f93d056f4fa29c1d4782893a2c3346fab0"
+        },
+        {
+          "path": "payload/wordpress-7.1.3.tar.gz/002.part",
+          "bytes": 5211439,
+          "sha256": "4fdd17b4a0fa151a85552622109c3641674dbcce60a587a31a4ee41fb885fbe5"
+        }
+      ]
+    },
+    {
+      "path": "theme/vatan-authority/assets/media/hero-av1.mp4",
+      "bytes": 71261568,
+      "sha256": "b48c6cf207b16ddfd183eac4f7d6263067472f942dc1dfb9004270450c97eec5",
+      "parts": [
+        {
+          "path": "payload/hero-av1.mp4/001.part",
+          "bytes": 16777216,
+          "sha256": "1da99f73a932e7b0abd6520947bde3abce87c851b597a509b568190e94a67669"
+        },
+        {
+          "path": "payload/hero-av1.mp4/002.part",
+          "bytes": 16777216,
+          "sha256": "7931aa6f5a8bcc08ae084d3f4d55b7f0332ed5c45cb4b032a3ba31301a25ace3"
+        },
+        {
+          "path": "payload/hero-av1.mp4/003.part",
+          "bytes": 16777216,
+          "sha256": "ee398ea282bcd10d743786aab07e81b66888c423cbdd700a498a7f204555d9da"
+        },
+        {
+          "path": "payload/hero-av1.mp4/004.part",
+          "bytes": 16777216,
+          "sha256": "1d1e50bebf921bf4cb7210ae99e24e73648d52a5c44dfbf000eb442fc8c77ef3"
+        },
+        {
+          "path": "payload/hero-av1.mp4/005.part",
+          "bytes": 4152704,
+          "sha256": "04e2694b96696b57175d37631419ee5ba96dca85486f06670de523481f498979"
+        }
+      ]
+    },
+    {
+      "path": "theme/vatan-authority/assets/media/hero-h264.mp4",
+      "bytes": 85215369,
+      "sha256": "f7ae6d349f977be82939382e521f8e36597d90cceac6393ba7772627596f8f6c",
+      "parts": [
+        {
+          "path": "payload/hero-h264.mp4/001.part",
+          "bytes": 16777216,
+          "sha256": "e238406afd2e62bd7beb5d0ec00440834048dc75d0351ed4772907428154555e"
+        },
+        {
+          "path": "payload/hero-h264.mp4/002.part",
+          "bytes": 16777216,
+          "sha256": "6d934ae32354f1e1f31f4bc2ba5c6cddb178d0754aa05edfed1811cb5c50981f"
+        },
+        {
+          "path": "payload/hero-h264.mp4/003.part",
+          "bytes": 16777216,
+          "sha256": "732dc29b49709db0ad069f05e197c63a24dc7e7b2e5141010aa64d48a52d1d6d"
+        },
+        {
+          "path": "payload/hero-h264.mp4/004.part",
+          "bytes": 16777216,
+          "sha256": "5d3279e8ceae7b4f2a9869afd1ea021e264a21a6ba9050ff2a7ffd8d257172d0"
+        },
+        {
+          "path": "payload/hero-h264.mp4/005.part",
+          "bytes": 16777216,
+          "sha256": "29a41e6fa2bc69d091d1739a1f04c7455100046e6cac72690d757ca0fdf0f013"
+        },
+        {
+          "path": "payload/hero-h264.mp4/006.part",
+          "bytes": 1329289,
+          "sha256": "31a1922a37912e4ad66ea7c5cb1e79b8ef6cb7607734c52469d0c639fb31674c"
+        }
+      ]
+    }
+  ]
+}

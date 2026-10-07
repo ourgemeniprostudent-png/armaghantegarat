@@ -1,6 +1,7 @@
 <?php
 if (!defined('ABSPATH')) exit;
 require_once __DIR__.'/inc/sections.php';
+require_once __DIR__.'/inc/public-search.php';
 add_action('after_setup_theme', function () {
     load_theme_textdomain('vatan-authority', get_template_directory() . '/languages');
     add_theme_support('title-tag'); add_theme_support('post-thumbnails');

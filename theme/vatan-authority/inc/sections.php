@@ -93,14 +93,15 @@ function ag_render_page($context) {
 function vatan_digits_fa($v){return strtr((string)$v,array_combine(range(0,9),['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹']));}
 function ag_collection($s,$layout,$context){
     echo '<div class="ag-section-head" data-ag-reveal><div>';ag_heading($s);echo '</div><div>';ag_body($s['body']??'');echo '</div></div>';
-    $args=['post_status'=>'publish','posts_per_page'=>9,'paged'=>max(1,get_query_var('paged'))];
+    $current=isset($_GET['archive_page'])&&!is_array($_GET['archive_page'])?max(1,absint($_GET['archive_page'])):max(1,(int)get_query_var('paged'),(int)get_query_var('page'));
+    $args=['post_status'=>'publish','posts_per_page'=>9,'paged'=>$current];
     $args['post_type']=$layout==='articles'?'post':($layout==='catalog'?'vatan_product':'vatan_episode');
     if($layout==='catalog')$args['tax_query']=[['taxonomy'=>'vatan_category','field'=>'slug','terms'=>substr($context,9)]];
     $q=new WP_Query($args);
     if($q->have_posts()){
         if($layout==='articles')ag_journal_cards($q);
         else{echo '<div class="ag-content-grid">';while($q->have_posts()){$q->the_post();echo '<article class="ag-content-card" data-ag-reveal>';if(has_post_thumbnail())the_post_thumbnail('large',['loading'=>'lazy']);echo '<span class="eyebrow">'.esc_html($layout==='catalog'?'مشخصات محصول':'رسانه منتشرشده').'</span><h3><a href="'.esc_url(get_permalink()).'">'.esc_html(get_the_title()).'</a></h3><p>'.esc_html(get_the_excerpt()).'</p><a class="home-route-link" href="'.esc_url(get_permalink()).'">'.($layout==='catalog'?'شناخت و استعلام':'دیدن رسانه').' <span class="ag-symbol" aria-hidden="true">↗</span></a></article>';}echo '</div>';}
-        echo '<nav class="ag-pagination" aria-label="صفحه‌های آرشیو">'.paginate_links(['total'=>$q->max_num_pages,'current'=>$args['paged'],'prev_text'=>'قبلی','next_text'=>'بعدی']).'</nav>';
+        echo '<nav class="ag-pagination" aria-label="صفحه‌های آرشیو">'.paginate_links(['base'=>str_replace('999999999','%#%',add_query_arg('archive_page',999999999,is_tax('vatan_category')?get_term_link(get_queried_object()):(is_home()?get_permalink((int)get_option('page_for_posts')):get_permalink(get_queried_object_id())))),'format'=>'','total'=>$q->max_num_pages,'current'=>$args['paged'],'prev_text'=>'قبلی','next_text'=>'بعدی']).'</nav>';
     }else echo '<div class="ag-empty" data-ag-reveal><span aria-hidden="true">↗</span><h3>'.esc_html($s['empty_title']??'هنوز مطلبی منتشر نشده است.').'</h3><p>'.esc_html($s['empty_body']??'برای شناخت حوزه‌ها، صفحات محصولات و همکاری را بخوانید.').'</p><a class="home-route-link" href="'.esc_url($layout==='library'?vatan_url('blog/'):add_query_arg('category',substr($context,9),vatan_url('inquiry/'))).'">'.($layout==='library'?'خواندن مجله':'ثبت درخواست تامین').' <span class="ag-symbol" aria-hidden="true">↗</span></a></div>';
     wp_reset_postdata();ag_visual($s);
 }
@@ -112,12 +113,12 @@ function ag_journal_cards($q){
 }
 function ag_search_section($s){
     $term=isset($_GET['q'])&&!is_array($_GET['q'])?mb_substr(sanitize_text_field(wp_unslash($_GET['q'])),0,150):'';
-    echo '<div class="ag-search-head" data-ag-reveal>';ag_heading($s);ag_body($s['body']);echo '<form class="ag-search-form" data-wp-search method="get" action="'.esc_url(vatan_url('search/')).'"><label for="ag-search-input">'.esc_html($s['input_label']).'</label><div><input id="ag-search-input" name="q" type="search" maxlength="150" value="'.esc_attr($term).'" required><button class="button" type="submit">'.esc_html($s['label']).' ↗</button></div></form></div>';
+    echo '<div class="ag-search-head" data-ag-reveal>';ag_heading($s);ag_body($s['body']);echo '<form class="ag-search-form" data-wp-search method="get" action="'.esc_url(vatan_url('search/')).'"><label for="ag-search-input">'.esc_html($s['input_label']).'</label><div><input id="ag-search-input" name="q" type="search" maxlength="150" value="'.esc_attr($term).'" required><button class="button" type="submit">'.esc_html($s['label']).' <span class="ag-symbol" aria-hidden="true">↗</span></button></div></form></div>';
     if($term!==''){
-        $q=new WP_Query(['s'=>$term,'post_type'=>['page','post','vatan_product','vatan_episode'],'post_status'=>'publish','posts_per_page'=>12,'paged'=>max(1,get_query_var('paged')),'post__not_in'=>array_filter([get_queried_object_id(),get_page_by_path('thank-you')->ID??0])]);
-        echo '<p class="ag-search-count">'.esc_html(vatan_digits_fa($q->found_posts)).' نتیجه برای «'.esc_html($term).'»</p>';
-        if($q->have_posts()){echo '<div class="ag-search-results">';while($q->have_posts()){$q->the_post();echo '<article class="ag-search-result" data-ag-reveal><span class="eyebrow">'.esc_html(get_post_type()==='post'?'یادداشت تجارت':(get_post_type()==='page'?'صفحه':'محتوای منتشرشده')).'</span><h3><a href="'.esc_url(get_permalink()).'">'.esc_html(get_the_title()).' <span aria-hidden="true">↗</span></a></h3><p>'.esc_html(wp_trim_words(get_the_excerpt()?:wp_strip_all_tags(get_the_content()),30)).'</p></article>';}echo '</div><nav class="ag-pagination" aria-label="نتایج بیشتر">'.paginate_links(['total'=>$q->max_num_pages,'current'=>max(1,get_query_var('paged')),'add_args'=>['q'=>$term],'prev_text'=>'قبلی','next_text'=>'بعدی']).'</nav>';}
-        else echo '<div class="ag-empty"><h3>'.esc_html($s['empty_title']).'</h3><p>'.esc_html($s['empty_body']).'</p></div>';wp_reset_postdata();
+        $results=ag_public_search($term);$total=count($results);$page=isset($_GET['result_page'])&&!is_array($_GET['result_page'])?max(1,absint($_GET['result_page'])):1;$visible=array_slice($results,($page-1)*12,12);
+        echo '<p class="ag-search-count">'.esc_html(vatan_digits_fa($total)).' نتیجه برای «'.esc_html($term).'»</p>';
+        if($visible){echo '<div class="ag-search-results">';foreach($visible as $result)echo '<article class="ag-search-result" data-ag-reveal><span class="eyebrow">'.esc_html($result['kind']).'</span><h3><a href="'.esc_url($result['url']).'">'.esc_html($result['title']).' <span class="ag-symbol" aria-hidden="true">↗</span></a></h3><p>'.esc_html($result['excerpt']).'</p></article>';echo '</div><nav class="ag-pagination" aria-label="نتایج بیشتر">'.paginate_links(['base'=>str_replace('999999999','%#%',add_query_arg('result_page',999999999,vatan_url('search/'))),'format'=>'','total'=>ceil($total/12),'current'=>$page,'add_args'=>['q'=>$term],'prev_text'=>'قبلی','next_text'=>'بعدی']).'</nav>';}
+        else echo '<div class="ag-empty"><h3>'.esc_html($s['empty_title']).'</h3><p>'.esc_html($s['empty_body']).'</p></div>';
     }else echo '<div class="ag-empty"><h3>'.esc_html($s['initial_title']).'</h3><p>'.esc_html($s['initial_body']).'</p></div>';
     echo '<div class="ag-topic-links"><a href="'.esc_url(vatan_url('products/')).'">محصولات <span class="ag-symbol" aria-hidden="true">↗</span></a><a href="'.esc_url(vatan_url('solutions/')).'">همکاری <span class="ag-symbol" aria-hidden="true">↗</span></a><a href="'.esc_url(vatan_url('blog/')).'">مجله تجارت <span class="ag-symbol" aria-hidden="true">↗</span></a></div>';ag_visual($s);
 }

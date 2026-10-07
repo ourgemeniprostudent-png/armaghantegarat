@@ -34,10 +34,11 @@ with sync_playwright() as p:
   page.screenshot(path=str(out/(str(width)+'-form-review.png')),full_page=False)
   page.goto(base+'/faq/',wait_until='networkidle');page.fill('[data-faq-filter]','پیگیری');assert page.locator('.ag-faq:visible').count()>0
   page.fill('[data-faq-filter]','zzzzzzzz');assert page.locator('.ag-filter-empty').is_visible()
+  page.goto(base+'/search/?q=خشکبار',wait_until='networkidle');assert page.locator('.ag-search-result a[href$="/products/dried-fruits/"]').count()==1
   page.goto(base+'/about/',wait_until='networkidle');page.locator('[data-ag-zoom]').first.click();assert page.locator('.ag-zoom-dialog').evaluate('(d)=>d.open');page.keyboard.press('Escape');assert not page.locator('.ag-zoom-dialog').evaluate('(d)=>d.open')
   if width<980:
    page.locator('.menu-toggle').click();assert page.locator('#site-nav').get_attribute('aria-hidden')=='false';page.keyboard.press('Escape');assert page.locator('.menu-toggle').get_attribute('aria-expanded')=='false'
   context.close()
  browser.close()
 out.joinpath('routes.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
-print('Verified',len(report),'desktop/mobile route views, form navigation/review, FAQ filtering, image dialog and mobile menu')
+print('Verified',len(report),'desktop/mobile route views, form navigation/review, FAQ filtering, public section/category search, image dialog and mobile menu')

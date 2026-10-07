@@ -29,7 +29,7 @@ function armaghan_section_data($context,$id=0) {
  foreach(armaghan_section_schema($context) as $section){$fields=[];
   foreach($section['fields'] as $key=>$field){$value=$saved[$section['id']][$key]??$field['value'];
    if($context==='home'&&$section['id']==='hero'&&!isset($saved['hero'][$key])){$legacy=['line1'=>'vatan_trade_line_one','line2'=>'vatan_trade_line_two','body'=>'vatan_trade_description'];if(isset($legacy[$key]))$value=get_theme_mod($legacy[$key],$value);}
-   if(!isset(armaghan_section_catalog()[$context])&&!isset($saved[$section['id']][$key])&&$section['id']==='hero'&&$key==='line1')$value=get_the_title($id);
+   if(!isset(armaghan_section_catalog()[$context])&&!isset($saved[$section['id']][$key])&&$section['id']==='hero'&&$key==='line1'){if(str_starts_with($context,'category:')){$term=get_term($id,'vatan_category');$value=$term&&!is_wp_error($term)?$term->name:'';}else $value=get_the_title($id);}
    $fields[$key]=is_string($value)?$value:'';
   }
   $sections[$section['id']]=['label'=>$section['label'],'layout'=>$section['layout'],'values'=>$fields];

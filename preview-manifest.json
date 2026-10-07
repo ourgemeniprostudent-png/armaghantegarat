@@ -1,0 +1,389 @@
+{
+  "source_commit": "3629fbd8730c00eb36b093baafeaef5274ba0a07",
+  "theme_version": "1.7.0",
+  "base_path": "/armaghantegarat",
+  "routes": [
+    {
+      "route": "/",
+      "status": 200,
+      "source_path": "/"
+    },
+    {
+      "route": "/about/",
+      "status": 200,
+      "source_path": "/about/"
+    },
+    {
+      "route": "/blog/",
+      "status": 200,
+      "source_path": "/blog/"
+    },
+    {
+      "route": "/blog/2026/10/06/business-inquiry-checklist/",
+      "status": 200,
+      "source_path": "/blog/2026/10/06/business-inquiry-checklist/"
+    },
+    {
+      "route": "/blog/2026/10/06/coffee-inquiry-guide/",
+      "status": 200,
+      "source_path": "/blog/2026/10/06/coffee-inquiry-guide/"
+    },
+    {
+      "route": "/blog/2026/10/06/follow-up-your-inquiry/",
+      "status": 200,
+      "source_path": "/blog/2026/10/06/follow-up-your-inquiry/"
+    },
+    {
+      "route": "/contact/",
+      "status": 200,
+      "source_path": "/contact/"
+    },
+    {
+      "route": "/faq/",
+      "status": 200,
+      "source_path": "/faq/"
+    },
+    {
+      "route": "/inquiry/",
+      "status": 200,
+      "source_path": "/inquiry/"
+    },
+    {
+      "route": "/media/",
+      "status": 200,
+      "source_path": "/media/"
+    },
+    {
+      "route": "/privacy/",
+      "status": 200,
+      "source_path": "/privacy/"
+    },
+    {
+      "route": "/products/",
+      "status": 200,
+      "source_path": "/products/"
+    },
+    {
+      "route": "/products/coffee/",
+      "status": 200,
+      "source_path": "/products/coffee/"
+    },
+    {
+      "route": "/products/dried-fruits/",
+      "status": 200,
+      "source_path": "/products/dried-fruits/"
+    },
+    {
+      "route": "/products/legumes/",
+      "status": 200,
+      "source_path": "/products/legumes/"
+    },
+    {
+      "route": "/products/rice/",
+      "status": 200,
+      "source_path": "/products/rice/"
+    },
+    {
+      "route": "/products/spices/",
+      "status": 200,
+      "source_path": "/products/spices/"
+    },
+    {
+      "route": "/search/",
+      "status": 200,
+      "source_path": "/search/"
+    },
+    {
+      "route": "/solutions/",
+      "status": 200,
+      "source_path": "/solutions/"
+    },
+    {
+      "route": "/solutions/b2b-supply/",
+      "status": 200,
+      "source_path": "/solutions/b2b-supply/"
+    },
+    {
+      "route": "/thank-you/",
+      "status": 200,
+      "source_path": "/thank-you/"
+    }
+  ],
+  "files": [
+    {
+      "path": ".nojekyll",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "404.html",
+      "bytes": 23817,
+      "sha256": "dffccb22cf65487cbba4edc4e4842f5ebd4759e8e75e4246cb2a1f7eb00a726a"
+    },
+    {
+      "path": "README.md",
+      "bytes": 464,
+      "sha256": "27b96f7041e489f5bdb608b94d640c50bb328138249fb2b3f9a75f4cae56ce6d"
+    },
+    {
+      "path": "about/index.html",
+      "bytes": 25850,
+      "sha256": "462a61ec8fceb2a96dbad5de9d79033def63df434b664475f1a3de7bad38f3a6"
+    },
+    {
+      "path": "blog/2026/10/06/business-inquiry-checklist/index.html",
+      "bytes": 25915,
+      "sha256": "fe03ddc35661f819043fa8631f971c8ca9a186cf9bf8deeae1ece7453cf48932"
+    },
+    {
+      "path": "blog/2026/10/06/coffee-inquiry-guide/index.html",
+      "bytes": 26054,
+      "sha256": "7e72815f3da0b07a81f3ce4b13914e06c650306fe50e6f3e43604f0f981c039a"
+    },
+    {
+      "path": "blog/2026/10/06/follow-up-your-inquiry/index.html",
+      "bytes": 25791,
+      "sha256": "ac5acbfee8267f7d1088125a48e95f98f6082c75383e59d04d50762b751ea3e8"
+    },
+    {
+      "path": "blog/index.html",
+      "bytes": 25500,
+      "sha256": "e5a5966223cff2631ae81e903178a8ff698ab64f5a244aee295e9d31922ef7e7"
+    },
+    {
+      "path": "contact/index.html",
+      "bytes": 25316,
+      "sha256": "c0487e6983f6e52a8592c6e96779e5915845b443e9ae13d213bfd00368e9ac4f"
+    },
+    {
+      "path": "faq/index.html",
+      "bytes": 26185,
+      "sha256": "95b969860c4fd89e7f7f82ae2a76a6efc71f843aa505ca9f02899b31bddf74a8"
+    },
+    {
+      "path": "index.html",
+      "bytes": 55120,
+      "sha256": "ae015d9cd5a3de1df7d4508d6169fd423ca2085b04999d2b95732c571d08b5dd"
+    },
+    {
+      "path": "inquiry/index.html",
+      "bytes": 28854,
+      "sha256": "64275846eab5fd15ef1eec35629f0865bd2a516cfccc78a1b66164118485fed0"
+    },
+    {
+      "path": "media/index.html",
+      "bytes": 24603,
+      "sha256": "9410e7037d3ab109c7cdc33d96e66ceb16138fb38144d6f1bdecd92690d5ef44"
+    },
+    {
+      "path": "preview-guard.js",
+      "bytes": 256,
+      "sha256": "66625c2dd875774d8756318db59c365ed09715d7a1315aa40f54bbd5a02e05cc"
+    },
+    {
+      "path": "privacy/index.html",
+      "bytes": 25895,
+      "sha256": "ebb39b882dc524edebc0feeb285c4bf8e22accb13d26374d17c27e5553486469"
+    },
+    {
+      "path": "products/coffee/index.html",
+      "bytes": 25460,
+      "sha256": "f9f24c1722f87beffdd6d8d2a84c5e4c3726f35ea75060a8115a3a0281f5ed48"
+    },
+    {
+      "path": "products/dried-fruits/index.html",
+      "bytes": 25502,
+      "sha256": "e0066937b9ba191a35e62465f791471a6d7314ef5cbb3714aaff612fadc764f2"
+    },
+    {
+      "path": "products/index.html",
+      "bytes": 25814,
+      "sha256": "a75030909546016d8ac581fd8b85a67574c7dec6ea33970c53c1b18d8d55061f"
+    },
+    {
+      "path": "products/legumes/index.html",
+      "bytes": 25480,
+      "sha256": "3511dab9f04f8cede60102c53439a01a77e8884db9cc1d2ebdc7c0df96255f1e"
+    },
+    {
+      "path": "products/rice/index.html",
+      "bytes": 25440,
+      "sha256": "39dc899bb5e42081716d0481aa4a1a7ebdb50e51de1bb90cf110eda69fdb7d13"
+    },
+    {
+      "path": "products/spices/index.html",
+      "bytes": 25463,
+      "sha256": "e2cb795f3bc93022f9f9e81cd37f8405fa9df8964c5d79f721d0d53a34768e93"
+    },
+    {
+      "path": "search/index.html",
+      "bytes": 24496,
+      "sha256": "cad85b3681bc4cde680f83e89aacbd530fb75805860f99334f403e7de9cbf98a"
+    },
+    {
+      "path": "solutions/b2b-supply/index.html",
+      "bytes": 26588,
+      "sha256": "5d0787a37605f2288219f267db65689e46464e152ac5c6cd33fcb11c673b4057"
+    },
+    {
+      "path": "solutions/index.html",
+      "bytes": 26476,
+      "sha256": "5402e4ad02ff80da7d76123b1a076dc96dd2d427566365cc2c3ff172ceb00274"
+    },
+    {
+      "path": "thank-you/index.html",
+      "bytes": 24336,
+      "sha256": "023ef07ee3227518737b24f97e8df230b867e8be47bb931a9d5ecafe926d780d"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/brand-original.png",
+      "bytes": 186905,
+      "sha256": "54f95a28eded3635fb4ba79e8b182d61097c9759d42abb0379f9c024a72cd480"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/coffee-detail.webp",
+      "bytes": 120880,
+      "sha256": "2b718afe497c28814ddd486ea1c9f3d1b233bbabd4c72dbd532adc9f3c23f847"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/coffee-hero.webp",
+      "bytes": 120880,
+      "sha256": "2b718afe497c28814ddd486ea1c9f3d1b233bbabd4c72dbd532adc9f3c23f847"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/cooperation/inquiry.webp",
+      "bytes": 103736,
+      "sha256": "665fb20b9df01ebd462872f4694a0ddae72688707cac6b34feee64b93a843233"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/cooperation/needs.webp",
+      "bytes": 156242,
+      "sha256": "6c483d1ad5d890b00d72c6998d859bbbab780ba24201efa9298e4f0619a47da6"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/cooperation/review.webp",
+      "bytes": 129548,
+      "sha256": "76a2e89b77adcd5113890aad42d5bfda9fbac277fd82f7fb098fc14942adf1df"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/cooperation/shipping.webp",
+      "bytes": 123744,
+      "sha256": "b63d5f08c43d7af392e2cf2ed4f2308697e8340107ac6b8592ecf210f86cab4d"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/cooperation-gallery.css",
+      "bytes": 7294,
+      "sha256": "a7356e7b79cd7d5e63b109c26e825310a620df28dbd0ce8d714502e7341793e0"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/cooperation-gallery.js",
+      "bytes": 9226,
+      "sha256": "1f944d09aa0ee4abb514439579bb85ec5f7bb9c6c80a41167b1986e504b6f9a9"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/fonts/PeydaWebFaNum-Black.woff2",
+      "bytes": 41668,
+      "sha256": "d599ab6944071cf38db6a93200ce384461a79a4715f7896b7708af7b3bc4da33"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/fonts/PeydaWebFaNum-Bold.woff2",
+      "bytes": 41948,
+      "sha256": "ba1f45b4814d3b242b4a81abe7207fa518bbc010c4c10217b057ca4eacfd3220"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/fonts/PeydaWebFaNum-Medium.woff2",
+      "bytes": 41860,
+      "sha256": "bb26a3f83196128141191abd53557aaa402af1cf41785e763bd7e704f36373d1"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/fonts/PeydaWebFaNum-Regular.woff2",
+      "bytes": 41724,
+      "sha256": "bcdf594697b2ba52ac758ea7139e801a32fc3a1dfa5407e7100be72a1ef271de"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/home-story.css",
+      "bytes": 12896,
+      "sha256": "e4ba5daaa147d82b3aba26a18fc46d792a253df193871ec80a207abc710627e4"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/home-story.js",
+      "bytes": 1655,
+      "sha256": "26bcc63ed6f39401b0fde19af3e8858df8aaf2988d7da1049224a3a249a5b1a2"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/ingredients.webp",
+      "bytes": 375516,
+      "sha256": "c991e97da533044183885ac764c7f2d2e1c52a7d808736d08fe564c2a1f42f61"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/media/hero-av1.mp4",
+      "bytes": 71261568,
+      "sha256": "b48c6cf207b16ddfd183eac4f7d6263067472f942dc1dfb9004270450c97eec5"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/media/hero-h264.mp4",
+      "bytes": 85215369,
+      "sha256": "f7ae6d349f977be82939382e521f8e36597d90cceac6393ba7772627596f8f6c"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/media/hero-poster.jpg",
+      "bytes": 376153,
+      "sha256": "e7cf2bac1fae1fe3269f0a239f9370b5c0c155cde80df245971623ade13a788b"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/product-revolver.css",
+      "bytes": 8871,
+      "sha256": "6e0219b8cec7deb4f737caee54fcab83a5c45ec024734cfab49e0fe7e37a38e6"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/product-revolver.js",
+      "bytes": 8650,
+      "sha256": "2ec3059f831a37595bad14d2c392a0cc48eb7c4b35bb86553b2d1228611e620d"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/products/coffee.webp",
+      "bytes": 137572,
+      "sha256": "918425862d87964f30ef36971845188e98a635b67fc4fa0bf3cc2b5a4e2e65fb"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/products/dried-fruits.webp",
+      "bytes": 179628,
+      "sha256": "6ee2d2b2b92e91f524497cff43cf87f3bbb104901316cccf43e724acc5b37c79"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/products/legumes.webp",
+      "bytes": 136714,
+      "sha256": "00b03de54fdc933066d7304a3065ff8c3831c1810938f6090d53e92902c7fd61"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/products/rice.webp",
+      "bytes": 167602,
+      "sha256": "737890b921bdcd490106991b0f46db3349baced89381871413de64ee9c59845c"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/products/spices.webp",
+      "bytes": 185792,
+      "sha256": "9cb94946571806cf1b6f6a2e478843d5389b8097ae99f12edab0447a792fa0be"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/site.js",
+      "bytes": 3143,
+      "sha256": "5401c6081a7f5aad4f63a6970228fa4838e282521b179b5a3a0ffd76f71b464e"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/video-hero.css",
+      "bytes": 16231,
+      "sha256": "16c23779d53d1975004db2696902102f160f877a8579d1efebf5a4cb3e5930c7"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/video-hero.js",
+      "bytes": 6453,
+      "sha256": "e6be9b289b4bcdf5fd452ce20bfe64437282c12f37e6e5c83bbea38822a39302"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/style.css",
+      "bytes": 15634,
+      "sha256": "955c7a248fab403b7dd50f5fc3685f46f1f57e5c274902f0fd86abd6d17bb6ed"
+    }
+  ]
+}

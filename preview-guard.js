@@ -1,0 +1,1 @@
+document.addEventListener('submit',function(event){event.preventDefault();event.stopImmediatePropagation();alert('این نسخه فقط پیش‌نمایش است؛ ثبت درخواست و جستجوی وردپرس در آن فعال نیست.');},true);

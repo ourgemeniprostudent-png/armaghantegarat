@@ -13,7 +13,7 @@
   history.pushState(null,'',url);
  };
  document.addEventListener('DOMContentLoaded',async () => {
-  const discovery = document.querySelector('[data-discovery]');
+  const discovery = document.querySelector('[data-discovery]:not([data-media-search-form])');
   const search = document.querySelector('[data-wp-search]');
   if (!discovery && !search) return;
   let records;

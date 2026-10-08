@@ -13,6 +13,7 @@ results=[]
 for route in routes:
  with urlopen(url+route,timeout=20) as r:
   page=r.read().decode();assert r.status==200,(route,r.status)
+  assert not re.search(r'<b>(?:Warning|Fatal error|Notice|Deprecated)</b>',page),('PHP diagnostic in public page',route)
   if route=='/':
    assert 'data-video-loader' not in page and 'video-intro-js' not in page,'Startup loader returned'
    assert all(s in page for s in ['home-about','home-manifesto','home-journal','home-contact','data-cooperation-flow','data-product-revolver']), 'Missing approved home sections'

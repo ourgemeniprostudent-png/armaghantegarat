@@ -78,7 +78,7 @@ function ag_episode_player($id){
  if($tabs){echo '<div class="am-player-tabs" role="tablist" aria-label="نوع پخش">';foreach($types as $kind=>$label)echo '<button type="button" id="'.esc_attr($uid.'tab-'.$kind).'" role="tab" aria-controls="'.esc_attr($uid.$kind).'" aria-selected="false">'.esc_html($label).'</button>';echo '</div>';}
  foreach($types as $kind=>$label){echo '<div id="'.esc_attr($uid.$kind).'" data-media-panel '.($tabs?'role="tabpanel" aria-labelledby="'.esc_attr($uid.'tab-'.$kind).'"':'').'>';
  if($kind==='video'){echo '<video class="ag-video" data-episode-player controls playsinline preload="none" aria-label="پخش ویدیو گفتگو" poster="'.esc_url(get_the_post_thumbnail_url($id,'large')?:'').'" src="'.esc_url($video).'">';if($captions)echo '<track kind="captions" srclang="fa" label="فارسی" src="'.esc_url($captions).'">';echo '</video>';}
- else echo '<audio class="media-player" data-episode-player controls preload="none" aria-label="پخش صوت گفتگو" src="'.esc_url($audio).'">مرورگر شما پخش صوت را پشتیبانی نمی‌کند.</audio>';
+ else ag_media_audio($audio);
  echo '</div>';}
  echo '</div>';
 }

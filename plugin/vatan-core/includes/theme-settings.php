@@ -5,7 +5,7 @@ function vatan_feature_labels(){return [
  'contact_form'=>'فرم کوتاه تماس با دفتر','office_map'=>'نقشه دقیق دفتر با بارگذاری اختیاری',
  'blog_discovery'=>'جستجو و موضوعات مجله','product_filters'=>'جستجو و فیلتر محصولات',
  'home_media'=>'معرفی پادکست و رسانه در خانه','media_samples'=>'نمونه‌های نمایشی رسانه؛ فقط پیش از انتشار اپیزود واقعی','media_player_tabs'=>'انتخاب صوت و ویدیو در پخش‌کننده',
- 'media_discovery'=>'جستجو و موضوعات رسانه','video_library'=>'کتابخانه ویدیو',
+ 'media_audio_controls'=>'پخش‌کننده حرفه‌ای صوت؛ پخش، جابه‌جایی و سرعت','media_discovery'=>'جستجو و موضوعات رسانه','video_library'=>'کتابخانه ویدیو',
  'related_content'=>'محصولات و مطالب مرتبط','product_gallery'=>'گالری چندعکسی محصول',
  'product_short_form'=>'فرم داخل صفحه محصول','whatsapp'=>'گفتگو در واتس‌اپ',
  'mobile_footer'=>'فوتر بازشونده موبایل','breadcrumbs'=>'مسیر صفحه زیر هدر در صفحات داخلی','transparent_header'=>'هدر شفاف در بالای صفحات داخلی؛ مشکی پس از اسکرول',

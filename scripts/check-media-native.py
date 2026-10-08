@@ -29,20 +29,32 @@ try:
    if width in [390,1440]:
     q.goto(state['url'],wait_until='networkidle');q.locator('.am-players').scroll_into_view_if_needed();q.screenshot(path=str(out/f'episode-{width}.png'))
     q.goto(state['products'][0],wait_until='networkidle');q.screenshot(path=str(out/f'product-{width}.png'))
-  q.set_viewport_size({'width':1440,'height':900});q.goto(state['url']);assert q.locator('[role=tab]').count()==2;assert q.locator('audio').is_visible() and not q.locator('video').is_visible()
+  q.set_viewport_size({'width':1440,'height':900});q.goto(state['url']);assert q.locator('[role=tab]').count()==2;assert q.locator('.ms-audio-controls').is_visible() and not q.locator('video').is_visible()
   q.locator('[data-timestamp]').click();q.wait_for_timeout(2500);assert q.locator('audio').evaluate('el=>el.currentTime')>=1,q.locator('audio').evaluate('el=>({time:el.currentTime,duration:el.duration,error:el.error?.message,src:el.src,ready:el.readyState})')
   q.locator('[role=tab]').nth(1).click();assert q.locator('video').is_visible() and not q.locator('audio').is_visible();assert q.locator('audio').evaluate('el=>el.paused')
   q.locator('[data-timestamp]').click();q.wait_for_timeout(1000);assert q.locator('video').evaluate('el=>el.currentTime')>=1
   q.locator('[role=tab]').nth(1).press('Home');assert q.locator('[role=tab]').first.get_attribute('aria-selected')=='true';report.append('Audio/video tabs, keyboard controls, active-player seeking and pause passed')
-  q.goto(base+'/media/');assert q.locator('.am-samples').count()==0;assert q.locator('.ag-content-card').count()>0
+  q.goto(base+'/media/');assert q.locator('.am-samples').count()==0;assert q.locator('.ms-episode-row').count()>0
+  q.locator('.ms-feature [data-audio-play]').click();q.wait_for_timeout(600);assert not q.locator('.ms-feature audio').evaluate('el=>el.paused')
+  q.locator('.ms-feature [data-audio-rate]').select_option('1.5');assert q.locator('.ms-feature audio').evaluate('el=>el.playbackRate')==1.5
+  q.locator('.ms-feature [data-audio-mute]').click();assert q.locator('.ms-feature audio').evaluate('el=>el.muted')
+  q.locator('[data-media-video]').click();assert q.locator('dialog[open]').count()==1;q.wait_for_timeout(600);assert q.locator('.ms-feature audio').evaluate('el=>el.paused');assert not q.locator('dialog[open] video').evaluate('el=>el.paused')
+  q.locator('[data-media-close]').press('Escape');assert q.locator('dialog[open]').count()==0;q.wait_for_function("document.querySelector('dialog video').paused && document.querySelector('[data-media-video]')===document.activeElement")
+  q.locator('[data-row-audio]').click();q.wait_for_timeout(400);assert q.locator('.ms-inline-player').is_visible();assert not q.locator('.ms-inline-player audio').evaluate('el=>el.paused');assert q.locator('.ms-feature audio').evaluate('el=>el.paused')
+  q.locator('.ms-inline-player [data-audio-seek]').fill('70');q.wait_for_function("document.querySelector('.ms-inline-player audio').currentTime>=3")
+  q.locator('[data-row-audio]').click();assert not q.locator('.ms-inline-player').is_visible();assert q.locator('.ms-inline-player audio').evaluate('el=>el.paused')
+  report.append('Inline episode play, seeking, collapse and pause passed')
+  report.append('Hub audio play, playback speed, mute, video dialog, mutual pause and Escape focus restoration passed')
+  q.route(state['audio_url'],lambda route:route.fulfill(status=404,body=''))
+  q.goto(state['url']);q.locator('[data-audio-play]').click();q.wait_for_function("document.querySelector('[data-audio-status]').textContent.includes('در دسترس نیست')");q.unroute(state['audio_url']);report.append('Unavailable audio reports a readable error without a JavaScript crash')
   q.goto(base+'/blog/');assert q.locator('[data-journal-row]:visible').count()==9;q.locator('[data-journal-pages] a').last.click();assert q.locator('[data-journal-row]:visible').count()==2;q.reload();assert q.locator('[data-journal-row]:visible').count()==2;report.append('Journal pagination and reload passed')
   q.goto(base+'/contact/');assert q.locator('iframe').count()==0;q.route('**/maps.google.com/**',lambda route:route.fulfill(status=200,content_type='text/html',body='<p>Map transport fixture</p>'));q.locator('[data-map-load]').click();assert '35.7294807434082' in q.locator('iframe').get_attribute('src');assert '51.436744689941406' in q.locator('iframe').get_attribute('src');report.append('Map loads only on request and uses configured coordinates')
   access=dict(re.findall(r'^(Username|Password): (.*)$',(root/'.runtime/access.txt').read_text(),re.M));q.goto(base+'/wp-login.php');q.fill('#user_login',access['Username']);q.fill('#user_pass',access['Password']);q.click('#wp-submit');q.wait_for_url('**/wp-admin/**')
   q.goto(base+f'/wp-admin/post.php?post={state["episode"]}&action=edit');q.locator('[data-vatan-file-clear="vatan-media-audio"]').click();assert q.locator('#vatan-media-audio').input_value()=='';q.locator('[data-vatan-file="vatan-media-audio"]').click();dialog=q.locator('.media-modal');dialog.locator('#menu-item-browse').click();dialog.screenshot(path=str(out/'picker.png'))
   dialog.locator('.attachment[data-id="'+str(state['owned'][1])+'"]').click();dialog.locator('.media-button-select').click();assert q.locator('#vatan-media-audio').input_value()==state['audio_url'];q.locator('#publish').click();q.wait_for_load_state('networkidle');assert wp(f'echo get_post_meta({state["episode"]},"_vatan_audio",true);')==state['audio_url'];report.append('Native media picker, clear, selection and save persisted')
-  for feature,route,selector in [('contact_form','contact','[data-approved-form]'),('office_map','contact','[data-map-load]'),('breadcrumbs','inquiry','.path'),('home_media','','#home-media'),('media_player_tabs','media/podcast/'+marker,'[role=tab]')]:
+  for feature,route,selector in [('contact_form','contact','[data-approved-form]'),('office_map','contact','[data-map-load]'),('breadcrumbs','inquiry','.path'),('home_media','','#home-media'),('media_player_tabs','media/podcast/'+marker,'[role=tab]'),('media_audio_controls','media/podcast/'+marker,'[data-audio-console]')]:
    wp('$v=get_option("vatan_features",[]);$v['+json.dumps(feature)+']="0";update_option("vatan_features",$v);');q.goto(base+'/'+route+'/');assert q.locator(selector).count()==0,(feature,selector)
-  report.append('Contact form, map, breadcrumbs, Home media and player-tab settings affect real rendering')
+  assert q.locator('audio').is_visible();report.append('Contact form, map, breadcrumbs, Home media, player tabs and native audio fallback settings affect real rendering')
   value=state['features'];wp('delete_option("vatan_features");' if value is None else 'update_option("vatan_features",json_decode('+json.dumps(json.dumps(value))+',true));')
   nojs=b.new_context(java_script_enabled=False,viewport={'width':390,'height':844});n=nojs.new_page();n.goto(state['url']);assert n.locator('audio').is_visible() and n.locator('video').is_visible();n.goto(base+'/blog/?archive_page=2');assert n.locator('[data-journal-row]:visible').count()==2;nojs.close();assert not errors,errors;b.close()
 finally:

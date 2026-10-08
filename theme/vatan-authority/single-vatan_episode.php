@@ -6,7 +6,7 @@
   <?php ag_episode_player($id); ?>
   <?php $rows=vatan_timestamps(get_post_meta($id,'_vatan_timestamps',true));if($rows): ?><nav class="ag-timestamps" aria-label="بخش‌های گفتگو"><h2><?php echo esc_html($s['timestamps_title']??'بخش‌های گفتگو'); ?></h2><ol><?php foreach($rows as $row)echo '<li><button type="button" data-timestamp="'.esc_attr($row['seconds']).'"><span dir="ltr">'.esc_html($row['time']).'</span><span>'.esc_html($row['title']).'</span></button></li>'; ?></ol></nav><?php endif; ?>
   <?php the_content();$transcript=get_post_meta($id,'_vatan_transcript',true);if($transcript)echo '<section class="ag-transcript"><h2>'.esc_html($s['transcript_title']??'متن گفتگو').'</h2>'.wpautop(esc_html($transcript)).'</section>'; ?>
-  <div class="actions"><a class="home-route-link" href="<?php echo esc_url(vatan_url('media/')); ?>"><?php ag_text($s,'label'); ?> <span aria-hidden="true">↖</span></a></div>
+  <div class="actions"><a class="home-route-link" href="<?php echo esc_url(vatan_url('media/')); ?>"><?php ag_text($s,'label'); ?> <span aria-hidden="true"><svg class="ag-arrow-icon" viewBox="0 0 24 24" fill="none" width="1em" height="1em" aria-hidden="true"><path d="M20 20 4 4M4 20V4H20" stroke="currentColor" stroke-width="1.3"/></svg></span></a></div>
  </div></section>
 </div>
 <?php ag_render_page('episode');ag_related($id);get_footer(); ?>

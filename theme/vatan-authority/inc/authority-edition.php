@@ -36,8 +36,8 @@ function ag_authority_contact($s,$id,$context) {
     echo '<div class="wrap ag-page-path">';ag_breadcrumb();echo '</div><div class="wrap at-contact-grid"><div class="ag-hero-copy at-contact-copy">';ag_heading($s,'h1');
     echo '<div class="at-contact-description">';ag_body($s['body']??'');echo '</div>';
     $phone=vatan_option('phone','02191028166');
-    echo '<a class="ag-contact-direct" href="tel:'.esc_attr(preg_replace('/[^0-9+]/','',$phone)).'"><span>'.esc_html($s['call_label']).'</span><strong dir="ltr">'.esc_html($phone).'</strong><span class="ag-symbol" aria-hidden="true">↖</span></a><div class="ag-contact-actions">';ag_action($s,'button trade-button');
-    if(vatan_feature('contact_form'))echo '<a class="home-route-link" href="#short-form">'.esc_html($s['message_label']).' <span aria-hidden="true">↖</span></a>';
+    echo '<a class="ag-contact-direct" href="tel:'.esc_attr(preg_replace('/[^0-9+]/','',$phone)).'"><span>'.esc_html($s['call_label']).'</span><strong dir="ltr">'.esc_html($phone).'</strong><span class="ag-symbol" aria-hidden="true"><svg class="ag-arrow-icon" viewBox="0 0 24 24" fill="none" width="1em" height="1em" aria-hidden="true"><path d="M20 20 4 4M4 20V4H20" stroke="currentColor" stroke-width="1.3"/></svg></span></a><div class="ag-contact-actions">';ag_action($s,'button trade-button');
+    if(vatan_feature('contact_form'))echo '<a class="home-route-link" href="#short-form">'.esc_html($s['message_label']).' <span aria-hidden="true"><svg class="ag-arrow-icon" viewBox="0 0 24 24" fill="none" width="1em" height="1em" aria-hidden="true"><path d="M20 20 4 4M4 20V4H20" stroke="currentColor" stroke-width="1.3"/></svg></span></a>';
     echo '</div></div><div class="at-contact-art"><span class="at-art-word" aria-hidden="true">'.esc_html($s['art_word']).'</span>';
     if(vatan_feature('maritime_scene')){
         $intensity=get_option('vatan_scene_intensity','balanced');

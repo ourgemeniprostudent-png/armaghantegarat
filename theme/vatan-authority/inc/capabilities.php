@@ -3,6 +3,12 @@ if(!defined('ABSPATH'))exit;
 function ag_query_value($key,$max=160){return isset($_GET[$key])&&is_string($_GET[$key])?mb_substr(sanitize_text_field(wp_unslash($_GET[$key])),0,$max):'';}
 function ag_topic($key='topic'){$v=ag_query_value($key,60);return term_exists($v,'vatan_topic')?$v:'';}
 function ag_public_author($id){return get_post_meta($id,'_vatan_public_author',true)?:'تحریریه ارمغان تجارت وطن';}
+function ag_detail_section($id,$context){
+ $s=ag_section('detail',$context);$saved=get_post_meta($id,'_armaghan_sections',true);$values=is_array($saved)?($saved['detail']??[]):[];
+ if(!array_key_exists('image',$values)&&has_post_thumbnail($id))$s['image']='attachment:'.get_post_thumbnail_id($id);
+ if(!array_key_exists('body',$values))$s['body']=get_the_excerpt(get_post($id))?:$s['body'];
+ return $s;
+}
 function ag_whatsapp($title='', $url=''){
  if(!vatan_feature('whatsapp'))return;$link=vatan_whatsapp_url($title,$url);if($link)echo '<a class="home-route-link" data-whatsapp href="'.esc_url($link).'" target="_blank" rel="noopener">گفتگو در واتس‌اپ <span aria-hidden="true">↗</span></a>';
 }
@@ -56,7 +62,7 @@ function ag_video_library($s,$topic='',$search=''){
 function ag_related($id){
  if(!vatan_feature('related_content'))return;$ids=vatan_public_ids(get_post_meta($id,'_vatan_related',true));
  if(!$ids){$taxonomy=get_post_type($id)==='vatan_product'?'vatan_category':'vatan_topic';$terms=wp_get_post_terms($id,$taxonomy,['fields'=>'ids']);if(!is_wp_error($terms)&&$terms)$ids=get_posts(['post_type'=>get_post_type($id),'post_status'=>'publish','posts_per_page'=>3,'fields'=>'ids','post__not_in'=>[$id],'tax_query'=>[['taxonomy'=>$taxonomy,'terms'=>$terms]]]);}
- if(!$ids)return;echo '<section class="ag-section"><div class="wrap"><h2>برای ادامه شناخت</h2><div class="ag-content-grid">';foreach(array_slice($ids,0,6) as $related)ag_content_card(get_post($related));echo '</div></div></section>';
+ if(!$ids)return;$section=ag_section('detail',get_post_type($id)==='vatan_product'?'product':'episode');echo '<section class="ag-section"><div class="wrap"><h2>'.esc_html($section['related_title']??'برای ادامه شناخت').'</h2><div class="ag-content-grid">';foreach(array_slice($ids,0,6) as $related)ag_content_card(get_post($related));echo '</div></div></section>';
 }
 function ag_featured_media($s){
  $q=new WP_Query(['post_type'=>'vatan_episode','post_status'=>'publish','posts_per_page'=>1,'meta_query'=>[['key'=>'_vatan_featured','value'=>'1']]]);if(!$q->have_posts())return;

@@ -84,7 +84,8 @@ try:
   page.goto(base+'/media/');assert page.locator('.ag-video-library').count()==0
   page.goto(base+'/products/coffee/');assert page.locator('[data-discovery]').count()==0
   value=state['options']['vatan_features'];wp('delete_option("vatan_features");' if value is None else f'update_option("vatan_features",json_decode({json.dumps(json.dumps(value))},true));')
-  page.goto(base+f'/wp-admin/post.php?post={state["products"]["coffee"]["id"]}&action=edit');page.fill('#vatan-gallery',str(state['images'][1]));page.locator('#publish').click();page.wait_for_load_state('networkidle');saved_gallery=json.loads(wp(f'echo wp_json_encode(get_post_meta({state["products"]["coffee"]["id"]},"_vatan_gallery",true));'));assert saved_gallery==[state['images'][1]]
+  page.goto(base+f'/wp-admin/post.php?post={state["products"]["coffee"]["id"]}&action=edit');page.fill('#vatan-gallery',str(state['images'][1]));page.locator('.ag-editor-nav a[href="#ag-edit-armaghan_sections-detail"]').click();page.fill('[name="armaghan_sections[detail][body]"]','مقدمه قابل ویرایش نمونه آزمون');page.fill('[name="armaghan_sections[detail][image]"]','asset:products/rice.webp');page.locator('#publish').click();page.wait_for_load_state('networkidle');saved_gallery=json.loads(wp(f'echo wp_json_encode(get_post_meta({state["products"]["coffee"]["id"]},"_vatan_gallery",true));'));assert saved_gallery==[state['images'][1]]
+  page.goto(state['products']['coffee']['url']);assert 'مقدمه قابل ویرایش نمونه آزمون' in page.locator('.ag-article-hero').inner_text();assert 'rice' in page.locator('.ag-article-hero img').get_attribute('src')
   page.goto(base+'/wp-admin/nav-menus.php');assert page.locator('body').count()==1
   assert errors==[],errors
   b.close()

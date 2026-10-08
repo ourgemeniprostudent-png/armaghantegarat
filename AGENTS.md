@@ -67,3 +67,8 @@ This repository contains the approved WordPress implementation transferred from 
 - Journal and article reading surfaces are explicitly pure white at the owner's request, overriding earlier ivory preferences. All eight real posts have dedicated realistic editable covers; retain real article URLs, native bodies, topics, filtering and feature controls. Do not redesign Home journal cards.
 - `assets/approved/` holds page-specific Contact/Journal/Inquiry scenes and eight editorial illustrations. They are conceptual, not actual owned facilities or product-availability evidence. Keep the office-image disclosure accurate. Original photo files are retained outside the release; video bytes remain unchanged.
 - Public GitHub forms remain view-only; export strips credentials/tokens and cannot create tracking codes. Hide the mobile floating CTA while an enhanced form is in view so it does not cover its controls. Global header/footer/menu editing remains native.
+
+
+## Shared corners from 1.17.1
+
+- The owner requires one 8px corner radius throughout the public interface: cards, images, forms, buttons, covers, players and dialogs. `assets/corner-radius.css` applies the shared `--ui-radius` in every bundle before shared-header.css. The native theme setting `vatan_ui_radius` defaults to 8 and remains editable. New interface surfaces must follow this token instead of introducing a different radius. Decorative vector geometry retains its actual shape.

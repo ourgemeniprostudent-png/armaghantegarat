@@ -10,7 +10,7 @@ function ag_authority_palette() {
 }
 add_action('wp_enqueue_scripts',function(){
     $p=ag_authority_palette();
-    wp_add_inline_style('armaghan-site',':root{--at-navy:'.$p['navy'].';--at-black:'.$p['black'].';--at-gold:'.$p['gold'].';--gold:'.$p['gold'].';--black:'.$p['black'].';}');
+    wp_add_inline_style('armaghan-site',':root{--at-navy:'.$p['navy'].';--at-black:'.$p['black'].';--at-gold:'.$p['gold'].';--gold:'.$p['gold'].';--black:'.$p['black'].';--ui-radius:'.vatan_ui_radius().'px;}');
     if(!is_front_page()) wp_enqueue_script('armaghan-authority',vatan_asset('authority-edition.js'),['armaghan-art'],filemtime(__DIR__.'/../assets/authority-edition.js'),true);
 },20);
 add_filter('body_class',function($classes){if(!is_front_page())$classes[]='ag-authority';return $classes;});

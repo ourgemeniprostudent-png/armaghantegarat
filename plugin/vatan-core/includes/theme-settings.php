@@ -22,7 +22,10 @@ function vatan_brand_accent(){
  $saved=get_option('vatan_brand_accent',null);
  return $saved===null?['enabled'=>'1','color'=>'#76273b','strength'=>'balanced']:vatan_brand_accent_sanitize($saved);
 }
+function vatan_ui_radius_sanitize($value){return is_scalar($value)?filter_var($value,FILTER_VALIDATE_INT,['options'=>['default'=>8,'min_range'=>0,'max_range'=>24]]):8;}
+function vatan_ui_radius(){return vatan_ui_radius_sanitize(get_option('vatan_ui_radius',8));}
 add_action('admin_init',function(){
+ register_setting('vatan_settings','vatan_ui_radius',['type'=>'integer','default'=>8,'sanitize_callback'=>'vatan_ui_radius_sanitize']);
  register_setting('vatan_settings','vatan_authority_palette',['type'=>'array','sanitize_callback'=>function($value){$value=is_array($value)?$value:[];$clean=[];foreach(['navy'=>'#0d1b2a','black'=>'#0b0b0b','gold'=>'#c39a5b'] as $key=>$fallback)$clean[$key]=sanitize_hex_color(is_scalar($value[$key]??null)?(string)$value[$key]:'')?:$fallback;return $clean;}]);
  register_setting('vatan_settings','vatan_scene_intensity',['type'=>'string','sanitize_callback'=>fn($v)=>in_array($v,['soft','balanced','strong'],true)?$v:'balanced']);
  register_setting('vatan_settings','vatan_brand_accent',['type'=>'array','sanitize_callback'=>'vatan_brand_accent_sanitize']);
@@ -40,6 +43,7 @@ function vatan_settings_page(){
  echo '</table><h2>رنگ‌های هویت و عمق صحنه</h2><p>آبی، مشکی و طلایی پایه طراحی صفحات‌اند. سطوح روشن از طلایی ساخته می‌شوند؛ زرشکی در بخش بعد تنظیم می‌شود. این تنظیمات روی متن و رسانه ذخیره‌شده اثری ندارند.</p><table class="form-table">';
  $palette=get_option('vatan_authority_palette',[]);$palette=is_array($palette)?$palette:[];
  foreach(['navy'=>['آبی برند','#0d1b2a'],'black'=>['مشکی','#0b0b0b'],'gold'=>['طلایی','#c39a5b']] as $key=>$entry)echo '<tr><th><label for="authority-'.$key.'">'.esc_html($entry[0]).'</label></th><td><input type="color" id="authority-'.$key.'" name="vatan_authority_palette['.$key.']" value="'.esc_attr(sanitize_hex_color($palette[$key]??'')?:$entry[1]).'"></td></tr>';
+ echo '<tr><th><label for="ui-radius">شعاع گوشه‌های رابط</label></th><td><input type="number" id="ui-radius" name="vatan_ui_radius" min="0" max="24" step="1" value="'.esc_attr(vatan_ui_radius()).'"> پیکسل<p class="description">مقدار فعلی طراحی ۸ پیکسل است و به‌صورت مشترک روی دکمه‌ها، فرم‌ها، کارت‌ها، تصاویر و پخش‌کننده‌ها اعمال می‌شود.</p></td></tr>';
  echo '<tr><th><label for="scene-intensity">عمق حرکت صحنه تماس</label></th><td><select id="scene-intensity" name="vatan_scene_intensity">';
  foreach(['soft'=>'آرام','balanced'=>'متعادل','strong'=>'پرقدرت'] as $key=>$label)echo '<option value="'.$key.'" '.selected(get_option('vatan_scene_intensity','balanced'),$key,false).'>'.$label.'</option>';
  echo '</select><p class="description">حرکت پس از ورود آرام می‌گیرد. کاهش حرکت سیستم و خاموش‌کردن موشن، صحنه ثابت را نمایش می‌دهند.</p></td></tr>';

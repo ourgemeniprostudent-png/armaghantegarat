@@ -1,0 +1,68 @@
+{
+  "version": "1.12.1",
+  "filename": "Armaghan-WordPress-v1.12.1.zip",
+  "bytes": 187171079,
+  "sha256": "15e911105bbdd834b9910acf0874f8c3804e329162eb0bef1072767e6bbcdbc7",
+  "parts": [
+    {
+      "path": "part-01.bin",
+      "bytes": 16777216,
+      "sha256": "568582b39173058bb3354dd973a5003bf3b0455237f1fb22d24fd499d8207d37"
+    },
+    {
+      "path": "part-02.bin",
+      "bytes": 16777216,
+      "sha256": "f90ab6acf261038db0d337ad9d8438a30ec8df865b9e207f9e276f78babf9934"
+    },
+    {
+      "path": "part-03.bin",
+      "bytes": 16777216,
+      "sha256": "6e11420297d34da854487efb8819293b2063426f2b7beab4d2220f9cb1896097"
+    },
+    {
+      "path": "part-04.bin",
+      "bytes": 16777216,
+      "sha256": "b5664bdeaa9d9ff0bbfc23830b6d72d0e6a5a2d11dc099e88971794277d04f65"
+    },
+    {
+      "path": "part-05.bin",
+      "bytes": 16777216,
+      "sha256": "987a4a1deb595e8acd8ad14ae1340332ce9fea782dbc01123e59f1005504d25b"
+    },
+    {
+      "path": "part-06.bin",
+      "bytes": 16777216,
+      "sha256": "f88ba585dc9354b8788dc9a6cef993876df84338a789de74a8958a95af33062e"
+    },
+    {
+      "path": "part-07.bin",
+      "bytes": 16777216,
+      "sha256": "81c74954f01ef1cb17b905b8695af28744e943f6079838bdb6e40b1c1f6823c9"
+    },
+    {
+      "path": "part-08.bin",
+      "bytes": 16777216,
+      "sha256": "096914ab5074b0e526eb3c102db7ddf27f7a7a1674703b26c249f46c36328384"
+    },
+    {
+      "path": "part-09.bin",
+      "bytes": 16777216,
+      "sha256": "1550bf5530c303602ebba52d3bca122bddded8229f609699f70f2429c2c28f66"
+    },
+    {
+      "path": "part-10.bin",
+      "bytes": 16777216,
+      "sha256": "1d2a579f8173ade5c70ea54fe524b46e2c13b63d74f3aa3dd0ff85f1b7c7cb11"
+    },
+    {
+      "path": "part-11.bin",
+      "bytes": 16777216,
+      "sha256": "70064d84a89e8a5a51ffe0bd12cf385b44657564b9dada886f9f7970e29d404c"
+    },
+    {
+      "path": "part-12.bin",
+      "bytes": 2621703,
+      "sha256": "ae785627b65da6149c4f15074af876bfa11fc064a2bebaf1484e2cb34b739874"
+    }
+  ]
+}

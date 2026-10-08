@@ -26,9 +26,7 @@ OUT.mkdir(parents=True)
 assets=OUT/'wp-content/themes/vatan-authority';assets.mkdir(parents=True)
 shutil.copytree(ROOT/'theme/vatan-authority/assets',assets/'assets')
 shutil.copy2(ROOT/'theme/vatan-authority/style.css',assets/'style.css')
-# Reuse the original, immutable video publication; no format or byte changes.
-VIDEO_COMMIT='1fa3fe94ca8d09650398a054ef227f72d55f6ad2'
-VIDEO_BASE=f'https://raw.githubusercontent.com/ourgemeniprostudent-png/armaghantegarat/{VIDEO_COMMIT}/wp-content/themes/vatan-authority/assets/media/'
+# The same original video bytes are served from the preview's own origin with native MIME/Range support.
 VIDEO_HASHES={'hero-h264.mp4':'f7ae6d349f977be82939382e521f8e36597d90cceac6393ba7772627596f8f6c','hero-av1.mp4':'b48c6cf207b16ddfd183eac4f7d6263067472f942dc1dfb9004270450c97eec5'}
 for name,expected in VIDEO_HASHES.items():
  assert hashlib.file_digest((assets/'assets/media'/name).open('rb'),'sha256').hexdigest()==expected,'Original video changed; verify before publishing'
@@ -56,7 +54,6 @@ class Portable(HTMLParser):
    if file.suffix.lower() not in MEDIA_EXT:raise ValueError('Unsupported public upload type')
    assert file.resolve().is_relative_to((ROOT/'.runtime/wordpress/wp-content/uploads').resolve())
    dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(file,dest)
-  if path.startswith('/wp-content/themes/vatan-authority/assets/media/') and Path(path).name in VIDEO_HASHES:return VIDEO_BASE+Path(path).name
   if path.startswith(('/wp-admin/','/wp-login.php','/wp-json/','/xmlrpc.php')):return '#'
   return urlunsplit(('', '',self.relative(path),query,parts.fragment))
  def handle_starttag(self,tag,attrs):

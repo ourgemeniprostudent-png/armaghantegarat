@@ -12,6 +12,7 @@ for route in routes:
  with urlopen(url+route,timeout=20) as r:
   page=r.read().decode();assert r.status==200,(route,r.status)
   if route=='/':
+   assert 'data-video-loader' not in page and 'video-intro-js' not in page,'Startup loader returned'
    assert all(s in page for s in ['home-about','home-manifesto','home-journal','home-contact','data-cooperation-flow','data-product-revolver']), 'Missing approved home sections'
    assert 'class="quote-section"' not in page and 'class="contact-band"' not in page,'Legacy lower home returned'
    assert '/Users/' not in page,'Machine-specific source URL leaked into output'
@@ -27,6 +28,7 @@ try:
  with urlopen(url+'/en/',timeout=20) as r:assert r.status==404,'English pending site should stay hidden'
 except Exception as exc:
  if getattr(exc,'code',None)!=404:raise
-report={'site':url,'routes':results,'assets':'passed','pending_english':'404 as expected','home_design':'approved 1.7 layout, section editable','theme_version':'1.10.0'}
+version=re.search(r'^Version:\s*(\S+)',(root/'theme/vatan-authority/style.css').read_text(),re.M).group(1)
+report={'site':url,'routes':results,'assets':'passed','pending_english':'404 as expected','home_design':'approved home layout, no blocking loader, section editable','theme_version':version}
 (root/'.runtime/smoke-report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
 print(f'Passed: {len(results)} public routes, CSS/JS/font/images/videos, homepage continuity, pending /en.')

@@ -44,11 +44,11 @@ function vatan_asset($file) { return get_template_directory_uri().'/assets/'.$fi
 function armaghan_video_asset($file) { return add_query_arg('v', filemtime(get_template_directory().'/assets/media/'.$file), vatan_asset('media/'.$file)); }
 function vatan_option($name,$default='') { return get_option('vatan_'.$name,$default); }
 function vatan_categories() { return ['coffee'=>['قهوه','COFFEE','انتخاب قهوه برای کافه و کسب‌وکار شما'], 'rice'=>['برنج','RICE','برای نیاز روزانه و سفارش عمده'], 'dried-fruits'=>['خشکبار','NUTS & DRIED FRUITS','آجیل و خشکبار برای کسب‌وکارها'], 'spices'=>['ادویه','SPICES','طعم و عطر، متناسب با نیاز شما'], 'legumes'=>['حبوبات','LEGUMES','استعلام تامین و سفارش عمده']]; }
-function vatan_logo($intro=false) {
+function vatan_logo() {
  $identity=ag_section('identity','global');$saved=get_post_meta((int)get_option('page_on_front'),'_armaghan_identity',true);
  if(isset($saved['identity']['logo'])&&$saved['identity']['logo']!=='asset:brand-original.png')echo '<span class="custom-brand-mark"><img src="'.esc_url(ag_media_url($identity['logo'])).'" alt="'.esc_attr($identity['title']).'"></span>';
  elseif(has_custom_logo())echo '<span class="custom-brand-mark">'.wp_get_attachment_image(get_theme_mod('custom_logo'),'thumbnail',false,['alt'=>$identity['title']]).'</span>';
- else echo $intro?'<span class="brand-mark" aria-hidden="true"></span>':'<span class="brand-mark"><img '.ag_image_attrs(vatan_asset('brand-original.png'),'135px',240).' alt="نشان طلایی ارمغان تجارت وطن"></span>';
+ else echo '<span class="brand-mark"><img '.ag_image_attrs(vatan_asset('brand-original.png'),'135px',240).' alt="نشان طلایی ارمغان تجارت وطن"></span>';
  echo '<span class="brand-name">'.esc_html($identity['title']).'</span>';
 }
 function vatan_intro($title,$description='',$eyebrow='ارمغان تجارت وطن') { ?><section class="page-intro"><div class="wrap"><div class="breadcrumb"><a href="<?php echo esc_url(home_url('/')); ?>">خانه</a> / <?php echo esc_html($title); ?></div><span class="eyebrow"><?php echo esc_html($eyebrow); ?></span><h1><?php echo esc_html($title); ?></h1><?php if($description) echo '<p>'.esc_html($description).'</p>'; ?></div></section><?php }

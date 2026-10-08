@@ -889,16 +889,6 @@
           "type": "text",
           "value": "تعهد به کیفیت در تجارت"
         },
-        "loader_message": {
-          "label": "پیام آغاز ویدیو",
-          "type": "text",
-          "value": "در حال آماده‌سازی تصویر تجارت"
-        },
-        "loader_skip": {
-          "label": "نوشته ورود سریع",
-          "type": "text",
-          "value": "ورود بدون انتظار"
-        },
         "rights": {
           "label": "متن حقوق سایت",
           "type": "text",

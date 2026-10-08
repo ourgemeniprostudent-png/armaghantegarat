@@ -8,7 +8,7 @@ This repository contains the approved WordPress implementation transferred from 
 - The full company name is «ارمغان تجارت وطن». The business is a direct wholesale importer of agricultural/food products, including containerized maritime freight; it is not a café. Give coffee about half the product emphasis and the other groups (rice, nuts/dried fruit, spices, legumes) the other half.
 - Black and gold dominate. Midnight navy and restrained red accents also belong to the brand.
 - Header: transparent at the top of the video hero, black after scrolling; gold emblem always, white text. Preserve the fullscreen mobile navigation and borderless, normal-weight controls.
-- Hero uses the current compressed video, a dark overlay and a startup loader; no video pause button.
+- Hero uses the unchanged current video and a dark overlay. From 1.10.2 the owner removed the startup loader: show the page immediately and let native video stream progressively. Never fetch the entire video into a Blob before playback. No video pause button.
 - Product gallery has five groups and manual finite scroll steps, no autoplay. Do not replace it with a generic grid.
 - Cooperation gallery has four people-free realistic images, a large central card, tilted smaller side cards, manual scrolling/dragging, and an image dialog. The gallery background is flat dark, not a blurred photo.
 - The standalone panoramic ingredients image was removed from the homepage. Do not re-add it.

@@ -2,6 +2,10 @@
 $path=rawurldecode(parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH));
 $root=dirname(__DIR__).'/.runtime/wordpress';
 if (str_contains($path,'..')) { http_response_code(400); exit; }
+// The development server must deliver the same partial video responses as Apache/Nginx.
+if(is_file($root.$path)&&in_array(strtolower(pathinfo($path,PATHINFO_EXTENSION)),['mp4','webm'],true)){
+ require __DIR__.'/serve-video.php';return true;
+}
 // Match ordinary hosting compression in development; video bytes remain untouched.
 if(is_file($root.$path)&&in_array(pathinfo($path,PATHINFO_EXTENSION),['css','js','svg'],true)){
  $type=['css'=>'text/css','js'=>'application/javascript','svg'=>'image/svg+xml'][pathinfo($path,PATHINFO_EXTENSION)];

@@ -1,0 +1,68 @@
+{
+  "version": "1.10.0",
+  "filename": "Armaghan-WordPress-v1.10.0.zip",
+  "bytes": 187141692,
+  "sha256": "7fab6456cab50af72ba315c13f63e0b2f0dff825da4bda787d794cc75497e136",
+  "parts": [
+    {
+      "path": "part-01.bin",
+      "bytes": 16777216,
+      "sha256": "ecc0dea7193c8282ecbbe4bc786e79613251d4011aee671bee7fca74f7632454"
+    },
+    {
+      "path": "part-02.bin",
+      "bytes": 16777216,
+      "sha256": "e606cc12674e039a5074e2b88a39d198b964db3bce7bf0124f96b95e7ea99424"
+    },
+    {
+      "path": "part-03.bin",
+      "bytes": 16777216,
+      "sha256": "3072ad9d5202d554306fe46c8f790b96641f358559b87950b91a43577a6b10b5"
+    },
+    {
+      "path": "part-04.bin",
+      "bytes": 16777216,
+      "sha256": "28832e11ffaa16b508405ce44d113f9ee3a4f105a91eb35b6588e1c6f69407c5"
+    },
+    {
+      "path": "part-05.bin",
+      "bytes": 16777216,
+      "sha256": "b59d08f8149c95f8e39113828471aa4ffdbd2b17f8314284e92d2b345774b048"
+    },
+    {
+      "path": "part-06.bin",
+      "bytes": 16777216,
+      "sha256": "49357aa4077ae7d19ed6821f24d28db7793a1e60b6277f40b2883251580400f8"
+    },
+    {
+      "path": "part-07.bin",
+      "bytes": 16777216,
+      "sha256": "dd07fcb1e6d46cd8692d1d89b2fd95c413d19263d3fd00adbbca4d36e012da98"
+    },
+    {
+      "path": "part-08.bin",
+      "bytes": 16777216,
+      "sha256": "1230223884e14097479c72eef47c30620ba036e3b7983f8d8316e07030306ff8"
+    },
+    {
+      "path": "part-09.bin",
+      "bytes": 16777216,
+      "sha256": "a5bd2edd2d5fc6471940f5eca55ae50cdfce8c19733f4657bec1030f4868524e"
+    },
+    {
+      "path": "part-10.bin",
+      "bytes": 16777216,
+      "sha256": "a4efeb266636d41cde7d565e1102bb6f691af2c206e964f12ced20209139c61d"
+    },
+    {
+      "path": "part-11.bin",
+      "bytes": 16777216,
+      "sha256": "6a8824568fa4e9f0b41f206a053dff5000e6b25eee6667088273c349cffb3b65"
+    },
+    {
+      "path": "part-12.bin",
+      "bytes": 2592316,
+      "sha256": "cf3235d7501fcaf1cfcd93b2e7bf1a22ec466c945d22c30f9c85af632b4a3291"
+    }
+  ]
+}

@@ -1,14 +1,15 @@
 (() => {
   'use strict';
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const staticMotion = document.body.classList.contains('ag-static-motion');
   const nodes = [...document.querySelectorAll('[data-ag-reveal]')];
-  if (!reduce.matches && 'IntersectionObserver' in window) {
+  if (!reduce.matches && !staticMotion && 'IntersectionObserver' in window) {
     const observer = new IntersectionObserver(entries => entries.forEach(entry => {
       if (entry.isIntersecting) { entry.target.classList.add('ag-visible'); observer.unobserve(entry.target); }
     }), { threshold: .06 });
     document.documentElement.classList.add('ag-motion-ready');
     nodes.forEach(node => { node.classList.add('ag-waiting'); observer.observe(node); });
-    reduce.addEventListener('change', () => { if (reduce.matches) { document.documentElement.classList.remove('ag-motion-ready'); observer.disconnect(); } });
+    reduce.addEventListener('change', () => { if (reduce.matches || staticMotion) { document.documentElement.classList.remove('ag-motion-ready'); observer.disconnect(); } });
   }
   const zoom = document.querySelector('.ag-zoom-dialog'); let returnFocus;
   if (zoom && typeof zoom.showModal === 'function') {
@@ -39,7 +40,7 @@
   const article = document.querySelector('[data-article-body]'); const toc = document.querySelector('[data-article-toc]');
   if (article && toc) {
     const headings = [...article.querySelectorAll('h2,h3')];
-    headings.forEach((heading, index) => { if (!heading.id) heading.id = `article-part-${index + 1}`; const a = document.createElement('a'); a.href = `#${heading.id}`; a.textContent = heading.textContent; toc.append(a); });
+    headings.forEach((heading, index) => { if (!heading.id) heading.id = `article-part-${index + 1}`; const a = document.createElement('a'); a.href = `#${heading.id}`; a.textContent = heading.textContent; if(![...toc.querySelectorAll('a')].some(link=>link.hash===a.hash))toc.append(a); });
     if (!headings.length) toc.hidden = true;
     const update = () => {
       const r = article.getBoundingClientRect(); const distance = Math.max(1, article.offsetHeight - innerHeight + 150); const progress = Math.max(0, Math.min(1, (150 - r.top) / distance));

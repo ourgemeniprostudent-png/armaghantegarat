@@ -1,6 +1,7 @@
 (() => {
   'use strict';
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const staticMotion = document.body.classList.contains('ag-static-motion');
   const pages = [...document.querySelectorAll('.ag-art-page')];
   if (!pages.length) return;
   // Draw symbols instead of relying on a font's missing arrow glyph.
@@ -25,7 +26,7 @@
   let frame = 0;
   function update() {
     frame = 0;
-    if (!reduce.matches) {
+    if (!reduce.matches && !staticMotion) {
       for (const scene of active) {
         const r = scene.getBoundingClientRect();
         const progress = Math.max(0, Math.min(1, (innerHeight * .95 - r.top) / (Math.min(r.height, innerHeight) * .8)));
@@ -44,8 +45,8 @@
   }
   const request = () => { if (!frame) frame = requestAnimationFrame(update); };
   function enable() {
-    document.documentElement.classList.toggle('ag-art-motion', !reduce.matches);
-    if (reduce.matches) {
+    document.documentElement.classList.toggle('ag-art-motion', !reduce.matches && !staticMotion);
+    if (reduce.matches || staticMotion) {
       scenes.forEach(scene => scene.style.setProperty('--art-progress', '1'));
       stages.forEach(stage => stage.style.setProperty('--drift', '0px'));
       ink.forEach(words => words.forEach(word => word.classList.remove('ag-unlit')));

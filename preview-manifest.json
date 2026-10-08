@@ -1,5 +1,5 @@
 {
-  "source_commit": "9794bf2ead9194439b040ae34677f0d17acc9512",
+  "source_commit": "62957b73304d9117430ca1d1dc1b04958b896b21",
   "routes": [
     {
       "route": "/",
@@ -115,177 +115,177 @@
     {
       "path": "404.html",
       "bytes": 25127,
-      "sha256": "90af0f9062aa8caa29b9c4268f1bc6a5c79655b9ce8ef7c4b4829ada4464a43e"
+      "sha256": "8f7d5a467705491be9fcae8ffffe05dee0c959835a90e06f55b31755c04cd327"
     },
     {
       "path": "README.md",
       "bytes": 450,
-      "sha256": "d6d445daa9466a1acf17457f0f8103750e7c31aee7bba1bee8ed4f2954ba3aab"
+      "sha256": "eb9ad79b3f2d50127201efd125a5df3d5082a8448e097fd6e646466ba2413ec1"
     },
     {
       "path": "about/index.html",
       "bytes": 41226,
-      "sha256": "28c1170ce4a33fa129b3331d4c47b101b1a0b3a1967dff73a00ac824bd1a1576"
+      "sha256": "785777c0be5f3fd0ebcce31170a176cadf1b084d3ae90a421a94c5df10826909"
     },
     {
       "path": "blog/2026/10/06/business-inquiry-checklist/index.html",
-      "bytes": 42111,
-      "sha256": "28b289f793bf26e88255d02534e5d6a5699f9ef3f8f52bf382bd71c92898be87"
+      "bytes": 41571,
+      "sha256": "a6195cb2028fae92fc813fc4a42ce33ab74512b8175a2d46055e679f19ba9637"
     },
     {
       "path": "blog/2026/10/06/coffee-inquiry-guide/index.html",
-      "bytes": 42219,
-      "sha256": "913bbb4df39e70019d8048f478026170fc4e13965fb16631c1c06eaec96bc216"
+      "bytes": 41663,
+      "sha256": "6373eea36f79334de7fc222b096a4f0fa657dd4de8bcd892a5fd28ae21b723f2"
     },
     {
       "path": "blog/2026/10/06/follow-up-your-inquiry/index.html",
-      "bytes": 42308,
-      "sha256": "61481f1a539d8a80c43df5b279422a2e52ffda590b64c9766efc3f28a0aa0a21"
+      "bytes": 41761,
+      "sha256": "6ed6d0e91919a8e8b57fc725d80b8efb232d7748b617670c8078a29cedf7ba9e"
     },
     {
       "path": "blog/2026/10/08/coffee-roast-grind-and-consistency/index.html",
-      "bytes": 39079,
-      "sha256": "0720fb910ce636357bb995af0f7fd0f561f5c534632289fcdaa532cc56a5ed26"
+      "bytes": 38410,
+      "sha256": "33ff86cda45b2ca8989f1b528001fa2f65923349cdf3b2f5ef2e89342c131f79"
     },
     {
       "path": "blog/2026/10/08/dried-fruits-quality-storage-and-purpose/index.html",
-      "bytes": 38819,
-      "sha256": "92e0d1f4f9a4c7fae8773e01308c3b9658d4b0ea41292777587fededd4288617"
+      "bytes": 38096,
+      "sha256": "fbe2b4337c7a9873ddcedf308e354b0d00b400a148e5f5634d4a0a97a536e779"
     },
     {
       "path": "blog/2026/10/08/legumes-size-cooking-and-storage/index.html",
-      "bytes": 38032,
-      "sha256": "276a5a81fea651ac09d2a9a4870fa1e00d56ad585dda17f0e91bea041167751e"
+      "bytes": 37359,
+      "sha256": "0f0926b5a4b5a75b90bd4fa7ed589cd09fc9a95cb8f60b120f47e23e774d661e"
     },
     {
       "path": "blog/2026/10/08/rice-buying-and-cooking-assessment/index.html",
-      "bytes": 38569,
-      "sha256": "dda64cddab1e56bf7e1e3d34bc06c1305e1dae29ac186c66325b8f03bf0622f9"
+      "bytes": 37898,
+      "sha256": "28db1c1e550dbcbdc321b426573fa7876d43548e55bb10a292ba3214a80f552c"
     },
     {
       "path": "blog/2026/10/08/spices-aroma-grind-and-business-use/index.html",
-      "bytes": 38122,
-      "sha256": "cb8f03106800c45194ad42e1110a2482cea19ac59f76e190571a5773c6e84bf6"
+      "bytes": 37451,
+      "sha256": "099fbd2e473e0faace66e75f8e5aa9fd2378adaa3714686649b42a5b0adc93ba"
     },
     {
       "path": "blog/index.html",
-      "bytes": 44042,
-      "sha256": "4c5156937a2e0455b5a4c6fe8e57a092ef2da02de649105c1d5756e0adab9024"
+      "bytes": 51380,
+      "sha256": "28ec842f5697cc14573fcb697926e72fa27cdebfbefbca9d545e0a2076898319"
     },
     {
       "path": "contact/index.html",
-      "bytes": 44060,
-      "sha256": "628ff6684bb7853d704b24d39c2066a2c5772eb202aac046f11e4717c50112a8"
+      "bytes": 36919,
+      "sha256": "9a777cc0355eaae418b60b24bbd15e4596e2914e1e7ad14ca60062a33c656f68"
     },
     {
       "path": "download/download.js",
       "bytes": 2079,
-      "sha256": "700d325d5305c7b6a4b61b05c6cacf71834db154aee2ddd4a8398509d1625368"
+      "sha256": "d538c07d56cf0249764d71084f86cf5150e3ee3fa8cf1d090019fdc3303b316d"
     },
     {
       "path": "download/index.html",
       "bytes": 2804,
-      "sha256": "bfe2435e090a974b686b1fa441cbdf726e5c2663a5be9ccd964485d58715054a"
+      "sha256": "8ca2fd774e09761cab5536e2eb96d9943b9f6aa53d3b762fd5613c88a9b508ae"
     },
     {
-      "path": "downloads/1.13.0/INSTALL-fa.txt",
+      "path": "downloads/1.14.0/INSTALL-fa.txt",
       "bytes": 4632,
       "sha256": "a19e2b3d080e304c64cc52b66b9ea690f3537d28c2eaa6577bf5b5fac2449028"
     },
     {
-      "path": "downloads/1.13.0/SHA256SUMS.txt",
+      "path": "downloads/1.14.0/SHA256SUMS.txt",
       "bytes": 97,
-      "sha256": "21d3c268fd8be5720f49334395c97f60a12ce085013a9e1512f2af9bca63de61"
+      "sha256": "711703d4254a25c5a3c58d8e693eee4b5eb7e702da96927d0f81495ccdca8c6f"
     },
     {
-      "path": "downloads/1.13.0/manifest.json",
+      "path": "downloads/1.14.0/manifest.json",
       "bytes": 1992,
-      "sha256": "2203f9db0302514dcdd88ba961ea3f0575ebdb5f00674e98a957a32065378172"
+      "sha256": "5d077e3dc37b536d2a886a96731d5989db75bac1a987ea28b71e2c37a95b4e3a"
     },
     {
-      "path": "downloads/1.13.0/part-01.bin",
+      "path": "downloads/1.14.0/part-01.bin",
       "bytes": 16777216,
-      "sha256": "883ddf459691be843d94c7bd78966a162f2cf0cc1c1ba4e803696691ced8e69c"
+      "sha256": "493a30663427087576f414099a482ef258df2501daa9bb0b6c500ff84d08a47a"
     },
     {
-      "path": "downloads/1.13.0/part-02.bin",
+      "path": "downloads/1.14.0/part-02.bin",
       "bytes": 16777216,
-      "sha256": "0619aa62aaf699826c8b657cb8a28fcd31d797d8ec2451086aea0b352b0c3028"
+      "sha256": "9365c4a0437b4d009c94f4e303112a72aeeb2afb2ffcf80a142d88d3e5942839"
     },
     {
-      "path": "downloads/1.13.0/part-03.bin",
+      "path": "downloads/1.14.0/part-03.bin",
       "bytes": 16777216,
-      "sha256": "95ae9511b3c48b026250b327d4ba4f3e1ed2f3784e78c570637c697a6e738138"
+      "sha256": "78d101484f162714586ca13131ffb9b04b73bfc296a05447fcb63cac94cf5a11"
     },
     {
-      "path": "downloads/1.13.0/part-04.bin",
+      "path": "downloads/1.14.0/part-04.bin",
       "bytes": 16777216,
-      "sha256": "8091c8ac4c913d709d69a3519cd17cbcbe5ee8f58a412fc59c66754e73960de2"
+      "sha256": "e4f8a93b4a29ae3c6c121d85c6a13e282e91efd0c2e3678b257066ce41d23f73"
     },
     {
-      "path": "downloads/1.13.0/part-05.bin",
+      "path": "downloads/1.14.0/part-05.bin",
       "bytes": 16777216,
-      "sha256": "b9727ed5a1ce1260ab3399e7ab5f7f36acdb4c0b62507885564e9936d9d90c3e"
+      "sha256": "54ac843c55017e9c91c72d04884f24cfe62d742a0d15e133c07df099c6083dd4"
     },
     {
-      "path": "downloads/1.13.0/part-06.bin",
+      "path": "downloads/1.14.0/part-06.bin",
       "bytes": 16777216,
-      "sha256": "371693b194436bc7cf227614e33c40c9084647a8d468dbfa78f3339b8295799f"
+      "sha256": "a4b4a25cc8ec1855cd1dc4c7ebe9635e95bfd9023ec06585963691daba44afa3"
     },
     {
-      "path": "downloads/1.13.0/part-07.bin",
+      "path": "downloads/1.14.0/part-07.bin",
       "bytes": 16777216,
-      "sha256": "bf6b7a6adf51efb76c715448e714711b8e012ea2985893c690259ac33b62a0cb"
+      "sha256": "04226a75acb6fefe232a095a9e383c771071a0565b2f89d8d3e1c700ca61fe92"
     },
     {
-      "path": "downloads/1.13.0/part-08.bin",
+      "path": "downloads/1.14.0/part-08.bin",
       "bytes": 16777216,
-      "sha256": "71d5478a48ce07cbb33a5c4cfe0903bd4865907e551eeeafd745eba5b31efbdc"
+      "sha256": "81dca50a28cf73a6180287e9e92ad193c72de691a06b6e9c52ea23dfc76448ec"
     },
     {
-      "path": "downloads/1.13.0/part-09.bin",
+      "path": "downloads/1.14.0/part-09.bin",
       "bytes": 16777216,
-      "sha256": "64957797f588460175716f330c199c6e83895cc5a15c57649da5c3d45406ec47"
+      "sha256": "2d2b3a3b61228475f11f36e361b452484ef11da796a2b11321c0703433d9bbce"
     },
     {
-      "path": "downloads/1.13.0/part-10.bin",
+      "path": "downloads/1.14.0/part-10.bin",
       "bytes": 16777216,
-      "sha256": "b7a924a65dde8c74a5fc379a6d74f821bae6bb4c144812b6c507e4c569188f34"
+      "sha256": "4e2826bad3b0436e4358ab478bd2d2a33e22554fdaf74c3fef3af7d4b70c9981"
     },
     {
-      "path": "downloads/1.13.0/part-11.bin",
+      "path": "downloads/1.14.0/part-11.bin",
       "bytes": 16777216,
-      "sha256": "1719ac68fa78f52022fae2be5be29cb73de31478817e39b6ce32da89afc8bbfc"
+      "sha256": "96b7d4cb02bf41fd56343345014460ef5d70063ed3f419434a9c4c92335a93bd"
     },
     {
-      "path": "downloads/1.13.0/part-12.bin",
-      "bytes": 4053729,
-      "sha256": "0aa45057bd9f486c578f10663c9147820303f3966e1c9cc61af7e77bd7fb0a0d"
+      "path": "downloads/1.14.0/part-12.bin",
+      "bytes": 9783913,
+      "sha256": "9735c1b4932f75dbf44d6796302d6f9175f167feb07d04ab33b8cbcafd9fde34"
     },
     {
       "path": "faq/index.html",
       "bytes": 36626,
-      "sha256": "8abeb2c532365239a5431343dea2754f34c2c85f4cfa70558215c36be450b8c7"
+      "sha256": "d75b1bc9b3b5fa67b18980d3117593c8a587e95fc0d88ce75364c11d180de67d"
     },
     {
       "path": "index.html",
-      "bytes": 54305,
-      "sha256": "e524436f506f1d554beb55e8f992ac86f7b872f643c9e631d8b1852dead68940"
+      "bytes": 54686,
+      "sha256": "91d7517ce6fbf9dd4730eaaf7c04197a248cd8a658e02daee472fdce56859207"
     },
     {
       "path": "inquiry/index.html",
-      "bytes": 48955,
-      "sha256": "812954efd13f63a0b317c0cd1bd65acdd2eb07b2a6896a4fad9fb0620aa43ab1"
+      "bytes": 39264,
+      "sha256": "8eb62d21077cded6417b00c131c5357e09911cb4ec09113b1678ce1a82931a0e"
     },
     {
       "path": "media/index.html",
       "bytes": 36662,
-      "sha256": "1aab5459714e283733b3b6bab63337e04a4fec558b78de3fc2def33ed7dccae3"
+      "sha256": "025d112e671863f597268defdec9e83093f323e3feaa570611f4d0bf1733edea"
     },
     {
       "path": "preview-guard.js",
-      "bytes": 706,
-      "sha256": "6de6b9493fc66547647e5ee0d7dfc40292b4595dc018ca07ff0f6c9b442ff8f3"
+      "bytes": 731,
+      "sha256": "64699085623c72760ac0f052afdb0fa1bc684a2dfdc8fee4251b65f45e49edf4"
     },
     {
       "path": "preview-search.js",
@@ -295,62 +295,62 @@
     {
       "path": "privacy/index.html",
       "bytes": 35692,
-      "sha256": "776580299d0cd933804e412b0b2d8236136ce3bbcebbc715c51e0d13996fa7e2"
+      "sha256": "5eed709e12a35dfea429d32d4cde777484525c959e12d45e3f49f63b742315be"
     },
     {
       "path": "products/coffee/index.html",
       "bytes": 40065,
-      "sha256": "3e3c573ca76b1f2a0a2b3cfb81ec61da1f8eb931d2d9a4df7a7c7f1b80b8c09c"
+      "sha256": "450aed694f7d7cea145009fb3f0aba271b24197614db05f7798523e8ee8a6815"
     },
     {
       "path": "products/dried-fruits/index.html",
       "bytes": 40177,
-      "sha256": "30d5a7bbc4c85441feacc08cb687b7b64d03f14dd485fb25eb8ac717af054799"
+      "sha256": "b6d665462fbba19506a5c70c63b7089837db994116cdc5fba47e2d4ae183564a"
     },
     {
       "path": "products/index.html",
       "bytes": 53631,
-      "sha256": "b969052d1235e56ea494228b96efaa14b7fe3bc8ccdf56c1cec90785dff09284"
+      "sha256": "53d6f4ac6ca52b5c89343985339d715c712de31ef94fc18d67305ecebeead83d"
     },
     {
       "path": "products/legumes/index.html",
       "bytes": 40013,
-      "sha256": "ef431a78e9ec1ae1894e80b394d39d40d77a54099943f20b4e7735612e64be56"
+      "sha256": "598f9ff0826b4ff35ba48d22c88f76f33f687f7b2a26ab6c047224984357287c"
     },
     {
       "path": "products/rice/index.html",
       "bytes": 39886,
-      "sha256": "b53481362cdeaf560bd65c289a58dcc0d55e88fef3db95f72383455ede1f88fb"
+      "sha256": "16616471b7bc61ed80bc5b77bed910adb1c8379e3e912bbc530cb2bc3eceb2a7"
     },
     {
       "path": "products/spices/index.html",
       "bytes": 40042,
-      "sha256": "cd314d99a36dff782f93f69060bbadc220dcda0ec77ce5d3a17496f387420b7e"
+      "sha256": "cc63e0c5d952386f3aeffd67ed69708fdb91e6d9ff4d969c678be71dcf460844"
     },
     {
       "path": "public-index.json",
-      "bytes": 164034,
-      "sha256": "4cc465021c77b335be7bcd1f2cdbea9d03e972bbddc38c05dacaaee003a8aa12"
+      "bytes": 154040,
+      "sha256": "09690aa2ee46a40ba67d15150909827576b712caff3a39765186a24e36cf0b52"
     },
     {
       "path": "search/index.html",
       "bytes": 30253,
-      "sha256": "6c32bb6cf90474a3faa80a23e0076aaff53894dc289d2421e14e8b12519b1d33"
+      "sha256": "f3e9b9b9a7e01fd4b3bbe100dd091df59b771247bd04988f99e8064c1133eb24"
     },
     {
       "path": "solutions/b2b-supply/index.html",
       "bytes": 40250,
-      "sha256": "66144d3a1c342eb0570f54b558981d169c31ee82d08350a10919ef472a9ecc07"
+      "sha256": "eba63f07c1b88a43bd7b0c86a64a1379e98b8c82160595689a896d994af00cc4"
     },
     {
       "path": "solutions/index.html",
       "bytes": 49483,
-      "sha256": "5ba841320a317928fd3c4598bc5b113fc4457734e8c33e33e70aa38422b254ee"
+      "sha256": "ba7bf8812cbc14b29689b29054c4e22d45b7b193f254bcc13da2e5bff7438b5f"
     },
     {
       "path": "thank-you/index.html",
       "bytes": 29826,
-      "sha256": "2eba0defe7adfc67e15a705d9a8a67dff551959845687b44b2200f7a948f023f"
+      "sha256": "d07a43bc453586409fa0c4f5f9998826f48d47162274e292c9c08ec6b2313a4e"
     },
     {
       "path": "wp-content/themes/vatan-authority/assets/about/coffee-handling.webp",
@@ -371,6 +371,81 @@
       "path": "wp-content/themes/vatan-authority/assets/about-editorial.css",
       "bytes": 19045,
       "sha256": "71bdad7a682a15e13046f51c94b1e2d076acdffcb6dc9269a76c58147ac1171d"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/approved/article-checklist.webp",
+      "bytes": 220462,
+      "sha256": "62ba2cd25b9d40962c391afb0c7334e55d3c28f7cb20863351016ad97f577ae2"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/approved/article-coffee.webp",
+      "bytes": 213446,
+      "sha256": "ec190fb5c4a8d16a2af8a6f867a2158c3d7337f7e7540afe99df827f1fcdafa5"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/approved/article-follow-up.webp",
+      "bytes": 154662,
+      "sha256": "756fa113ac5a43ff96a89cf1322bdd971bfea0a9c855c64234f251dedc55806b"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/approved/article-inquiry.webp",
+      "bytes": 213850,
+      "sha256": "7a8bc84696c4bd3255e008395b80ffd53d4feb229fc9aa38e858fd05eb94a6b1"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/approved/article-legumes.webp",
+      "bytes": 286476,
+      "sha256": "ba854a7974b7e4bd27e4a066427a67c629119c5b10dcabd42669232d6d4c0a85"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/approved/article-nuts.webp",
+      "bytes": 298054,
+      "sha256": "f03548b41170d3df02824244c2a5fe1e9b776eb82688ce002caaebc615f929bb"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/approved/article-rice.webp",
+      "bytes": 274272,
+      "sha256": "8a170347f134e7e023c4702ecc337e350a069e065549e83b5adb6d60797249b8"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/approved/article-spices.webp",
+      "bytes": 254918,
+      "sha256": "7b331214e2cc6415550f9ebf6ac53dab9ac2bc92ad7d8bfa62d77b0c2890c684"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/approved/contact-hero.webp",
+      "bytes": 278506,
+      "sha256": "e342f163384c26e459ac1b435ead2b9320833ca4f58fea8464aa0302447284c5"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/approved/contact-office.webp",
+      "bytes": 171544,
+      "sha256": "1882bb7e04cdb03471ba22d7dad7fabb584f6ea0aa47b95a5c77d9552c8c436b"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/approved/journal-hero.webp",
+      "bytes": 146418,
+      "sha256": "32215d0ecb67ae2ddf2ae89bfb0ed9f20326c33a500905dac2fdba33590fcd54"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/approved/supply-hero.webp",
+      "bytes": 228814,
+      "sha256": "11eb8ec88ec7e6d97d555d35318b1ca6c916d6aae3974cc5a96ed3d56447d9a7"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/approved-interiors.css",
+      "bytes": 51683,
+      "sha256": "f7f6ee88a4be9a1717f8b3ce09795d553b3e704edf5236f9dbd4b455520c556f"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/approved-interiors.js",
+      "bytes": 6132,
+      "sha256": "7ac9925cb582ced0f967735d5078267a2ae0f9dca24671998a990a5d9a5138b2"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/approved-validation.js",
+      "bytes": 3738,
+      "sha256": "f58c9c5ccdcd250f4683c852f5cfd8a037e9e251255689c307619e21551f51aa"
     },
     {
       "path": "wp-content/themes/vatan-authority/assets/art-direction.css",
@@ -623,6 +698,246 @@
       "sha256": "340d40c518c6d3ec3cbde82d2c9456bd099ae20e503a2fb691349e8f44d77691"
     },
     {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-article-checklist-webp-1280.webp",
+      "bytes": 94318,
+      "sha256": "cf093bdcba2dd0a472fda009eeb18315c90ce2da7484ac54768a8618889d0336"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-article-checklist-webp-240.webp",
+      "bytes": 7192,
+      "sha256": "73a5c044cb994409775f482ff205a7ea8f5c16b5a1fd18785bffefa8b72a56fe"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-article-checklist-webp-480.webp",
+      "bytes": 22084,
+      "sha256": "da610a4b85698b9a898c32b9f9915a4ebfe785d67491302279b331112e7f628e"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-article-checklist-webp-768.webp",
+      "bytes": 45254,
+      "sha256": "03672ab227a772d29c92869b2465168b0629025debeee06138dc2ae6e591a098"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-article-coffee-webp-1280.webp",
+      "bytes": 134246,
+      "sha256": "2c8985f59a4ca04c4baf7e080003c11fd63d923bf753628614c1159aead2b6d2"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-article-coffee-webp-240.webp",
+      "bytes": 11858,
+      "sha256": "c208c0ae6e3299855a92a90c2f34b3b4979afcc2833f10804ec4c0cd62899952"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-article-coffee-webp-480.webp",
+      "bytes": 34450,
+      "sha256": "f4a4cbf5279e5a8d885e7a8e0a4d9e5e8dd70f0ae93f0acfa8f3917c3e59677e"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-article-coffee-webp-768.webp",
+      "bytes": 71000,
+      "sha256": "bb0216c0aa6ab1a901ca23e2848ba657ed76c4b9cd7d1b3d53fdc1fc6e1109e9"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-article-follow-up-webp-1280.webp",
+      "bytes": 106104,
+      "sha256": "b41e3dbc0f52f6247c50d1da86e4be3bd4aab7ac3ed8885d257b7af5af2d1d4f"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-article-follow-up-webp-240.webp",
+      "bytes": 10794,
+      "sha256": "249251e128cabab37ff9b618a8c70dd52ff48ae11ec3dd8dfce3f0bddc671ad8"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-article-follow-up-webp-480.webp",
+      "bytes": 29488,
+      "sha256": "061c883f4d9104d73ffd32d5fc5882ee8ac2895c41981667e253d84e4ecef0fd"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-article-follow-up-webp-768.webp",
+      "bytes": 58278,
+      "sha256": "7a71cc952f9e1f2993fa6811d76848ba87edd7b1bbbea19a0d6a6ba1b67fc5f1"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-article-inquiry-webp-1280.webp",
+      "bytes": 142504,
+      "sha256": "abf60d00b4f95b4dd8c45006eaf808c0fde0fa4a3f2bcc92daa9a6f17e947f9a"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-article-inquiry-webp-240.webp",
+      "bytes": 13416,
+      "sha256": "afe43570b15a8fe87406d40d3fa668a49c8c3b438a8ef7c9457a736f882664b6"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-article-inquiry-webp-480.webp",
+      "bytes": 38344,
+      "sha256": "025d96000002bf081f1905b84812e9b0736916e45e8bd31e3d5e1a19ad8a1b25"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-article-inquiry-webp-768.webp",
+      "bytes": 77232,
+      "sha256": "be5739dc3ae38ff6a1f0b2626341612fe9d82416f58b4dd077d96948f74d34ad"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-article-legumes-webp-1280.webp",
+      "bytes": 180224,
+      "sha256": "d5f62feced3a9ff8171460446e6939f6d3dc885472bcdcf2ee46c0a053a0b042"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-article-legumes-webp-240.webp",
+      "bytes": 13000,
+      "sha256": "14f3e2b5b076b0642330fb1558a2926ca35204f3ba31b4785b4d64aeaeb7be46"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-article-legumes-webp-480.webp",
+      "bytes": 43022,
+      "sha256": "ed833101cff1ada54b325eb986ccf74e7480f065bf06a8dea8d3cd6cc70ec27a"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-article-legumes-webp-768.webp",
+      "bytes": 91102,
+      "sha256": "b0b4ab041c25adec5a949b14d2bc614fe4d4f8f7e75c8a0deb3f0f550fed09b9"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-article-nuts-webp-1280.webp",
+      "bytes": 199230,
+      "sha256": "e4cc0b4d4c74752c629de7dde670f98e6a9e0600b7d6d1b075eb05fd1e2de1db"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-article-nuts-webp-240.webp",
+      "bytes": 14872,
+      "sha256": "20a1415262678dfe0e01f242917991907e979bd4ba357d63524b75bc7d85a56d"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-article-nuts-webp-480.webp",
+      "bytes": 47674,
+      "sha256": "07f214efbab0b56da9ce23557970a6bf21d08fcf77f7d0953b3359f8a79029cf"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-article-nuts-webp-768.webp",
+      "bytes": 104410,
+      "sha256": "f4f2790bb1ed329439e4dc7fee0515dc64ddf7480cf98cbc0dd760853a6a158e"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-article-rice-webp-1280.webp",
+      "bytes": 167958,
+      "sha256": "befecb2d15cde248b24fea8925ca16ca08d7aab194e9b69f68af17d5b6908fb4"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-article-rice-webp-240.webp",
+      "bytes": 12092,
+      "sha256": "e1f46b5deb6c61722a3f160be1089b79327f6a2c9346b3bdd81ca5f87c53685a"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-article-rice-webp-480.webp",
+      "bytes": 38632,
+      "sha256": "da73cb30f88d54c9ba534daeb7d94fbc8861b9465f86301effc5e2ee475159e2"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-article-rice-webp-768.webp",
+      "bytes": 86720,
+      "sha256": "5bc5f232f4fa84b3408e67215bc2e417a7a61e41593b4b9c97b0bbf9bc4fc44d"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-article-spices-webp-1280.webp",
+      "bytes": 168108,
+      "sha256": "ebbf7293fa356ebe4830d253cde931db0811e3949e4ecd73ad69a0cba9e0b7d9"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-article-spices-webp-240.webp",
+      "bytes": 13370,
+      "sha256": "b6574d28d2ca518b25c639b822af1afe63eece35e82c4358914971ee29b54621"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-article-spices-webp-480.webp",
+      "bytes": 40184,
+      "sha256": "9be1149785e0740365a036e36529061ff28a72ef2f58a35e5837c615c7d6dc9f"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-article-spices-webp-768.webp",
+      "bytes": 85846,
+      "sha256": "8a11585a84b7c50ee83b618c065bb5e4692ca30e3a4df36bac92ee9538e8b384"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-contact-hero-webp-1280.webp",
+      "bytes": 116820,
+      "sha256": "ff39925e9dd241492a295aa34487dccd8c2920e67e1005f280565affb05d9148"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-contact-hero-webp-240.webp",
+      "bytes": 5940,
+      "sha256": "45e43579b3b98d5baca9ef9279db62a2ff3938465fe3551bd3ef6f8952015ebf"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-contact-hero-webp-480.webp",
+      "bytes": 20420,
+      "sha256": "7544e87e5afc926cb1623bd3a81b499e3c7a6e591fb80a629080a85f0d31f58a"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-contact-hero-webp-768.webp",
+      "bytes": 48828,
+      "sha256": "7c7eb2702dfd9e25e5a6aa9b251a38b5e217911261f7d27e415ca9830c353029"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-contact-office-webp-1280.webp",
+      "bytes": 93174,
+      "sha256": "bf33ffa167a62499520c05821be8c2bc49f9acac7992fdafc80a79c077ed41d8"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-contact-office-webp-240.webp",
+      "bytes": 7112,
+      "sha256": "cd7e7edb7708a7ebeec8e521a699b428d803d581be36c92cc4d700a8394ead14"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-contact-office-webp-480.webp",
+      "bytes": 21736,
+      "sha256": "5563edfb13a8a9576a3c2490762cfe7fc36c76049b644160d3470d0f1088d113"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-contact-office-webp-768.webp",
+      "bytes": 44678,
+      "sha256": "a8577d060e3c84b925413fe531d395e27dff939a357a5442b3ee7bc3f5e34854"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-journal-hero-webp-1280.webp",
+      "bytes": 91898,
+      "sha256": "86876c6d3a33c212a7c9a6dcecfa3ec0138e88ef08c847984372c150ad7d2743"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-journal-hero-webp-240.webp",
+      "bytes": 8466,
+      "sha256": "7e03e051d2693b4ef18d342f85baced56065ec1fb376f93f670dd1c149b7a5b8"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-journal-hero-webp-480.webp",
+      "bytes": 25050,
+      "sha256": "752b7f72259306742c7e2cc02642d8fade5b025b23950258d51a8bc5724a39b5"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-journal-hero-webp-768.webp",
+      "bytes": 48790,
+      "sha256": "d4d499113442f3a3c54b9e5488f790609abdd9dff2a7952c178bed245e1cfe58"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-supply-hero-webp-1280.webp",
+      "bytes": 109084,
+      "sha256": "5aff87bce7dfb42c437f153a5b84e8a91ed5daafde79ef1113772b4a2f3abca1"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-supply-hero-webp-240.webp",
+      "bytes": 7062,
+      "sha256": "06e9e814defded7265b0c636be127803ce3dc91342dd33716a3dd36ccd15dce3"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-supply-hero-webp-480.webp",
+      "bytes": 22894,
+      "sha256": "1d7e25d5d5f3f5ddae7eca5f9f72c5cd50e7330732f679395282d840cc66afea"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/responsive/approved-supply-hero-webp-768.webp",
+      "bytes": 49168,
+      "sha256": "71e2587ee1ac79f3db0af79c4097d8a593ffa10a3150418a487486facb0446b4"
+    },
+    {
       "path": "wp-content/themes/vatan-authority/assets/responsive/brand-original-png-240.webp",
       "bytes": 9836,
       "sha256": "4d5bb5873721d1f4f210c77d63061f8f606139d2b3189da96eec7baace239dcd"
@@ -739,8 +1054,8 @@
     },
     {
       "path": "wp-content/themes/vatan-authority/assets/responsive/manifest.json",
-      "bytes": 9753,
-      "sha256": "40541b3ad709abb7722f1755b66cb94e80620a2912f77d081c5281d6ffbc6a7c"
+      "bytes": 19149,
+      "sha256": "1b790c751cb27193d4448027c533df43573136160e0d3b13bb5e772eab455b26"
     },
     {
       "path": "wp-content/themes/vatan-authority/assets/responsive/products-coffee-webp-240.webp",
@@ -824,8 +1139,8 @@
     },
     {
       "path": "wp-content/themes/vatan-authority/assets/site-gallery.css",
-      "bytes": 164597,
-      "sha256": "9ab5b4fe030e8d700861e8dce41ea4a8827cac905a6af3dae26baf10b7070967"
+      "bytes": 216096,
+      "sha256": "0a57aad7dcc53bf9d2b14d8fc81081b85b6cf404afd5df49857178e7204bb2b5"
     },
     {
       "path": "wp-content/themes/vatan-authority/assets/site-home.css",
@@ -834,13 +1149,13 @@
     },
     {
       "path": "wp-content/themes/vatan-authority/assets/site-interior.css",
-      "bytes": 148457,
-      "sha256": "2d34a63f1356ac8b546a32e48e44029e36b986dc5f416511515aaaadae342467"
+      "bytes": 199956,
+      "sha256": "4f63a0248980853795608ca796b53214c129a2fd40dfba1776c7cd2ad54ce27b"
     },
     {
       "path": "wp-content/themes/vatan-authority/assets/site.js",
-      "bytes": 3143,
-      "sha256": "5401c6081a7f5aad4f63a6970228fa4838e282521b179b5a3a0ffd76f71b464e"
+      "bytes": 3185,
+      "sha256": "3e1cbd3a64586102e89da9a59afecce92d075ebb450c19f1de1e42218a9b7469"
     },
     {
       "path": "wp-content/themes/vatan-authority/assets/video-hero.css",
@@ -855,13 +1170,13 @@
     {
       "path": "wp-content/themes/vatan-authority/style.css",
       "bytes": 15650,
-      "sha256": "d5ffd3725670fde6b7d817876a54f5e85dbfd674f76883d98a60976f5b903f1c"
+      "sha256": "e0b50a3c51888925f459a68a02a3162aa61d05c85ea64a2161a7d2896acdd08f"
     }
   ],
   "host_package": {
-    "version": "1.13.0",
-    "filename": "Armaghan-WordPress-v1.13.0.zip",
-    "bytes": 188603105,
-    "sha256": "ac57f9fe540f2a918b25dbc4191085c1d3ca3a070438fa8df0fe56f9e7b3142f"
+    "version": "1.14.0",
+    "filename": "Armaghan-WordPress-v1.14.0.zip",
+    "bytes": 194333289,
+    "sha256": "bced854a900999928a65f0f8bf44c90337c1c514d2f7a2852cbc5c6c9de03979"
   }
 }

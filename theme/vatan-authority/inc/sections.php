@@ -46,6 +46,7 @@ function ag_inner_nav($context) {
     echo '</nav>';
 }
 function ag_render_page($context) {
+    if($context==='media'){ag_render_media();return;}
     if(in_array($context,['contact','blog','inquiry'],true)){ag_render_approved($context);return;}
     if($context==='about'){ag_render_about();return;}
     echo '<div class="ag-interior ag-art-page ag-context-'.esc_attr(str_replace(':','-',$context)).'" data-ag-context="'.esc_attr($context).'">';

@@ -26,6 +26,7 @@
  </div>
 <?php if($manifesto['image']||$manifesto['video']){echo '<div class="wrap ag-extra-media">';ag_visual($manifesto);echo '</div>';} ?>
 </section>
+<?php ag_home_media(); ?>
 <?php
 $latest = new WP_Query(['post_type'=>'post','post_status'=>'publish','posts_per_page'=>3]);
 if ($latest->have_posts()):
@@ -58,7 +59,7 @@ $issue_index = 0;
   <div class="home-contact-details" data-home-reveal>
    <div class="home-contact-phone"><span><?php ag_text($contact,'phone_label'); ?></span><a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/','',vatan_option('phone','02191028166'))); ?>" dir="ltr"><?php echo esc_html(vatan_option('phone','02191028166')); ?><span aria-hidden="true">↖</span></a></div>
    <div class="home-contact-address"><span><?php ag_text($contact,'address_label'); ?></span><p><?php echo esc_html(vatan_option('address','تهران، سهروردی شمالی، کوچه زمانی، پلاک ۱۱، ساختمان ایلیا، طبقه ۳، واحد ۹')); ?></p></div>
-   <div class="home-contact-foot"><span class="home-contact-location"><i aria-hidden="true"></i><?php ag_text($contact,'office_label'); ?></span><a href="<?php echo esc_url(vatan_url('contact/')); ?>"><?php ag_text($contact,'address_link_label'); ?> <span aria-hidden="true">←</span></a></div>
+   <div class="home-contact-foot"><span class="home-contact-location"><i aria-hidden="true"></i><?php ag_text($contact,'office_label'); ?></span><a href="<?php echo esc_url(vatan_url('contact/')); ?>"><?php ag_text($contact,'address_link_label'); ?> <span aria-hidden="true">↖</span></a></div>
   </div>
  </div>
 <?php if($contact['image']||$contact['video']){echo '<div class="wrap ag-extra-media">';ag_visual($contact);echo '</div>';} ?>

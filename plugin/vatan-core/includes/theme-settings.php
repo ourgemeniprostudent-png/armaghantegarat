@@ -4,11 +4,12 @@ function vatan_feature_labels(){return [
  'animations'=>'موشن‌های معرفی و صفحات داخلی','home_video'=>'ویدیو خودکار معرفی خانه','home_products'=>'گالری حوزه‌های واردات در خانه','home_cooperation'=>'گالری همکاری در خانه','mobile_cta'=>'دکمه‌های ثابت تماس و استعلام موبایل','article_toc'=>'فهرست مطالعه مقاله',
  'contact_form'=>'فرم کوتاه تماس با دفتر','office_map'=>'نقشه دقیق دفتر با بارگذاری اختیاری',
  'blog_discovery'=>'جستجو و موضوعات مجله','product_filters'=>'جستجو و فیلتر محصولات',
+ 'home_media'=>'معرفی پادکست و رسانه در خانه','media_samples'=>'نمونه‌های نمایشی رسانه؛ فقط پیش از انتشار اپیزود واقعی','media_player_tabs'=>'انتخاب صوت و ویدیو در پخش‌کننده',
  'media_discovery'=>'جستجو و موضوعات رسانه','video_library'=>'کتابخانه ویدیو',
  'related_content'=>'محصولات و مطالب مرتبط','product_gallery'=>'گالری چندعکسی محصول',
  'product_short_form'=>'فرم داخل صفحه محصول','whatsapp'=>'گفتگو در واتس‌اپ',
  'mobile_footer'=>'فوتر بازشونده موبایل','breadcrumbs'=>'مسیر صفحه زیر هدر در صفحات داخلی','transparent_header'=>'هدر شفاف در بالای صفحات داخلی؛ مشکی پس از اسکرول',
- 'warm_pages'=>'ته‌رنگ طلایی در سطوح روشن صفحات','contact_cinematic'=>'معرفی تصویری بزرگ و فرم دو ستونی تماس','maritime_scene'=>'روایت دریایی متحرک در معرفی تماس','seo'=>'متادیتا و داده ساختاریافته'
+ 'warm_pages'=>'ته‌رنگ طلایی در سطوح روشن صفحات','contact_cinematic'=>'معرفی سینمایی تماس در الگوی قدیمی؛ الگوی تاییدشده کنونی از سکشن‌ها مدیریت می‌شود','maritime_scene'=>'صحنه دریایی الگوی قدیمی تماس؛ در طرح تاییدشده کنونی فعال نیست','seo'=>'متادیتا و داده ساختاریافته'
 ];}
 function vatan_feature($key){$saved=get_option('vatan_features',[]);return !array_key_exists($key,(array)$saved)||$saved[$key]==='1';}
 function vatan_brand_accent_sanitize($value){

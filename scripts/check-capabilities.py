@@ -38,8 +38,8 @@ try:
   page.route('**/maps.google.com/**',lambda route:route.fulfill(status=200,body='<p>Map fixture</p>',content_type='text/html'))
   page.locator('[data-map-load]').click();assert '35.7294807434082' in page.locator('iframe').get_attribute('src');assert '51.436744689941406' in page.locator('iframe').get_attribute('src')
   href=page.locator('[data-whatsapp]').first.get_attribute('href');assert 'text=' in href and '%D8' in href
-  page.goto(base+'/blog/');assert page.locator('.home-issue').count()==8
-  page.fill('#discovery-q','اندازه');page.select_option('#discovery-topic','legumes');page.locator('[data-discovery] button[type=submit]').click();page.wait_for_load_state('networkidle');assert page.locator('.home-issue').count()==1
+  page.goto(base+'/blog/');assert page.locator('[data-journal-row]:visible').count()==8
+  page.fill('[data-journal-controls] [name=q]','اندازه');page.select_option('[data-journal-controls] [name=topic]','legumes');page.locator('[data-journal-controls] button[type=submit]').click();page.wait_for_load_state('networkidle');assert page.locator('[data-journal-row]:visible').count()==1
   page.goto(base+'/products/coffee/');page.locator('.ag-spec-filters a').last.click();page.wait_for_load_state('networkidle');assert page.locator('.ag-content-card').count()==1
   page.goto(state['products']['coffee']['url']);assert page.locator('.ag-product-gallery button').count()==2
   page.locator('.ag-product-gallery button').last.click();assert page.locator('.ag-zoom-dialog').evaluate('el=>el.open');page.keyboard.press('Escape');assert not page.locator('.ag-zoom-dialog').evaluate('el=>el.open')
@@ -47,7 +47,7 @@ try:
   page.goto(state['episode']['url']);assert page.locator('.ag-transcript').count()==1 and page.locator('[data-timestamp]').count()==1
   # Audio is loaded by click and the timestamp is respected.
   page.locator('video').evaluate('el=>el.remove()');page.locator('[data-timestamp]').click();page.wait_for_timeout(2500);assert page.locator('audio').evaluate('el=>el.currentTime')>=1
-  page.goto(base+'/contact/?utm_source=qa-source&utm_campaign=qa-campaign');page.fill('#contact-name','آزمون قابلیت جدید');page.fill('#contact-mobile','۰۹۱۲۰۰۰۰۰۰۰');page.fill('#contact-notes','پیام آزمایشی فرم کوتاه');page.check('#contact-consent');page.locator('#contact-form [type=submit]').click();page.wait_for_url('**/thank-you/**');assert page.locator('[data-lead-success]').count()==1
+  page.goto(base+'/contact/?utm_source=qa-source&utm_campaign=qa-campaign');page.fill('#approved-name','آزمون قابلیت جدید');page.fill('#approved-mobile','۰۹۱۲۰۰۰۰۰۰۰');page.fill('#approved-notes','پیام آزمایشی فرم کوتاه');page.select_option('#approved-topic','products');page.check('#approved-consent');page.locator('#contact-form [type=submit]').click();page.wait_for_url('**/thank-you/**');assert page.locator('[data-lead-success]').count()==1
   lead_id=int(wp('$p=get_posts(["post_type"=>"vatan_lead","post_status"=>"private","numberposts"=>1,"meta_key"=>"_vatan_name","meta_value"=>"آزمون قابلیت جدید"]);echo $p[0]->ID;'))
   assert wp(f'echo get_post_meta({lead_id},"_vatan_utm_source",true);')=='qa-source'
   assert wp(f'echo get_post_meta({lead_id},"_vatan_form_kind",true);')=='contact'
@@ -67,10 +67,10 @@ try:
   invalid.update({'name':'آ','mobile':'123','notes':'','consent':''})
   response=page.request.post(base+'/wp-admin/admin-post.php',form=invalid)
   assert response.ok and '/contact/' in response.url and 'form_error=' in response.url
-  page.goto(response.url);assert page.locator('#contact-name').input_value()=='آ'
-  assert page.locator('#contact-mobile').get_attribute('aria-invalid')=='true'
-  assert page.locator('#contact-error-consent').count()==1
-  assert page.locator('.form-status').count()==1
+  page.goto(response.url);assert page.locator('#approved-name').input_value()=='آ'
+  assert page.locator('#approved-mobile').get_attribute('aria-invalid')=='true'
+  assert page.locator('[data-server-errors] a[href="#approved-consent"]').count()==1
+  assert page.locator('[data-server-errors]').count()==1
   # Verify native editing and gallery field persistence using only test posts.
   access=dict(re.findall(r'^(Username|Password): (.*)$',(root/'.runtime/access.txt').read_text(),re.M))
   page.goto(base+'/wp-login.php');page.fill('#user_login',access['Username']);page.fill('#user_pass',access['Password']);page.click('#wp-submit');page.wait_for_url('**/wp-admin/**')
@@ -91,7 +91,8 @@ try:
   b.close()
  print(json.dumps({'views':len(reports),'form':'private contact stored with UTM','gallery':'native edit/save/zoom','media':'timestamps/play/transcript','discovery':'search/topic/spec filters','analytics':'opt-in collector and revocation','js_errors':errors},ensure_ascii=False))
 finally:
- wp('$posts=get_posts(["post_type"=>["vatan_product","vatan_episode","vatan_lead","attachment"],"post_status"=>"any","numberposts"=>-1,"meta_key"=>"_qa_capability","meta_value"=>"1"]);foreach($posts as $p){if($p->post_type==="attachment")wp_delete_attachment($p->ID,true);else wp_delete_post($p->ID,true);}')
+ owned=state['images']+[p['id'] for p in state['products'].values()]+[state['episode']['id']]+([lead_id] if 'lead_id' in locals() else [])
+ wp('foreach('+json.dumps(owned)+' as $id){if(get_post_meta($id,"_qa_capability",true)!=="1")continue;if(get_post_type($id)==="attachment")wp_delete_attachment($id,true);else wp_delete_post($id,true);}')
  for key,value in state['options'].items():
   wp((f'delete_option({json.dumps(key)});' if value is None else f'update_option({json.dumps(key)},json_decode({json.dumps(json.dumps(value))},true));'))
  for key,value in state['counts'].items():wp(f'delete_option({json.dumps(key)});' if value is None else f'update_option({json.dumps(key)},{int(value)});')

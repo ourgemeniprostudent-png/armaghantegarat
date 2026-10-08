@@ -2,14 +2,14 @@
 /**
  * Plugin Name: VATAN Core
  * Description: Product and media management, persistent inquiries and Multisite setup for Armaghan Tejarat Vatan.
- * Version: 1.5.0
+ * Version: 1.6.0
  * Requires at least: 6.6
  * Requires PHP: 8.1
  * Author: VATAN
  * License: GPL-2.0-or-later
  */
 if (!defined('ABSPATH')) exit;
-define('VATAN_CORE_VERSION','1.5.0');
+define('VATAN_CORE_VERSION','1.6.0');
 require_once __DIR__.'/includes/sections.php';
 require_once __DIR__.'/includes/content-models.php';
 require_once __DIR__.'/includes/events.php';
@@ -18,6 +18,7 @@ require_once __DIR__.'/includes/navigation.php';
 function vatan_core_categories(){return ['coffee'=>'قهوه','rice'=>'برنج','dried-fruits'=>'خشکبار','spices'=>'ادویه','legumes'=>'حبوبات'];}
 function vatan_customer_types(){return ['cafe'=>'کافه','restaurant'=>'رستوران','hotel'=>'هتل','organization'=>'سازمان','store'=>'فروشگاه','wholesale'=>'عمده‌فروش / بنکدار','personal'=>'شخصی','other'=>'سایر'];}
 function vatan_core_register(){
+ add_rewrite_rule('^media/sample/([a-z0-9-]+)/?$','index.php?pagename=media&ag_media_sample=$matches[1]','top');
  register_post_type('vatan_product',['labels'=>['name'=>'محصولات وطن','singular_name'=>'محصول','add_new_item'=>'افزودن محصول','edit_item'=>'ویرایش محصول'],'public'=>true,'show_in_rest'=>true,'menu_icon'=>'dashicons-products','has_archive'=>false,'rewrite'=>['slug'=>'products/%vatan_category%','with_front'=>false],'supports'=>['title','editor','excerpt','thumbnail','revisions']]);
  register_taxonomy('vatan_category',['vatan_product'],['labels'=>['name'=>'گروه‌های محصول','singular_name'=>'گروه محصول'],'public'=>true,'hierarchical'=>true,'show_in_rest'=>true,'rewrite'=>['slug'=>'products','with_front'=>false]]);
  register_post_type('vatan_episode',['labels'=>['name'=>'رسانه و پادکست','singular_name'=>'اپیزود','add_new_item'=>'افزودن اپیزود'],'public'=>true,'show_in_rest'=>true,'menu_icon'=>'dashicons-microphone','rewrite'=>['slug'=>'media/podcast','with_front'=>false],'supports'=>['title','editor','excerpt','thumbnail','revisions']]);
@@ -93,7 +94,18 @@ require_once __DIR__.'/includes/inquiry-form.php';
 add_shortcode('vatan_inquiry','vatan_inquiry_form');
 add_action('add_meta_boxes',function(){add_meta_box('vatan-product-specs','مشخصات محصول','vatan_product_fields','vatan_product','normal','high');add_meta_box('vatan-media','فایل رسانه و متن پیاده‌شده','vatan_media_fields','vatan_episode','normal','high');add_meta_box('vatan-lead','اطلاعات و پیگیری درخواست','vatan_lead_fields','vatan_lead','normal','high');});
 function vatan_product_fields($post){wp_nonce_field('vatan_meta','vatan_meta_nonce');$value=get_post_meta($post->ID,'_vatan_specs',true);echo '<p>هر مشخصه در یک خط با جداکننده |؛ فقط اطلاعات تاییدشده.</p><textarea name="vatan_specs" rows="8" style="width:100%" placeholder="خاستگاه | برزیل">'.esc_textarea($value).'</textarea>';echo '<p><label>وضعیت استعلام <input name="vatan_availability" value="'.esc_attr(get_post_meta($post->ID,'_vatan_availability',true)).'" placeholder="برای شرایط تامین استعلام بگیرید"></label></p>';}
-function vatan_media_fields($post){wp_nonce_field('vatan_meta','vatan_meta_nonce');foreach(['audio'=>'نشانی فایل صوتی','video'=>'نشانی فایل ویدیو','duration'=>'مدت اپیزود','transcript'=>'متن پیاده‌شده (متن واقعی)'] as $k=>$label){echo '<p><label>'.esc_html($label).'<br>';if($k==='transcript')echo '<textarea name="vatan_'.$k.'" rows="10" style="width:100%">'.esc_textarea(get_post_meta($post->ID,'_vatan_'.$k,true)).'</textarea>';else echo '<input style="width:100%" name="vatan_'.$k.'" value="'.esc_attr(get_post_meta($post->ID,'_vatan_'.$k,true)).'">';echo '</label></p>';}}
+function vatan_media_fields($post){
+ wp_nonce_field('vatan_meta','vatan_meta_nonce');
+ foreach(['audio'=>'فایل صوتی','video'=>'فایل ویدیو','duration'=>'مدت اپیزود','transcript'=>'متن پیاده‌شده (متن واقعی)'] as $k=>$label){
+  $id='vatan-media-'.$k;$value=get_post_meta($post->ID,'_vatan_'.$k,true);echo '<p><label for="'.esc_attr($id).'">'.esc_html($label).'</label><br>';
+  if($k==='transcript')echo '<textarea id="'.esc_attr($id).'" name="vatan_'.$k.'" rows="10" style="width:100%">'.esc_textarea($value).'</textarea>';
+  else echo '<input id="'.esc_attr($id).'" style="width:100%" name="vatan_'.$k.'" value="'.esc_attr($value).'" '.(in_array($k,['audio','video'],true)?'type="url" dir="ltr"':'').'>';
+  if(in_array($k,['audio','video'],true))echo '<button type="button" class="button" data-vatan-file="'.esc_attr($id).'" data-file-type="'.esc_attr($k).'">انتخاب یا بارگذاری '.esc_html($label).'</button> <button type="button" class="button-link" data-vatan-file-clear="'.esc_attr($id).'">حذف فایل</button><small data-vatan-file-preview="'.esc_attr($id).'"></small>';
+  echo '</p>';
+ }
+ echo '<p class="description">فایل‌ها بدون تبدیل یا تغییر کیفیت ذخیره می‌شوند. بارگذاری به محدودیت حجم هاست وابسته است؛ نشانی مستقیم یک فایل میزبانی‌شده هم پذیرفته می‌شود. پخش با انتخاب بازدیدکننده آغاز می‌شود.</p>';
+}
+
 function vatan_lead_fields($post){if(!current_user_can('manage_options'))return;wp_nonce_field('vatan_meta','vatan_meta_nonce');echo '<table class="widefat striped">';$labels=['reference'=>'کد پیگیری','name'=>'نام','mobile'=>'موبایل','company'=>'مجموعه','city'=>'شهر','customer_type'=>'نوع مشتری','category'=>'گروه محصول','product'=>'محصول','quantity'=>'مقدار','quantity_unit'=>'واحد مقدار','delivery_time'=>'زمان تحویل','packaging'=>'بسته‌بندی','topic'=>'موضوع پیام','notes'=>'توضیحات','preferred_time'=>'زمان تماس','product_id'=>'شناسه محصول','form_kind'=>'نوع فرم','source_url'=>'صفحه مبدا','utm_source'=>'منبع ورودی','utm_medium'=>'رسانه ورودی','utm_campaign'=>'کمپین','utm_term'=>'واژه ورودی','utm_content'=>'محتوای ورودی','consent_at'=>'زمان رضایت'];foreach($labels as $k=>$l){$v=get_post_meta($post->ID,'_vatan_'.$k,true);if($k==='category')$v=vatan_core_categories()[$v]??$v;if($k==='quantity_unit')$v=['kg'=>'کیلوگرم','ton'=>'تن','package'=>'بسته'][$v]??$v;if($k==='topic')$v=['general'=>'پرسش عمومی','products'=>'پرسش درباره محصولات','cooperation'=>'همکاری تجاری','follow-up'=>'پیگیری درخواست قبلی','other'=>'سایر موضوعات'][$v]??$v;if($k==='customer_type')$v=vatan_customer_types()[$v]??$v;echo '<tr><th>'.esc_html($l).'</th><td style="white-space:pre-wrap">'.esc_html($v).'</td></tr>';}echo '</table><p><label>وضعیت پیگیری <select name="vatan_status">';foreach(['new'=>'جدید','contacted'=>'تماس گرفته شد','proposal'=>'پیشنهاد ارایه شد','closed'=>'بسته شد'] as $k=>$l)echo '<option value="'.esc_attr($k).'" '.selected(get_post_meta($post->ID,'_vatan_status',true),$k,false).'>'.esc_html($l).'</option>';echo '</select></label></p><p><label>یادداشت داخلی<br><textarea name="vatan_internal_notes" rows="5" style="width:100%">'.esc_textarea(get_post_meta($post->ID,'_vatan_internal_notes',true)).'</textarea></label></p>';}
 add_action('save_post',function($id,$post){if(defined('DOING_AUTOSAVE')&&DOING_AUTOSAVE)return;if(wp_is_post_revision($id)||!isset($_POST['vatan_meta_nonce'])||!wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['vatan_meta_nonce'])),'vatan_meta')||!current_user_can('edit_post',$id))return;
  if($post->post_type==='vatan_product'){foreach(['specs','availability'] as $k)if(isset($_POST['vatan_'.$k])&&!is_array($_POST['vatan_'.$k]))update_post_meta($id,'_vatan_'.$k,sanitize_textarea_field(wp_unslash($_POST['vatan_'.$k])));}

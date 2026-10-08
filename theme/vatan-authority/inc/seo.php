@@ -1,6 +1,7 @@
 <?php
 if(!defined('ABSPATH'))exit;
 function ag_seo_description(){
+ if($key=ag_media_sample_key())return ag_media_samples()[$key]['body']??'';
  $id=get_queried_object_id();$custom=is_singular()?get_post_meta($id,'_vatan_seo_description',true):'';if($custom)return $custom;
  if(is_front_page())return 'ارمغان تجارت وطن؛ واردات مستقیم و تامین عمده قهوه، برنج، خشکبار، ادویه و حبوبات. شناخت محصول و ثبت درخواست همکاری.';
  if(is_tax('vatan_category')){$s=ag_section('hero','category:'.get_queried_object()->slug);return wp_strip_all_tags($s['body']);}

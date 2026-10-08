@@ -17,6 +17,7 @@ function ag_approved_form_state($context){
 function ag_approved_hidden($context,$data){
     $key=$data['request_key']??'';if(!preg_match('/^[a-zA-Z0-9]{32,64}$/D',$key))$key=wp_generate_password(40,false,false);
     $values=['action'=>'vatan_inquiry','form_kind'=>$context==='contact'?'contact':'inquiry','form_edition'=>'approved','request_key'=>$key,'customer_type'=>'other','product_id'=>$data['product_id']??0,'source_url'=>$data['source_url']??home_url('/'.$context.'/')];
+    if($context==='inquiry')unset($values['customer_type']);
     foreach(['utm_source','utm_medium','utm_campaign','utm_term','utm_content'] as $k)$values[$k]=$data[$k]??'';
     $out=wp_nonce_field('vatan_inquiry','vatan_nonce',true,false);
     foreach($values as $k=>$v)$out.='<input type="hidden" name="'.esc_attr($k).'" value="'.esc_attr($v).'">';
@@ -37,10 +38,10 @@ function ag_approved_restore($html,$data,$errors){
 }
 function ag_render_approved($context){
     [$data,$errors]=ag_approved_form_state($context);$phone=vatan_option('phone');$address=vatan_option('address');
-    echo '<div class="at-approved at-approved-'.esc_attr($context==='blog'?'journal':$context).'">';
+    echo '<div class="at-approved at-approved-'.esc_attr($context==='blog'?'journal':$context).(!vatan_feature('warm_pages')?' at-neutral':'').'">';
     echo '<svg width="0" height="0" aria-hidden="true" style="position:absolute"><symbol id="approved-arrow" viewBox="0 0 24 24"><path d="M20 20 4 4M4 20V4H20" fill="none" stroke="currentColor" stroke-width="1.4"/></symbol></svg>';
     foreach(ag_sections($context) as $id=>$section){
-        if($section['layout']!=='approved')continue;
+        if($section['layout']!=='approved'||($context==='contact'&&$id==='short-form'&&!vatan_feature('contact_form')))continue;
         $file=__DIR__.'/approved/'.$context.'-'.$id.'.html';if(!is_file($file))continue;$s=$section['values'];
         $markup=str_replace('href="#arrow"','href="#approved-arrow"',file_get_contents($file));
         $markup=preg_replace_callback('/\{\{([a-z]+):([a-z0-9_-]+)\}\}/',function($m)use($s,$context,$data,$errors,$phone,$address){
@@ -49,11 +50,14 @@ function ag_render_approved($context){
             if($kind==='media')return esc_url(ag_media_url(($key==='image'&&!empty($s['background_image']))?$s['background_image']:($s[$key]??'')));
             if($kind==='link')return esc_url(ag_link($s[$key]??''));
             if($kind==='value')return esc_attr($data[$key]??'');
-            if($kind==='global'){return match($key){'phone'=>esc_html(vatan_digits_fa($phone)),'tel'=>esc_url('tel:'.preg_replace('/[^+0-9]/','',$phone)),'address'=>esc_html($address),'map'=>esc_url('https://www.google.com/maps/search/?api=1&query='.rawurlencode($address)),default=>''};}
-            if($kind==='native'){return match($key){'action'=>esc_url(admin_url('admin-post.php')),'privacy'=>esc_url(home_url('/privacy/')),'fields'=>ag_approved_hidden($context,$data).ag_approved_errors($errors),'journal'=>ag_approved_journal($s),default=>''};}
+            if($kind==='global'){return match($key){'phone'=>esc_html(vatan_digits_fa($phone)),'tel'=>esc_url('tel:'.preg_replace('/[^+0-9]/','',$phone)),'address'=>esc_html($address),'map'=>esc_url('https://www.google.com/maps/search/?api=1&query='.rawurlencode(get_option('vatan_map_latitude','35.7294807434082').','.get_option('vatan_map_longitude','51.436744689941406'))),default=>''};}
+            if($kind==='native'){return match($key){'action'=>esc_url(admin_url('admin-post.php')),'privacy'=>esc_url(home_url('/privacy/')),'fields'=>ag_approved_hidden($context,$data).ag_approved_errors($errors),'journal'=>ag_approved_journal($s),'featuredurl'=>esc_url(get_permalink(get_page_by_path('coffee-roast-grind-and-consistency',OBJECT,'post')?:get_posts(['post_type'=>'post','numberposts'=>1])[0]??0)),default=>''};}
             return '';
         },$markup);
+        if(!vatan_feature('breadcrumbs'))$markup=preg_replace('~<nav\b[^>]*class="[^"]*path[^"]*"[^>]*>.*?</nav>~su','',$markup);
+        if($context==='contact'&&!vatan_feature('contact_form'))$markup=str_replace('href="#message"','href="#office"',$markup);
         echo ag_approved_restore($markup,$data,$errors);
+        if($context==='contact'&&$id==='office'){echo '<div class="wrap am-map-wrap">';ag_office_map(['address_label'=>$s['map_title'],'map_note'=>$s['map_note'],'map_load_label'=>$s['map_load_label'],'map_label'=>$s['map_label'],'map_privacy'=>$s['map_privacy']]);foreach(['public_email','hours'] as $key){$value=vatan_option($key);if($value)echo '<p>'.esc_html($value).'</p>';}ag_whatsapp();echo '</div>';}
         if(!empty($s['video']))ag_video($s,'optional-video');
         // Optional media on typographic sections remains editable without adding stock imagery.
         if(!str_contains($markup,'class="scene"')&&!str_contains($markup,'class="feature-photo"')&&!empty($s['image']))echo '<img class="optional-image" '.ag_image_attrs(ag_media_url($s['image']),'90vw',1280).' alt="'.esc_attr($s['alt']??'').'" loading="lazy">';
@@ -77,9 +81,11 @@ function ag_approved_journal($s){
         echo '<label class="search-field">'.esc_html($s['topic_label']??'موضوع').'<select name="topic" aria-label="'.esc_attr($s['topic_label']??'موضوع مقاله').'"><option value="">'.esc_html($s['all_label']??'همه مقاله‌ها').'</option>';
         foreach(get_terms(['taxonomy'=>'vatan_topic','hide_empty'=>true]) as $t)echo '<option value="'.esc_attr($t->slug).'" '.selected($topic,$t->slug,false).'>'.esc_html($t->name).'</option>';echo '</select></label></div><label class="search-field">'.esc_html($s['search_label']??'جستجو').'<input name="q" value="'.esc_attr($term).'" placeholder="'.esc_attr($s['search_hint']??'عنوان یا موضوع مقاله').'" type="search"></label><button type="submit">'.esc_html($s['search_button']??'جستجو').'</button></form>';
     }
-    echo '<p class="small-note" data-journal-count role="status" aria-live="polite"></p><div class="article-list" data-journal-list>';
+    $matches=[];foreach($posts as $p){$slugs=wp_get_post_terms($p->ID,'vatan_topic',['fields'=>'slugs']);if(!vatan_feature('blog_discovery')||((!$topic||in_array($topic,$slugs,true))&&(!$term||mb_stripos($p->post_title.' '.get_the_excerpt($p),$term)!==false)))$matches[]=$p->ID;}
+    $page=max(1,min((int)ceil(count($matches)/9)?:1,absint(ag_query_value('archive_page',8))?:1));$visible=array_slice($matches,($page-1)*9,9);
+    echo '<p class="small-note" data-journal-count role="status" aria-live="polite">'.esc_html(vatan_digits_fa(count($matches))).' مقاله</p><div class="article-list" data-journal-list>';
     foreach($posts as $p){$terms=wp_get_post_terms($p->ID,'vatan_topic');$slugs=wp_list_pluck($terms,'slug');$names=wp_list_pluck($terms,'name');$url=get_permalink($p);$image=ag_approved_article_image($p);
-        echo '<article '.((vatan_feature('blog_discovery')&&(($topic&&!in_array($topic,$slugs,true))||($term&&mb_stripos($p->post_title.' '.get_the_excerpt($p),$term)===false)))?'hidden ':'').'class="article-row" data-journal-row data-topics="'.esc_attr(implode(' ',$slugs)).'" data-search="'.esc_attr($p->post_title.' '.get_the_excerpt($p)).'"><a class="article-cover" href="'.esc_url($url).'" aria-label="'.esc_attr($p->post_title).'"><img class="article-thumbnail" '.ag_image_attrs($image,'(max-width:760px) 105px,190px',240).' alt="'.esc_attr($p->post_title).'" loading="lazy"></a><div><h3 class="article-title"><a href="'.esc_url($url).'">'.esc_html($p->post_title).'</a></h3><p>'.esc_html(get_the_excerpt($p)).'</p></div><div class="meta"><span>'.esc_html(implode(' / ',$names)).'</span><br><span>'.esc_html(vatan_digits_fa(max(1,(int)ceil(count(preg_split('/\s+/u',wp_strip_all_tags($p->post_content)))/180)))).' '.esc_html($s['minutes_label']??'دقیقه مطالعه').'</span></div><a class="read-icon" href="'.esc_url($url).'" aria-label="'.esc_attr(($s['read_label']??'خواندن مقاله').' '.$p->post_title).'"><svg class="arrow" aria-hidden="true"><use href="#approved-arrow"/></svg></a></article>';
+        echo '<article '.(!in_array($p->ID,$visible,true)?'hidden ':'').'class="article-row" data-journal-row data-topics="'.esc_attr(implode(' ',$slugs)).'" data-search="'.esc_attr($p->post_title.' '.get_the_excerpt($p)).'"><a class="article-cover" href="'.esc_url($url).'" aria-label="'.esc_attr($p->post_title).'"><img class="article-thumbnail" '.ag_image_attrs($image,'(max-width:760px) 105px,190px',240).' alt="'.esc_attr($p->post_title).'" loading="lazy"></a><div><h3 class="article-title"><a href="'.esc_url($url).'">'.esc_html($p->post_title).'</a></h3><p>'.esc_html(get_the_excerpt($p)).'</p></div><div class="meta"><span>'.esc_html(implode(' / ',$names)).'</span><br><span>'.esc_html(vatan_digits_fa(max(1,(int)ceil(count(preg_split('/\s+/u',wp_strip_all_tags($p->post_content)))/180)))).' '.esc_html($s['minutes_label']??'دقیقه مطالعه').'</span></div><a class="read-icon" href="'.esc_url($url).'" aria-label="'.esc_attr(($s['read_label']??'خواندن مقاله').' '.$p->post_title).'"><svg class="arrow" aria-hidden="true"><use href="#approved-arrow"/></svg></a></article>';
     }
-    echo '</div><p class="status" data-journal-empty hidden>'.esc_html($s['empty_label']??'مقاله‌ای با این جستجو پیدا نشد.').'</p>';return ob_get_clean();
+    echo '</div><nav class="ag-pagination" data-journal-pages aria-label="صفحه‌های مجله">'.paginate_links(['base'=>str_replace('999999999','%#%',add_query_arg('archive_page',999999999,home_url('/blog/'))),'total'=>(int)ceil(count($matches)/9),'current'=>$page,'add_args'=>array_filter(['q'=>$term,'topic'=>$topic]),'prev_text'=>'قبلی','next_text'=>'بعدی']).'</nav><p class="status" data-journal-empty '.(count($matches)?'hidden':'').'>'.esc_html($s['empty_label']??'مقاله‌ای با این جستجو پیدا نشد.').'</p>';return ob_get_clean();
 }

@@ -12,7 +12,7 @@ function ag_detail_section($id,$context){
 function ag_whatsapp($title='', $url=''){
  if(!vatan_feature('whatsapp'))return;$link=vatan_whatsapp_url($title,$url);if($link)echo '<a class="home-route-link" data-whatsapp href="'.esc_url($link).'" target="_blank" rel="noopener">گفتگو در واتس‌اپ <span aria-hidden="true">↖</span></a>';
 }
-function ag_current_url(){return is_tax('vatan_category')?get_term_link(get_queried_object()):(is_home()?get_permalink((int)get_option('page_for_posts')):(is_singular()?get_permalink():home_url('/')));}
+function ag_current_url(){if(ag_media_sample_key())return ag_media_sample_url(ag_media_sample_key());return is_tax('vatan_category')?get_term_link(get_queried_object()):(is_home()?get_permalink((int)get_option('page_for_posts')):(is_singular()?get_permalink():home_url('/')));}
 function ag_discovery($layout,$context,$s){
  $catalog=$layout==='catalog';$type=$catalog?'vatan_product':($layout==='articles'?'post':'vatan_episode');$search=ag_query_value('q');$topic=$catalog?'':ag_topic();$sort=ag_query_value('sort');if(!in_array($sort,['newest','oldest','title'],true))$sort='newest';
  $enabled=vatan_feature($catalog?'product_filters':($layout==='articles'?'blog_discovery':'media_discovery'));
@@ -71,11 +71,18 @@ function ag_featured_media($s){
  echo '</section>';wp_reset_postdata();
 }
 function ag_episode_player($id){
- $video=get_post_meta($id,'_vatan_video',true);$audio=get_post_meta($id,'_vatan_audio',true);$captions=get_post_meta($id,'_vatan_captions',true);
- if($video){echo '<video class="ag-video" data-episode-player controls playsinline preload="none" poster="'.esc_url(get_the_post_thumbnail_url($id,'large')?:'').'" src="'.esc_url($video).'">';if($captions)echo '<track kind="captions" srclang="fa" label="فارسی" src="'.esc_url($captions).'">';echo '</video>';}
- if($audio)echo '<audio class="media-player" data-episode-player controls preload="none" src="'.esc_url($audio).'">مرورگر شما پخش صوت را پشتیبانی نمی‌کند.</audio>';
- if(!$video&&!$audio)echo '<p>فایل پخش برای این گفتگو هنوز منتشر نشده است.</p>';
+ $video=get_post_meta($id,'_vatan_video',true);$audio=get_post_meta($id,'_vatan_audio',true);$captions=get_post_meta($id,'_vatan_captions',true);$types=[];
+ if($audio)$types['audio']='صوت';if($video)$types['video']='ویدیو';
+ if(!$types){echo '<p>فایل پخش برای این گفتگو هنوز منتشر نشده است.</p>';return;}
+ $uid=wp_unique_id('episode-player-');$tabs=count($types)>1&&vatan_feature('media_player_tabs');echo '<div class="am-players" '.($tabs?'data-media-tabs':'').'>';
+ if($tabs){echo '<div class="am-player-tabs" role="tablist" aria-label="نوع پخش">';foreach($types as $kind=>$label)echo '<button type="button" id="'.esc_attr($uid.'tab-'.$kind).'" role="tab" aria-controls="'.esc_attr($uid.$kind).'" aria-selected="false">'.esc_html($label).'</button>';echo '</div>';}
+ foreach($types as $kind=>$label){echo '<div id="'.esc_attr($uid.$kind).'" data-media-panel '.($tabs?'role="tabpanel" aria-labelledby="'.esc_attr($uid.'tab-'.$kind).'"':'').'>';
+ if($kind==='video'){echo '<video class="ag-video" data-episode-player controls playsinline preload="none" aria-label="پخش ویدیو گفتگو" poster="'.esc_url(get_the_post_thumbnail_url($id,'large')?:'').'" src="'.esc_url($video).'">';if($captions)echo '<track kind="captions" srclang="fa" label="فارسی" src="'.esc_url($captions).'">';echo '</video>';}
+ else echo '<audio class="media-player" data-episode-player controls preload="none" aria-label="پخش صوت گفتگو" src="'.esc_url($audio).'">مرورگر شما پخش صوت را پشتیبانی نمی‌کند.</audio>';
+ echo '</div>';}
+ echo '</div>';
 }
+
 function ag_product_gallery($id){
  if(!vatan_feature('product_gallery'))return;$ids=vatan_gallery_ids(get_post_meta($id,'_vatan_gallery',true));$cover=get_post_thumbnail_id($id);if($cover)$ids=array_values(array_unique(array_merge([$cover],$ids)));if(!$ids)return;
  echo '<div class="ag-product-gallery" aria-label="تصاویر محصول">';foreach($ids as $index=>$image){$alt=get_post_meta($image,'_wp_attachment_image_alt',true)?:get_the_title($id).' / تصویر '.($index+1);echo '<button type="button" data-ag-zoom aria-label="'.esc_attr('نمای بزرگ '.$alt).'">'.wp_get_attachment_image($image,'large',false,['alt'=>$alt,'loading'=>'lazy','sizes'=>'(max-width:767px) 85vw, 460px']).'</button>';}echo '</div>';

@@ -7,6 +7,8 @@ root=Path(__file__).resolve().parent.parent
 url=(root/'.runtime/site-url.txt').read_text().strip()
 routes=['/','/products/','/products/coffee/','/products/rice/','/products/dried-fruits/','/products/spices/','/products/legumes/','/solutions/','/solutions/b2b-supply/','/thank-you/','/about/','/contact/','/inquiry/','/media/','/blog/','/faq/','/privacy/','/search/','/blog/2026/10/06/follow-up-your-inquiry/','/blog/2026/10/06/business-inquiry-checklist/','/blog/2026/10/06/coffee-inquiry-guide/']
 routes += ['/blog/2026/10/08/'+g['slug']+'/' for g in json.loads((root/'content/editorial/guides-fa.json').read_text())]
+media_html=urlopen(url+'/media/').read().decode()
+routes+=sorted(set(re.findall(r'/media/sample/[a-z0-9-]+/',media_html)))
 results=[]
 for route in routes:
  with urlopen(url+route,timeout=20) as r:
@@ -19,7 +21,7 @@ for route in routes:
    lower=page[page.index('id="home-about"'):page.index('</main>')]
    assert not re.search(r'href="[^"]*/inquiry/',lower), 'Duplicate lower-home inquiry CTA'
   results.append({'route':route,'status':r.status})
-for route in ['/wp-content/themes/vatan-authority/assets/site-home.css','/wp-content/themes/vatan-authority/assets/site-interior.css','/wp-content/themes/vatan-authority/assets/site-gallery.css','/wp-content/themes/vatan-authority/assets/capabilities.js','/wp-content/themes/vatan-authority/assets/responsive/manifest.json','/wp-content/themes/vatan-authority/assets/interior.css','/wp-content/themes/vatan-authority/assets/interior.js','/wp-content/themes/vatan-authority/assets/home-story.css','/wp-content/themes/vatan-authority/assets/home-story.js','/wp-content/themes/vatan-authority/assets/cooperation/shipping.webp','/wp-content/themes/vatan-authority/assets/fonts/PeydaWebFaNum-Regular.woff2']:
+for route in ['/wp-content/themes/vatan-authority/assets/site-home.css','/wp-content/themes/vatan-authority/assets/site-interior.css','/wp-content/themes/vatan-authority/assets/site-gallery.css','/wp-content/themes/vatan-authority/assets/capabilities.js','/wp-content/themes/vatan-authority/assets/media-library.js','/wp-content/themes/vatan-authority/assets/podcasts/studio.webp','/wp-content/themes/vatan-authority/assets/responsive/manifest.json','/wp-content/themes/vatan-authority/assets/interior.css','/wp-content/themes/vatan-authority/assets/interior.js','/wp-content/themes/vatan-authority/assets/home-story.css','/wp-content/themes/vatan-authority/assets/home-story.js','/wp-content/themes/vatan-authority/assets/cooperation/shipping.webp','/wp-content/themes/vatan-authority/assets/fonts/PeydaWebFaNum-Regular.woff2']:
  with urlopen(url+route,timeout=20) as r:assert r.status==200 and len(r.read())>0,route
 for filename in ['hero-h264.mp4','hero-av1.mp4']:
  req=Request(url+'/wp-content/themes/vatan-authority/assets/media/'+filename,method='HEAD')

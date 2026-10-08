@@ -1,6 +1,8 @@
 (()=>{'use strict';document.addEventListener('click',event=>{
+ const clear=event.target.closest('[data-vatan-file-clear]');if(clear){const input=document.getElementById(clear.dataset.vatanFileClear);if(input){input.value='';input.dispatchEvent(new Event('change',{bubbles:true}));}return;}
+ const pick=event.target.closest('[data-vatan-file]');if(pick&&window.wp?.media){const input=document.getElementById(pick.dataset.vatanFile),frame=wp.media({title:'انتخاب یا بارگذاری فایل رسانه',library:{type:pick.dataset.fileType},multiple:false,button:{text:'انتخاب فایل'}});frame.on('select',()=>{input.value=frame.state().get('selection').first().toJSON().url;input.dispatchEvent(new Event('change',{bubbles:true}));});frame.open();return;}
  const button=event.target.closest('[data-vatan-gallery]');if(!button||!window.wp?.media)return;
  const input=document.getElementById(button.dataset.vatanGallery),frame=wp.media({title:'تصاویر واقعی محصول',library:{type:'image'},multiple:true,button:{text:'ذخیره ترتیب گالری'}});
  frame.on('open',()=>{const selection=frame.state().get('selection');input.value.split(',').map(Number).filter(Boolean).forEach(id=>selection.add(wp.media.attachment(id)))});
  frame.on('select',()=>{const files=frame.state().get('selection').toJSON();input.value=files.map(f=>f.id).join(',');const preview=document.querySelector('[data-gallery-preview]');preview.replaceChildren();files.forEach(f=>{const image=document.createElement('img');image.src=f.sizes?.thumbnail?.url||f.url;image.alt=f.alt||'';image.width=80;image.height=80;preview.append(image)})});frame.open();
-})})();
+});document.querySelectorAll('[data-vatan-file-preview]').forEach(preview=>{const input=document.getElementById(preview.dataset.vatanFilePreview);const show=()=>{preview.textContent=input.value?'فایل انتخاب‌شده: '+input.value.split('/').pop().split('?')[0]:'فایلی انتخاب نشده است.';};input.addEventListener('change',show);show();});})();

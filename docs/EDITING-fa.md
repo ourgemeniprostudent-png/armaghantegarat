@@ -97,7 +97,7 @@ python3 scripts/check-capabilities.py
 لینک دریافت بسته در پیش‌نمایش: https://ourgemeniprostudent-png.github.io/armaghantegarat/download/ . دکمه دریافت، صحت فایل کامل را پیش از ذخیره ZIP با SHA-256 بررسی می‌کند. برای افزودن بسته به خروجی پیش‌نمایش تازه:
 
 ```bash
-python3 scripts/build-preview-download.py --archive .runtime/host-release-new/Armaghan-WordPress-v1.12.0.zip --preview .runtime/preview-new
+python3 scripts/build-preview-download.py --archive .runtime/host-release-new/Armaghan-WordPress-v1.12.1.zip --preview .runtime/preview-new
 ```
 
 پس از بازبینی خروجی عمومی و ثبت تغییرات منبع در Git، برای انتشار همان خروجی تاییدشده:
@@ -131,3 +131,5 @@ python3 scripts/publish-preview.py --preview .runtime/preview-new
 در سکشن معرفی تماس، درباره، همکاری، تامین عمده و رسانه، فیلد «تصویر پس‌زمینه سرتاسری» اضافه شده است. خالی‌بودن این فیلد از تصویر معرفی استفاده می‌کند؛ برای حذف هر دو، هر دو فیلد را خالی کنید. ویدیو اختیاری همچنان با کنترل پخش در دسترس است. متن، تصویر محصول تماس، شماره، منو و فوتر از همان ویرایشگرها و تنظیمات بومی تغییر می‌کنند.
 
 فرم تامین همان ثبت خصوصی معتبر را با چیدمان تازه نمایش می‌دهد. پیام موفق و کد پیگیری پس از ثبت واقعی ساخته می‌شوند. در GitHub، فرم صرفا پیش‌نمایش است و چیزی ثبت نمی‌کند.
+
+در نسخه ۱.۱۲.۱، دورخط واژه نخست جمله بزرگ خانه («تجارت») استثنای طلایی است و از رنگ طلایی تنظیمات قالب پیروی می‌کند.

@@ -52,3 +52,10 @@ This repository contains the approved WordPress implementation transferred from 
 - Hero backgrounds use native `background_image` fields (empty falls back to section image); preserve editor metadata and video controls.
 
 - From 1.12.1 the outlined first word («تجارت») of the home manifesto is an explicit gold exception, using the native gold palette setting. Preserve this exception when changing burgundy styles.
+
+## Approved About page 1.13
+
+- The owner approved the standalone realistic About prototype and asked to integrate it into WordPress. `inc/about-editorial.php` renders eight native editable sections; `assets/about-editorial.css` is scoped to `.at-about`. Preserve the full viewport photographic opening with overlaid Persian copy, broad photographic stories, gold-tinted reading surfaces, product accordions, principles, process and office contact.
+- `assets/about/` contains the three owner-approved newly generated realistic illustrations dedicated to About. Two include anonymous workers as part of the approved composition; this is the explicit exception to the earlier no-people rule. They are not actual staff or owned facilities, and the editable image disclosure must remain accurate. New pages should have their own relevant imagery, rather than reusing the About pictures or the old ship/scale scenes.
+- Shared header: transparent at the top on all public pages, black after scroll or while the mobile menu is open. The existing home video logic controls the same header state for every page. `assets/shared-header.css` is appended last to all three bundles. The native `transparent_header` setting switches the interior header behavior; the approved home remains unchanged.
+- Future Contact, Journal and other redesigns are reviewed as separate standalone prototypes before integration. This release does not redesign those pages.

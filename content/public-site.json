@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_theme_version": "1.10.3",
+  "source_theme_version": "1.13.0",
   "site": {
     "blogname": "ارمغان تجارت وطن",
     "blogdescription": "",
@@ -82,7 +82,7 @@
       "ID": 9,
       "post_type": "page",
       "post_name": "about",
-      "post_title": "درباره وطن",
+      "post_title": "درباره ما",
       "post_content": "",
       "post_excerpt": "",
       "post_parent": 0,

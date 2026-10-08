@@ -8,6 +8,7 @@ require_once __DIR__.'/inc/seo.php';
 require_once __DIR__.'/inc/breadcrumbs.php';
 require_once __DIR__.'/inc/contact-art.php';
 require_once __DIR__.'/inc/authority-edition.php';
+require_once __DIR__.'/inc/about-editorial.php';
 require_once __DIR__.'/inc/responsive-images.php';
 require_once __DIR__.'/inc/brand-accent.php';
 add_filter('body_class',function($classes){if(!vatan_feature('animations'))$classes[]='ag-static-motion';return $classes;});

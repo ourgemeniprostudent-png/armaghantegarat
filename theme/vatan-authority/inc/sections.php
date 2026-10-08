@@ -46,6 +46,7 @@ function ag_inner_nav($context) {
     echo '</nav>';
 }
 function ag_render_page($context) {
+    if($context==='about'){ag_render_about();return;}
     echo '<div class="ag-interior ag-art-page ag-context-'.esc_attr(str_replace(':','-',$context)).'" data-ag-context="'.esc_attr($context).'">';
     foreach(ag_sections($context) as $id=>$section){
         $s=$section['values'];$layout=$section['layout'];if(str_starts_with($layout,'home-')||$layout==='article')continue;

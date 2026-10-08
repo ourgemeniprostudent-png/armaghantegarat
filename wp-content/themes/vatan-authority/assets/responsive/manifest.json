@@ -188,6 +188,84 @@
             }
         ]
     },
+    "about/coffee-handling.webp": {
+        "width": 1672,
+        "height": 941,
+        "variants": [
+            {
+                "path": "responsive/about-coffee-handling-webp-240.webp",
+                "width": 240,
+                "height": 135
+            },
+            {
+                "path": "responsive/about-coffee-handling-webp-480.webp",
+                "width": 480,
+                "height": 270
+            },
+            {
+                "path": "responsive/about-coffee-handling-webp-768.webp",
+                "width": 768,
+                "height": 432
+            },
+            {
+                "path": "responsive/about-coffee-handling-webp-1280.webp",
+                "width": 1280,
+                "height": 720
+            }
+        ]
+    },
+    "about/procurement.webp": {
+        "width": 1672,
+        "height": 941,
+        "variants": [
+            {
+                "path": "responsive/about-procurement-webp-240.webp",
+                "width": 240,
+                "height": 135
+            },
+            {
+                "path": "responsive/about-procurement-webp-480.webp",
+                "width": 480,
+                "height": 270
+            },
+            {
+                "path": "responsive/about-procurement-webp-768.webp",
+                "width": 768,
+                "height": 432
+            },
+            {
+                "path": "responsive/about-procurement-webp-1280.webp",
+                "width": 1280,
+                "height": 720
+            }
+        ]
+    },
+    "about/warehouse.webp": {
+        "width": 1672,
+        "height": 941,
+        "variants": [
+            {
+                "path": "responsive/about-warehouse-webp-240.webp",
+                "width": 240,
+                "height": 135
+            },
+            {
+                "path": "responsive/about-warehouse-webp-480.webp",
+                "width": 480,
+                "height": 270
+            },
+            {
+                "path": "responsive/about-warehouse-webp-768.webp",
+                "width": 768,
+                "height": 432
+            },
+            {
+                "path": "responsive/about-warehouse-webp-1280.webp",
+                "width": 1280,
+                "height": 720
+            }
+        ]
+    },
     "coffee-detail.webp": {
         "width": 1672,
         "height": 941,

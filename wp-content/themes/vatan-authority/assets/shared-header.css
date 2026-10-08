@@ -1,0 +1,9 @@
+/* One header state across the site: clear at the top, black after scroll/menu. */
+.site-header.video-header:not(.is-glass){background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none}
+.site-header.is-glass{background:var(--at-black,#0b0b0b);color:#fff;box-shadow:0 4px 20px #0000001a}
+.ag-authority .site-header.video-header:not(.is-glass){background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none}
+.ag-authority .site-header.is-glass{background:var(--at-black,#0b0b0b)}
+.menu-open .site-header.video-header{background:var(--at-black,#0b0b0b)}
+.ag-authority:not(.ag-about-page){background:var(--at-navy,#0d1b2a)}
+.site-header .header-inquiry [aria-hidden="true"]{font-family:Arial,sans-serif;font-size:1.25em;line-height:1}
+.site-header .header-inquiry svg{display:block;width:20px;height:20px;flex-shrink:0}

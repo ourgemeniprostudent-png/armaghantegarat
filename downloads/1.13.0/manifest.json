@@ -1,0 +1,68 @@
+{
+  "version": "1.13.0",
+  "filename": "Armaghan-WordPress-v1.13.0.zip",
+  "bytes": 188603079,
+  "sha256": "37827e988853a34023d16c2103355bc21e1c998df67123b5d8a970e06ebeb06f",
+  "parts": [
+    {
+      "path": "part-01.bin",
+      "bytes": 16777216,
+      "sha256": "7483ae7393260f22bb644a8da4f76b6398687b7ec46133b58b2a45259be75a3a"
+    },
+    {
+      "path": "part-02.bin",
+      "bytes": 16777216,
+      "sha256": "cc871507a0787d3e187fe6055d2a3612778dc8dbbb38364d180111bd6b64f660"
+    },
+    {
+      "path": "part-03.bin",
+      "bytes": 16777216,
+      "sha256": "3f2a5886e646b8932bde437e51a3de820143f759c6db5236d161c745b098cf16"
+    },
+    {
+      "path": "part-04.bin",
+      "bytes": 16777216,
+      "sha256": "977611a860536fc8a91b0d2564b004de263bc6ea8231376858e430f0ac294df4"
+    },
+    {
+      "path": "part-05.bin",
+      "bytes": 16777216,
+      "sha256": "4778804925a0f24e140826f2f341c877c80c3670065edd50e9909b6c3b52ed04"
+    },
+    {
+      "path": "part-06.bin",
+      "bytes": 16777216,
+      "sha256": "810aba2d93fb9f4b2caba9dee9908fcbba0b368cbd64279b8534a9c28b87c95a"
+    },
+    {
+      "path": "part-07.bin",
+      "bytes": 16777216,
+      "sha256": "80c2753eea545b299aa0b21be35c18b62eb515f80f07b180689b18940d7833f6"
+    },
+    {
+      "path": "part-08.bin",
+      "bytes": 16777216,
+      "sha256": "8b371841a51619f20abc507097ffaf036979f2ebe684882fed36ce9feccd2957"
+    },
+    {
+      "path": "part-09.bin",
+      "bytes": 16777216,
+      "sha256": "d22908eb21267e89b0cc168ca0e7461ece464bfae6de2a6e0894c9a2b111c1b4"
+    },
+    {
+      "path": "part-10.bin",
+      "bytes": 16777216,
+      "sha256": "1e35a8c21361f5df3c9f06b39478c0eefd5203aa1d0ca322fba103af279a9ab9"
+    },
+    {
+      "path": "part-11.bin",
+      "bytes": 16777216,
+      "sha256": "96a335422e7812db9108aa625920a72e223f59731451ab9099ec8ff4c6577e06"
+    },
+    {
+      "path": "part-12.bin",
+      "bytes": 4053703,
+      "sha256": "6b49cb3617754dfe301c5e3535158a8fce7848426446009dbcda5935521a294d"
+    }
+  ]
+}

@@ -9,7 +9,7 @@
  * License: GPL-2.0-or-later
  */
 if (!defined('ABSPATH')) exit;
-define('VATAN_CORE_VERSION','1.3.0');
+define('VATAN_CORE_VERSION','1.4.0');
 require_once __DIR__.'/includes/sections.php';
 require_once __DIR__.'/includes/content-models.php';
 require_once __DIR__.'/includes/events.php';

@@ -7,9 +7,12 @@ body.ag-brand-accent {
 }
 /* A lighter tone of the configured wine keeps thin headline strokes readable on black. */
 .ag-brand-accent .ag-art-page .ag-hero h1>.gold,
-.ag-brand-accent .manifesto-word:not(.manifesto-gold),
 .ag-brand-accent .ag-error-art .error-number {
  -webkit-text-stroke-color:var(--brand-wine-type);
+}
+/* Owner's exception: the outlined first word in the home brand statement is gold. */
+#home-manifesto .manifesto-line-one>.manifesto-word {
+ -webkit-text-stroke-color:var(--at-gold,var(--gold));
 }
 /* Small editorial rules connect the third color across home and interior pages. */
 .ag-brand-accent :is(.home-about,.home-journal,.home-contact,.ag-hero-copy,.ag-section-head,.ag-fieldnote-intro,.ag-chapter-copy) .eyebrow::before {

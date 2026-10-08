@@ -50,3 +50,5 @@ This repository contains the approved WordPress implementation transferred from 
 - Current renderers: `inc/authority-edition.php`, `assets/authority-edition.css/js`. Build CSS using `scripts/build-assets.py`; do not edit generated bundles. The old contact-only stylesheet is not loaded.
 - The cargo scene projects world-space geometry to Canvas and approaches along the viewing depth axis; it settles after entrance. No external model/library is loaded. Preserve static SVG fallback, reduced-motion behavior, pause offscreen/hidden and capped mobile frame rate.
 - Hero backgrounds use native `background_image` fields (empty falls back to section image); preserve editor metadata and video controls.
+
+- From 1.12.1 the outlined first word («تجارت») of the home manifesto is an explicit gold exception, using the native gold palette setting. Preserve this exception when changing burgundy styles.

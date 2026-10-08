@@ -15,6 +15,7 @@ require_once __DIR__.'/inc/media-studio.php';
 require_once __DIR__.'/inc/media-hub.php';
 require_once __DIR__.'/inc/responsive-images.php';
 require_once __DIR__.'/inc/brand-accent.php';
+require_once __DIR__.'/inc/appearance.php';
 add_filter('body_class',function($classes){if(!vatan_feature('animations'))$classes[]='ag-static-motion';return $classes;});
 add_action('after_setup_theme', function () {
     load_theme_textdomain('vatan-authority', get_template_directory() . '/languages');

@@ -1,6 +1,7 @@
 <?php
 if(!defined('ABSPATH'))exit;
 function vatan_feature_labels(){return [
+ 'appearance_switch'=>'انتخاب نمایش تاریک، روشن و سیاه‌وسفید؛ پیش‌فرض تاریک',
  'animations'=>'موشن‌های معرفی و صفحات داخلی','home_video'=>'ویدیو خودکار معرفی خانه','home_products'=>'گالری حوزه‌های واردات در خانه','home_cooperation'=>'گالری همکاری در خانه','mobile_cta'=>'دکمه‌های ثابت تماس و استعلام موبایل','article_toc'=>'فهرست مطالعه مقاله',
  'contact_form'=>'فرم کوتاه تماس با دفتر','office_map'=>'نقشه دقیق دفتر با بارگذاری اختیاری',
  'blog_discovery'=>'جستجو و موضوعات مجله','product_filters'=>'جستجو و فیلتر محصولات',

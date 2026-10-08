@@ -1025,6 +1025,26 @@
           "label": "نام دسترس‌پذیر مسیر صفحه",
           "type": "text",
           "value": "مسیر صفحه"
+        },
+        "appearance_label": {
+          "label": "عنوان انتخاب ظاهر",
+          "type": "text",
+          "value": "نمایش سایت"
+        },
+        "appearance_dark": {
+          "label": "ظاهر / تاریک",
+          "type": "text",
+          "value": "تاریک"
+        },
+        "appearance_light": {
+          "label": "ظاهر / روشن",
+          "type": "text",
+          "value": "روشن"
+        },
+        "appearance_mono": {
+          "label": "ظاهر / سیاه‌وسفید",
+          "type": "text",
+          "value": "سیاه و سفید"
         }
       }
     }

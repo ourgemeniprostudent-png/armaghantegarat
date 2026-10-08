@@ -1,0 +1,68 @@
+{
+  "version": "1.18.0",
+  "filename": "Armaghan-WordPress-v1.18.0.zip",
+  "bytes": 195665920,
+  "sha256": "af906d45adc7d724e201e638011211c1d235a7dfbf38853f822f9cabee5d9d9f",
+  "parts": [
+    {
+      "path": "part-01.bin",
+      "bytes": 16777216,
+      "sha256": "9e2ee9d54efac2f6aa31e9510a56aadc1b65a3259acf7a8fbd72f78f1e0fd638"
+    },
+    {
+      "path": "part-02.bin",
+      "bytes": 16777216,
+      "sha256": "d3ab3d8d1a715b6f77c170fcefb5c247c79c1c1116ca4a47615da2f63ae997dd"
+    },
+    {
+      "path": "part-03.bin",
+      "bytes": 16777216,
+      "sha256": "1edb4e2ac04f7272408600b02bf152c73269c294083bf370a16c72aed723a87e"
+    },
+    {
+      "path": "part-04.bin",
+      "bytes": 16777216,
+      "sha256": "a3698953ab0512d7cd48ffff13cce65f1b28049686d83f17da85434da3f8b60f"
+    },
+    {
+      "path": "part-05.bin",
+      "bytes": 16777216,
+      "sha256": "3debf8bc820bdd474279a7519421f03cb9f38737adb17372efce7ea4ee7183fe"
+    },
+    {
+      "path": "part-06.bin",
+      "bytes": 16777216,
+      "sha256": "75d63939afe437a13dd683ce257359e65c3dfcf2e86afaed47796a31ed131251"
+    },
+    {
+      "path": "part-07.bin",
+      "bytes": 16777216,
+      "sha256": "29b1b92945ee9f6a930d198e17e79f5e6dfd05455efe0d4c8069a63733095742"
+    },
+    {
+      "path": "part-08.bin",
+      "bytes": 16777216,
+      "sha256": "8dbf629e0052088e582b7c94f78fe315fe6af369b9ae34e073c461a273fc1123"
+    },
+    {
+      "path": "part-09.bin",
+      "bytes": 16777216,
+      "sha256": "9ed28fd24635e6e460193f7499d2906f461c2a9c6db608bcb7bf2e7fb6aa9105"
+    },
+    {
+      "path": "part-10.bin",
+      "bytes": 16777216,
+      "sha256": "7c5c0ffc522a8eff8ac4173fecdae3390492ad194e1f27ec606752a0d0d6607f"
+    },
+    {
+      "path": "part-11.bin",
+      "bytes": 16777216,
+      "sha256": "e1dfc80bed00ebbe1c0c4304041207e761fda370a4e3836729c5983fe70aeeab"
+    },
+    {
+      "path": "part-12.bin",
+      "bytes": 11116544,
+      "sha256": "7e76c71fd4d5ced02ffca22c57df0c826231ddc8ba107a4c88b0d679d6cb8e1d"
+    }
+  ]
+}

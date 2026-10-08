@@ -578,6 +578,84 @@
             }
         ]
     },
+    "podcasts/storage.webp": {
+        "width": 1536,
+        "height": 1024,
+        "variants": [
+            {
+                "path": "responsive/podcasts-storage-webp-240.webp",
+                "width": 240,
+                "height": 160
+            },
+            {
+                "path": "responsive/podcasts-storage-webp-480.webp",
+                "width": 480,
+                "height": 320
+            },
+            {
+                "path": "responsive/podcasts-storage-webp-768.webp",
+                "width": 768,
+                "height": 512
+            },
+            {
+                "path": "responsive/podcasts-storage-webp-1280.webp",
+                "width": 1280,
+                "height": 853
+            }
+        ]
+    },
+    "podcasts/studio.webp": {
+        "width": 1916,
+        "height": 821,
+        "variants": [
+            {
+                "path": "responsive/podcasts-studio-webp-240.webp",
+                "width": 240,
+                "height": 103
+            },
+            {
+                "path": "responsive/podcasts-studio-webp-480.webp",
+                "width": 480,
+                "height": 206
+            },
+            {
+                "path": "responsive/podcasts-studio-webp-768.webp",
+                "width": 768,
+                "height": 329
+            },
+            {
+                "path": "responsive/podcasts-studio-webp-1280.webp",
+                "width": 1280,
+                "height": 548
+            }
+        ]
+    },
+    "podcasts/trade.webp": {
+        "width": 1536,
+        "height": 1024,
+        "variants": [
+            {
+                "path": "responsive/podcasts-trade-webp-240.webp",
+                "width": 240,
+                "height": 160
+            },
+            {
+                "path": "responsive/podcasts-trade-webp-480.webp",
+                "width": 480,
+                "height": 320
+            },
+            {
+                "path": "responsive/podcasts-trade-webp-768.webp",
+                "width": 768,
+                "height": 512
+            },
+            {
+                "path": "responsive/podcasts-trade-webp-1280.webp",
+                "width": 1280,
+                "height": 853
+            }
+        ]
+    },
     "coffee-detail.webp": {
         "width": 1672,
         "height": 941,

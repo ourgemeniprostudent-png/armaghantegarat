@@ -1,7 +1,7 @@
 (()=>{'use strict';
  const small=matchMedia('(max-width:767px)');
  document.querySelectorAll('[data-footer-accordion]').forEach(details=>{const sync=()=>{details.open=!small.matches};sync();small.addEventListener('change',sync);details.addEventListener('toggle',()=>{if(!small.matches&&!details.open)details.open=true})});
- document.querySelectorAll('[data-timestamp]').forEach(button=>button.addEventListener('click',()=>{const player=document.querySelector('[data-episode-player]');if(!player)return;const seek=()=>{player.currentTime=Number(button.dataset.timestamp);player.play().catch(()=>{})};if(player.readyState)seek();else{player.addEventListener('loadedmetadata',seek,{once:true});player.load()}}));
+ document.querySelectorAll('[data-timestamp]').forEach(button=>button.addEventListener('click',()=>{const player=[...document.querySelectorAll('[data-episode-player]')].find(el=>!el.closest('[hidden]'));if(!player)return;const seek=()=>{player.currentTime=Number(button.dataset.timestamp);player.play().catch(()=>{})};if(player.readyState)seek();else{player.addEventListener('loadedmetadata',seek,{once:true});player.load()}}));
  const forms=[...document.querySelectorAll('[data-inquiry-form]')];
  const numeric=value=>value.replace(/[۰-۹٠-٩]/g,c=>String(c.charCodeAt(0)>0x6ef?c.charCodeAt(0)-0x6f0:c.charCodeAt(0)-0x660));
  forms.forEach(form=>{

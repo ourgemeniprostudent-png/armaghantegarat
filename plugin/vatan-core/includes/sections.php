@@ -52,7 +52,7 @@ function armaghan_clean_sections($raw,$context){
 }
 function armaghan_section_editor($context,$id,$prefix='armaghan_sections'){
  $data=armaghan_section_data($context,$id);
- echo '<div class="armaghan-editor" dir="rtl"><p class="armaghan-editor-guide">هر بخش مطابق ترتیب نمایش سایت است. متن، تصویر و ویدیو را همین‌جا تغییر دهید و به‌روزرسانی را بزنید. عنوان و متن اصلی نوشته در ویرایشگر وردپرس؛ تلفن و نشانی در تنظیمات وطن؛ منوها در نمایش ← فهرست‌ها مدیریت می‌شوند.</p><nav class="ag-editor-nav" aria-label="انتخاب سکشن">';
+ echo '<div class="armaghan-editor" dir="rtl"><p class="armaghan-editor-guide">هر بخش مطابق ترتیب نمایش سایت است. متن، تصویر و ویدیو را همین‌جا تغییر دهید و به‌روزرسانی را بزنید. عنوان و متن اصلی نوشته در ویرایشگر وردپرس؛ تلفن، نشانی و قابلیت‌ها در تنظیمات قالب ارمغان تجارت وطن؛ منوها در نمایش ← فهرست‌ها مدیریت می‌شوند.</p><nav class="ag-editor-nav" aria-label="انتخاب سکشن">';
  foreach(armaghan_section_schema($context) as $s)echo '<a href="#ag-edit-'.esc_attr($prefix.'-'.$s['id']).'">'.esc_html($s['label']).'</a>';echo '</nav>';
  foreach(armaghan_section_schema($context) as $s){
   echo '<details class="ag-edit-section" id="ag-edit-'.esc_attr($prefix.'-'.$s['id']).'"><summary>'.esc_html($s['label']).'</summary><div class="ag-edit-fields">';

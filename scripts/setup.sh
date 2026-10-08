@@ -11,6 +11,7 @@ command -v "$TASK_PHP" >/dev/null || { echo 'PHP missing. Run scripts/cloud-setu
 "$TASK_PHP" -r 'if(PHP_VERSION_ID<80100||!extension_loaded("pdo_sqlite")){fwrite(STDERR,"PHP 8.1+ with pdo_sqlite is required.\n");exit(1);}'
 mkdir -p .runtime
 python3 scripts/assemble.py
+python3 scripts/build-assets.py
 "$TASK_PHP" -r '$m=json_decode(file_get_contents("vendor/checksums.json"),true);foreach($m as $p=>$sha){if(hash_file("sha256","vendor/".$p)!==$sha){fwrite(STDERR,"Vendor checksum mismatch: ".$p."\n");exit(1);}}'
 if [[ -f .runtime/site-url.txt ]] && [[ "$(cat .runtime/site-url.txt)" != "$TASK_URL" ]]; then
  echo 'This workspace was initialized with another URL. Keep its original ARMAGHAN_SITE_URL or migrate the runtime separately; setup never resets existing content.' >&2; exit 1
@@ -49,6 +50,7 @@ if [[ ! -f .runtime/public-seed-imported ]]; then
  wp --url="$TASK_URL/en/" option update WPLANG en_US
  touch .runtime/public-seed-imported
 fi
+wp eval-file scripts/upgrade-content.php
 # Development media defaults: enough for the unchanged hero videos. Preserve later admin choices.
 if [[ ! -f .runtime/media-limits-ready ]]; then
  wp eval 'if ((int)get_site_option("fileupload_maxk",1500)<=1500) update_site_option("fileupload_maxk",102400); if ((int)get_site_option("blog_upload_space",100)<=100) update_site_option("blog_upload_space",1024);'

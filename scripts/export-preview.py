@@ -18,7 +18,7 @@ args=parser.parse_args()
 OUT=args.output.resolve();ORIGIN=(ROOT/'.runtime/site-url.txt').read_text().strip().rstrip('/')
 if OUT.exists():raise SystemExit('Choose a new output directory; existing output is preserved.')
 wp=[args.php,str(ROOT/'vendor/wp-cli-2.12.0.phar'),'--allow-root','--path='+str(ROOT/'.runtime/wordpress'),'--url='+ORIGIN]
-code='''$posts=get_posts(['post_type'=>['page','post','vatan_product','vatan_episode'],'post_status'=>'publish','numberposts'=>-1]);$out=[];foreach($posts as $p)$out[]=['id'=>$p->ID,'url'=>get_permalink($p)];foreach(get_terms(['taxonomy'=>'vatan_category','hide_empty'=>false]) as $term)$out[]=['url'=>get_term_link($term)];echo wp_json_encode($out);'''
+code='''$posts=get_posts(['post_type'=>['page','post','vatan_product','vatan_episode'],'post_status'=>'publish','numberposts'=>-1]);$out=[];foreach($posts as $p){if(get_post_meta($p->ID,'_qa_capability',true))throw new RuntimeException('Remove QA fixtures before export');$parts=array_merge([get_the_excerpt($p),wp_strip_all_tags(strip_shortcodes($p->post_content))],ag_search_sections_text(armaghan_context($p),$p->ID));if($p->post_type==='vatan_episode')$parts[]=get_post_meta($p->ID,'_vatan_transcript',true);if($p->post_type==='vatan_product')$parts[]=get_post_meta($p->ID,'_vatan_specs',true);$out[]=['id'=>$p->ID,'url'=>get_permalink($p),'title'=>$p->post_title,'body'=>implode(' ',array_filter($parts)),'excerpt'=>get_the_excerpt($p),'date'=>get_post_time('U',true,$p),'topics'=>wp_get_post_terms($p->ID,'vatan_topic',['fields'=>'slugs']),'kind'=>['page'=>'صفحه','post'=>'یادداشت تجارت','vatan_product'=>'محصول','vatan_episode'=>'رسانه'][$p->post_type],'searchable'=>!in_array($p->post_name,['search','thank-you'],true)];}foreach(get_terms(['taxonomy'=>'vatan_category','hide_empty'=>false]) as $term)$out[]=['url'=>get_term_link($term),'title'=>$term->name,'body'=>implode(' ',ag_search_sections_text(armaghan_context($term),$term->term_id)),'excerpt'=>$term->description,'kind'=>'گروه محصول'];echo wp_json_encode($out);'''
 public=json.loads(subprocess.check_output(wp+['eval',code],text=True))
 ROUTES=sorted({urlsplit(p['url']).path for p in public})
 SHORT={str(p['id']):p['url'] for p in public if 'id' in p}
@@ -32,8 +32,11 @@ VIDEO_BASE=f'https://raw.githubusercontent.com/ourgemeniprostudent-png/armaghant
 VIDEO_HASHES={'hero-h264.mp4':'f7ae6d349f977be82939382e521f8e36597d90cceac6393ba7772627596f8f6c','hero-av1.mp4':'b48c6cf207b16ddfd183eac4f7d6263067472f942dc1dfb9004270450c97eec5'}
 for name,expected in VIDEO_HASHES.items():
  assert hashlib.file_digest((assets/'assets/media'/name).open('rb'),'sha256').hexdigest()==expected,'Original video changed; verify before publishing'
-GUARD="""(() => {'use strict';document.addEventListener('submit',event=>{event.preventDefault();event.stopImmediatePropagation();alert('این نسخه فقط پیش‌نمایش است؛ ثبت درخواست و جستجوی وردپرس در آن فعال نیست.');},true);document.addEventListener('DOMContentLoaded',()=>{const f=document.querySelector('[data-inquiry-form]');if(f){const q=new URLSearchParams(location.search);for(const key of ['category','product'])if(q.has(key)&&f.elements[key])f.elements[key].value=q.get(key).slice(0,150);}});})();"""
+GUARD="""(() => {'use strict';document.addEventListener('submit',event=>{if(event.target.matches('[data-discovery],[data-wp-search]'))return;event.preventDefault();event.stopImmediatePropagation();alert('این نسخه فقط پیش‌نمایش است؛ ثبت درخواست در پیش‌نمایش انجام نمی‌شود. برای ثبت واقعی، نسخه وردپرس باید روی هاست اجرا شود.');},true);document.addEventListener('DOMContentLoaded',()=>{const f=document.querySelector('[data-inquiry-form]');if(f){const q=new URLSearchParams(location.search);for(const key of ['category','product'])if(q.has(key)&&f.elements[key])f.elements[key].value=q.get(key).slice(0,150);}});})();"""
 (OUT/'preview-guard.js').write_text(GUARD)
+shutil.copy2(ROOT/'scripts/preview-search.js',OUT/'preview-search.js')
+index=[{**p,'url':urlsplit(p['url']).path} for p in public]
+(OUT/'public-index.json').write_text(json.dumps(index,ensure_ascii=False)+'\n')
 MEDIA_EXT={'.png','.jpg','.jpeg','.webp','.avif','.gif','.svg','.mp4','.webm','.mov','.mp3','.m4a','.ogg','.wav','.woff','.woff2','.pdf'}
 class Portable(HTMLParser):
  def __init__(self,route):super().__init__(convert_charrefs=False);self.route=route;self.result=[];self.skip=0
@@ -58,16 +61,18 @@ class Portable(HTMLParser):
   return urlunsplit(('', '',self.relative(path),query,parts.fragment))
  def handle_starttag(self,tag,attrs):
   a=dict(attrs)
+  if tag=='html':attrs=list(attrs)+[('data-static-preview','1')]
   if tag=='link' and any(x in a.get('href','') for x in ['wp-json','xmlrpc.php','/feed/']):return
+  if tag=='meta' and a.get('name')=='robots':return
   if tag=='input' and a.get('name') in ['vatan_nonce','_wp_http_referer','request_key','source_url','action']:return
   if tag=='script' and a.get('type')=='application/ld+json':self.skip=1;return
   if self.skip:return
   new=[]
   for key,value in attrs:
    if value is None:new.append(key);continue
-   if tag=='form' and key=='method':value='dialog'
+   if tag=='form' and key=='method' and not ('data-discovery' in a or 'data-wp-search' in a):value='dialog'
    elif tag=='form' and key=='action':value='#'
-   elif key in ['href','src','poster','data-av1','data-h264']:value=self.url(value)
+   elif key in ['href','src','poster','data-av1','data-h264'] or (tag=='meta' and key=='content' and value.startswith(ORIGIN+'/')):value=self.url(value)
    elif key=='srcset':value=', '.join(' '.join([self.url(entry.strip().split()[0])]+entry.strip().split()[1:]) for entry in value.split(','))
    new.append(key+'="'+escape(value,quote=True)+'"')
   self.result.append('<'+tag+(' '+' '.join(new) if new else '')+'>')
@@ -76,7 +81,7 @@ class Portable(HTMLParser):
   if self.skip:
    if tag=='script':self.skip=0
    return
-  if tag=='head':self.result.append('<script src="'+self.relative('/preview-guard.js')+'" defer></script>')
+  if tag=='head':self.result.append('<meta name="robots" content="noindex,nofollow"><style>[data-public-card][hidden]{display:none!important}</style><script src="'+self.relative('/preview-guard.js')+'" defer></script><script src="'+self.relative('/preview-search.js')+'" defer></script>')
   self.result.append('</'+tag+'>')
  def handle_data(self,data):
   if not self.skip:self.result.append(data)
@@ -88,6 +93,9 @@ class Portable(HTMLParser):
  def handle_comment(self,data):
   if not self.skip:self.result.append('<!--'+data+'-->')
 def render(html,route):
+ html=re.sub(r'<aside\b[^>]*data-analytics-consent[^>]*>.*?</aside>','',html,flags=re.S)
+ html=re.sub(r'<div\b[^>]*data-event-endpoint[^>]*></div>','',html)
+ html=re.sub(r'<button\b[^>]*data-event-settings[^>]*>.*?</button>','',html,flags=re.S)
  html=re.sub(r'<script\b[^>]*>.*?</script>',lambda m:'' if 'wp-emoji' in m.group(0) else m.group(0),html,flags=re.S|re.I)
  p=Portable(route);p.feed(html);result=''.join(p.result)
  assert ORIGIN not in result and '/Users/' not in result
@@ -105,7 +113,7 @@ except HTTPError as e:
  assert e.code==404;(OUT/'404.html').write_text(render(e.read().decode(),'/'))
 (OUT/'.nojekyll').write_text('')
 commit=subprocess.check_output(['git','-C',str(ROOT),'rev-parse','HEAD'],text=True).strip()
-(OUT/'README.md').write_text('# ارمغان تجارت وطن — پیش‌نمایش عمومی\n\nخروجی فقط برای دیدن طراحی است. ثبت درخواست، جستجوی سرور و پیشخوان در وردپرس اجرا می‌شوند. هیچ رمز، کاربر، دیتابیس یا درخواست خصوصی در این شاخه نیست.\n\nSource commit: '+commit+'\n')
+(OUT/'README.md').write_text('# ارمغان تجارت وطن — پیش‌نمایش عمومی\n\nخروجی فقط برای دیدن طراحی است. جستجوی محتوای عمومی در پیش‌نمایش فعال است. ثبت درخواست و پیشخوان در وردپرس اجرا می‌شوند. هیچ رمز، کاربر، دیتابیس یا درخواست خصوصی در این شاخه نیست.\n\nSource commit: '+commit+'\n')
 files=[]
 for file in sorted(OUT.rglob('*')):
  if not file.is_file():continue

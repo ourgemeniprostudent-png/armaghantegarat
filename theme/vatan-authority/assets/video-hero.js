@@ -2,7 +2,7 @@
 const header=document.querySelector('.site-header'),nav=document.getElementById('site-nav');
 const glass=()=>header?.classList.toggle('is-glass',!header.classList.contains('video-header')||window.scrollY>36||!!nav?.classList.contains('is-open'));
 glass();window.addEventListener('scroll',glass,{passive:true});if(nav)new MutationObserver(glass).observe(nav,{attributes:true,attributeFilter:['class']});
-const hero=document.querySelector('[data-trade-hero]'),video=hero?.querySelector('[data-hero-video]');if(!video)return;
+const hero=document.querySelector('[data-trade-hero]'),video=hero?.querySelector('[data-hero-video]');if(!video){document.documentElement.classList.remove('video-intro-js');document.querySelector('[data-video-loader]')?.remove();return;}
 const root=document.documentElement,loader=document.querySelector('[data-video-loader]');
 const reduce=matchMedia('(prefers-reduced-motion: reduce)'),saveData=!!navigator.connection?.saveData;let blobURL='',controller,loading=false,ready=false,wanted=false,inView=true,shown=false,disposed=false,loadTimeout,introDeadline,dismissPromise;
 const initialFocus=document.activeElement;const introStarted=performance.now();const blocked=[header,document.getElementById('main'),document.querySelector('.site-footer'),document.querySelector('.mobilebar')].filter(Boolean);

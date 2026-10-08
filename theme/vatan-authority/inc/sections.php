@@ -28,7 +28,7 @@ function ag_visual($s,$hero=false) {
     $contain=str_contains($s['image']??'','products/');
     echo '<figure class="ag-visual '.($contain?'ag-visual-product':'').'" data-ag-reveal>';
     if($video)ag_video($s);
-    elseif($image){echo '<button type="button" class="ag-image-expand" data-ag-zoom aria-label="بزرگ‌نمایی تصویر"><img src="'.esc_url($image).'" alt="'.esc_attr($s['alt']??'').'" '.($hero?'fetchpriority="high"':'loading="lazy"').' decoding="async"><span class="ag-expand-mark" aria-hidden="true">⤢</span></button>';}
+    elseif($image){echo '<button type="button" class="ag-image-expand" data-ag-zoom aria-label="بزرگ‌نمایی تصویر"><img '.ag_image_attrs($image).' alt="'.esc_attr($s['alt']??'').'" '.($hero?'fetchpriority="high"':'loading="lazy"').' decoding="async"><span class="ag-expand-mark" aria-hidden="true">⤢</span></button>';}
     if(!empty($s['caption']))echo '<figcaption>'.esc_html($s['caption']).'</figcaption>';
     echo '</figure>';
 }
@@ -76,12 +76,14 @@ function ag_render_page($context) {
             echo '<div class="ag-form-layout"><div class="ag-form-card"><span class="eyebrow">فرم درخواست</span><h2>'.esc_html($s['title']).'</h2><p>'.esc_html($s['body']).'</p>'.vatan_inquiry_form().'</div><aside class="ag-form-aside"><span class="ag-side-mark" aria-hidden="true">↗</span><h3>'.esc_html($s['sidebar_title']).'</h3>';ag_body($s['sidebar_body']);echo '<div class="ag-form-live"><small>'.esc_html($s['summary_label']??'شرح کوتاه نیاز شما').'</small><p data-ag-form-summary data-empty="'.esc_attr($s['summary_empty']??'محصول را انتخاب کنید').'"></p></div><a class="home-route-link" href="'.esc_url(vatan_url('privacy/')).'">'.esc_html($s['privacy_label']).' <span class="ag-symbol" aria-hidden="true">↗</span></a><div class="ag-aside-phone"><span>گفتگو با دفتر</span><a dir="ltr" href="tel:'.esc_attr(preg_replace('/[^0-9+]/','',vatan_option('phone','02191028166'))).'">'.esc_html(vatan_option('phone','02191028166')).'</a></div></aside></div>';
         }elseif($layout==='contact'){
             echo '<div class="ag-contact-grid"><div class="ag-copy" data-ag-reveal>';ag_heading($s);ag_body($s['body']);echo '<div class="ag-phone"><span>'.esc_html($s['phone_label']).'</span><a dir="ltr" href="tel:'.esc_attr(preg_replace('/[^0-9+]/','',vatan_option('phone','02191028166'))).'">'.esc_html(vatan_option('phone','02191028166')).' <span class="ag-symbol" aria-hidden="true">↗</span></a><p>'.esc_html($s['phone_note']).'</p></div><div class="ag-address"><span>'.esc_html($s['address_label']).'</span><p>'.esc_html(vatan_option('address','تهران، سهروردی شمالی، کوچه زمانی، پلاک ۱۱، ساختمان ایلیا، طبقه ۳، واحد ۹')).'</p></div>';
-            $wa=vatan_option('whatsapp');if($wa)echo '<a class="home-route-link" rel="noopener" target="_blank" href="https://wa.me/'.esc_attr(preg_replace('/\D/','',$wa)).'">گفتگو در واتس‌اپ <span class="ag-symbol" aria-hidden="true">↗</span></a>';
-            echo '</div><div class="ag-map" data-ag-reveal><div class="ag-map-art" aria-hidden="true"><i></i><span>↗</span><b>تهران</b></div><h3>'.esc_html($s['address_label']).'</h3><p>'.esc_html($s['map_note']).'</p><a class="home-route-link" rel="noopener" target="_blank" href="'.esc_url($s['map_link']).'">'.esc_html($s['map_label']).' <span class="ag-symbol" aria-hidden="true">↗</span></a></div></div>';ag_visual($s);
+            ag_whatsapp(get_the_title(),get_permalink());$email=vatan_option('public_email');if(is_email($email))echo '<p><a href="'.esc_url('mailto:'.$email).'">'.esc_html($email).'</a></p>';if(vatan_option('hours'))echo '<p>'.esc_html(vatan_option('hours')).'</p>';echo '</div>';ag_office_map($s);echo '</div>';ag_visual($s);
+
+        }elseif($layout==='contact-short-form'){
+            if(vatan_feature('contact_form')){echo '<div class="ag-contact-short ag-form-card"><h2>'.esc_html($s['title']).'</h2><p>'.esc_html($s['body']).'</p>'.vatan_contact_form().'</div>';ag_visual($s);}
         }elseif($layout==='receipt'){
             $reference=isset($_GET['reference'])&&!is_array($_GET['reference'])?sanitize_text_field(wp_unslash($_GET['reference'])):'';
             $valid=preg_match('/^VAT-[A-Z0-9]{10}$/D',$reference)&&get_posts(['post_type'=>'vatan_lead','post_status'=>'private','numberposts'=>1,'meta_key'=>'_vatan_reference','meta_value'=>$reference,'fields'=>'ids']);
-            echo '<div class="ag-receipt" data-ag-reveal><span class="ag-receipt-symbol" aria-hidden="true">'.($valid?'✓':'↗').'</span><h2>'.esc_html($s[$valid?'success_title':'empty_title']).'</h2><p>'.esc_html($s[$valid?'success_body':'empty_body']).'</p>';
+            echo '<div class="ag-receipt" '.($valid?'data-lead-success ':'').'data-ag-reveal><span class="ag-receipt-symbol" aria-hidden="true">'.($valid?'✓':'↗').'</span><h2>'.esc_html($s[$valid?'success_title':'empty_title']).'</h2><p>'.esc_html($s[$valid?'success_body':'empty_body']).'</p>';
             if($valid)echo '<code dir="ltr" data-reference>'.esc_html($reference).'</code><button type="button" class="button" data-copy-reference>'.esc_html($s['copy_label']).'</button><p data-copy-status role="status"></p>';
             else ag_action($s,'button');echo '</div>';ag_visual($s);
         }elseif($layout==='search')ag_search_section($s);
@@ -94,22 +96,14 @@ function ag_render_page($context) {
 function vatan_digits_fa($v){return strtr((string)$v,array_combine(range(0,9),['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹']));}
 function ag_collection($s,$layout,$context){
     echo '<div class="ag-section-head" data-ag-reveal><div>';ag_heading($s);echo '</div><div>';ag_body($s['body']??'');echo '</div></div>';
-    $current=isset($_GET['archive_page'])&&!is_array($_GET['archive_page'])?max(1,absint($_GET['archive_page'])):max(1,(int)get_query_var('paged'),(int)get_query_var('page'));
-    $args=['post_status'=>'publish','posts_per_page'=>9,'paged'=>$current];
-    $args['post_type']=$layout==='articles'?'post':($layout==='catalog'?'vatan_product':'vatan_episode');
-    if($layout==='catalog')$args['tax_query']=[['taxonomy'=>'vatan_category','field'=>'slug','terms'=>substr($context,9)]];
-    $q=new WP_Query($args);
-    if($q->have_posts()){
-        if($layout==='articles')ag_journal_cards($q);
-        else{echo '<div class="ag-content-grid">';while($q->have_posts()){$q->the_post();echo '<article class="ag-content-card" data-ag-reveal>';if(has_post_thumbnail())the_post_thumbnail('large',['loading'=>'lazy']);echo '<span class="eyebrow">'.esc_html($layout==='catalog'?'مشخصات محصول':'رسانه منتشرشده').'</span><h3><a href="'.esc_url(get_permalink()).'">'.esc_html(get_the_title()).'</a></h3><p>'.esc_html(get_the_excerpt()).'</p><a class="home-route-link" href="'.esc_url(get_permalink()).'">'.($layout==='catalog'?'شناخت و استعلام':'دیدن رسانه').' <span class="ag-symbol" aria-hidden="true">↗</span></a></article>';}echo '</div>';}
-        echo '<nav class="ag-pagination" aria-label="صفحه‌های آرشیو">'.paginate_links(['base'=>str_replace('999999999','%#%',add_query_arg('archive_page',999999999,is_tax('vatan_category')?get_term_link(get_queried_object()):(is_home()?get_permalink((int)get_option('page_for_posts')):get_permalink(get_queried_object_id())))),'format'=>'','total'=>$q->max_num_pages,'current'=>$args['paged'],'prev_text'=>'قبلی','next_text'=>'بعدی']).'</nav>';
-    }else echo '<div class="ag-empty" data-ag-reveal><span aria-hidden="true">↗</span><h3>'.esc_html($s['empty_title']??'هنوز مطلبی منتشر نشده است.').'</h3><p>'.esc_html($s['empty_body']??'برای شناخت حوزه‌ها، صفحات محصولات و همکاری را بخوانید.').'</p><a class="home-route-link" href="'.esc_url($layout==='library'?vatan_url('blog/'):add_query_arg('category',substr($context,9),vatan_url('inquiry/'))).'">'.($layout==='library'?'خواندن مجله':'ثبت درخواست تامین').' <span class="ag-symbol" aria-hidden="true">↗</span></a></div>';
-    wp_reset_postdata();ag_visual($s);
+    $s['_id']=$layout==='catalog'?'catalog':($layout==='articles'?'articles':'library');
+    if($layout==='library')ag_featured_media($s);
+    ag_discovery($layout,$context,$s);ag_visual($s);
 }
 function ag_journal_cards($q){
     $tones=['navy','ivory','black'];$index=0;echo '<div class="home-journal-shelf ag-journal-shelf">';
-    while($q->have_posts()){$q->the_post();$a=ag_section('article','post:'.get_post_field('post_name',get_the_ID()));$image=has_post_thumbnail()?get_the_post_thumbnail_url(null,'large'):ag_media_url($a['image']??'asset:products/coffee.webp');$n=vatan_digits_fa(str_pad($index+1,2,'0',STR_PAD_LEFT));
-        echo '<article class="home-issue home-issue-'.$tones[$index%3].'" data-ag-reveal><a class="home-issue-link" href="'.esc_url(get_permalink()).'"><div class="home-issue-top"><span>'.esc_html($a['eyebrow']??'یادداشت تجارت').'</span><span>'.esc_html($n).'</span></div><div class="home-issue-art" aria-hidden="true"><span class="home-issue-number">'.esc_html($n).'</span><img src="'.esc_url($image).'" alt="" loading="lazy" width="960" height="960"></div><div class="home-issue-copy"><h3>'.esc_html(get_the_title()).'</h3><p>'.esc_html(wp_trim_words(get_the_excerpt(),30)).'</p><span class="home-issue-read">خواندن یادداشت <span class="ag-symbol" aria-hidden="true">↗</span></span></div></a></article>';$index++;
+    while($q->have_posts()){$q->the_post();$featured=get_post_meta(get_the_ID(),'_vatan_featured',true);$a=ag_section('article','post:'.get_post_field('post_name',get_the_ID()));$image=has_post_thumbnail()?get_the_post_thumbnail_url(null,'large'):ag_media_url($a['image']??'asset:products/coffee.webp');$n=vatan_digits_fa(str_pad($index+1,2,'0',STR_PAD_LEFT));
+        echo '<article data-public-card data-card-id="'.esc_attr(get_the_ID()).'" data-card-title="'.esc_attr(get_the_title()).'" data-card-topics="'.esc_attr(implode(',',wp_get_post_terms(get_the_ID(),'vatan_topic',['fields'=>'slugs']))).'" class="home-issue home-issue-'.$tones[$index%3].'" data-ag-reveal><a class="home-issue-link" href="'.esc_url(get_permalink()).'"><div class="home-issue-top"><span>'.esc_html($featured?'یادداشت منتخب':($a['eyebrow']??'یادداشت تجارت')).'</span><span>'.esc_html($n).'</span></div><div class="home-issue-art" aria-hidden="true"><span class="home-issue-number">'.esc_html($n).'</span><img '.ag_image_attrs($image,'210px',480).' alt="" loading="lazy"></div><div class="home-issue-copy"><h3>'.esc_html(get_the_title()).'</h3><p>'.esc_html(wp_trim_words(get_the_excerpt(),30)).'</p><span class="home-issue-read">خواندن یادداشت <span class="ag-symbol" aria-hidden="true">↗</span></span></div></a></article>';$index++;
     }echo '</div>';
 }
 function ag_search_section($s){

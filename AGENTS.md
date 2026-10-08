@@ -80,3 +80,5 @@ This repository contains the approved WordPress implementation transferred from 
 - New interface surfaces must support the `--display-paper/surface/ink/muted/accent/line` tokens, readable small copy, controls and focus states. Monochrome tones leaf content and photo overlays without filtering fixed-position container ancestors. Keep file bytes and image/video quality unchanged. The global identity section edits the four display labels; the native appearance_switch feature controls visibility.
 
 - From 1.18.1 there is no monochrome circle beside the header switch or in navigation. Keep the day icon a clearly legible sun with rays, and the footer top separator visible in all three modes.
+
+- Preview serialization must preserve SVG shape boundaries: self-closing non-void tags need explicit closing tags. Counting SVG nodes alone cannot establish visible rendering; compare the exported SVG hierarchy/paint and switch screenshot to native WordPress with scripts/check-preview-vectors.py before publishing exporter changes.

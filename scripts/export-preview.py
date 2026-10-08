@@ -37,6 +37,7 @@ shutil.copy2(ROOT/'scripts/preview-search.js',OUT/'preview-search.js')
 index=[{**p,'url':urlsplit(p['url']).path} for p in public]
 (OUT/'public-index.json').write_text(json.dumps(index,ensure_ascii=False)+'\n')
 MEDIA_EXT={'.png','.jpg','.jpeg','.webp','.avif','.gif','.svg','.mp4','.webm','.mov','.mp3','.m4a','.ogg','.wav','.woff','.woff2','.pdf'}
+VOID_TAGS={'area','base','br','col','embed','hr','img','input','link','meta','param','source','track','wbr'}
 class Portable(HTMLParser):
  def __init__(self,route):super().__init__(convert_charrefs=False);self.route=route;self.result=[];self.skip=0
  def relative(self,path):
@@ -74,7 +75,11 @@ class Portable(HTMLParser):
    elif key=='srcset':value=', '.join(' '.join([self.url(entry.strip().split()[0])]+entry.strip().split()[1:]) for entry in value.split(','))
    new.append(key+'="'+escape(value,quote=True)+'"')
   self.result.append('<'+tag+(' '+' '.join(new) if new else '')+'>')
- def handle_startendtag(self,tag,attrs):self.handle_starttag(tag,attrs)
+ def handle_startendtag(self,tag,attrs):
+  self.handle_starttag(tag,attrs)
+  # SVG shapes are not HTML void elements: close them explicitly so later
+  # shapes stay siblings and retain their own inherited paint properties.
+  if tag not in VOID_TAGS:self.handle_endtag(tag)
  def handle_endtag(self,tag):
   if self.skip:
    if tag=='script':self.skip=0

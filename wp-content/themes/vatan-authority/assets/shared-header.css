@@ -9,3 +9,12 @@
 .site-header .header-inquiry svg{display:block;width:20px;height:20px;flex-shrink:0}
 /* Native vectors keep the shared northwest mark independent of installed fonts. */
 .ag-arrow-icon{display:block;width:1em;height:1em;flex-shrink:0}
+/* A clearer original emblem over Home's moving video, without a solid box. */
+body.home:not(.menu-open) .site-header.video-header:not(.is-glass) .brand-mark{
+ mask-image:url('brand-original.png'),url('brand-original.png'),url('brand-original.png');mask-composite:add;
+ -webkit-mask-image:url('brand-original.png'),url('brand-original.png'),url('brand-original.png');-webkit-mask-composite:source-over;
+ filter:drop-shadow(0 1px 1px #0009);
+}
+html:not([data-site-theme=mono]) body.home:not(.menu-open) .site-header.video-header:not(.is-glass) .brand-mark{
+ background:#edc474;background:color-mix(in srgb,var(--at-gold,#c39a5b) 30%,#ffd681);
+}

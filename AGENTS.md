@@ -84,3 +84,5 @@ This repository contains the approved WordPress implementation transferred from 
 - Preview serialization must preserve SVG shape boundaries: self-closing non-void tags need explicit closing tags. Counting SVG nodes alone cannot establish visible rendering; compare the exported SVG hierarchy/paint and switch screenshot to native WordPress with scripts/check-preview-vectors.py before publishing exporter changes.
 
 - From 1.18.2 the original emblem over the Home hero uses a brighter gold derived from the native gold palette and three composited luminance masks to strengthen visibility. Keep this scoped to the transparent Home header; custom logos, scrolled/menu states and other pages retain their own treatment. Monochrome remains neutral. Never introduce a solid logo box or modify the original logo/video files for this effect.
+
+- From 1.18.3 the owner extends the brighter gold emblem to all public headers, scrolled/open-menu states and footers in both dark and light modes, superseding the earlier Home-only scope. Preserve transparent masks and native gold palette/custom-logo editing. Monochrome remains neutral.

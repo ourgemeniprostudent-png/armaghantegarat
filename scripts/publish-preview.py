@@ -26,7 +26,7 @@ with tempfile.TemporaryDirectory(prefix='armaghan-preview-index-') as tmp:
  def stage(*args):return subprocess.check_output(['git','--git-dir='+str(gitdir),'--work-tree='+str(preview),*args],env=env,text=True).strip()
  stage('read-tree','--empty');stage('add','--all','--force','.')
  tree=stage('write-tree')
- commit=stage('-c','user.name=Codex','-c','user.email=codex@openai.com','commit-tree',tree,'-p',parent,'-m','Publish Armaghan 1.18.2 with a clearer gold Home emblem, preserved SVG icons and verified host download')
+ commit=stage('-c','user.name=Codex','-c','user.email=codex@openai.com','commit-tree',tree,'-p',parent,'-m','Publish Armaghan 1.18.3 with a consistent gold emblem across dark and light pages, preserved SVG icons and verified host download')
  assert hashlib.sha256(index.read_bytes()).hexdigest()==before
  subprocess.run(['git','-C',str(root),'push','origin',commit+':refs/heads/gh-pages'],check=True)
  assert git('ls-remote','origin','refs/heads/gh-pages').split()[0]==commit

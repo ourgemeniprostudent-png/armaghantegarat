@@ -4,8 +4,7 @@ $terms=get_the_terms($id,'vatan_category');$category=$terms&&!is_wp_error($terms
 $inquiry=add_query_arg(['category'=>$category?$category->slug:'','product_id'=>$id,'product'=>get_the_title()],vatan_url('inquiry/'));
 ?>
 <div class="ag-interior ag-art-page ag-art-article" data-product-detail>
- <section class="ag-article-hero"><div class="wrap ag-article-grid"><div data-ag-reveal>
-  <div class="breadcrumb"><a href="<?php echo esc_url(vatan_url('products/')); ?>">محصولات</a><?php if($category): ?> / <a href="<?php echo esc_url(get_term_link($category)); ?>"><?php echo esc_html($category->name); ?></a><?php endif; ?></div>
+ <section class="ag-article-hero"><div class="wrap ag-page-path"><?php ag_breadcrumb(); ?></div><div class="wrap ag-article-grid"><div data-ag-reveal>
   <span class="eyebrow"><?php ag_text($s,'eyebrow'); ?></span><h1><?php the_title(); ?></h1>
   <p><?php echo esc_html($s['body']); ?></p>
   <a class="button" href="<?php echo esc_url($inquiry); ?>"><?php ag_text($s,'label'); ?> <span aria-hidden="true">↗</span></a>

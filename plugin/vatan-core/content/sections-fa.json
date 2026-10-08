@@ -968,6 +968,16 @@
           "label": "نوشته رد آمار",
           "type": "text",
           "value": "بدون آمار ادامه می‌دهم"
+        },
+        "breadcrumb_home": {
+          "label": "نام خانه در مسیر صفحه",
+          "type": "text",
+          "value": "خانه"
+        },
+        "breadcrumb_label": {
+          "label": "نام دسترس‌پذیر مسیر صفحه",
+          "type": "text",
+          "value": "مسیر صفحه"
         }
       }
     }

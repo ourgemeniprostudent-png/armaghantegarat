@@ -5,6 +5,7 @@ require_once __DIR__.'/inc/art-direction.php';
 require_once __DIR__.'/inc/public-search.php';
 require_once __DIR__.'/inc/capabilities.php';
 require_once __DIR__.'/inc/seo.php';
+require_once __DIR__.'/inc/breadcrumbs.php';
 require_once __DIR__.'/inc/responsive-images.php';
 require_once __DIR__.'/inc/brand-accent.php';
 add_filter('body_class',function($classes){if(!vatan_feature('animations'))$classes[]='ag-static-motion';return $classes;});
@@ -51,7 +52,7 @@ function vatan_logo() {
  else echo '<span class="brand-mark"><img '.ag_image_attrs(vatan_asset('brand-original.png'),'135px',240).' alt="نشان طلایی ارمغان تجارت وطن"></span>';
  echo '<span class="brand-name">'.esc_html($identity['title']).'</span>';
 }
-function vatan_intro($title,$description='',$eyebrow='ارمغان تجارت وطن') { ?><section class="page-intro"><div class="wrap"><div class="breadcrumb"><a href="<?php echo esc_url(home_url('/')); ?>">خانه</a> / <?php echo esc_html($title); ?></div><span class="eyebrow"><?php echo esc_html($eyebrow); ?></span><h1><?php echo esc_html($title); ?></h1><?php if($description) echo '<p>'.esc_html($description).'</p>'; ?></div></section><?php }
+function vatan_intro($title,$description='',$eyebrow='ارمغان تجارت وطن') { ?><section class="page-intro"><div class="wrap"><?php ag_breadcrumb($title); ?><span class="eyebrow"><?php echo esc_html($eyebrow); ?></span><h1><?php echo esc_html($title); ?></h1><?php if($description) echo '<p>'.esc_html($description).'</p>'; ?></div></section><?php }
 function vatan_empty($title,$text,$category='') { ?><div class="empty"><h2><?php echo esc_html($title); ?></h2><p><?php echo esc_html($text); ?></p><a class="button" href="<?php echo esc_url(add_query_arg('category',$category,vatan_url('inquiry/'))); ?>">درخواست مشاوره</a></div><?php }
 function vatan_product_card($post) { $terms=get_the_terms($post->ID,'vatan_category'); ?><article class="product-card"><?php if(has_post_thumbnail($post)) echo get_the_post_thumbnail($post,'large',['class'=>'product-image']); ?><span class="eyebrow"><?php echo esc_html($terms&&!is_wp_error($terms)?$terms[0]->name:'محصول'); ?></span><h2><a href="<?php echo esc_url(get_permalink($post)); ?>"><?php echo esc_html(get_the_title($post)); ?></a></h2><p><?php echo esc_html(wp_trim_words(get_the_excerpt($post),24)); ?></p><a class="text-link" href="<?php echo esc_url(get_permalink($post)); ?>">مشخصات و استعلام</a></article><?php }
 add_action('wp_head',function(){foreach(['Regular','Bold'] as $weight)echo '<link rel="preload" as="font" type="font/woff2" crossorigin href="'.esc_url(vatan_asset('fonts/PeydaWebFaNum-'.$weight.'.woff2')).'">';},1);

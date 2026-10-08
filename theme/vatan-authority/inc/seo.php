@@ -9,14 +9,9 @@ function ag_seo_description(){
  if(is_page()){$s=ag_section('hero',get_post_field('post_name',$id));return wp_strip_all_tags($s['body']??'');}return '';
 }
 function ag_breadcrumb_data(){
- $items=[['@type'=>'ListItem','position'=>1,'name'=>'خانه','item'=>home_url('/')]];
- if(is_front_page())return [];
- if(is_singular('post'))$items[]=['@type'=>'ListItem','position'=>2,'name'=>'مجله تجارت','item'=>vatan_url('blog/')];
- if(is_singular('vatan_episode'))$items[]=['@type'=>'ListItem','position'=>2,'name'=>'رسانه','item'=>vatan_url('media/')];
- if(is_tax('vatan_category')||is_singular('vatan_product'))$items[]=['@type'=>'ListItem','position'=>2,'name'=>'محصولات','item'=>vatan_url('products/')];
- if(is_singular('vatan_product')){$terms=get_the_terms(get_queried_object_id(),'vatan_category');if($terms&&!is_wp_error($terms))$items[]=['@type'=>'ListItem','position'=>count($items)+1,'name'=>$terms[0]->name,'item'=>get_term_link($terms[0])];}
- $items[]=['@type'=>'ListItem','position'=>count($items)+1,'name'=>is_tax()?get_queried_object()->name:(is_home()?'مجله تجارت':get_the_title(get_queried_object_id())),'item'=>ag_current_url()];
- return ['@type'=>'BreadcrumbList','itemListElement'=>$items];
+ $items=[];
+ foreach(ag_breadcrumb_items() as $item)$items[]=['@type'=>'ListItem','position'=>count($items)+1,'name'=>$item['name'],'item'=>$item['url']];
+ return $items?['@type'=>'BreadcrumbList','itemListElement'=>$items]:[];
 }
 add_filter('document_title_parts',function($parts){if(vatan_feature('seo')&&is_singular()){$v=get_post_meta(get_queried_object_id(),'_vatan_seo_title',true);if($v)$parts['title']=$v;}return $parts;},20);
 add_action('wp_head',function(){

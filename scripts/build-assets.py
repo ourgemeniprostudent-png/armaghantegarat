@@ -6,7 +6,7 @@ root=Path(__file__).resolve().parent.parent;theme=root/'theme/vatan-authority';d
 base=['style.css','assets/video-hero.css','assets/home-story.css','assets/interior.css']
 plans={'site-home.css':base+['assets/capabilities.css','assets/product-revolver.css','assets/cooperation-gallery.css'],'site-interior.css':base+['assets/art-direction.css','assets/capabilities.css'],'site-gallery.css':base+['assets/art-direction.css','assets/capabilities.css','assets/product-revolver.css','assets/cooperation-gallery.css']}
 for name,files in plans.items():
- files=files+['assets/brand-accent.css']
+ files=files+(['assets/page-opening.css'] if name!='site-home.css' else [])+['assets/brand-accent.css']
  parts=[]
  for path in files:
   src=theme/path;css=src.read_text()

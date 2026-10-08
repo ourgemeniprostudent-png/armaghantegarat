@@ -1,0 +1,40 @@
+/* A shared interior opening: route, introduction, then the page story. */
+.ag-art-page .ag-hero,
+.ag-art-article .ag-article-hero {
+ display:block;
+ min-height:0;
+ padding-block:28px 88px;
+}
+.ag-page-path {margin-bottom:34px}
+.ag-page-path:empty {display:none}
+.ag-page-path .breadcrumb {
+ font-size:13px;
+ line-height:1.8;
+ letter-spacing:0;
+ margin:0;
+ padding-block:4px 18px;
+ border-bottom:1px solid #c7a06524;
+ color:#d7d1c6;
+}
+.breadcrumb ol {display:flex;flex-wrap:wrap;gap:8px 0;list-style:none;margin:0;padding:0}
+.breadcrumb li {display:flex;align-items:baseline;min-width:0;max-width:100%;gap:14px;margin:0}
+.breadcrumb li+li {margin-inline-start:14px}
+.breadcrumb a {color:#c7a065;text-decoration:none;padding-block:4px;white-space:nowrap}
+.breadcrumb a:hover {color:#e0bd82}
+.breadcrumb [aria-current="page"] {overflow-wrap:anywhere;padding-block:4px;color:#d7d1c6}
+.ag-path-separator {display:inline-block;flex:0 0 5px;width:5px;height:5px;border-left:1px solid #c7a06580;border-bottom:1px solid #c7a06580;transform:rotate(45deg);align-self:center}
+.ag-art-page .ag-hero-grid,
+.ag-art-article .ag-article-grid {align-items:start}
+.ag-art-page .ag-hero-copy>.eyebrow,
+.ag-art-article .ag-article-grid>div>.eyebrow {margin-bottom:0;font-size:13px;line-height:1.8}
+.ag-art-page .ag-hero h1 {margin-block:14px 24px}
+.ag-art-article .ag-article-hero h1 {margin-block:14px 24px}
+.ag-art-page .ag-hero-stage {align-self:center}
+@media(max-width:900px) {
+ .ag-art-page .ag-hero,.ag-art-article .ag-article-hero {padding-block:20px 80px}
+ .ag-page-path {margin-bottom:26px}
+ .ag-page-path .breadcrumb {font-size:12px;padding-block:0 14px}
+ .breadcrumb li {gap:10px}
+ .breadcrumb li+li {margin-inline-start:10px}
+ .ag-art-page .ag-hero h1,.ag-art-article .ag-article-hero h1 {margin-block:12px 22px}
+}

@@ -7,7 +7,7 @@ function vatan_feature_labels(){return [
  'media_discovery'=>'جستجو و موضوعات رسانه','video_library'=>'کتابخانه ویدیو',
  'related_content'=>'محصولات و مطالب مرتبط','product_gallery'=>'گالری چندعکسی محصول',
  'product_short_form'=>'فرم داخل صفحه محصول','whatsapp'=>'گفتگو در واتس‌اپ',
- 'mobile_footer'=>'فوتر بازشونده موبایل','seo'=>'متادیتا و داده ساختاریافته'
+ 'mobile_footer'=>'فوتر بازشونده موبایل','breadcrumbs'=>'مسیر صفحه زیر هدر در صفحات داخلی','seo'=>'متادیتا و داده ساختاریافته'
 ];}
 function vatan_feature($key){$saved=get_option('vatan_features',[]);return !array_key_exists($key,(array)$saved)||$saved[$key]==='1';}
 function vatan_brand_accent_sanitize($value){

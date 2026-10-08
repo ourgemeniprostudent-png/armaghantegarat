@@ -1,7 +1,6 @@
 <?php get_header();the_post();$id=get_the_ID();$s=ag_detail_section($id,'episode'); ?>
 <div class="ag-interior ag-art-page ag-art-article">
- <section class="ag-article-hero"><div class="wrap ag-article-grid"><div data-ag-reveal>
-  <div class="breadcrumb"><a href="<?php echo esc_url(vatan_url('media/')); ?>">رسانه</a> / گفتگو</div>
+ <section class="ag-article-hero"><div class="wrap ag-page-path"><?php ag_breadcrumb(); ?></div><div class="wrap ag-article-grid"><div data-ag-reveal>
   <span class="eyebrow"><?php ag_text($s,'eyebrow'); ?></span><h1><?php the_title(); ?></h1><p><?php echo esc_html($s['body']); ?></p>
   <div class="ag-article-meta"><time datetime="<?php echo esc_attr(get_the_date('c')); ?>"><?php echo esc_html(get_the_date()); ?></time><span><?php echo esc_html(get_post_meta($id,'_vatan_duration',true)); ?></span></div>
  </div><?php ag_art_hero($s,'detail'); ?></div></section>

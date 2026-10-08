@@ -41,7 +41,7 @@ function ag_heading($s,$tag='h2') {
 }
 function ag_action($s,$class='home-route-link') {if(!empty($s['link'])&&!empty($s['label']))echo '<a class="'.esc_attr($class).'" href="'.esc_url(ag_link($s['link'])).'">'.esc_html($s['label']).' <span aria-hidden="true">↗</span></a>';}
 function ag_inner_nav($context) {
-    $sections=ag_sections($context);echo '<nav class="ag-section-nav wrap" aria-label="بخش‌های صفحه"><a href="'.esc_url(home_url('/')).'">خانه</a><span aria-hidden="true">/</span>';
+    $sections=ag_sections($context);echo '<nav class="ag-section-nav wrap" aria-label="بخش‌های صفحه">';
     foreach($sections as $id=>$section)if(!in_array($section['layout'],['hero','home-product','home-flow','home-flow-item'],true))echo '<a href="#'.esc_attr($id==='gallery'?($section['layout']==='product-gallery'?'import-categories':'business-cooperation'):$id).'">'.esc_html($section['label']).'</a>';
     echo '</nav>';
 }
@@ -50,7 +50,7 @@ function ag_render_page($context) {
     foreach(ag_sections($context) as $id=>$section){
         $s=$section['values'];$layout=$section['layout'];if(str_starts_with($layout,'home-')||$layout==='article')continue;
         if($layout==='hero'){
-            echo '<section class="ag-hero" id="'.esc_attr($id).'"><div class="wrap ag-hero-grid"><div class="ag-hero-copy" data-ag-reveal><div class="breadcrumb"><a href="'.esc_url(home_url('/')).'">خانه</a> / '.esc_html(is_tax('vatan_category')?get_queried_object()->name:(is_home()?get_the_title((int)get_option('page_for_posts')):get_the_title(get_queried_object_id()))).'</div>';
+            echo '<section class="ag-hero" id="'.esc_attr($id).'"><div class="wrap ag-page-path">';ag_breadcrumb();echo '</div><div class="wrap ag-hero-grid"><div class="ag-hero-copy" data-ag-reveal>';
             ag_heading($s,'h1');ag_body($s['body']??'');ag_action($s,'button trade-button');echo '</div>';ag_art_hero($s,$context);echo '</div><div class="ag-hero-foot wrap"><span>'.esc_html($s['foot_label']??$s['eyebrow']).'</span><a href="#'.esc_attr(array_keys(ag_sections($context))[1]??$id).'">'.esc_html($s['scroll_label']??'ادامه روایت').' <span class="ag-symbol" aria-hidden="true">↓</span></a></div><div class="ag-hero-line" aria-hidden="true"></div></section>';ag_inner_nav($context);continue;
         }
         if($layout==='product-gallery'||$layout==='flow-gallery'){

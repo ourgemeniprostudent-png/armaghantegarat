@@ -208,5 +208,6 @@ body.ag-about-page #main{padding-top:0}.at-about{overflow-x:clip;font-size:16px}
 .at-about .hero-intro p{color:#eee8dc;margin:0}.at-about .process{display:block}.at-about .products-head>div,.at-about .process-head>div{max-width:340px;flex:0 0 340px}.at-about .products-head h2,.at-about .process-head h2{flex:1}
 body:not(.ag-warm-interiors) .at-about{--sand:#f1f1f1;--paper:#fff}
 @media(max-width:680px){body.ag-about-mobile-cta .at-about .hero-bottom{bottom:calc(90px + env(safe-area-inset-bottom))}}
+@media(max-width:360px){.at-about .hero h1{font-size:42px;letter-spacing:-1.2px}}
 @media(max-width:760px){.at-about .products-head>div,.at-about .process-head>div{max-width:100%;flex:none}}
 @media print{.at-about .hero h1{font-size:40px}.at-about .hero p{color:#333}.at-about details:not([open])>.product-body{display:block}.at-about .about-optional-media{display:none}}

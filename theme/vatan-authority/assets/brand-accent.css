@@ -1,8 +1,15 @@
-/* Royal burgundy trial: detail-scale accents; no palette, imagery or layout replacement. */
+/* Royal burgundy: restrained details and the owner's requested outline headlines. */
 body.ag-brand-accent {
  --brand-wine:#76273b;
  --brand-wine-opacity:.82;
  --brand-wine-detail:color-mix(in srgb,var(--brand-wine) var(--brand-wine-share,76%),var(--gold-light,#e0bd82));
+ --brand-wine-type:color-mix(in srgb,var(--brand-wine) var(--brand-wine-type-share,75%),#eee9e0);
+}
+/* A lighter tone of the configured wine keeps thin headline strokes readable on black. */
+.ag-brand-accent .ag-art-page .ag-hero h1>.gold,
+.ag-brand-accent .manifesto-word:not(.manifesto-gold),
+.ag-brand-accent .ag-error-art .error-number {
+ -webkit-text-stroke-color:var(--brand-wine-type);
 }
 /* Small editorial rules connect the third color across home and interior pages. */
 .ag-brand-accent :is(.home-about,.home-journal,.home-contact,.ag-hero-copy,.ag-section-head,.ag-fieldnote-intro,.ag-chapter-copy) .eyebrow::before {

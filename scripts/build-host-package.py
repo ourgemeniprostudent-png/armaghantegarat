@@ -40,8 +40,8 @@ for file in sorted(public.rglob('*')):
  if file.is_file():
   with file.open('rb') as f:digest=hashlib.file_digest(f,'sha256').hexdigest()
   manifest.append({'path':file.relative_to(public).as_posix(),'sha256':digest,'bytes':file.stat().st_size})
-(out/'manifest.json').write_text(json.dumps({'version':'1.10.2','files':manifest},indent=2)+'\n')
-archive=out/'Armaghan-WordPress-v1.10.2.zip'
+(out/'manifest.json').write_text(json.dumps({'version':'1.10.3','files':manifest},indent=2)+'\n')
+archive=out/'Armaghan-WordPress-v1.10.3.zip'
 with zipfile.ZipFile(archive,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=6) as z:
  for file in sorted(public.rglob('*')):
   if file.is_file():z.write(file,file.relative_to(public),compress_type=zipfile.ZIP_STORED if file.suffix in ['.mp4','.webp','.woff2','.jpg','.png'] else zipfile.ZIP_DEFLATED)

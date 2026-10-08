@@ -1,68 +1,68 @@
 {
   "version": "1.13.0",
   "filename": "Armaghan-WordPress-v1.13.0.zip",
-  "bytes": 188603079,
-  "sha256": "37827e988853a34023d16c2103355bc21e1c998df67123b5d8a970e06ebeb06f",
+  "bytes": 188603105,
+  "sha256": "ac57f9fe540f2a918b25dbc4191085c1d3ca3a070438fa8df0fe56f9e7b3142f",
   "parts": [
     {
       "path": "part-01.bin",
       "bytes": 16777216,
-      "sha256": "7483ae7393260f22bb644a8da4f76b6398687b7ec46133b58b2a45259be75a3a"
+      "sha256": "883ddf459691be843d94c7bd78966a162f2cf0cc1c1ba4e803696691ced8e69c"
     },
     {
       "path": "part-02.bin",
       "bytes": 16777216,
-      "sha256": "cc871507a0787d3e187fe6055d2a3612778dc8dbbb38364d180111bd6b64f660"
+      "sha256": "0619aa62aaf699826c8b657cb8a28fcd31d797d8ec2451086aea0b352b0c3028"
     },
     {
       "path": "part-03.bin",
       "bytes": 16777216,
-      "sha256": "3f2a5886e646b8932bde437e51a3de820143f759c6db5236d161c745b098cf16"
+      "sha256": "95ae9511b3c48b026250b327d4ba4f3e1ed2f3784e78c570637c697a6e738138"
     },
     {
       "path": "part-04.bin",
       "bytes": 16777216,
-      "sha256": "977611a860536fc8a91b0d2564b004de263bc6ea8231376858e430f0ac294df4"
+      "sha256": "8091c8ac4c913d709d69a3519cd17cbcbe5ee8f58a412fc59c66754e73960de2"
     },
     {
       "path": "part-05.bin",
       "bytes": 16777216,
-      "sha256": "4778804925a0f24e140826f2f341c877c80c3670065edd50e9909b6c3b52ed04"
+      "sha256": "b9727ed5a1ce1260ab3399e7ab5f7f36acdb4c0b62507885564e9936d9d90c3e"
     },
     {
       "path": "part-06.bin",
       "bytes": 16777216,
-      "sha256": "810aba2d93fb9f4b2caba9dee9908fcbba0b368cbd64279b8534a9c28b87c95a"
+      "sha256": "371693b194436bc7cf227614e33c40c9084647a8d468dbfa78f3339b8295799f"
     },
     {
       "path": "part-07.bin",
       "bytes": 16777216,
-      "sha256": "80c2753eea545b299aa0b21be35c18b62eb515f80f07b180689b18940d7833f6"
+      "sha256": "bf6b7a6adf51efb76c715448e714711b8e012ea2985893c690259ac33b62a0cb"
     },
     {
       "path": "part-08.bin",
       "bytes": 16777216,
-      "sha256": "8b371841a51619f20abc507097ffaf036979f2ebe684882fed36ce9feccd2957"
+      "sha256": "71d5478a48ce07cbb33a5c4cfe0903bd4865907e551eeeafd745eba5b31efbdc"
     },
     {
       "path": "part-09.bin",
       "bytes": 16777216,
-      "sha256": "d22908eb21267e89b0cc168ca0e7461ece464bfae6de2a6e0894c9a2b111c1b4"
+      "sha256": "64957797f588460175716f330c199c6e83895cc5a15c57649da5c3d45406ec47"
     },
     {
       "path": "part-10.bin",
       "bytes": 16777216,
-      "sha256": "1e35a8c21361f5df3c9f06b39478c0eefd5203aa1d0ca322fba103af279a9ab9"
+      "sha256": "b7a924a65dde8c74a5fc379a6d74f821bae6bb4c144812b6c507e4c569188f34"
     },
     {
       "path": "part-11.bin",
       "bytes": 16777216,
-      "sha256": "96a335422e7812db9108aa625920a72e223f59731451ab9099ec8ff4c6577e06"
+      "sha256": "1719ac68fa78f52022fae2be5be29cb73de31478817e39b6ce32da89afc8bbfc"
     },
     {
       "path": "part-12.bin",
-      "bytes": 4053703,
-      "sha256": "6b49cb3617754dfe301c5e3535158a8fce7848426446009dbcda5935521a294d"
+      "bytes": 4053729,
+      "sha256": "0aa45057bd9f486c578f10663c9147820303f3966e1c9cc61af7e77bd7fb0a0d"
     }
   ]
 }

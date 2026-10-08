@@ -5881,6 +5881,151 @@
           "label": "متن بدون ویدیو",
           "type": "textarea",
           "value": "ویدیوهای منتشرشده همراه توضیح و متن گفتگو در این بخش قرار می‌گیرند."
+        },
+        "videos_nav": {
+          "label": "زیرمنو و مسیر ویدیو",
+          "type": "text",
+          "value": "ویدیوها"
+        },
+        "podcasts_nav": {
+          "label": "زیرمنو و مسیر پادکست",
+          "type": "text",
+          "value": "پادکست‌ها"
+        },
+        "channel_title": {
+          "label": "تیتر ورودی رسانه",
+          "type": "text",
+          "value": "رسانه ارمغان تجارت وطن"
+        },
+        "channel_body": {
+          "label": "معرفی ورودی رسانه",
+          "type": "textarea",
+          "value": "دو مسیر برای شناخت تجارت؛ روایت‌هایی برای تماشا و گفتگوهایی برای شنیدن."
+        },
+        "video_archive_title": {
+          "label": "عنوان صفحه ویدیو",
+          "type": "text",
+          "value": "تصویر، روایت می‌کند."
+        },
+        "video_archive_body": {
+          "label": "معرفی آرشیو ویدیو",
+          "type": "textarea",
+          "value": "روایت‌های ویدیویی درباره محصول، تامین و دنیای تجارت؛ هر ویدیو با صفحه تماشا و توضیحات خودش."
+        },
+        "podcast_archive_title": {
+          "label": "عنوان صفحه پادکست",
+          "type": "text",
+          "value": "گفتگوهای تجارت"
+        },
+        "podcast_archive_body": {
+          "label": "معرفی مجموعه پادکست",
+          "type": "textarea",
+          "value": "پادکست‌های ارمغان تجارت وطن؛ از شناخت قهوه تا پرسش‌های دقیق درباره محصول و همکاری."
+        },
+        "video_detail_about": {
+          "label": "عنوان توضیحات ویدیو",
+          "type": "text",
+          "value": "درباره این ویدیو"
+        },
+        "podcast_detail_about": {
+          "label": "عنوان توضیحات پادکست",
+          "type": "text",
+          "value": "درباره این اپیزود"
+        },
+        "related_videos": {
+          "label": "عنوان پیشنهاد ویدیو",
+          "type": "text",
+          "value": "برای تماشای بعدی"
+        },
+        "other_episodes": {
+          "label": "عنوان اپیزودهای دیگر",
+          "type": "text",
+          "value": "ادامه گفتگوها"
+        },
+        "all_media_label": {
+          "label": "بازگشت به رسانه",
+          "type": "text",
+          "value": "همه رسانه‌ها"
+        },
+        "watch_label": {
+          "label": "پیوند تماشا",
+          "type": "text",
+          "value": "دیدن ویدیوها"
+        },
+        "listen_label": {
+          "label": "پیوند شنیدن",
+          "type": "text",
+          "value": "شنیدن پادکست‌ها"
+        },
+        "all_topics": {
+          "label": "فیلتر همه موضوعات",
+          "type": "text",
+          "value": "همه موضوعات"
+        },
+        "episode_title_label": {
+          "label": "ستون نام اپیزود",
+          "type": "text",
+          "value": "نام اپیزود"
+        },
+        "duration_label": {
+          "label": "ستون زمان",
+          "type": "text",
+          "value": "مدت"
+        },
+        "video_format": {
+          "label": "نوع ویدیو",
+          "type": "text",
+          "value": "رسانه تصویری"
+        },
+        "audio_format": {
+          "label": "نوع صوت",
+          "type": "text",
+          "value": "مجموعه پادکست"
+        },
+        "description_label": {
+          "label": "فهرست توضیح",
+          "type": "text",
+          "value": "توضیحات"
+        },
+        "transcript_label": {
+          "label": "متن رسانه",
+          "type": "text",
+          "value": "متن گفتگو"
+        },
+        "audio_version": {
+          "label": "پیوند نسخه صوتی",
+          "type": "text",
+          "value": "شنیدن نسخه صوتی"
+        },
+        "video_version": {
+          "label": "پیوند نسخه ویدیویی",
+          "type": "text",
+          "value": "تماشای نسخه ویدیویی"
+        },
+        "sample_count": {
+          "label": "شمارنده نمونه‌ها",
+          "type": "text",
+          "value": "نمونه طراحی"
+        },
+        "published_count": {
+          "label": "شمارنده واقعی",
+          "type": "text",
+          "value": "منتشرشده"
+        },
+        "podcast_empty": {
+          "label": "آرشیو صوت بدون نتیجه",
+          "type": "text",
+          "value": "اپیزودی برای این انتخاب پیدا نشد."
+        },
+        "video_no_results": {
+          "label": "آرشیو ویدیو بدون نتیجه",
+          "type": "text",
+          "value": "ویدیویی برای این انتخاب پیدا نشد."
+        },
+        "podcast_cover": {
+          "label": "کاور مجموعه پادکست؛ خالی = طرح برند",
+          "type": "image",
+          "value": ""
         }
       }
     },
@@ -5950,6 +6095,11 @@
           "type": "text",
           "label": "نوشته کوتاه روی کاور ثابت",
           "value": "شناخت قهوه"
+        },
+        "topic_slug": {
+          "label": "شناسه موضوع برای فیلتر؛ coffee / supply / quality",
+          "type": "text",
+          "value": "coffee"
         }
       }
     },
@@ -5997,6 +6147,11 @@
           "type": "text",
           "label": "نوشته کوتاه روی کاور ثابت",
           "value": "گفتگوی تجارت"
+        },
+        "topic_slug": {
+          "label": "شناسه موضوع برای فیلتر؛ coffee / supply / quality",
+          "type": "text",
+          "value": "supply"
         }
       }
     },
@@ -6044,6 +6199,11 @@
           "type": "text",
           "label": "نوشته کوتاه روی کاور ثابت",
           "value": "کیفیت محصول"
+        },
+        "topic_slug": {
+          "label": "شناسه موضوع برای فیلتر؛ coffee / supply / quality",
+          "type": "text",
+          "value": "quality"
         }
       }
     },
@@ -6081,6 +6241,16 @@
           "label": "توضیح",
           "type": "textarea",
           "value": "نمونه جایگاه انتشار ویدیو؛ فایل واقعی هنوز بارگذاری نشده است."
+        },
+        "topic_slug": {
+          "label": "شناسه موضوع برای فیلتر؛ coffee / supply / quality",
+          "type": "text",
+          "value": "coffee"
+        },
+        "transcript": {
+          "label": "طرح توضیحات ویدیو",
+          "type": "textarea",
+          "value": "این صفحه نمونه ساختار انتشار ویدیو است.\n\nدر ویدیوی واقعی، موضوع، توضیحات، زمان‌بندی و متن همان فایل در این بخش قرار می‌گیرند. این جایگاه برای معرفی قهوه آماده شده و مستند ضبط‌شده مجموعه نیست."
         }
       }
     },
@@ -6118,6 +6288,204 @@
           "label": "توضیح",
           "type": "textarea",
           "value": "نمونه جایگاه انتشار ویدیو؛ فایل واقعی هنوز بارگذاری نشده است."
+        },
+        "topic_slug": {
+          "label": "شناسه موضوع برای فیلتر؛ coffee / supply / quality",
+          "type": "text",
+          "value": "supply"
+        },
+        "transcript": {
+          "label": "طرح توضیحات ویدیو",
+          "type": "textarea",
+          "value": "این صفحه نمونه ساختار انتشار ویدیو است.\n\nدر ویدیوی واقعی، موضوع، توضیحات، زمان‌بندی و متن همان فایل در این بخش قرار می‌گیرند. این جایگاه برای معرفی تجارت آماده شده و مستند ضبط‌شده مجموعه نیست."
+        }
+      }
+    },
+    {
+      "id": "video-coffee-use",
+      "label": "نمونه ویدیو / قهوه؛ نیاز یک کسب‌وکار",
+      "layout": "media-video-sample",
+      "fields": {
+        "title": {
+          "label": "عنوان",
+          "type": "text",
+          "value": "قهوه؛ نیاز یک کسب‌وکار"
+        },
+        "topic": {
+          "label": "موضوع",
+          "type": "text",
+          "value": "قهوه"
+        },
+        "cover_title": {
+          "label": "نوشته روی کاور برند",
+          "type": "text",
+          "value": "قهوه و کسب‌وکار"
+        },
+        "topic_slug": {
+          "label": "شناسه موضوع برای فیلتر؛ coffee / supply / quality",
+          "type": "text",
+          "value": "coffee"
+        },
+        "image": {
+          "label": "کاور اختصاصی؛ خالی = کاور برند",
+          "type": "image",
+          "value": ""
+        },
+        "alt": {
+          "label": "شرح کاور",
+          "type": "text",
+          "value": "قهوه؛ نیاز یک کسب‌وکار"
+        },
+        "body": {
+          "label": "معرفی",
+          "type": "textarea",
+          "value": "طرح موضوع یک ویدیوی نمایشی درباره قهوه؛ فایل واقعی هنوز منتشر نشده است."
+        },
+        "transcript": {
+          "label": "طرح توضیحات ویدیو",
+          "type": "textarea",
+          "value": "این صفحه نمونه ساختار انتشار ویدیو است.\n\nدر ویدیوی واقعی، موضوع، توضیحات، زمان‌بندی و متن همان فایل در این بخش قرار می‌گیرند. این جایگاه برای معرفی قهوه آماده شده و مستند ضبط‌شده مجموعه نیست."
+        }
+      }
+    },
+    {
+      "id": "video-products",
+      "label": "نمونه ویدیو / محصول؛ مشخصات و بسته‌بندی",
+      "layout": "media-video-sample",
+      "fields": {
+        "title": {
+          "label": "عنوان",
+          "type": "text",
+          "value": "محصول؛ مشخصات و بسته‌بندی"
+        },
+        "topic": {
+          "label": "موضوع",
+          "type": "text",
+          "value": "شناخت محصولات"
+        },
+        "cover_title": {
+          "label": "نوشته روی کاور برند",
+          "type": "text",
+          "value": "شناخت محصول"
+        },
+        "topic_slug": {
+          "label": "شناسه موضوع برای فیلتر؛ coffee / supply / quality",
+          "type": "text",
+          "value": "quality"
+        },
+        "image": {
+          "label": "کاور اختصاصی؛ خالی = کاور برند",
+          "type": "image",
+          "value": ""
+        },
+        "alt": {
+          "label": "شرح کاور",
+          "type": "text",
+          "value": "محصول؛ مشخصات و بسته‌بندی"
+        },
+        "body": {
+          "label": "معرفی",
+          "type": "textarea",
+          "value": "طرح موضوع یک ویدیوی نمایشی درباره شناخت محصولات؛ فایل واقعی هنوز منتشر نشده است."
+        },
+        "transcript": {
+          "label": "طرح توضیحات ویدیو",
+          "type": "textarea",
+          "value": "این صفحه نمونه ساختار انتشار ویدیو است.\n\nدر ویدیوی واقعی، موضوع، توضیحات، زمان‌بندی و متن همان فایل در این بخش قرار می‌گیرند. این جایگاه برای معرفی شناخت محصولات آماده شده و مستند ضبط‌شده مجموعه نیست."
+        }
+      }
+    },
+    {
+      "id": "video-inquiry",
+      "label": "نمونه ویدیو / درخواست تامین؛ نقطه شروع گفتگو",
+      "layout": "media-video-sample",
+      "fields": {
+        "title": {
+          "label": "عنوان",
+          "type": "text",
+          "value": "درخواست تامین؛ نقطه شروع گفتگو"
+        },
+        "topic": {
+          "label": "موضوع",
+          "type": "text",
+          "value": "تامین و همکاری"
+        },
+        "cover_title": {
+          "label": "نوشته روی کاور برند",
+          "type": "text",
+          "value": "درخواست روشن"
+        },
+        "topic_slug": {
+          "label": "شناسه موضوع برای فیلتر؛ coffee / supply / quality",
+          "type": "text",
+          "value": "supply"
+        },
+        "image": {
+          "label": "کاور اختصاصی؛ خالی = کاور برند",
+          "type": "image",
+          "value": ""
+        },
+        "alt": {
+          "label": "شرح کاور",
+          "type": "text",
+          "value": "درخواست تامین؛ نقطه شروع گفتگو"
+        },
+        "body": {
+          "label": "معرفی",
+          "type": "textarea",
+          "value": "طرح موضوع یک ویدیوی نمایشی درباره تامین و همکاری؛ فایل واقعی هنوز منتشر نشده است."
+        },
+        "transcript": {
+          "label": "طرح توضیحات ویدیو",
+          "type": "textarea",
+          "value": "این صفحه نمونه ساختار انتشار ویدیو است.\n\nدر ویدیوی واقعی، موضوع، توضیحات، زمان‌بندی و متن همان فایل در این بخش قرار می‌گیرند. این جایگاه برای معرفی تامین و همکاری آماده شده و مستند ضبط‌شده مجموعه نیست."
+        }
+      }
+    },
+    {
+      "id": "video-storage",
+      "label": "نمونه ویدیو / نگهداری؛ پرسش‌های پیش از خرید",
+      "layout": "media-video-sample",
+      "fields": {
+        "title": {
+          "label": "عنوان",
+          "type": "text",
+          "value": "نگهداری؛ پرسش‌های پیش از خرید"
+        },
+        "topic": {
+          "label": "موضوع",
+          "type": "text",
+          "value": "شناخت و نگهداری"
+        },
+        "cover_title": {
+          "label": "نوشته روی کاور برند",
+          "type": "text",
+          "value": "کیفیت و نگهداری"
+        },
+        "topic_slug": {
+          "label": "شناسه موضوع برای فیلتر؛ coffee / supply / quality",
+          "type": "text",
+          "value": "quality"
+        },
+        "image": {
+          "label": "کاور اختصاصی؛ خالی = کاور برند",
+          "type": "image",
+          "value": ""
+        },
+        "alt": {
+          "label": "شرح کاور",
+          "type": "text",
+          "value": "نگهداری؛ پرسش‌های پیش از خرید"
+        },
+        "body": {
+          "label": "معرفی",
+          "type": "textarea",
+          "value": "طرح موضوع یک ویدیوی نمایشی درباره شناخت و نگهداری؛ فایل واقعی هنوز منتشر نشده است."
+        },
+        "transcript": {
+          "label": "طرح توضیحات ویدیو",
+          "type": "textarea",
+          "value": "این صفحه نمونه ساختار انتشار ویدیو است.\n\nدر ویدیوی واقعی، موضوع، توضیحات، زمان‌بندی و متن همان فایل در این بخش قرار می‌گیرند. این جایگاه برای معرفی شناخت و نگهداری آماده شده و مستند ضبط‌شده مجموعه نیست."
         }
       }
     }

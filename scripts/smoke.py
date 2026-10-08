@@ -7,8 +7,12 @@ root=Path(__file__).resolve().parent.parent
 url=(root/'.runtime/site-url.txt').read_text().strip()
 routes=['/','/products/','/products/coffee/','/products/rice/','/products/dried-fruits/','/products/spices/','/products/legumes/','/solutions/','/solutions/b2b-supply/','/thank-you/','/about/','/contact/','/inquiry/','/media/','/blog/','/faq/','/privacy/','/search/','/blog/2026/10/06/follow-up-your-inquiry/','/blog/2026/10/06/business-inquiry-checklist/','/blog/2026/10/06/coffee-inquiry-guide/']
 routes += ['/blog/2026/10/08/'+g['slug']+'/' for g in json.loads((root/'content/editorial/guides-fa.json').read_text())]
-media_html=urlopen(url+'/media/').read().decode()
-routes+=sorted(set(re.findall(r'/media/sample/[a-z0-9-]+/',media_html)))
+for media_route in ['/media/','/media/videos/','/media/podcasts/']:
+ media_html=urlopen(url+media_route).read().decode()
+ routes.append(media_route)
+ routes+=sorted(set(re.findall(r'/media/(?:videos|podcasts)/sample/[a-z0-9-]+/',media_html)))
+routes+=['/media/sample/'+key+'/' for key in ['coffee','trade','storage']]
+routes=list(dict.fromkeys(routes))
 results=[]
 for route in routes:
  with urlopen(url+route,timeout=20) as r:

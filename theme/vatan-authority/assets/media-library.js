@@ -38,7 +38,7 @@
   });
  });
  document.querySelectorAll('[data-media-mock]').forEach(button=>button.addEventListener('click',event=>{
-  event.preventDefault();const box=button.closest('.ms-mock-player,.ms-video-card'),status=box?.querySelector('.ms-mock-status');if(!status)return;
+  event.preventDefault();const box=button.closest('.ms-mock-player,.ms-video-card,.mh-screen'),status=box?.querySelector('.ms-mock-status');if(!status)return;
   status.hidden=false;box.classList.add('is-demo-active');status.tabIndex=-1;status.focus({preventScroll:true});
  }));
  document.querySelectorAll('[data-media-video]').forEach(trigger=>{
@@ -50,12 +50,19 @@
   dialog.addEventListener('close',()=>{video.pause();trigger.focus({preventScroll:true});});
  });
  const form=document.querySelector('[data-media-search-form]');
- if(form&&(document.documentElement.hasAttribute('data-static-preview')||document.querySelector('.ms-demo-notice'))){
+ if(form&&document.documentElement.hasAttribute('data-static-preview')){
   const input=form.querySelector('input'),select=form.querySelector('select'),items=[...document.querySelectorAll('[data-media-item]')],notice=document.querySelector('[data-media-no-results]');
+  const sort=form.querySelector('[name=sort]');
   const normalize=text=>text.replace(/ي/g,'ی').replace(/ك/g,'ک').replace(/\u200c/g,' ').toLocaleLowerCase('fa').trim();
-  const filter=()=>{const query=normalize(input.value),topic=select.selectedIndex?select.value:'';let count=0;items.forEach(item=>{const matches=normalize(item.dataset.mediaSearch).includes(query)&&(!topic||item.dataset.mediaTopic.split(' ').includes(topic));item.hidden=!matches;if(matches)count++;});notice.hidden=count>0;};
+  const filter=()=>{const query=normalize(input.value),topic=select.selectedIndex?select.value:'';let count=0;items.forEach(item=>{const matches=normalize(item.dataset.mediaSearch).includes(query)&&(!topic||item.dataset.mediaTopic.split(' ').includes(topic));(item.closest('.mh-podcast-row')||item).hidden=!matches;if(matches)count++;});notice.hidden=count>0;document.querySelectorAll('[data-media-topic-filter]').forEach(link=>{link.setAttribute('aria-current',String(link.dataset.mediaTopicFilter===select.value));});};
   form.addEventListener('submit',event=>{event.preventDefault();event.stopImmediatePropagation();filter();const url=new URL(location.href);input.value?url.searchParams.set('q',input.value):url.searchParams.delete('q');select.value?url.searchParams.set('topic',select.value):url.searchParams.delete('topic');history.replaceState(null,'',url);});
   input.addEventListener('input',filter);select.addEventListener('change',filter);
-  const params=new URLSearchParams(location.search);input.value=params.get('q')||'';select.value=params.get('topic')||'';filter();
+  document.querySelectorAll('[data-media-topic-filter]').forEach(link=>link.addEventListener('click',event=>{event.preventDefault();select.value=link.dataset.mediaTopicFilter;filter();const url=new URL(location.href);select.value?url.searchParams.set('topic',select.value):url.searchParams.delete('topic');history.replaceState(null,'',url);}));
+  const sortItems=()=>{
+   const nodes=items.map(item=>item.closest('.mh-podcast-row')||item),record=node=>node.matches('[data-media-item]')?node:node.querySelector('[data-media-item]');
+   [...new Set(nodes.map(node=>node.parentElement))].forEach(parent=>nodes.filter(node=>node.parentElement===parent).sort((a,b)=>sort.value==='title'?record(a).dataset.mediaSearch.localeCompare(record(b).dataset.mediaSearch,'fa'):sort.value==='oldest'?nodes.indexOf(b)-nodes.indexOf(a):nodes.indexOf(a)-nodes.indexOf(b)).forEach(node=>parent.append(node)));
+  };
+  sort?.addEventListener('change',()=>{sortItems();const url=new URL(location.href);url.searchParams.set('sort',sort.value);history.replaceState(null,'',url);});
+  const params=new URLSearchParams(location.search);input.value=params.get('q')||'';select.value=params.get('topic')||'';if(sort){sort.value=['newest','oldest','title'].includes(params.get('sort'))?params.get('sort'):'newest';sortItems();}filter();
  }
 })();

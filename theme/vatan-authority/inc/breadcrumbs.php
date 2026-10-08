@@ -3,6 +3,14 @@
 if (!defined('ABSPATH')) exit;
 function ag_breadcrumb_items($title='') {
     if (is_front_page() || is_404()) return [];
+    if((is_page('media')||is_singular('vatan_episode'))&&(ag_media_view()||ag_media_sample_key()||is_singular('vatan_episode'))){
+        $kind=ag_media_view()?:(is_singular('vatan_episode')?vatan_media_post_kind(get_queried_object()):'audio');$items=[['name'=>'خانه','url'=>home_url('/')],['name'=>ag_ms_text('all_media_label'),'url'=>vatan_media_url()]];
+        $items[]=['name'=>ag_ms_text($kind==='video'?'videos_nav':'podcasts_nav'),'url'=>vatan_media_url($kind)];
+        if($key=ag_media_sample_key())$items[]=['name'=>ag_media_sample_catalog()[$key]['title']??ag_ms_text('sample_label'),'url'=>ag_current_url()];
+        elseif(is_singular('vatan_episode'))$items[]=['name'=>get_the_title(get_queried_object_id()),'url'=>ag_current_url()];
+        return $items;
+    }
+
     $identity=ag_section('identity','global');
     $items=[['name'=>$identity['breadcrumb_home']??'خانه','url'=>home_url('/')]];
     if (is_singular('post')) $items[]=['name'=>get_the_title((int)get_option('page_for_posts'))?:'مجله تجارت','url'=>vatan_url('blog/')];

@@ -17,34 +17,41 @@ try:
  $audio=wp_insert_attachment(['post_title'=>$marker.' audio','post_mime_type'=>'audio/wav','post_status'=>'inherit','meta_input'=>['_qa_capability'=>'1']],wp_upload_dir()['basedir'].'/'.$marker.'.wav');$owned[]=$audio;
  foreach(vatan_core_categories() as $slug=>$name){$id=wp_insert_post(['post_type'=>'vatan_product','post_status'=>'publish','post_name'=>$marker.'-'.$slug,'post_title'=>'آزمون موقت محصول '.$name,'post_excerpt'=>'رکورد موقت بررسی قالب؛ حذف خواهد شد.','post_content'=>'<h2>شرح نمونه آزمایشی</h2><p>آزمون مشخصات و نمایش محصول.</p>','meta_input'=>['_qa_capability'=>'1','_vatan_specs'=>"اندازه | متوسط\\nشکل | دانه",'_vatan_gallery'=>[$img]]]);$owned[]=$id;wp_set_object_terms($id,[$slug],'vatan_category');set_post_thumbnail($id,$img);$products[]=get_permalink($id);}
  $ep=wp_insert_post(['post_type'=>'vatan_episode','post_status'=>'publish','post_name'=>$marker,'post_title'=>'آزمون موقت گفتگو','post_excerpt'=>'بررسی صوت، ویدیو و متن گفتگو','post_content'=>'<h2>معرفی گفتگو</h2><p>محتوای موقت برای بررسی فنی.</p>','meta_input'=>['_qa_capability'=>'1','_vatan_audio'=>wp_get_attachment_url($audio),'_vatan_video'=>get_template_directory_uri().'/assets/media/hero-h264.mp4','_vatan_transcript'=>'متن نمونه آزمون فنی؛ پس از بررسی حذف می‌شود.','_vatan_timestamps'=>'00:01 | بخش دوم','_vatan_duration'=>'آزمون','_vatan_featured'=>true]]);$owned[]=$ep;wp_set_object_terms($ep,['coffee'],'vatan_topic');set_post_thumbnail($ep,$img);
+ $variants=[];foreach(['audio','video'] as $kind){$id=wp_insert_post(['post_type'=>'vatan_episode','post_status'=>'publish','post_name'=>$marker.'-'.$kind,'post_title'=>'آزمون موقت '.$kind,'post_excerpt'=>'بررسی جداسازی رسانه‌ها','post_content'=>'<p>رکورد موقت آزمون رابط.</p>','meta_input'=>['_qa_capability'=>'1','_vatan_'.$kind=>$kind==='audio'?wp_get_attachment_url($audio):get_template_directory_uri().'/assets/media/hero-h264.mp4']]);$owned[]=$id;$variants[$kind]=get_permalink($id);set_post_thumbnail($id,$img);wp_set_object_terms($id,['coffee'],'vatan_topic');}
  for($i=0;$i<3;$i++){$id=wp_insert_post(['post_type'=>'post','post_status'=>'publish','post_name'=>$marker.'-'.$i,'post_title'=>'یادداشت آزمایشی '.$i,'post_excerpt'=>'نمونه موقت صفحه‌بندی','meta_input'=>['_qa_capability'=>'1']]);$owned[]=$id;set_post_thumbnail($id,$img);wp_set_object_terms($id,['coffee'],'vatan_topic');}
- echo wp_json_encode(['owned'=>$owned,'episode'=>$ep,'url'=>get_permalink($ep),'products'=>$products,'audio_url'=>wp_get_attachment_url($audio),'features'=>get_option('vatan_features',null)]);'''))
+ echo wp_json_encode(['owned'=>$owned,'episode'=>$ep,'url'=>get_permalink($ep),'video_url'=>vatan_media_url('video',get_post($ep)),'variants'=>$variants,'products'=>$products,'audio_url'=>wp_get_attachment_url($audio),'features'=>get_option('vatan_features',null)]);'''))
  (out/'owned-fixtures.json').write_text(json.dumps(state))
  with sync_playwright() as p:
   b=p.chromium.launch(executable_path=os.environ.get('ARMAGHAN_CHROMIUM_BIN','/usr/bin/chromium'),args=['--no-sandbox']);c=b.new_context(viewport={'width':1440,'height':900},reduced_motion='reduce');q=c.new_page();errors=[];q.on('pageerror',lambda e:errors.append(str(e)))
   for width in ([] if os.environ.get('QA_FAST') else [360,390,768,1440]):
    q.set_viewport_size({'width':width,'height':900})
-   for url in state['products']+[state['url'],base+'/media/',base+'/']:
-    response=q.goto(url,wait_until='networkidle');assert response.status==200,(url,response.status);assert q.locator('h1').count()==1,url;assert not q.evaluate('document.documentElement.scrollWidth>innerWidth'),('overflow',width,url);report.append(dict(width=width,url=url))
+   for url in state['products']+[state['url'],state['video_url'],*state['variants'].values(),base+'/media/',base+'/media/videos/',base+'/media/podcasts/',base+'/']:
+    response=q.goto(url,wait_until='networkidle');
+    if q.locator('[data-event-choice=no]').is_visible():q.locator('[data-event-choice=no]').click()
+    assert response.status==200,(url,response.status);assert q.locator('h1').count()==1,url;assert not q.evaluate('document.documentElement.scrollWidth>innerWidth'),('overflow',width,url);report.append(dict(width=width,url=url))
    if width in [390,1440]:
-    q.goto(state['url'],wait_until='networkidle');q.locator('.am-players').scroll_into_view_if_needed();q.screenshot(path=str(out/f'episode-{width}.png'))
+    q.goto(state['url'],wait_until='networkidle');q.locator('[data-audio-console]').scroll_into_view_if_needed();q.screenshot(path=str(out/f'episode-{width}.png'))
     q.goto(state['products'][0],wait_until='networkidle');q.screenshot(path=str(out/f'product-{width}.png'))
-  q.set_viewport_size({'width':1440,'height':900});q.goto(state['url']);assert q.locator('[role=tab]').count()==2;assert q.locator('.ms-audio-controls').is_visible() and not q.locator('video').is_visible()
-  q.locator('[data-timestamp]').click();q.wait_for_timeout(2500);assert q.locator('audio').evaluate('el=>el.currentTime')>=1,q.locator('audio').evaluate('el=>({time:el.currentTime,duration:el.duration,error:el.error?.message,src:el.src,ready:el.readyState})')
-  q.locator('[role=tab]').nth(1).click();assert q.locator('video').is_visible() and not q.locator('audio').is_visible();assert q.locator('audio').evaluate('el=>el.paused')
-  q.locator('[data-timestamp]').click();q.wait_for_timeout(1000);assert q.locator('video').evaluate('el=>el.currentTime')>=1
-  q.locator('[role=tab]').nth(1).press('Home');assert q.locator('[role=tab]').first.get_attribute('aria-selected')=='true';report.append('Audio/video tabs, keyboard controls, active-player seeking and pause passed')
-  q.goto(base+'/media/');assert q.locator('.am-samples').count()==0;assert q.locator('.ms-episode-row').count()>0
-  q.locator('.ms-feature [data-audio-play]').click();q.wait_for_timeout(600);assert not q.locator('.ms-feature audio').evaluate('el=>el.paused')
-  q.locator('.ms-feature [data-audio-rate]').select_option('1.5');assert q.locator('.ms-feature audio').evaluate('el=>el.playbackRate')==1.5
-  q.locator('.ms-feature [data-audio-mute]').click();assert q.locator('.ms-feature audio').evaluate('el=>el.muted')
-  q.locator('[data-media-video]').click();assert q.locator('dialog[open]').count()==1;q.wait_for_timeout(600);assert q.locator('.ms-feature audio').evaluate('el=>el.paused');assert not q.locator('dialog[open] video').evaluate('el=>el.paused')
-  q.locator('[data-media-close]').press('Escape');assert q.locator('dialog[open]').count()==0;q.wait_for_function("document.querySelector('dialog video').paused && document.querySelector('[data-media-video]')===document.activeElement")
-  q.locator('[data-row-audio]').click();q.wait_for_timeout(400);assert q.locator('.ms-inline-player').is_visible();assert not q.locator('.ms-inline-player audio').evaluate('el=>el.paused');assert q.locator('.ms-feature audio').evaluate('el=>el.paused')
-  q.locator('.ms-inline-player [data-audio-seek]').fill('70');q.wait_for_function("document.querySelector('.ms-inline-player audio').currentTime>=3")
-  q.locator('[data-row-audio]').click();assert not q.locator('.ms-inline-player').is_visible();assert q.locator('.ms-inline-player audio').evaluate('el=>el.paused')
-  report.append('Inline episode play, seeking, collapse and pause passed')
-  report.append('Hub audio play, playback speed, mute, video dialog, mutual pause and Escape focus restoration passed')
+  q.set_viewport_size({'width':1440,'height':900});q.goto(state['url']);
+  if q.locator('[data-event-choice=no]').is_visible():q.locator('[data-event-choice=no]').click()
+  assert q.locator('audio').count()==1 and q.locator('video').count()==0;assert q.locator('.ms-audio-controls').is_visible()
+  q.locator('[data-timestamp]').click();q.wait_for_timeout(1200);assert q.locator('audio').evaluate('el=>el.currentTime')>=1
+  q.locator('[data-audio-rate]').select_option('1.5');assert q.locator('audio').evaluate('el=>el.playbackRate')==1.5
+  q.locator('[data-audio-mute]').click();assert q.locator('audio').evaluate('el=>el.muted')
+  assert q.locator('.mh-alternate').get_attribute('href')==state['video_url'];q.locator('.mh-alternate').click();q.wait_for_url(state['video_url']);assert q.locator('video').is_visible() and q.locator('audio').count()==0
+  q.locator('[data-timestamp]').click();q.wait_for_timeout(1200);assert q.locator('video').evaluate('el=>el.currentTime')>=1;assert q.locator('.mh-watch-related .mh-video-card').count()==1
+  q.locator('.mh-alternate').click();q.wait_for_url(state['url']);assert q.locator('audio').count()==1
+  report.append('Separate podcast/video detail routes, cross-links, timestamp seeking, audio speed and mute passed')
+  assert '/media/podcasts/' in state['variants']['audio'];assert '/media/videos/' in state['variants']['video']
+  wrong=q.goto(state['variants']['audio'].replace('/podcasts/','/videos/'));assert wrong.status==404
+  q.goto(base+'/media/podcasts/');assert q.locator('.ms-episode-row').count()==2;assert not q.locator('[data-media-mock]').count();assert not q.locator('video').count()
+  q.locator('.mh-selected [data-audio-play]').click();q.wait_for_timeout(600);assert not q.locator('.mh-selected audio').evaluate('el=>el.paused')
+  q.locator('[data-row-audio]').first.click();q.wait_for_timeout(400);assert q.locator('.ms-inline-player:visible').count()==1;assert not q.locator('.ms-inline-player:visible audio').evaluate('el=>el.paused');assert q.locator('.mh-selected audio').evaluate('el=>el.paused')
+  q.locator('.ms-inline-player:visible [data-audio-seek]').fill('70');q.wait_for_function("[...document.querySelectorAll('.ms-inline-player')].find(el=>!el.hidden).querySelector('audio').currentTime>=3")
+  q.locator('[data-row-audio]').nth(1).click();q.wait_for_timeout(400);assert q.locator('.ms-inline-player:visible').count()==1;assert q.locator('.ms-inline-player').first.locator('audio').evaluate('el=>el.paused')
+  q.locator('[data-row-audio]').nth(1).click();assert q.locator('.ms-inline-player:visible').count()==0
+  q.goto(base+'/media/videos/');assert q.locator('.mh-video-grid .mh-video-card').count()==2;assert not q.locator('audio,video').count();q.locator('.mh-thumbnail').first.click();q.wait_for_load_state('domcontentloaded');assert q.locator('.mh-screen video').is_visible()
+  report.append('Independent native archives, video-only/audio-only classification, wrong-kind 404, inline play, seek, mutual pause and watch-page navigation passed')
   q.route(state['audio_url'],lambda route:route.fulfill(status=404,body=''))
   q.goto(state['url']);q.locator('[data-audio-play]').click();q.wait_for_function("document.querySelector('[data-audio-status]').textContent.includes('در دسترس نیست')");q.unroute(state['audio_url']);report.append('Unavailable audio reports a readable error without a JavaScript crash')
   q.goto(base+'/blog/');assert q.locator('[data-journal-row]:visible').count()==9;q.locator('[data-journal-pages] a').last.click();assert q.locator('[data-journal-row]:visible').count()==2;q.reload();assert q.locator('[data-journal-row]:visible').count()==2;report.append('Journal pagination and reload passed')
@@ -52,11 +59,11 @@ try:
   access=dict(re.findall(r'^(Username|Password): (.*)$',(root/'.runtime/access.txt').read_text(),re.M));q.goto(base+'/wp-login.php');q.fill('#user_login',access['Username']);q.fill('#user_pass',access['Password']);q.click('#wp-submit');q.wait_for_url('**/wp-admin/**')
   q.goto(base+f'/wp-admin/post.php?post={state["episode"]}&action=edit');q.locator('[data-vatan-file-clear="vatan-media-audio"]').click();assert q.locator('#vatan-media-audio').input_value()=='';q.locator('[data-vatan-file="vatan-media-audio"]').click();dialog=q.locator('.media-modal');dialog.locator('#menu-item-browse').click();dialog.screenshot(path=str(out/'picker.png'))
   dialog.locator('.attachment[data-id="'+str(state['owned'][1])+'"]').click();dialog.locator('.media-button-select').click();assert q.locator('#vatan-media-audio').input_value()==state['audio_url'];q.locator('#publish').click();q.wait_for_load_state('networkidle');assert wp(f'echo get_post_meta({state["episode"]},"_vatan_audio",true);')==state['audio_url'];report.append('Native media picker, clear, selection and save persisted')
-  for feature,route,selector in [('contact_form','contact','[data-approved-form]'),('office_map','contact','[data-map-load]'),('breadcrumbs','inquiry','.path'),('home_media','','#home-media'),('media_player_tabs','media/podcast/'+marker,'[role=tab]'),('media_audio_controls','media/podcast/'+marker,'[data-audio-console]')]:
+  for feature,route,selector in [('contact_form','contact','[data-approved-form]'),('office_map','contact','[data-map-load]'),('breadcrumbs','inquiry','.path'),('home_media','','#home-media'),('media_player_tabs','','[role=tab]'),('media_audio_controls','media/podcasts/'+marker,'[data-audio-console]')]:
    wp('$v=get_option("vatan_features",[]);$v['+json.dumps(feature)+']="0";update_option("vatan_features",$v);');q.goto(base+'/'+route+'/');assert q.locator(selector).count()==0,(feature,selector)
   assert q.locator('audio').is_visible();report.append('Contact form, map, breadcrumbs, Home media, player tabs and native audio fallback settings affect real rendering')
   value=state['features'];wp('delete_option("vatan_features");' if value is None else 'update_option("vatan_features",json_decode('+json.dumps(json.dumps(value))+',true));')
-  nojs=b.new_context(java_script_enabled=False,viewport={'width':390,'height':844});n=nojs.new_page();n.goto(state['url']);assert n.locator('audio').is_visible() and n.locator('video').is_visible();n.goto(base+'/blog/?archive_page=2');assert n.locator('[data-journal-row]:visible').count()==2;nojs.close();assert not errors,errors;b.close()
+  nojs=b.new_context(java_script_enabled=False,viewport={'width':390,'height':844});n=nojs.new_page();n.goto(state['url']);assert n.locator('audio').is_visible() and not n.locator('video').count();n.goto(state['video_url']);assert n.locator('video').is_visible() and not n.locator('audio').count();n.goto(base+'/blog/?archive_page=2');assert n.locator('[data-journal-row]:visible').count()==2;nojs.close();assert not errors,errors;b.close()
 finally:
  if state:
   wp('foreach('+json.dumps(state['owned'])+' as $id){if(get_post_meta($id,"_qa_capability",true)!=="1")throw new RuntimeException("Unexpected fixture owner");if(get_post_type($id)==="attachment")wp_delete_attachment($id,true);else wp_delete_post($id,true);}')

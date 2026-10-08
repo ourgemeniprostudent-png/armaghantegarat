@@ -2,14 +2,14 @@
 /**
  * Plugin Name: VATAN Core
  * Description: Product and media management, persistent inquiries and Multisite setup for Armaghan Tejarat Vatan.
- * Version: 1.7.0
+ * Version: 1.8.0
  * Requires at least: 6.6
  * Requires PHP: 8.1
  * Author: VATAN
  * License: GPL-2.0-or-later
  */
 if (!defined('ABSPATH')) exit;
-define('VATAN_CORE_VERSION','1.7.0');
+define('VATAN_CORE_VERSION','1.8.0');
 require_once __DIR__.'/includes/sections.php';
 require_once __DIR__.'/includes/content-models.php';
 require_once __DIR__.'/includes/events.php';
@@ -19,6 +19,12 @@ function vatan_core_categories(){return ['coffee'=>'قهوه','rice'=>'برنج'
 function vatan_customer_types(){return ['cafe'=>'کافه','restaurant'=>'رستوران','hotel'=>'هتل','organization'=>'سازمان','store'=>'فروشگاه','wholesale'=>'عمده‌فروش / بنکدار','personal'=>'شخصی','other'=>'سایر'];}
 function vatan_core_register(){
  add_rewrite_rule('^media/sample/([a-z0-9-]+)/?$','index.php?pagename=media&ag_media_sample=$matches[1]','top');
+ foreach(['podcasts'=>'audio','videos'=>'video'] as $path=>$kind){
+  add_rewrite_rule('^media/'.$path.'/?$','index.php?pagename=media&ag_media_view='.$kind,'top');
+  add_rewrite_rule('^media/'.$path.'/sample/([a-z0-9-]+)/?$','index.php?pagename=media&ag_media_view='.$kind.'&ag_media_sample=$matches[1]','top');
+  add_rewrite_rule('^media/'.$path.'/([^/]+)/?$','index.php?post_type=vatan_episode&name=$matches[1]&ag_media_view='.$kind,'top');
+ }
+
  register_post_type('vatan_product',['labels'=>['name'=>'محصولات وطن','singular_name'=>'محصول','add_new_item'=>'افزودن محصول','edit_item'=>'ویرایش محصول'],'public'=>true,'show_in_rest'=>true,'menu_icon'=>'dashicons-products','has_archive'=>false,'rewrite'=>['slug'=>'products/%vatan_category%','with_front'=>false],'supports'=>['title','editor','excerpt','thumbnail','revisions']]);
  register_taxonomy('vatan_category',['vatan_product'],['labels'=>['name'=>'گروه‌های محصول','singular_name'=>'گروه محصول'],'public'=>true,'hierarchical'=>true,'show_in_rest'=>true,'rewrite'=>['slug'=>'products','with_front'=>false]]);
  register_post_type('vatan_episode',['labels'=>['name'=>'رسانه و پادکست','singular_name'=>'اپیزود','add_new_item'=>'افزودن اپیزود'],'public'=>true,'show_in_rest'=>true,'menu_icon'=>'dashicons-microphone','rewrite'=>['slug'=>'media/podcast','with_front'=>false],'supports'=>['title','editor','excerpt','thumbnail','revisions']]);
@@ -26,6 +32,12 @@ function vatan_core_register(){
  register_post_type('vatan_lead',['labels'=>['name'=>'درخواست‌های همکاری','singular_name'=>'درخواست','edit_item'=>'پیگیری درخواست'],'public'=>false,'publicly_queryable'=>false,'exclude_from_search'=>true,'show_ui'=>true,'show_in_rest'=>false,'menu_icon'=>'dashicons-clipboard','supports'=>['title'],'capabilities'=>$caps,'map_meta_cap'=>false]);
 }
 add_action('init','vatan_core_register');
+add_filter('query_vars',function($vars){$vars[]='ag_media_view';return $vars;});
+function vatan_media_post_kind($post){return get_post_meta($post->ID,'_vatan_audio',true)?'audio':(get_post_meta($post->ID,'_vatan_video',true)?'video':'audio');}
+function vatan_media_url($kind='hub',$post=null){$path=['audio'=>'podcasts','video'=>'videos'][$kind]??'';return home_url('/media/'.($path?$path.'/':'').($post?$post->post_name.'/':''));}
+add_filter('post_type_link',function($url,$post){return $post->post_type==='vatan_episode'?vatan_media_url(vatan_media_post_kind($post),$post):$url;},20,2);
+add_action('init',function(){if(get_option('vatan_media_routes_version')!=='2'){flush_rewrite_rules(false);update_option('vatan_media_routes_version','2',false);}},99);
+
 add_filter('post_type_link',function($url,$post){if($post->post_type==='vatan_product'){$t=get_the_terms($post,'vatan_category');$slug=$t&&!is_wp_error($t)?$t[0]->slug:'coffee';return str_replace('%vatan_category%',$slug,$url);}return $url;},10,2);
 function vatan_core_setup(){
  vatan_core_register();

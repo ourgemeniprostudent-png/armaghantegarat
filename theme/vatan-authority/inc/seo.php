@@ -1,7 +1,8 @@
 <?php
 if(!defined('ABSPATH'))exit;
 function ag_seo_description(){
- if($key=ag_media_sample_key())return ag_media_samples()[$key]['body']??'';
+ if($key=ag_media_sample_key())return ag_media_sample_catalog()[$key]['body']??'';
+ if(is_page('media')&&ag_media_view())return ag_ms_text(ag_media_view()==='video'?'video_archive_body':'podcast_archive_body');
  $id=get_queried_object_id();$custom=is_singular()?get_post_meta($id,'_vatan_seo_description',true):'';if($custom)return $custom;
  if(is_front_page())return 'ارمغان تجارت وطن؛ واردات مستقیم و تامین عمده قهوه، برنج، خشکبار، ادویه و حبوبات. شناخت محصول و ثبت درخواست همکاری.';
  if(is_tax('vatan_category')){$s=ag_section('hero','category:'.get_queried_object()->slug);return wp_strip_all_tags($s['body']);}
@@ -28,7 +29,7 @@ add_action('wp_head',function(){
  if(is_singular('post')){$article=['@type'=>'BlogPosting','headline'=>get_the_title($id),'description'=>$desc,'datePublished'=>get_post_time('c',true,$id),'dateModified'=>get_post_modified_time('c',true,$id),'author'=>['@type'=>'Organization','name'=>ag_public_author($id)],'publisher'=>['@id'=>home_url('/#organization')],'mainEntityOfPage'=>$url,'inLanguage'=>'fa-IR'];if($image)$article['image']=$image;$graph[]=$article;}
  if(is_singular('vatan_product')){$product=['@type'=>'Product','name'=>get_the_title($id),'description'=>$desc,'url'=>$url];if($image)$product['image']=$image;$specs=[];foreach(explode("\n",get_post_meta($id,'_vatan_specs',true)) as $line){$pair=explode('|',$line,2);if(count($pair)===2)$specs[]=['@type'=>'PropertyValue','name'=>trim($pair[0]),'value'=>trim($pair[1])];}if($specs)$product['additionalProperty']=$specs;$graph[]=$product;}
  if(is_singular('vatan_episode')){
-  $episode=['@type'=>'PodcastEpisode','name'=>get_the_title($id),'description'=>$desc,'url'=>$url,'datePublished'=>get_post_time('c',true,$id),'inLanguage'=>'fa-IR','partOfSeries'=>['@type'=>'PodcastSeries','name'=>'رسانه ارمغان تجارت وطن','url'=>vatan_url('media/')]];
+  $episode=['@type'=>get_post_meta($id,'_vatan_audio',true)?'PodcastEpisode':'CreativeWork','name'=>get_the_title($id),'description'=>$desc,'url'=>$url,'datePublished'=>get_post_time('c',true,$id),'inLanguage'=>'fa-IR','partOfSeries'=>['@type'=>get_post_meta($id,'_vatan_audio',true)?'PodcastSeries':'CreativeWorkSeries','name'=>'رسانه ارمغان تجارت وطن','url'=>vatan_url('media/')]];
   $transcript=get_post_meta($id,'_vatan_transcript',true);if($transcript)$episode['transcript']=$transcript;$graph[]=$episode;
   foreach(['audio'=>'AudioObject','video'=>'VideoObject'] as $field=>$type){$file=get_post_meta($id,'_vatan_'.$field,true);if(!$file)continue;$object=['@type'=>$type,'name'=>get_the_title($id),'description'=>$desc,'contentUrl'=>$file,'uploadDate'=>get_post_time('c',true,$id),'inLanguage'=>'fa-IR'];if($image)$object['thumbnailUrl']=$image;if($transcript)$object['transcript']=$transcript;$graph[]=$object;}
  }

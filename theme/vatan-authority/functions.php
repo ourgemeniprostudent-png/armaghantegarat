@@ -12,6 +12,7 @@ require_once __DIR__.'/inc/about-editorial.php';
 require_once __DIR__.'/inc/approved-interiors.php';
 require_once __DIR__.'/inc/media-library.php';
 require_once __DIR__.'/inc/media-studio.php';
+require_once __DIR__.'/inc/media-hub.php';
 require_once __DIR__.'/inc/responsive-images.php';
 require_once __DIR__.'/inc/brand-accent.php';
 add_filter('body_class',function($classes){if(!vatan_feature('animations'))$classes[]='ag-static-motion';return $classes;});

@@ -12,7 +12,12 @@ function ag_detail_section($id,$context){
 function ag_whatsapp($title='', $url=''){
  if(!vatan_feature('whatsapp'))return;$link=vatan_whatsapp_url($title,$url);if($link)echo '<a class="home-route-link" data-whatsapp href="'.esc_url($link).'" target="_blank" rel="noopener">گفتگو در واتس‌اپ <span aria-hidden="true"><svg class="ag-arrow-icon" viewBox="0 0 24 24" fill="none" width="1em" height="1em" aria-hidden="true"><path d="M20 20 4 4M4 20V4H20" stroke="currentColor" stroke-width="1.3"/></svg></span></a>';
 }
-function ag_current_url(){if(ag_media_sample_key())return ag_media_sample_url(ag_media_sample_key());return is_tax('vatan_category')?get_term_link(get_queried_object()):(is_home()?get_permalink((int)get_option('page_for_posts')):(is_singular()?get_permalink():home_url('/')));}
+function ag_current_url(){
+ if(ag_media_sample_key())return ag_media_sample_url(ag_media_sample_key(),ag_media_view()?:'audio');
+ if(ag_media_view()&&is_page('media'))return vatan_media_url(ag_media_view());
+ if(ag_media_view()&&is_singular('vatan_episode'))return vatan_media_url(ag_media_view(),get_queried_object());
+ return is_tax('vatan_category')?get_term_link(get_queried_object()):(is_home()?get_permalink((int)get_option('page_for_posts')):(is_singular()?get_permalink():home_url('/')));
+}
 function ag_discovery($layout,$context,$s){
  $catalog=$layout==='catalog';$type=$catalog?'vatan_product':($layout==='articles'?'post':'vatan_episode');$search=ag_query_value('q');$topic=$catalog?'':ag_topic();$sort=ag_query_value('sort');if(!in_array($sort,['newest','oldest','title'],true))$sort='newest';
  $enabled=vatan_feature($catalog?'product_filters':($layout==='articles'?'blog_discovery':'media_discovery'));

@@ -82,3 +82,5 @@ This repository contains the approved WordPress implementation transferred from 
 - From 1.18.1 there is no monochrome circle beside the header switch or in navigation. Keep the day icon a clearly legible sun with rays, and the footer top separator visible in all three modes.
 
 - Preview serialization must preserve SVG shape boundaries: self-closing non-void tags need explicit closing tags. Counting SVG nodes alone cannot establish visible rendering; compare the exported SVG hierarchy/paint and switch screenshot to native WordPress with scripts/check-preview-vectors.py before publishing exporter changes.
+
+- From 1.18.2 the original emblem over the Home hero uses a brighter gold derived from the native gold palette and three composited luminance masks to strengthen visibility. Keep this scoped to the transparent Home header; custom logos, scrolled/menu states and other pages retain their own treatment. Monochrome remains neutral. Never introduce a solid logo box or modify the original logo/video files for this effect.

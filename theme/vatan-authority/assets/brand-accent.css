@@ -1,0 +1,43 @@
+/* Royal burgundy trial: detail-scale accents; no palette, imagery or layout replacement. */
+body.ag-brand-accent {
+ --brand-wine:#76273b;
+ --brand-wine-opacity:.82;
+ --brand-wine-detail:color-mix(in srgb,var(--brand-wine) var(--brand-wine-share,76%),var(--gold-light,#e0bd82));
+}
+/* Small editorial rules connect the third color across home and interior pages. */
+.ag-brand-accent :is(.home-about,.home-journal,.home-contact,.ag-hero-copy,.ag-section-head,.ag-fieldnote-intro,.ag-chapter-copy) .eyebrow::before {
+ content:'';display:inline-block;width:18px;height:2px;vertical-align:middle;
+ margin-inline-end:10px;background:var(--brand-wine-detail);opacity:var(--brand-wine-opacity);
+}
+.ag-brand-accent .home-issue-top>span:first-child::before {
+ background:var(--brand-wine-detail);opacity:var(--brand-wine-opacity);
+}
+.ag-brand-accent .home-issue::before {
+ background:linear-gradient(to left,var(--issue-gold) 0 76%,var(--brand-wine) 76% 100%);
+}
+.ag-brand-accent .home-route-link::after {
+ background:linear-gradient(to left,var(--gold) 0 70%,var(--brand-wine-detail) 70% 100%);
+}
+.ag-brand-accent :is(.home-about-signature i,.manifesto-path i,.ag-stage-dot) {
+ background:var(--brand-wine-detail);box-shadow:0 0 0 1px #c7a06545;
+}
+.ag-brand-accent .home-route-rail i {
+ background:linear-gradient(var(--gold),var(--brand-wine-detail));
+}
+/* Keep gold rings and active-label text legible on black; only the inset is wine. */
+.ag-brand-accent .revolver-dots button[aria-current=true] i,
+.ag-brand-accent .flow-dots button[aria-current=true] i {
+ background:var(--brand-wine);box-shadow:0 0 0 1px var(--gold-light,#e0bd82);
+}
+.ag-brand-accent .ag-stage-orbit::after {
+ background:var(--brand-wine-detail);box-shadow:0 0 0 1px #c7a06588,0 0 22px color-mix(in srgb,var(--brand-wine) 50%,transparent);
+}
+.ag-brand-accent .ag-stage-caption {border-bottom-color:var(--brand-wine-detail)}
+.ag-brand-accent .ag-art-motif .ag-route-line {
+ stroke:var(--brand-wine-detail);opacity:var(--brand-wine-opacity);
+}
+.ag-brand-accent .ag-art-page .ag-section-nav a[aria-current]::after,
+.ag-brand-accent .ag-form-progress button[aria-current=step]::after {
+ background:linear-gradient(to left,var(--gold-light,#e0bd82) 0 70%,var(--brand-wine-detail) 70% 100%);
+}
+.ag-brand-accent .ag-dossier-chapter {border-top-color:color-mix(in srgb,var(--brand-wine) 40%,#c7a06538)}

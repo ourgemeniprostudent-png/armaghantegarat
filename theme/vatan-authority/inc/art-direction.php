@@ -16,7 +16,7 @@ function ag_art_hero($s,$context) {
 
 function ag_art_section($s,$layout) {
     if($layout==='manifesto') {
-        echo '<div class="ag-manifesto" data-ag-progress><span class="eyebrow">'.esc_html($s['eyebrow']).'</span><h2 class="ag-manifesto-type" data-ag-ink>'.esc_html($s['title']).'</h2><div class="ag-manifesto-bottom"><span class="ag-manifesto-mark" aria-hidden="true"><svg viewBox="0 0 100 100" fill="none"><path d="M18 82L82 18M18 18H82V82" stroke="currentColor" stroke-width="2"/></svg></span><div>';ag_body($s['body']);ag_action($s);echo '</div></div>';ag_visual($s);echo '</div>';
+        echo '<div class="ag-manifesto" data-ag-progress><span class="eyebrow">'.esc_html($s['eyebrow']).'</span><h2 class="ag-manifesto-type" data-ag-ink>'.esc_html($s['title']).'</h2><div class="ag-manifesto-bottom"><span class="ag-manifesto-mark" aria-hidden="true"><svg viewBox="0 0 100 100" fill="none"><path d="M82 82L18 18M18 82V18H82" stroke="currentColor" stroke-width="2"/></svg></span><div>';ag_body($s['body']);ag_action($s);echo '</div></div>';ag_visual($s);echo '</div>';
     } elseif($layout==='route') {
         echo '<div class="ag-route-story" data-ag-progress><div class="ag-section-head" data-ag-reveal><div>';ag_heading($s);echo '</div><div>';ag_body($s['body']);echo '</div></div><div class="ag-route-diagram">';ag_art_motif();echo '<ol class="ag-route-stops">';
         for($i=1;$i<=3;$i++){echo '<li data-ag-reveal><span class="ag-route-index">'.esc_html(vatan_digits_fa('0'.$i)).'</span><h3>'.esc_html($s['item_'.$i.'_title']).'</h3><p>'.esc_html($s['item_'.$i.'_body']).'</p>';ag_visual(['image'=>$s['item_'.$i.'_image']??'','video'=>$s['item_'.$i.'_video']??'','alt'=>$s['item_'.$i.'_title']]);echo '</li>';}

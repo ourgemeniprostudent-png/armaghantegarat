@@ -38,7 +38,7 @@ foreach(vatan_categories() as $slug=>$unused){$fields=ag_section('product-'.$slu
         <button type="button" data-revolver-select="<?php echo (int)$index; ?>" aria-label="نمایش <?php echo esc_attr($product[1]); ?>، <?php echo (int)($index+1); ?> از <?php echo (int)count($revolver_products); ?>" aria-current="<?php echo $index === 0 ? 'true' : 'false'; ?>"><i aria-hidden="true"></i></button>
         <?php endforeach; ?>
       </div>
-      <div class="revolver-bottom"><a href="<?php echo esc_url(vatan_url('products/')); ?>"><?php ag_text($gallery,'label'); ?> <span aria-hidden="true">↗</span></a><span class="revolver-hint"><?php ag_text($gallery,'hint'); ?></span><div class="revolver-arrows"><button type="button" data-revolver-step="-1" aria-label="محصول قبلی">↑</button><button type="button" data-revolver-step="1" aria-label="محصول بعدی">↓</button></div></div>
+      <div class="revolver-bottom"><a href="<?php echo esc_url(vatan_url('products/')); ?>"><?php ag_text($gallery,'label'); ?> <span aria-hidden="true">↖</span></a><span class="revolver-hint"><?php ag_text($gallery,'hint'); ?></span><div class="revolver-arrows"><button type="button" data-revolver-step="-1" aria-label="محصول قبلی">↑</button><button type="button" data-revolver-step="1" aria-label="محصول بعدی">↓</button></div></div>
     </div>
   </div>
   <noscript><div class="wrap revolver-fallback"><?php foreach ($revolver_products as $product) echo '<a href="'.esc_url(vatan_url('products/'.$product[0].'/')).'">'.esc_html($product[1]).'</a>'; ?></div></noscript>

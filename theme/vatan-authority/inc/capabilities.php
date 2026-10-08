@@ -10,7 +10,7 @@ function ag_detail_section($id,$context){
  return $s;
 }
 function ag_whatsapp($title='', $url=''){
- if(!vatan_feature('whatsapp'))return;$link=vatan_whatsapp_url($title,$url);if($link)echo '<a class="home-route-link" data-whatsapp href="'.esc_url($link).'" target="_blank" rel="noopener">گفتگو در واتس‌اپ <span aria-hidden="true">↗</span></a>';
+ if(!vatan_feature('whatsapp'))return;$link=vatan_whatsapp_url($title,$url);if($link)echo '<a class="home-route-link" data-whatsapp href="'.esc_url($link).'" target="_blank" rel="noopener">گفتگو در واتس‌اپ <span aria-hidden="true">↖</span></a>';
 }
 function ag_current_url(){return is_tax('vatan_category')?get_term_link(get_queried_object()):(is_home()?get_permalink((int)get_option('page_for_posts')):(is_singular()?get_permalink():home_url('/')));}
 function ag_discovery($layout,$context,$s){
@@ -42,7 +42,7 @@ function ag_discovery($layout,$context,$s){
   $clean=['q'=>$search,'topic'=>$topic,'sort'=>$sort,'spec_key'=>$spec_key,'spec_value'=>$spec_value];$clean=array_filter($clean,fn($v)=>$v!=='');
   echo '<nav class="ag-pagination" aria-label="صفحه‌های آرشیو">'.paginate_links(['base'=>str_replace('999999999','%#%',add_query_arg('archive_page',999999999,$base)),'format'=>'','total'=>$q->max_num_pages,'current'=>$page,'add_args'=>$clean,'prev_text'=>'قبلی','next_text'=>'بعدی']).'</nav>';
  }else{
-  echo '<div class="ag-empty"><h3>'.esc_html($search||$topic||$spec_key?'نتیجه‌ای برای این انتخاب پیدا نشد.':($s['empty_title']??'هنوز محتوایی منتشر نشده است.')).'</h3><p>'.esc_html($s['empty_body']??'انتخاب‌های دیگری را امتحان کنید یا درخواست خود را برای دفتر بنویسید.').'</p><a class="home-route-link" href="'.esc_url($catalog?add_query_arg('category',substr($context,9),vatan_url('inquiry/')):vatan_url('blog/')).'">'.($catalog?'ثبت درخواست تامین':'خواندن مجله').' <span aria-hidden="true">↗</span></a></div>';
+  echo '<div class="ag-empty"><h3>'.esc_html($search||$topic||$spec_key?'نتیجه‌ای برای این انتخاب پیدا نشد.':($s['empty_title']??'هنوز محتوایی منتشر نشده است.')).'</h3><p>'.esc_html($s['empty_body']??'انتخاب‌های دیگری را امتحان کنید یا درخواست خود را برای دفتر بنویسید.').'</p><a class="home-route-link" href="'.esc_url($catalog?add_query_arg('category',substr($context,9),vatan_url('inquiry/')):vatan_url('blog/')).'">'.($catalog?'ثبت درخواست تامین':'خواندن مجله').' <span aria-hidden="true">↖</span></a></div>';
  }
  wp_reset_postdata();
  if($layout==='library'&&vatan_feature('video_library'))ag_video_library($s,$topic,$search);
@@ -51,7 +51,7 @@ function ag_content_card($p){
  $id=$p->ID;$episode=$p->post_type==='vatan_episode';echo '<article class="ag-content-card" data-ag-reveal>';if(has_post_thumbnail($id))echo get_the_post_thumbnail($id,'large',['loading'=>'lazy']);
  echo '<span class="eyebrow">'.esc_html($episode?'گفتگو و رسانه':($p->post_type==='post'?'مجله تجارت':'شناخت محصول')).'</span><h3><a href="'.esc_url(get_permalink($id)).'">'.esc_html($p->post_title).'</a></h3>';
  if($episode)echo '<p class="ag-card-meta">'.esc_html(get_the_date('', $id).' / '.get_post_meta($id,'_vatan_duration',true)).'</p>';
- echo '<p>'.esc_html(wp_trim_words(get_the_excerpt($p),28)).'</p><a class="home-route-link" href="'.esc_url(get_permalink($id)).'">'.($episode?'شنیدن و خواندن':($p->post_type==='post'?'خواندن یادداشت':'مشخصات و استعلام')).' <span aria-hidden="true">↗</span></a></article>';
+ echo '<p>'.esc_html(wp_trim_words(get_the_excerpt($p),28)).'</p><a class="home-route-link" href="'.esc_url(get_permalink($id)).'">'.($episode?'شنیدن و خواندن':($p->post_type==='post'?'خواندن یادداشت':'مشخصات و استعلام')).' <span aria-hidden="true">↖</span></a></article>';
 }
 function ag_video_library($s,$topic='',$search=''){
  $args=['post_type'=>'vatan_episode','post_status'=>'publish','posts_per_page'=>9,'s'=>$search,'meta_query'=>[['key'=>'_vatan_video','value'=>'','compare'=>'!=']]];if($topic)$args['tax_query']=[['taxonomy'=>'vatan_topic','field'=>'slug','terms'=>$topic]];$q=new WP_Query($args);
@@ -83,5 +83,5 @@ function ag_product_gallery($id){
 function ag_office_map($s){
  if(!vatan_feature('office_map'))return;$lat=get_option('vatan_map_latitude','35.7294807434082');$lng=get_option('vatan_map_longitude','51.436744689941406');$coordinates=$lat.','.$lng;
  $embed='https://maps.google.com/maps?q='.rawurlencode($coordinates).'&z=16&output=embed';$route='https://www.google.com/maps/search/?api=1&query='.rawurlencode($coordinates);
- echo '<div class="ag-map"><div class="ag-map-art" aria-hidden="true"><i></i><span>↗</span><b>تهران</b></div><h3>'.esc_html($s['address_label']).'</h3><p>'.esc_html($s['map_note']).'</p><button class="button trade-button" type="button" data-map-load="'.esc_url($embed).'">'.esc_html($s['map_load_label']??'نمایش نقشه دفتر').'</button><a class="home-route-link" rel="noopener" target="_blank" href="'.esc_url($route).'">'.esc_html($s['map_label']).' <span aria-hidden="true">↗</span></a><p class="ag-map-privacy">'.esc_html($s['map_privacy']??'با نمایش نقشه، به سرویس نقشه گوگل متصل می‌شوید.').'</p></div>';
+ echo '<div class="ag-map"><div class="ag-map-art" aria-hidden="true"><i></i><span>↖</span><b>تهران</b></div><h3>'.esc_html($s['address_label']).'</h3><p>'.esc_html($s['map_note']).'</p><button class="button trade-button" type="button" data-map-load="'.esc_url($embed).'">'.esc_html($s['map_load_label']??'نمایش نقشه دفتر').'</button><a class="home-route-link" rel="noopener" target="_blank" href="'.esc_url($route).'">'.esc_html($s['map_label']).' <span aria-hidden="true">↖</span></a><p class="ag-map-privacy">'.esc_html($s['map_privacy']??'با نمایش نقشه، به سرویس نقشه گوگل متصل می‌شوید.').'</p></div>';
 }

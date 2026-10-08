@@ -6,6 +6,7 @@ require_once __DIR__.'/inc/public-search.php';
 require_once __DIR__.'/inc/capabilities.php';
 require_once __DIR__.'/inc/seo.php';
 require_once __DIR__.'/inc/breadcrumbs.php';
+require_once __DIR__.'/inc/contact-art.php';
 require_once __DIR__.'/inc/responsive-images.php';
 require_once __DIR__.'/inc/brand-accent.php';
 add_filter('body_class',function($classes){if(!vatan_feature('animations'))$classes[]='ag-static-motion';return $classes;});
@@ -24,6 +25,7 @@ add_action('wp_enqueue_scripts', function () {
     if(!is_front_page()) {
 
         wp_enqueue_script('armaghan-art', vatan_asset('art-direction.js'), ['armaghan-interior'], filemtime(get_template_directory().'/assets/art-direction.js'), true);
+        if(is_page('contact')&&vatan_feature('contact_cinematic')&&vatan_feature('maritime_scene'))wp_enqueue_script('armaghan-contact-scene',vatan_asset('contact-scene.js'),['armaghan-art'],filemtime(get_template_directory().'/assets/contact-scene.js'),true);
     }
 
     wp_enqueue_script('armaghan-capabilities', vatan_asset('capabilities.js'), ['armaghan-interior'], filemtime(get_template_directory().'/assets/capabilities.js'), true);

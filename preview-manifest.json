@@ -1,5 +1,5 @@
 {
-  "source_commit": "1feed47394ab3cdc113517906b11fea224e5b90a",
+  "source_commit": "9b5c760032e8c0557950d8a5a1cc9e3687d9d087",
   "routes": [
     {
       "route": "/",
@@ -114,173 +114,173 @@
     },
     {
       "path": "404.html",
-      "bytes": 24385,
-      "sha256": "7eb13090bebac9dc44682a9ec43965ba738beba7f92b5ac632eb6edfcc400364"
+      "bytes": 24582,
+      "sha256": "c7f797fb67c0fd9af23a84595a7be9743a7f23db5573cefa00980e816ead6f31"
     },
     {
       "path": "README.md",
       "bytes": 450,
-      "sha256": "6b896e7da69340c5de06a595e2ec2bb7368026634ac7979ec6ca4da86212a12b"
+      "sha256": "bd49e478c38a3cf8a74c533eaf9782f548bbfcb148ffd1b9738cb3d23f8c90fd"
     },
     {
       "path": "about/index.html",
-      "bytes": 40390,
-      "sha256": "e1a156fb7e63d995db8f6d5bb5e524da2eb8d1716a7572ec488b39791271eb3f"
+      "bytes": 40587,
+      "sha256": "305818b1e64bc22a9785a116876e068a17d342b4ae9659b7e2d84d98003361ec"
     },
     {
       "path": "blog/2026/10/06/business-inquiry-checklist/index.html",
-      "bytes": 41002,
-      "sha256": "ca630ef639a790ab30e888aee322c490e16e64410726b20b16a97382891da1dc"
+      "bytes": 41199,
+      "sha256": "4759c4d79193db4b869dc91aabf958caf8d20f9f4ff3304803a83a4574ce0be5"
     },
     {
       "path": "blog/2026/10/06/coffee-inquiry-guide/index.html",
-      "bytes": 41104,
-      "sha256": "ddb2b9ac071f7ba1b11fb0149fa5e70cb5488a676f2b347c9a00f7e5822b18d3"
+      "bytes": 41301,
+      "sha256": "0a5f129afae60697e9dd230fd89d8fb6b3f7870a71ec93a61b1e72701757c904"
     },
     {
       "path": "blog/2026/10/06/follow-up-your-inquiry/index.html",
-      "bytes": 41213,
-      "sha256": "bafdfde6814127f9f05a26c2439218eac6e8fa074190992ae6cd533262e659dd"
+      "bytes": 41410,
+      "sha256": "341b41ca6945b3e82796e76ee8245204e6ff0b26b1a6e5c05cf9d9f588ead221"
     },
     {
       "path": "blog/2026/10/08/coffee-roast-grind-and-consistency/index.html",
-      "bytes": 37942,
-      "sha256": "86643ef7f59595e9dd6bf555effbff3ec8152e5718f9886c91a4e76fccebed20"
+      "bytes": 38139,
+      "sha256": "0f1d47d665c162d3b4b1321a036d89cbf5958c2086cd0dbe951525c6016ea244"
     },
     {
       "path": "blog/2026/10/08/dried-fruits-quality-storage-and-purpose/index.html",
-      "bytes": 37682,
-      "sha256": "c169532ea1b9848d50a41dd082d05fe3f8e5a0e098bbf5e0f2445b59cb4ffc6c"
+      "bytes": 37879,
+      "sha256": "a5d3e12c3c4a8cb3e2b65b2029d619f34bc770c51e7f7c60a453276419c7abc3"
     },
     {
       "path": "blog/2026/10/08/legumes-size-cooking-and-storage/index.html",
-      "bytes": 36903,
-      "sha256": "ee5ab47259bec460d572fddad338e91f9e24851a8ae97a81d37915e54023fdac"
+      "bytes": 37100,
+      "sha256": "1228a400044e577435662533c7c9fe32965dc114010aa7b9d03243e6203e0cab"
     },
     {
       "path": "blog/2026/10/08/rice-buying-and-cooking-assessment/index.html",
-      "bytes": 37432,
-      "sha256": "90c1c0058859f1e95f4bc65d816f630749ac8dea3de2689ae3efadb47f8f98bd"
+      "bytes": 37629,
+      "sha256": "ff6abb6557c20e61dc1a999ba33fa1e4ccdb5831a48ddcebe2e58d0692d842c9"
     },
     {
       "path": "blog/2026/10/08/spices-aroma-grind-and-business-use/index.html",
-      "bytes": 36995,
-      "sha256": "f9fe9ff9fe2c7d6fc9309f573367528b2979ff8772a76304b68dd981f1580e17"
+      "bytes": 37192,
+      "sha256": "f1658f2ef7b9758e2ae6979177e6509f177a7b6f38ab1a64790d92ac08f0a302"
     },
     {
       "path": "blog/index.html",
-      "bytes": 43984,
-      "sha256": "e59257c68b0652c8c01c54812be15e75887c5e51d5f30db171b3b6a93b0b92e8"
+      "bytes": 44181,
+      "sha256": "09b4c7fa19ef8845640a9e1ab87047892db711411a135193bca3b43266a33d79"
     },
     {
       "path": "contact/index.html",
-      "bytes": 42282,
-      "sha256": "2bb5fea5d978de3706e3aa94b8fa50a53056f40a2bfb1a1d10560a976a2ea795"
+      "bytes": 42479,
+      "sha256": "c3f42838c92a0443935f8adcae73f0d8f481ee7b4bbaaf0738a87b9233bdfc80"
     },
     {
       "path": "download/download.js",
       "bytes": 2079,
-      "sha256": "33268a359a674f053b0142da5a1bbb71da27553a87cb2eb792f5ac0c6b104182"
+      "sha256": "e600904f1ab2739ee961fb9f657f5b71eb8fc771959f747df6449810c5eaa3df"
     },
     {
       "path": "download/index.html",
-      "bytes": 2801,
-      "sha256": "aa03ed971c86aa36e14c928c101dfaffd50735fa5a812a576e3e4e0ac6f96a0a"
+      "bytes": 2804,
+      "sha256": "48806b90e5321c499253089c7893a7120c62920650114b16ef9508b321d9597c"
     },
     {
-      "path": "downloads/1.10.0/INSTALL-fa.txt",
+      "path": "downloads/1.10.1/INSTALL-fa.txt",
       "bytes": 4632,
       "sha256": "a19e2b3d080e304c64cc52b66b9ea690f3537d28c2eaa6577bf5b5fac2449028"
     },
     {
-      "path": "downloads/1.10.0/SHA256SUMS.txt",
+      "path": "downloads/1.10.1/SHA256SUMS.txt",
       "bytes": 97,
-      "sha256": "0ba9b7acf4dc1326ff6138a28382f42d7b03dc98cba2de2843003b645ecaed66"
+      "sha256": "61324bd9bb05cfc2b60d6fb2c7b98d8bea07754d5807bff239328ced927e4c7e"
     },
     {
-      "path": "downloads/1.10.0/manifest.json",
+      "path": "downloads/1.10.1/manifest.json",
       "bytes": 1992,
-      "sha256": "e3b983e112017825a4697cb512680e0d0372de2a9428f7aee80d249799178ae3"
+      "sha256": "5e10af9987e32a17ccbc1b0cb75504e0b15df9554291574c5f85528c27078e2f"
     },
     {
-      "path": "downloads/1.10.0/part-01.bin",
+      "path": "downloads/1.10.1/part-01.bin",
       "bytes": 16777216,
-      "sha256": "ecc0dea7193c8282ecbbe4bc786e79613251d4011aee671bee7fca74f7632454"
+      "sha256": "4b1ccaae4e0116f81c68f8245064d6cd7c27a0cc4bbdab0cafad99ad2672c425"
     },
     {
-      "path": "downloads/1.10.0/part-02.bin",
+      "path": "downloads/1.10.1/part-02.bin",
       "bytes": 16777216,
-      "sha256": "e606cc12674e039a5074e2b88a39d198b964db3bce7bf0124f96b95e7ea99424"
+      "sha256": "c7ae45999229afae60bd355719ea32b986427e8937da0b7ac71ca804185e90d0"
     },
     {
-      "path": "downloads/1.10.0/part-03.bin",
+      "path": "downloads/1.10.1/part-03.bin",
       "bytes": 16777216,
-      "sha256": "3072ad9d5202d554306fe46c8f790b96641f358559b87950b91a43577a6b10b5"
+      "sha256": "b341ed28a280c57bee4ed26150f04a006af2c4e59523a166f8fa8b89db708253"
     },
     {
-      "path": "downloads/1.10.0/part-04.bin",
+      "path": "downloads/1.10.1/part-04.bin",
       "bytes": 16777216,
-      "sha256": "28832e11ffaa16b508405ce44d113f9ee3a4f105a91eb35b6588e1c6f69407c5"
+      "sha256": "3537a19efa01d255f90da49a9be45c9b4c68098cf90628624b09817dd04e3d2c"
     },
     {
-      "path": "downloads/1.10.0/part-05.bin",
+      "path": "downloads/1.10.1/part-05.bin",
       "bytes": 16777216,
-      "sha256": "b59d08f8149c95f8e39113828471aa4ffdbd2b17f8314284e92d2b345774b048"
+      "sha256": "78c5b44f37a48e967e13c3a0340b446eb5c78005a956f9fba3734be7ab56df3b"
     },
     {
-      "path": "downloads/1.10.0/part-06.bin",
+      "path": "downloads/1.10.1/part-06.bin",
       "bytes": 16777216,
-      "sha256": "49357aa4077ae7d19ed6821f24d28db7793a1e60b6277f40b2883251580400f8"
+      "sha256": "73732dfb9fef59c975d643806786da0fe3bd0e15e7a6f073f844a2a22a826e90"
     },
     {
-      "path": "downloads/1.10.0/part-07.bin",
+      "path": "downloads/1.10.1/part-07.bin",
       "bytes": 16777216,
-      "sha256": "dd07fcb1e6d46cd8692d1d89b2fd95c413d19263d3fd00adbbca4d36e012da98"
+      "sha256": "213ef35d4fa4e667ec0156d2988314fe3d19030031ae4befd2d7ea26e7e48457"
     },
     {
-      "path": "downloads/1.10.0/part-08.bin",
+      "path": "downloads/1.10.1/part-08.bin",
       "bytes": 16777216,
-      "sha256": "1230223884e14097479c72eef47c30620ba036e3b7983f8d8316e07030306ff8"
+      "sha256": "8c94369c1b4586ac3aa45fe98d1305c75e34a4744c2dcfba0e3ad87bfe688cda"
     },
     {
-      "path": "downloads/1.10.0/part-09.bin",
+      "path": "downloads/1.10.1/part-09.bin",
       "bytes": 16777216,
-      "sha256": "a5bd2edd2d5fc6471940f5eca55ae50cdfce8c19733f4657bec1030f4868524e"
+      "sha256": "798882d33fb9bca5cf2d963480d57353639b74263f717010ac5f99e0943abf4a"
     },
     {
-      "path": "downloads/1.10.0/part-10.bin",
+      "path": "downloads/1.10.1/part-10.bin",
       "bytes": 16777216,
-      "sha256": "a4efeb266636d41cde7d565e1102bb6f691af2c206e964f12ced20209139c61d"
+      "sha256": "94bf5b10d6f33330ece8e37a078cf7d54c86ff7ff407b3fece27e0b09953203e"
     },
     {
-      "path": "downloads/1.10.0/part-11.bin",
+      "path": "downloads/1.10.1/part-11.bin",
       "bytes": 16777216,
-      "sha256": "6a8824568fa4e9f0b41f206a053dff5000e6b25eee6667088273c349cffb3b65"
+      "sha256": "594902e56bd2ff6a6a988d3d367e053bcc1b5919f7b14f7c6735942b69af99d5"
     },
     {
-      "path": "downloads/1.10.0/part-12.bin",
-      "bytes": 2592316,
-      "sha256": "cf3235d7501fcaf1cfcd93b2e7bf1a22ec466c945d22c30f9c85af632b4a3291"
+      "path": "downloads/1.10.1/part-12.bin",
+      "bytes": 2596079,
+      "sha256": "a17fa46fd6fc33f48a6c6b6470c547fb5280b4876a461748bfc2d5e732a89075"
     },
     {
       "path": "faq/index.html",
-      "bytes": 36569,
-      "sha256": "ddfa1a03c0a069a7057036af040190e6f99db26184667bd519ffad3c4e7522a3"
+      "bytes": 36766,
+      "sha256": "e35b0d99a0ab898f4880828984a60b672c4178494c9a42ee80bbb09b1ade5b9c"
     },
     {
       "path": "index.html",
-      "bytes": 55397,
-      "sha256": "0da1cc4d7ae0d40ad3c322cace44fd5ee43489c2c2b58fc7a640580ff5ec4ed6"
+      "bytes": 55594,
+      "sha256": "5f55af5e2eecd225a43b9b6b919b8540cd644a36faa8bc4c7586d1bfea1bd5a7"
     },
     {
       "path": "inquiry/index.html",
-      "bytes": 48886,
-      "sha256": "ab370850271f12a17b618378952123205d29a67eb797368b748025d1c5249c9f"
+      "bytes": 49083,
+      "sha256": "39f1e48fc9a66fcafd02f163adcd558cf7b7f4471fe1f558ec87c3d6a85c3368"
     },
     {
       "path": "media/index.html",
-      "bytes": 36878,
-      "sha256": "e929288594163cf7a0ff67b1f2301c8f6bc0de5a6ecdd707ab435b6fca2f0726"
+      "bytes": 37075,
+      "sha256": "eae7f89527de9fd07253d221d032bf682708d812b66a6d54f08cd8782e3a3efc"
     },
     {
       "path": "preview-guard.js",
@@ -294,38 +294,38 @@
     },
     {
       "path": "privacy/index.html",
-      "bytes": 35635,
-      "sha256": "6156f9dc7364803e91d73b2e6dc0f5f767c728ca0c2c8751ef698edbfddf41df"
+      "bytes": 35832,
+      "sha256": "dccf8b4f48ed77defddec836b8c75b63c083456c75a0bbbddf3282d43ffc4ab9"
     },
     {
       "path": "products/coffee/index.html",
-      "bytes": 39908,
-      "sha256": "f94d3a59ec2491874a3f6a9ea71ad602ce064bcb592e09f6b098fbb99e181e60"
+      "bytes": 40105,
+      "sha256": "d560c80054802809bef11d64a2fe1da9e14204adb05455c604d4e6d03a93530b"
     },
     {
       "path": "products/dried-fruits/index.html",
-      "bytes": 40020,
-      "sha256": "2a250a4607e266dc6202824d24e7fb36d264d4007139bc410ae1be7760f4b7d7"
+      "bytes": 40217,
+      "sha256": "d81eaa960c3351b2072308fe746f66478096a7b49409d78124aefbbb7e2bf1ed"
     },
     {
       "path": "products/index.html",
-      "bytes": 53552,
-      "sha256": "89d74d724477129260d5e109f0e3112728acbfaee71bcbab1ea727d3c4e8159a"
+      "bytes": 53749,
+      "sha256": "387b08d3db36d35a7dd8f76e357d7171ee10c6ecb4dfccd3790f9ce381497ae5"
     },
     {
       "path": "products/legumes/index.html",
-      "bytes": 39856,
-      "sha256": "7fdd0be3097fa9031b45901545dffd4ecc511267ef69392fbb1be966cfdc263b"
+      "bytes": 40053,
+      "sha256": "1ab23fa76139dd579c6d37fa48dda2ad0d6efa5b2c261bff1dea72d91c5ee088"
     },
     {
       "path": "products/rice/index.html",
-      "bytes": 39729,
-      "sha256": "3773d57493308014e39221ed7c91d778e5dbc9aa1caea5fa4fe435d7c61038df"
+      "bytes": 39926,
+      "sha256": "431c012cc7e5cd82544734476d22f89c02549df16bca59ab521a4e083a811e5a"
     },
     {
       "path": "products/spices/index.html",
-      "bytes": 39885,
-      "sha256": "9c18df3d9742595018265b0cc710a6a12588689bbbd71680bfeea73e264f16a8"
+      "bytes": 40082,
+      "sha256": "4d5854e706e12c77aba24b2b4fbf7caec0a4b87aa1d5cef69a2be45b37c360ef"
     },
     {
       "path": "public-index.json",
@@ -334,23 +334,23 @@
     },
     {
       "path": "search/index.html",
-      "bytes": 30183,
-      "sha256": "17d47ef87e10fa99771d648e4d208f32e207a45ca38fff9251c0284280209909"
+      "bytes": 30380,
+      "sha256": "3772e4a3caffbfea01310b6d11b6311ffe65004937307c622d05167f22be654c"
     },
     {
       "path": "solutions/b2b-supply/index.html",
-      "bytes": 40402,
-      "sha256": "dff2413ec35f9f1d407bc20e07851c74a0797205c1d7adfdab601c5900fdc95b"
+      "bytes": 40599,
+      "sha256": "852dbc2885fb23952cae374b9573f7f87dfdc06f7e47310e6c4e788252b929f8"
     },
     {
       "path": "solutions/index.html",
-      "bytes": 49734,
-      "sha256": "559119ed22bbbbecf3753ee32677afb2be44d0762bc147d8d40122c44a51860a"
+      "bytes": 49931,
+      "sha256": "82c3a216360c3e78abdd87a70f3f8660ff62cdea22748d7cd3f91298bce9a41e"
     },
     {
       "path": "thank-you/index.html",
-      "bytes": 29746,
-      "sha256": "299073ea90ed7df81ffb2b5130ad1f757de37f961c5fd6baf2fe8f47757b2d97"
+      "bytes": 29943,
+      "sha256": "3876f67c4aee0067d4ecd41ad2414e63fd667f1ebef9b7590a97f851f11fefbb"
     },
     {
       "path": "wp-content/themes/vatan-authority/assets/art-direction.css",
@@ -361,6 +361,11 @@
       "path": "wp-content/themes/vatan-authority/assets/art-direction.js",
       "bytes": 6029,
       "sha256": "cb33b866768da0538418daf24be33f3103a3866b6808fbaad4285f374d1ef58f"
+    },
+    {
+      "path": "wp-content/themes/vatan-authority/assets/brand-accent.css",
+      "bytes": 2359,
+      "sha256": "cfa131ebf5412d1391c7efda7f024c13f693960536b8b610f47d790cfe9954c5"
     },
     {
       "path": "wp-content/themes/vatan-authority/assets/brand-original.png",
@@ -709,18 +714,18 @@
     },
     {
       "path": "wp-content/themes/vatan-authority/assets/site-gallery.css",
-      "bytes": 114903,
-      "sha256": "a43919e8b72cef4006fa0a8875a7d11ae5034b981904b82bb3c163ec59720328"
+      "bytes": 116985,
+      "sha256": "9b529c1377d7a207837ebff3a0feeb2d6cf8e9f296893c2e1e9a5a94e7761658"
     },
     {
       "path": "wp-content/themes/vatan-authority/assets/site-home.css",
-      "bytes": 87581,
-      "sha256": "72e53a113d7accefa3803325b6de398df1628ade316e17332e87687f0924a786"
+      "bytes": 89663,
+      "sha256": "776b3d7c83cae55b814667961c73c1d0789e4ce974027039ec5527c26a0230cb"
     },
     {
       "path": "wp-content/themes/vatan-authority/assets/site-interior.css",
-      "bytes": 98763,
-      "sha256": "ef178c7580efa74fe3c7de8cdf098a14857469ebe4b84b51c59104de533d36bf"
+      "bytes": 100845,
+      "sha256": "dc36345561de606890d870fc52655be102837675ea4b9348a7447fb4ab671b43"
     },
     {
       "path": "wp-content/themes/vatan-authority/assets/site.js",
@@ -740,13 +745,13 @@
     {
       "path": "wp-content/themes/vatan-authority/style.css",
       "bytes": 15650,
-      "sha256": "f381c202d9c5e7af2e250a9ec7bdf11d937906cb7caaf184eb8e4a8600d5be0a"
+      "sha256": "391acb3a9ec6efd9681a05789bd5ff399b1f224ebda9c775fe7333ef02d60192"
     }
   ],
   "host_package": {
-    "version": "1.10.0",
-    "filename": "Armaghan-WordPress-v1.10.0.zip",
-    "bytes": 187141692,
-    "sha256": "7fab6456cab50af72ba315c13f63e0b2f0dff825da4bda787d794cc75497e136"
+    "version": "1.10.1",
+    "filename": "Armaghan-WordPress-v1.10.1.zip",
+    "bytes": 187145455,
+    "sha256": "e2179e70f4712880540ac07b916c45f3cfb2788d9ea7ef40991f7eb59701ae0f"
   }
 }

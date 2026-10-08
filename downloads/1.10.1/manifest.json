@@ -1,0 +1,68 @@
+{
+  "version": "1.10.1",
+  "filename": "Armaghan-WordPress-v1.10.1.zip",
+  "bytes": 187145455,
+  "sha256": "e2179e70f4712880540ac07b916c45f3cfb2788d9ea7ef40991f7eb59701ae0f",
+  "parts": [
+    {
+      "path": "part-01.bin",
+      "bytes": 16777216,
+      "sha256": "4b1ccaae4e0116f81c68f8245064d6cd7c27a0cc4bbdab0cafad99ad2672c425"
+    },
+    {
+      "path": "part-02.bin",
+      "bytes": 16777216,
+      "sha256": "c7ae45999229afae60bd355719ea32b986427e8937da0b7ac71ca804185e90d0"
+    },
+    {
+      "path": "part-03.bin",
+      "bytes": 16777216,
+      "sha256": "b341ed28a280c57bee4ed26150f04a006af2c4e59523a166f8fa8b89db708253"
+    },
+    {
+      "path": "part-04.bin",
+      "bytes": 16777216,
+      "sha256": "3537a19efa01d255f90da49a9be45c9b4c68098cf90628624b09817dd04e3d2c"
+    },
+    {
+      "path": "part-05.bin",
+      "bytes": 16777216,
+      "sha256": "78c5b44f37a48e967e13c3a0340b446eb5c78005a956f9fba3734be7ab56df3b"
+    },
+    {
+      "path": "part-06.bin",
+      "bytes": 16777216,
+      "sha256": "73732dfb9fef59c975d643806786da0fe3bd0e15e7a6f073f844a2a22a826e90"
+    },
+    {
+      "path": "part-07.bin",
+      "bytes": 16777216,
+      "sha256": "213ef35d4fa4e667ec0156d2988314fe3d19030031ae4befd2d7ea26e7e48457"
+    },
+    {
+      "path": "part-08.bin",
+      "bytes": 16777216,
+      "sha256": "8c94369c1b4586ac3aa45fe98d1305c75e34a4744c2dcfba0e3ad87bfe688cda"
+    },
+    {
+      "path": "part-09.bin",
+      "bytes": 16777216,
+      "sha256": "798882d33fb9bca5cf2d963480d57353639b74263f717010ac5f99e0943abf4a"
+    },
+    {
+      "path": "part-10.bin",
+      "bytes": 16777216,
+      "sha256": "94bf5b10d6f33330ece8e37a078cf7d54c86ff7ff407b3fece27e0b09953203e"
+    },
+    {
+      "path": "part-11.bin",
+      "bytes": 16777216,
+      "sha256": "594902e56bd2ff6a6a988d3d367e053bcc1b5919f7b14f7c6735942b69af99d5"
+    },
+    {
+      "path": "part-12.bin",
+      "bytes": 2596079,
+      "sha256": "a17fa46fd6fc33f48a6c6b6470c547fb5280b4876a461748bfc2d5e732a89075"
+    }
+  ]
+}

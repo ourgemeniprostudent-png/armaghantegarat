@@ -1,0 +1,68 @@
+{
+  "version": "1.17.1",
+  "filename": "Armaghan-WordPress-v1.17.1.zip",
+  "bytes": 195648984,
+  "sha256": "5a82503414e77164cd6ee16e86491dd95e3810ef10e20a2547be6d903c9674c4",
+  "parts": [
+    {
+      "path": "part-01.bin",
+      "bytes": 16777216,
+      "sha256": "b24fef662180cc2c0c9e869377d097e506fb1738ca6bf5e63e94c3669dc45975"
+    },
+    {
+      "path": "part-02.bin",
+      "bytes": 16777216,
+      "sha256": "95691a38f433e3fd73e204c1e648f55b66ec583fcb6a2ee097da08a2c76faaf3"
+    },
+    {
+      "path": "part-03.bin",
+      "bytes": 16777216,
+      "sha256": "9f447d147c61f0f19796dd9369a725219c9a04420ce39bde0ac13cf8cc9ca51b"
+    },
+    {
+      "path": "part-04.bin",
+      "bytes": 16777216,
+      "sha256": "71d9261daad295e45fcae40b05323e43f50c8a94018ccd58b51237895f165916"
+    },
+    {
+      "path": "part-05.bin",
+      "bytes": 16777216,
+      "sha256": "e0bdf5d8368c7f1581613c7dda6df3c3f1fb55d1b02ff558f7adc369dfd0d247"
+    },
+    {
+      "path": "part-06.bin",
+      "bytes": 16777216,
+      "sha256": "35f62293b315248240aee6e7db9ec2d29e1a1a53da21b5eac6271614bbb12d57"
+    },
+    {
+      "path": "part-07.bin",
+      "bytes": 16777216,
+      "sha256": "2296bad2254a3b46436d29828a2e109a7e5cfc736c2e064c73c2122bd46ba3a9"
+    },
+    {
+      "path": "part-08.bin",
+      "bytes": 16777216,
+      "sha256": "0cc938d5fb2ca78d03964fc3015f00376374c8234a9856ea9a38629bd9c1f621"
+    },
+    {
+      "path": "part-09.bin",
+      "bytes": 16777216,
+      "sha256": "b12eb7cd0d62b1d0c57c1d01b464c8f6715bd2b36fbdc8c05796c1193508972a"
+    },
+    {
+      "path": "part-10.bin",
+      "bytes": 16777216,
+      "sha256": "556ac7e8dc07e0a6c9dcbfd40327d3af53d09c279b26c50446bea866f7c5f1f0"
+    },
+    {
+      "path": "part-11.bin",
+      "bytes": 16777216,
+      "sha256": "02da1169e4de99fc11099649507c08c5e9bfcf73af8dd81b9fe0d0931aea65c3"
+    },
+    {
+      "path": "part-12.bin",
+      "bytes": 11099608,
+      "sha256": "bff07da6374f2285f54b078a350cedfc793e1ffed71b8fcdbf24fec2f057a75e"
+    }
+  ]
+}

@@ -141,22 +141,23 @@ html[data-site-theme]:not([data-site-theme=dark]) .ag-photo-header .site-header.
 html[data-site-theme=mono]:not([data-site-theme=dark]) .trade-button::before{background:#363636}
 html[data-site-theme=mono]:not([data-site-theme=dark]) .trade-button::after{background:linear-gradient(110deg,transparent 35%,#ffffff30 50%,transparent 65%)}
 html[data-site-theme=mono]:not([data-site-theme=dark]) .trade-button:hover{color:#fff!important}
-/* Direct binary switch, with a separate monochrome toggle. */
+/* Direct binary switch; the textual monochrome control lives in the footer. */
 .appearance-switch[hidden],.appearance-mono[hidden]{display:none!important}
 .appearance-switch{display:flex;align-items:center;gap:7px;flex:0 0 auto;color:inherit}
 .appearance-toggle{display:grid;place-items:center;background:transparent;color:inherit;border:0;padding:0;min-height:44px;cursor:pointer}
 .appearance-track{position:relative;display:block;direction:ltr;width:56px;height:32px;border:1px solid #ffffff60;border-radius:var(--ui-radius,8px);background:#ffffff16;color:#fff}
-.appearance-track svg{position:absolute;top:7px;width:16px;height:16px}.appearance-sun{left:6px}.appearance-moon{right:6px}.appearance-thumb{position:absolute;left:3px;top:3px;width:24px;height:24px;border-radius:var(--ui-radius,8px);background:#e6ca96;box-shadow:0 1px 3px #0004;transition:transform .2s ease}
+.appearance-track svg{position:absolute;top:5px;width:20px;height:20px}.appearance-sun{left:4px}.appearance-moon{right:4px}.appearance-thumb{position:absolute;left:3px;top:3px;width:24px;height:24px;border-radius:var(--ui-radius,8px);background:#e6ca96;box-shadow:0 1px 3px #0004;transition:transform .2s ease}
 .appearance-toggle[aria-checked=true] .appearance-thumb{transform:translateX(24px)}
-.appearance-mono{display:grid;place-items:center;min-height:44px;width:32px;padding:0;background:transparent;color:inherit;border:0;cursor:pointer}.appearance-mono svg{width:22px;height:22px}.appearance-mono[aria-pressed=true]{background:#15212c;color:#fff}
-.appearance-mono-mobile{display:none}
+.appearance-mono{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:6px 14px;background:transparent;color:inherit;border:1px solid var(--line);font-size:14px;cursor:pointer}.appearance-mono[aria-pressed=true]{background:#15212c;color:#fff;border-color:#15212c}
+.site-footer{border-top:1px solid #c39a5b66}
+.footer-bottom{gap:16px;align-items:center;flex-wrap:wrap}
 html[data-site-theme]:not([data-site-theme=dark]) .appearance-track{background:#e8edf2;border-color:#596674;color:var(--display-ink)}
 html[data-site-theme]:not([data-site-theme=dark]) .appearance-thumb{background:#15212c}
 html[data-site-theme]:not([data-site-theme=dark]) .ag-photo-header:not(.menu-open) .site-header.video-header:not(.is-glass) .appearance-track{background:#ffffff16;border-color:#ffffff90;color:#fff}
 html[data-site-theme]:not([data-site-theme=dark]) .ag-photo-header:not(.menu-open) .site-header.video-header:not(.is-glass) .appearance-thumb{background:#fff}
 .appearance-toggle:focus-visible,.appearance-mono:focus-visible{outline:2px solid currentColor;outline-offset:3px}
 @media(max-width:1150px){.site-header .nav{gap:8px}}
-@media(max-width:680px){.appearance-switch>.appearance-mono{display:none}.site-header .header-inner{gap:8px}.site-header:has(.appearance-switch:not([hidden])) .header-inquiry{min-width:36px;width:36px;padding:8px;justify-content:center}.site-header:has(.appearance-switch:not([hidden])) .header-inquiry>span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}.site-header:has(.appearance-switch:not([hidden])) .header-inquiry svg{width:20px;height:20px}.nav.is-open .appearance-mono-mobile{display:flex;width:auto;align-items:center;justify-content:flex-start;gap:12px;padding:10px;font-size:18px}}
+@media(max-width:680px){.site-header .header-inner{gap:8px}.site-header:has(.appearance-switch:not([hidden])) .header-inquiry{min-width:36px;width:36px;padding:8px;justify-content:center}.site-header:has(.appearance-switch:not([hidden])) .header-inquiry>span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}.site-header:has(.appearance-switch:not([hidden])) .header-inquiry svg{width:20px;height:20px}}
 @media(prefers-reduced-motion:reduce){.appearance-thumb{transition:none}}
 @media(forced-colors:active){.appearance-track{border:1px solid ButtonText}.appearance-thumb{background:ButtonText}.appearance-mono[aria-pressed=true]{outline:2px solid Highlight}}
 /* The original emblem is masked transparently in the footer in every mode. */

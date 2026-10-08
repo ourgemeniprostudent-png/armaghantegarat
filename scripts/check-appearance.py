@@ -27,12 +27,7 @@ def select(q,mode):
  current=q.locator('html').get_attribute('data-site-theme')
  if current==mode:return
  if mode=='dark' or (mode=='light' and current=='dark'):q.locator('[data-appearance-toggle]').click()
- else:
-  mono=q.locator('[data-appearance-mono]:visible')
-  mobile=mono.count()==0
-  if mobile:q.locator('.menu-toggle').click()
-  q.locator('[data-appearance-mono]:visible').click()
-  if mobile:q.locator('.menu-toggle').click()
+ else:q.locator('[data-appearance-mono]').click()
  assert q.locator('html').get_attribute('data-site-theme')==mode
 try:
  with sync_playwright() as p:
@@ -78,4 +73,4 @@ try:
 finally:
  if server:server.shutdown()
 (out/('preview-layouts.json' if a.preview else 'native-layouts.json')).write_text(json.dumps({'views':records,'errors':errors},ensure_ascii=False,indent=2))
-print(json.dumps({'views':len(records),'errors':errors,'checks':['Dark first visit despite OS preference','Direct sliding toggle and independent monochrome button','Reload and cross-page persistence; keyboard Space and cross-tab preference','Responsive switch and native media submenu','White page surfaces and eight-pixel controls','Form contents retained during appearance changes','Blocked storage, invalid preference and no-JS fallback']}))
+print(json.dumps({'views':len(records),'errors':errors,'checks':['Dark first visit despite OS preference','Direct sliding toggle and textual monochrome footer control','Reload and cross-page persistence; keyboard Space and cross-tab preference','Responsive switch and native media submenu','White page surfaces and eight-pixel controls','Form contents retained during appearance changes','Blocked storage, invalid preference and no-JS fallback']}))

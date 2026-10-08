@@ -76,5 +76,7 @@ This repository contains the approved WordPress implementation transferred from 
 
 ## Display modes from 1.18
 
-- The owner requires dark by default, with separate light and monochrome options. `inc/appearance.php` and `assets/appearance.js/css` provide a direct sliding dark/light switch and separate monochrome button (inside the mobile navigation), with per-origin local preference. Never replace the slider with a popup selection menu. Never follow the OS theme automatically or invert the whole page. Preserve photo hero overlays, brand composition, motion, native editing and the 8px radius in every mode.
+- The owner requires dark by default, with separate light and monochrome options. `inc/appearance.php` and `assets/appearance.js/css` provide a direct sliding dark/light switch and textual monochrome control in the footer, with per-origin local preference. Never replace the slider with a popup selection menu. Never follow the OS theme automatically or invert the whole page. Preserve photo hero overlays, brand composition, motion, native editing and the 8px radius in every mode.
 - New interface surfaces must support the `--display-paper/surface/ink/muted/accent/line` tokens, readable small copy, controls and focus states. Monochrome tones leaf content and photo overlays without filtering fixed-position container ancestors. Keep file bytes and image/video quality unchanged. The global identity section edits the four display labels; the native appearance_switch feature controls visibility.
+
+- From 1.18.1 there is no monochrome circle beside the header switch or in navigation. Keep the day icon a clearly legible sun with rays, and the footer top separator visible in all three modes.

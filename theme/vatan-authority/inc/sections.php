@@ -50,15 +50,16 @@ function ag_render_page($context) {
     foreach(ag_sections($context) as $id=>$section){
         $s=$section['values'];$layout=$section['layout'];if(str_starts_with($layout,'home-')||$layout==='article')continue;
         if($layout==='hero'){
-            if($context==='contact'&&vatan_feature('contact_cinematic')){ag_contact_hero($s,$id,$context);continue;}
-            echo '<section class="ag-hero" id="'.esc_attr($id).'"><div class="wrap ag-page-path">';ag_breadcrumb();echo '</div><div class="wrap ag-hero-grid"><div class="ag-hero-copy" data-ag-reveal>';
-            ag_heading($s,'h1');ag_body($s['body']??'');ag_action($s,'button trade-button');echo '</div>';ag_art_hero($s,$context);echo '</div><div class="ag-hero-foot wrap"><span>'.esc_html($s['foot_label']??$s['eyebrow']).'</span><a href="#'.esc_attr(array_keys(ag_sections($context))[1]??$id).'">'.esc_html($s['scroll_label']??'ادامه روایت').' <span class="ag-symbol" aria-hidden="true">↓</span></a></div><div class="ag-hero-line" aria-hidden="true"></div></section>';ag_inner_nav($context);continue;
+            if($context==='contact'&&vatan_feature('contact_cinematic'))ag_authority_contact($s,$id,$context);
+            else ag_authority_hero($s,$id,$context);
+            continue;
         }
         if($layout==='product-gallery'||$layout==='flow-gallery'){
             echo '<div class="wrap ag-gallery-intro" id="'.esc_attr($id).'" data-ag-reveal>';ag_heading($s);ag_body($s['body']??'');echo '</div>';
             get_template_part('template-parts/'.($layout==='product-gallery'?'product-revolver':'cooperation-gallery'),null,['context'=>$context]);continue;
         }
-        echo '<section class="ag-section ag-layout-'.esc_attr($layout).'" id="'.esc_attr($id).'"><div class="wrap">';
+        $wide=$layout==='split'&&in_array($id,['sea','visit','scope','brief'],true)&&!empty($s['image'])&&empty($s['video']);
+        echo '<section class="ag-section ag-layout-'.esc_attr($layout).($wide?' at-visual-story':'').'" id="'.esc_attr($id).'"><div class="wrap">';
         if(in_array($layout,['manifesto','route','dossier','fieldnotes'],true))ag_art_section($s,$layout);
         elseif(in_array($layout,['split','legal'],true)){
             echo '<div class="ag-split"><div class="ag-copy" data-ag-reveal>';ag_heading($s);

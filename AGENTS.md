@@ -7,7 +7,7 @@ This repository contains the approved WordPress implementation transferred from 
 - Speak Persian with the owner. Public UI is Persian, RTL, using the bundled Peyda font; no decorative English labels and no hamza characters in public copy.
 - The full company name is «ارمغان تجارت وطن». The business is a direct wholesale importer of agricultural/food products, including containerized maritime freight; it is not a café. Give coffee about half the product emphasis and the other groups (rice, nuts/dried fruit, spices, legumes) the other half.
 - Black and gold dominate. Midnight navy and restrained red accents also belong to the brand.
-- From 1.11, warm beige surfaces in About, Contact and Journal balance the dark brand. Convey scale through expansive maritime photography, coffee emphasis, confident typography and clear access to the office; never invent rankings, capacity or facility ownership. Contact artwork, palette and scene have native theme controls, and both hero images remain section editable.
+- From 1.12, the owner requires spatial, expansive interior compositions, not repeated rounded photo/text cards. Use Midnight Navy #0D1B2A, Black #0B0B0B, Gold #C39A5B and the owner-approved burgundy; no green/teal UI. Light surfaces derive from gold. Natural photo colors remain natural. Contact uses an original coded 3D golden cargo sculpture; About/Cooperation use full backgrounds, Journal uses an editorial layout, forms use light workspaces. Never invent rankings, capacity or facility ownership. Native palette, motion intensity and feature controls remain editable.
 - Header: transparent at the top of the video hero, black after scrolling; gold emblem always, white text. Preserve the fullscreen mobile navigation and borderless, normal-weight controls.
 - Hero uses the unchanged current video and a dark overlay. From 1.10.2 the owner removed the startup loader: show the page immediately and let native video stream progressively. Never fetch the entire video into a Blob before playback. No video pause button.
 - Product gallery has five groups and manual finite scroll steps, no autoplay. Do not replace it with a generic grid.
@@ -44,3 +44,9 @@ This repository contains the approved WordPress implementation transferred from 
 - Preserve ivory reading surfaces for journal/articles, native section fields, meaningful reduced-motion and no-JS behavior.
 - Route diagrams are conceptual, not actual shipping routes or office coordinates. Use transferred company/contact facts; original reference documents are absent from this checkout.
 - Native article bodies and public seed content must stay aligned when intentionally editing copy. Preserve revisions and existing administrator edits on upgrade; never reset the database.
+
+## Interior authority edition 1.12
+
+- Current renderers: `inc/authority-edition.php`, `assets/authority-edition.css/js`. Build CSS using `scripts/build-assets.py`; do not edit generated bundles. The old contact-only stylesheet is not loaded.
+- The cargo scene projects world-space geometry to Canvas and approaches along the viewing depth axis; it settles after entrance. No external model/library is loaded. Preserve static SVG fallback, reduced-motion behavior, pause offscreen/hidden and capped mobile frame rate.
+- Hero backgrounds use native `background_image` fields (empty falls back to section image); preserve editor metadata and video controls.

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: VATAN Core
  * Description: Product and media management, persistent inquiries and Multisite setup for Armaghan Tejarat Vatan.
- * Version: 1.3.3
+ * Version: 1.3.4
  * Requires at least: 6.6
  * Requires PHP: 8.1
  * Author: VATAN

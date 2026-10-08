@@ -1,0 +1,68 @@
+{
+  "version": "1.11.0",
+  "filename": "Armaghan-WordPress-v1.11.0.zip",
+  "bytes": 187156385,
+  "sha256": "3f2213d29630befe2cf262585106f406abff3ad39bcf41131f42b35e657de051",
+  "parts": [
+    {
+      "path": "part-01.bin",
+      "bytes": 16777216,
+      "sha256": "f43d84e915b59cdf92e928148a64325cd3eb2c4af165a77ccae69527bbf17834"
+    },
+    {
+      "path": "part-02.bin",
+      "bytes": 16777216,
+      "sha256": "365ad77aabc8dd2217308183ed2d349bfcb15ef628311323ab8ae6bd8f985f52"
+    },
+    {
+      "path": "part-03.bin",
+      "bytes": 16777216,
+      "sha256": "889941c4d4148b4b6db20fb4a9112b66d05f2eed9330abd27078d3e12c1bc73d"
+    },
+    {
+      "path": "part-04.bin",
+      "bytes": 16777216,
+      "sha256": "c09f7057d4ec8582feb08e77f2345fcf2d082e412ac510871d20b4b01669513a"
+    },
+    {
+      "path": "part-05.bin",
+      "bytes": 16777216,
+      "sha256": "be0f1794a0e6f8e03848357afaba934355538deafaa9e0bc1f39eb6575c4c8ea"
+    },
+    {
+      "path": "part-06.bin",
+      "bytes": 16777216,
+      "sha256": "884bca3fc360e3517e5fa45320a986f684c0147d49b2f074697a45ae99268bc4"
+    },
+    {
+      "path": "part-07.bin",
+      "bytes": 16777216,
+      "sha256": "9f093aa9e086ceb45cdf6c136ebfd826e17ba081c3931406ed0fcbce127551fe"
+    },
+    {
+      "path": "part-08.bin",
+      "bytes": 16777216,
+      "sha256": "b1dfbdab4e4043849a1ce65abdf8b9e6bc907dac91619b6248285333682fd7be"
+    },
+    {
+      "path": "part-09.bin",
+      "bytes": 16777216,
+      "sha256": "e8677a615f15e3781c9175ba4a4b52ceb8dfeb930e57c1aa222fcf8638b5d2b6"
+    },
+    {
+      "path": "part-10.bin",
+      "bytes": 16777216,
+      "sha256": "c1dd8cd148bae86b08fdb5b4ae2685396281a888576ae8240b7907689d93391e"
+    },
+    {
+      "path": "part-11.bin",
+      "bytes": 16777216,
+      "sha256": "893b44a4ac44d2f51082efa1660ac30c340cba0c74ff50d17a30bdacee5e51ed"
+    },
+    {
+      "path": "part-12.bin",
+      "bytes": 2607009,
+      "sha256": "821e6e14519319e809abbcd44b1d4790de3c83fc0ced248126b53410df405ec1"
+    }
+  ]
+}

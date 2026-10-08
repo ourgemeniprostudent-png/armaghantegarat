@@ -7,7 +7,7 @@
   // Draw symbols instead of relying on a font's missing arrow glyph.
   document.querySelectorAll('span[aria-hidden="true"],.ag-map-art>span,.ag-side-mark,.ag-receipt-symbol').forEach(span => {
     const direction = span.textContent.trim();
-    const paths = {'↗':'M4 20L20 4M4 4H20V20','↓':'M12 3V21M4 13L12 21L20 13','⤢':'M4 10V4H10M4 4L10 10M14 14L20 20M14 20H20V14'};
+    const paths = {'↖':'M20 20L4 4M4 20V4H20','↓':'M12 3V21M4 13L12 21L20 13','⤢':'M4 10V4H10M4 4L10 10M14 14L20 20M14 20H20V14'};
     if (!paths[direction]) return;
     span.textContent = ''; span.classList.add('ag-drawn-symbol');
     const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');

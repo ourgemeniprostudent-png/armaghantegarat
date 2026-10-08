@@ -10,7 +10,7 @@
 .revolver-copy-panel.is-active{opacity:1;visibility:visible;transform:none;pointer-events:auto}
 .revolver-copy h3{font-size:clamp(44px,4.3vw,66px);font-weight:700;line-height:1.2;letter-spacing:-.025em;margin:0 0 28px;color:#f6f3ec;min-height:3.6em}
 .revolver-name{display:block;color:var(--gold-light)}
-.revolver-copy p{color:#bfc2c1;font-size:17px;line-height:1.95;margin:0 0 28px;max-width:435px;min-height:5.85em}
+.revolver-copy p{color:#bfc0c2;font-size:17px;line-height:1.95;margin:0 0 28px;max-width:435px;min-height:5.85em}
 .revolver-actions{display:flex;align-items:center;gap:23px;flex-wrap:wrap}
 .revolver-action{display:inline-flex;align-items:center;justify-content:space-between;gap:24px;background:var(--gold-light);color:#0a0d10;min-height:48px;padding:12px 20px;border:0;border-radius:7px;font-weight:400;font-size:15px;transition:background .3s,transform .3s}
 .revolver-action:hover{background:#eed5a5;transform:translateY(-2px)}
@@ -18,9 +18,9 @@
 .revolver-meta-stack{position:absolute;left:88px;bottom:95px;z-index:4;display:grid;direction:rtl;pointer-events:none}
 .revolver-finish{display:flex;flex-direction:column;align-items:flex-start;gap:8px;grid-area:1/1;opacity:0;visibility:hidden;transform:translateY(9px);transition:opacity .35s,transform .4s,visibility .35s}
 .revolver-finish.is-active{opacity:1;visibility:visible;transform:none}
-.revolver-count{font:12px Peyda,Arial,sans-serif;letter-spacing:0;color:#929892}
+.revolver-count{font:12px Peyda,Arial,sans-serif;letter-spacing:0;color:#929598}
 .revolver-latin{font:12px Arial,sans-serif;letter-spacing:2px;color:#f0efeb}
-.revolver-caption{font-size:13px;color:#8f9594}
+.revolver-caption{font-size:13px;color:#8f9295}
 .revolver-lane{direction:ltr;position:relative;height:100%;min-width:0;perspective:1100px;perspective-origin:50% 50%;transform-style:preserve-3d;z-index:2;user-select:none;cursor:grab;touch-action:pan-y}
 .revolver-lane.is-dragging{cursor:grabbing}
 .revolver-product{position:absolute;top:50%;left:50%;width:clamp(420px,39vw,565px);height:clamp(420px,39vw,565px);padding:0;margin:0;border:0;outline-offset:-90px;background:transparent;transform:translate3d(-50%,-50%,0);opacity:0;visibility:hidden;backface-visibility:visible;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.22,.7,.18,1),opacity .48s ease;will-change:transform,opacity;cursor:inherit}
@@ -30,13 +30,13 @@
 
 .revolver-dots{position:absolute;right:24px;top:50%;transform:translateY(-50%);display:none;flex-direction:column;z-index:4;gap:0}
 .revolver-enhanced .revolver-dots{display:flex}
-.revolver-dots button{display:flex;align-items:center;justify-content:center;width:32px;height:28px;border:0;padding:0;background:transparent;color:#7b827e}
+.revolver-dots button{display:flex;align-items:center;justify-content:center;width:32px;height:28px;border:0;padding:0;background:transparent;color:#7b7e82}
 .revolver-dots i{display:block;width:5px;height:5px;border-radius:20px;background:currentColor;transition:height .4s ease,background .4s}
 .revolver-dots button[aria-current=true]{color:var(--gold-light)}.revolver-dots button[aria-current=true] i{height:22px}
 .revolver-dots button:hover{color:#eed5a5}
 .revolver-bottom{direction:rtl;position:absolute;left:88px;right:88px;bottom:26px;display:flex;justify-content:space-between;align-items:center;gap:18px;z-index:4}
-.revolver-bottom>a{color:#aab0ac;font-size:12px}.revolver-bottom>a span{color:var(--gold);margin-inline-start:8px}
-.revolver-hint{color:#626c68;font-size:11px;letter-spacing:0}
+.revolver-bottom>a{color:#aaadb0;font-size:12px}.revolver-bottom>a span{color:var(--gold);margin-inline-start:8px}
+.revolver-hint{color:#62676c;font-size:11px;letter-spacing:0}
 .revolver-arrows{display:none;gap:8px}.revolver-enhanced .revolver-arrows{display:flex}
 .revolver-arrows button{display:grid;place-items:center;border:0;background:#ffffff09;color:#edece4;width:36px;height:36px;border-radius:50%;font:18px Arial,sans-serif;transition:background .3s,color .3s}
 .revolver-arrows button:hover{background:var(--gold);color:#080c10}

@@ -1,0 +1,68 @@
+{
+  "version": "1.12.0",
+  "filename": "Armaghan-WordPress-v1.12.0.zip",
+  "bytes": 187170989,
+  "sha256": "4a6fe34a0b1c8940ae22cc5e039f3a48887255b227fe8dbd29ca5b06e584c70d",
+  "parts": [
+    {
+      "path": "part-01.bin",
+      "bytes": 16777216,
+      "sha256": "fc3b80a4d206c71405f0a0e9fc91c9adb445cd50a9e09ffaa6ffada475f8b6a9"
+    },
+    {
+      "path": "part-02.bin",
+      "bytes": 16777216,
+      "sha256": "0e8490158f44e43bf6a527b77eaa6096423f5a76beb5181eea9994a6e2e434f3"
+    },
+    {
+      "path": "part-03.bin",
+      "bytes": 16777216,
+      "sha256": "87e6c5e0c06cb2e5dbdb3afc1e03adff3d87db3b453ac394e127a5377f28fc91"
+    },
+    {
+      "path": "part-04.bin",
+      "bytes": 16777216,
+      "sha256": "671f1f88c614bf7d64ca9e6a29596b67f52dc5a521150f3f2ecf19f1e2da55bb"
+    },
+    {
+      "path": "part-05.bin",
+      "bytes": 16777216,
+      "sha256": "7c7097a355383ba2086edb9c15eaf767ae1d89df6363970c080dce57993b231e"
+    },
+    {
+      "path": "part-06.bin",
+      "bytes": 16777216,
+      "sha256": "79dfca3ce38bab5cbba0be338e79a6a729c13d2e56a990dd7555192f0fa277ba"
+    },
+    {
+      "path": "part-07.bin",
+      "bytes": 16777216,
+      "sha256": "d3007027b1f136f0df6002d31fa699725ff6eba73a9c78495cbca2f7127a0737"
+    },
+    {
+      "path": "part-08.bin",
+      "bytes": 16777216,
+      "sha256": "f5ce9584a6237960d950cdef4bfe61e297ace84870c8503b72f9bd640033e9dc"
+    },
+    {
+      "path": "part-09.bin",
+      "bytes": 16777216,
+      "sha256": "524401c686be6ade173de426de7dba0da7fe8fdf81fc536f6b8ea1ceb443b035"
+    },
+    {
+      "path": "part-10.bin",
+      "bytes": 16777216,
+      "sha256": "f79b32a34fbebd495e556f614ddb6e58684d571457214a82016bc0f76f981ff3"
+    },
+    {
+      "path": "part-11.bin",
+      "bytes": 16777216,
+      "sha256": "f9c34f9f05a2b0d05391d92cf049cc0c00772e3bba51a4ffa698b0652d5aee17"
+    },
+    {
+      "path": "part-12.bin",
+      "bytes": 2621613,
+      "sha256": "6ed3f9d2fa8ef5942148fa66c0f363a4606019b3ecf7c51634b56f90982cb824"
+    }
+  ]
+}

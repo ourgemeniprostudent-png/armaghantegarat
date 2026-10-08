@@ -100,7 +100,6 @@ html[data-site-theme=mono]:not([data-site-theme=dark]) .at-about .hero::after,
 html[data-site-theme=mono]:not([data-site-theme=dark]) .at-about .coffee-scene::after,
 html[data-site-theme=mono]:not([data-site-theme=dark]) .at-about .partnership::after,
 html[data-site-theme=mono]:not([data-site-theme=dark]) .at-backdrop::after{filter:grayscale(1)}
-html[data-site-theme]:not([data-site-theme=dark]) .site-header .brand-mark{background:var(--display-accent)}
 html[data-site-theme=mono]:not([data-site-theme=dark]) .ag-photo-header:not(.menu-open) .site-header.video-header:not(.is-glass) .brand-mark{background:#fff}
 /* Readable details outside photographic openings. */
 html[data-site-theme]:not([data-site-theme=dark]) .skip{background:var(--display-ink);color:#fff}
@@ -132,7 +131,6 @@ html[data-site-theme]:not([data-site-theme=dark]) .flow-dialog-ambient{opacity:.
 html[data-site-theme=mono]:not([data-site-theme=dark]) .flow-dialog-ambient{filter:grayscale(1) blur(45px)}
 html[data-site-theme]:not([data-site-theme=dark]) .ag-article-hero .ag-topic-tags a{color:#e8c994}
 html[data-site-theme=mono]:not([data-site-theme=dark]) .ag-article-hero .ag-topic-tags a{color:#fff}
-html[data-site-theme]:not([data-site-theme=dark]) .site-footer .brand-mark{background:var(--display-accent);mask-image:url('brand-original.png');mask-mode:luminance;mask-size:135px auto;mask-position:-30px -115px;mask-repeat:no-repeat;-webkit-mask-image:url('brand-original.png');-webkit-mask-size:135px auto;-webkit-mask-position:-30px -115px;-webkit-mask-repeat:no-repeat}
 html[data-site-theme]:not([data-site-theme=dark]) .site-footer .brand-mark img{opacity:0}
 html[data-site-theme]:not([data-site-theme=dark]) .at-approved .form-v2 :is(input,select,textarea):focus-visible{border-color:var(--display-ink);box-shadow:0 0 0 2px var(--display-ink);outline:0}
 /* Hover and focus remain legible during the existing gold reveal animation. */

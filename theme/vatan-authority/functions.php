@@ -9,6 +9,7 @@ require_once __DIR__.'/inc/breadcrumbs.php';
 require_once __DIR__.'/inc/contact-art.php';
 require_once __DIR__.'/inc/authority-edition.php';
 require_once __DIR__.'/inc/about-editorial.php';
+require_once __DIR__.'/inc/approved-interiors.php';
 require_once __DIR__.'/inc/responsive-images.php';
 require_once __DIR__.'/inc/brand-accent.php';
 add_filter('body_class',function($classes){if(!vatan_feature('animations'))$classes[]='ag-static-motion';return $classes;});
@@ -41,6 +42,7 @@ add_action('wp_enqueue_scripts', function () {
         wp_enqueue_script('armaghan-cooperation-gallery', vatan_asset('cooperation-gallery.js'), ['armaghan-product-revolver'], filemtime(get_template_directory().'/assets/cooperation-gallery.js'), true);
     }
 
+    if(is_home()||is_page(['contact','inquiry'])||is_singular('post')){wp_enqueue_script('armaghan-approved-validation',vatan_asset('approved-validation.js'),['armaghan-capabilities'],filemtime(get_template_directory().'/assets/approved-validation.js'),true);wp_enqueue_script('armaghan-approved',vatan_asset('approved-interiors.js'),['armaghan-approved-validation'],filemtime(get_template_directory().'/assets/approved-interiors.js'),true);}
     if(is_front_page())wp_enqueue_script('armaghan-home-story', vatan_asset('home-story.js'), ['vatan-site'], filemtime(get_template_directory().'/assets/home-story.js'), true);
 });
 function vatan_url($path='') { return home_url('/'.ltrim($path,'/')); }

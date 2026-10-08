@@ -30,7 +30,7 @@ shutil.copy2(ROOT/'theme/vatan-authority/style.css',assets/'style.css')
 VIDEO_HASHES={'hero-h264.mp4':'f7ae6d349f977be82939382e521f8e36597d90cceac6393ba7772627596f8f6c','hero-av1.mp4':'b48c6cf207b16ddfd183eac4f7d6263067472f942dc1dfb9004270450c97eec5'}
 for name,expected in VIDEO_HASHES.items():
  assert hashlib.file_digest((assets/'assets/media'/name).open('rb'),'sha256').hexdigest()==expected,'Original video changed; verify before publishing'
-GUARD="""(() => {'use strict';document.addEventListener('submit',event=>{if(event.target.matches('[data-discovery],[data-wp-search]'))return;event.preventDefault();event.stopImmediatePropagation();alert('این نسخه فقط پیش‌نمایش است؛ ثبت درخواست در پیش‌نمایش انجام نمی‌شود. برای ثبت واقعی، نسخه وردپرس باید روی هاست اجرا شود.');},true);document.addEventListener('DOMContentLoaded',()=>{const f=document.querySelector('[data-inquiry-form]');if(f){const q=new URLSearchParams(location.search);for(const key of ['category','product'])if(q.has(key)&&f.elements[key])f.elements[key].value=q.get(key).slice(0,150);}});})();"""
+GUARD="""(() => {'use strict';document.addEventListener('submit',event=>{if(event.target.matches('[data-discovery],[data-wp-search],[data-journal-controls]' ))return;event.preventDefault();event.stopImmediatePropagation();alert('این نسخه فقط پیش‌نمایش است؛ ثبت درخواست در پیش‌نمایش انجام نمی‌شود. برای ثبت واقعی، نسخه وردپرس باید روی هاست اجرا شود.');},true);document.addEventListener('DOMContentLoaded',()=>{const f=document.querySelector('[data-inquiry-form]');if(f){const q=new URLSearchParams(location.search);for(const key of ['category','product'])if(q.has(key)&&f.elements[key])f.elements[key].value=q.get(key).slice(0,150);}});})();"""
 (OUT/'preview-guard.js').write_text(GUARD)
 shutil.copy2(ROOT/'scripts/preview-search.js',OUT/'preview-search.js')
 index=[{**p,'url':urlsplit(p['url']).path} for p in public]
@@ -67,7 +67,7 @@ class Portable(HTMLParser):
   new=[]
   for key,value in attrs:
    if value is None:new.append(key);continue
-   if tag=='form' and key=='method' and not ('data-discovery' in a or 'data-wp-search' in a):value='dialog'
+   if tag=='form' and key=='method' and not ('data-discovery' in a or 'data-wp-search' in a or 'data-journal-controls' in a):value='dialog'
    elif tag=='form' and key=='action':value='#'
    elif key in ['href','src','poster','data-av1','data-h264'] or (tag=='meta' and key=='content' and value.startswith(ORIGIN+'/')):value=self.url(value)
    elif key=='srcset':value=', '.join(' '.join([self.url(entry.strip().split()[0])]+entry.strip().split()[1:]) for entry in value.split(','))

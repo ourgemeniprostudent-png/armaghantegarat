@@ -266,6 +266,318 @@
             }
         ]
     },
+    "approved/article-checklist.webp": {
+        "width": 2172,
+        "height": 724,
+        "variants": [
+            {
+                "path": "responsive/approved-article-checklist-webp-240.webp",
+                "width": 240,
+                "height": 80
+            },
+            {
+                "path": "responsive/approved-article-checklist-webp-480.webp",
+                "width": 480,
+                "height": 160
+            },
+            {
+                "path": "responsive/approved-article-checklist-webp-768.webp",
+                "width": 768,
+                "height": 256
+            },
+            {
+                "path": "responsive/approved-article-checklist-webp-1280.webp",
+                "width": 1280,
+                "height": 427
+            }
+        ]
+    },
+    "approved/article-coffee.webp": {
+        "width": 1536,
+        "height": 1024,
+        "variants": [
+            {
+                "path": "responsive/approved-article-coffee-webp-240.webp",
+                "width": 240,
+                "height": 160
+            },
+            {
+                "path": "responsive/approved-article-coffee-webp-480.webp",
+                "width": 480,
+                "height": 320
+            },
+            {
+                "path": "responsive/approved-article-coffee-webp-768.webp",
+                "width": 768,
+                "height": 512
+            },
+            {
+                "path": "responsive/approved-article-coffee-webp-1280.webp",
+                "width": 1280,
+                "height": 853
+            }
+        ]
+    },
+    "approved/article-follow-up.webp": {
+        "width": 1536,
+        "height": 1024,
+        "variants": [
+            {
+                "path": "responsive/approved-article-follow-up-webp-240.webp",
+                "width": 240,
+                "height": 160
+            },
+            {
+                "path": "responsive/approved-article-follow-up-webp-480.webp",
+                "width": 480,
+                "height": 320
+            },
+            {
+                "path": "responsive/approved-article-follow-up-webp-768.webp",
+                "width": 768,
+                "height": 512
+            },
+            {
+                "path": "responsive/approved-article-follow-up-webp-1280.webp",
+                "width": 1280,
+                "height": 853
+            }
+        ]
+    },
+    "approved/article-inquiry.webp": {
+        "width": 1536,
+        "height": 1024,
+        "variants": [
+            {
+                "path": "responsive/approved-article-inquiry-webp-240.webp",
+                "width": 240,
+                "height": 160
+            },
+            {
+                "path": "responsive/approved-article-inquiry-webp-480.webp",
+                "width": 480,
+                "height": 320
+            },
+            {
+                "path": "responsive/approved-article-inquiry-webp-768.webp",
+                "width": 768,
+                "height": 512
+            },
+            {
+                "path": "responsive/approved-article-inquiry-webp-1280.webp",
+                "width": 1280,
+                "height": 853
+            }
+        ]
+    },
+    "approved/article-legumes.webp": {
+        "width": 1672,
+        "height": 941,
+        "variants": [
+            {
+                "path": "responsive/approved-article-legumes-webp-240.webp",
+                "width": 240,
+                "height": 135
+            },
+            {
+                "path": "responsive/approved-article-legumes-webp-480.webp",
+                "width": 480,
+                "height": 270
+            },
+            {
+                "path": "responsive/approved-article-legumes-webp-768.webp",
+                "width": 768,
+                "height": 432
+            },
+            {
+                "path": "responsive/approved-article-legumes-webp-1280.webp",
+                "width": 1280,
+                "height": 720
+            }
+        ]
+    },
+    "approved/article-nuts.webp": {
+        "width": 1536,
+        "height": 1024,
+        "variants": [
+            {
+                "path": "responsive/approved-article-nuts-webp-240.webp",
+                "width": 240,
+                "height": 160
+            },
+            {
+                "path": "responsive/approved-article-nuts-webp-480.webp",
+                "width": 480,
+                "height": 320
+            },
+            {
+                "path": "responsive/approved-article-nuts-webp-768.webp",
+                "width": 768,
+                "height": 512
+            },
+            {
+                "path": "responsive/approved-article-nuts-webp-1280.webp",
+                "width": 1280,
+                "height": 853
+            }
+        ]
+    },
+    "approved/article-rice.webp": {
+        "width": 1536,
+        "height": 1024,
+        "variants": [
+            {
+                "path": "responsive/approved-article-rice-webp-240.webp",
+                "width": 240,
+                "height": 160
+            },
+            {
+                "path": "responsive/approved-article-rice-webp-480.webp",
+                "width": 480,
+                "height": 320
+            },
+            {
+                "path": "responsive/approved-article-rice-webp-768.webp",
+                "width": 768,
+                "height": 512
+            },
+            {
+                "path": "responsive/approved-article-rice-webp-1280.webp",
+                "width": 1280,
+                "height": 853
+            }
+        ]
+    },
+    "approved/article-spices.webp": {
+        "width": 1536,
+        "height": 1024,
+        "variants": [
+            {
+                "path": "responsive/approved-article-spices-webp-240.webp",
+                "width": 240,
+                "height": 160
+            },
+            {
+                "path": "responsive/approved-article-spices-webp-480.webp",
+                "width": 480,
+                "height": 320
+            },
+            {
+                "path": "responsive/approved-article-spices-webp-768.webp",
+                "width": 768,
+                "height": 512
+            },
+            {
+                "path": "responsive/approved-article-spices-webp-1280.webp",
+                "width": 1280,
+                "height": 853
+            }
+        ]
+    },
+    "approved/contact-hero.webp": {
+        "width": 1983,
+        "height": 793,
+        "variants": [
+            {
+                "path": "responsive/approved-contact-hero-webp-240.webp",
+                "width": 240,
+                "height": 96
+            },
+            {
+                "path": "responsive/approved-contact-hero-webp-480.webp",
+                "width": 480,
+                "height": 192
+            },
+            {
+                "path": "responsive/approved-contact-hero-webp-768.webp",
+                "width": 768,
+                "height": 307
+            },
+            {
+                "path": "responsive/approved-contact-hero-webp-1280.webp",
+                "width": 1280,
+                "height": 512
+            }
+        ]
+    },
+    "approved/contact-office.webp": {
+        "width": 1672,
+        "height": 941,
+        "variants": [
+            {
+                "path": "responsive/approved-contact-office-webp-240.webp",
+                "width": 240,
+                "height": 135
+            },
+            {
+                "path": "responsive/approved-contact-office-webp-480.webp",
+                "width": 480,
+                "height": 270
+            },
+            {
+                "path": "responsive/approved-contact-office-webp-768.webp",
+                "width": 768,
+                "height": 432
+            },
+            {
+                "path": "responsive/approved-contact-office-webp-1280.webp",
+                "width": 1280,
+                "height": 720
+            }
+        ]
+    },
+    "approved/journal-hero.webp": {
+        "width": 1672,
+        "height": 941,
+        "variants": [
+            {
+                "path": "responsive/approved-journal-hero-webp-240.webp",
+                "width": 240,
+                "height": 135
+            },
+            {
+                "path": "responsive/approved-journal-hero-webp-480.webp",
+                "width": 480,
+                "height": 270
+            },
+            {
+                "path": "responsive/approved-journal-hero-webp-768.webp",
+                "width": 768,
+                "height": 432
+            },
+            {
+                "path": "responsive/approved-journal-hero-webp-1280.webp",
+                "width": 1280,
+                "height": 720
+            }
+        ]
+    },
+    "approved/supply-hero.webp": {
+        "width": 1954,
+        "height": 805,
+        "variants": [
+            {
+                "path": "responsive/approved-supply-hero-webp-240.webp",
+                "width": 240,
+                "height": 99
+            },
+            {
+                "path": "responsive/approved-supply-hero-webp-480.webp",
+                "width": 480,
+                "height": 198
+            },
+            {
+                "path": "responsive/approved-supply-hero-webp-768.webp",
+                "width": 768,
+                "height": 316
+            },
+            {
+                "path": "responsive/approved-supply-hero-webp-1280.webp",
+                "width": 1280,
+                "height": 527
+            }
+        ]
+    },
     "coffee-detail.webp": {
         "width": 1672,
         "height": 941,

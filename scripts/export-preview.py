@@ -34,6 +34,7 @@ for name,expected in VIDEO_HASHES.items():
 GUARD="""(() => {'use strict';document.addEventListener('submit',event=>{if(event.target.matches('[data-discovery],[data-wp-search],[data-journal-controls]' ))return;event.preventDefault();event.stopImmediatePropagation();alert('این نسخه فقط پیش‌نمایش است؛ ثبت درخواست در پیش‌نمایش انجام نمی‌شود. برای ثبت واقعی، نسخه وردپرس باید روی هاست اجرا شود.');},true);document.addEventListener('DOMContentLoaded',()=>{const f=document.querySelector('[data-inquiry-form]');if(f){const q=new URLSearchParams(location.search);for(const key of ['category','product'])if(q.has(key)&&f.elements[key])f.elements[key].value=q.get(key).slice(0,150);}});})();"""
 (OUT/'preview-guard.js').write_text(GUARD)
 shutil.copy2(ROOT/'scripts/preview-search.js',OUT/'preview-search.js')
+PREVIEW_SEARCH_VERSION=hashlib.sha256((OUT/'preview-search.js').read_bytes()).hexdigest()[:12]
 index=[{**p,'url':urlsplit(p['url']).path} for p in public]
 (OUT/'public-index.json').write_text(json.dumps(index,ensure_ascii=False)+'\n')
 MEDIA_EXT={'.png','.jpg','.jpeg','.webp','.avif','.gif','.svg','.mp4','.webm','.mov','.mp3','.m4a','.ogg','.wav','.woff','.woff2','.pdf'}
@@ -84,7 +85,7 @@ class Portable(HTMLParser):
   if self.skip:
    if tag=='script':self.skip=0
    return
-  if tag=='head':self.result.append('<meta name="robots" content="noindex,nofollow"><style>[data-public-card][hidden]{display:none!important}</style><script src="'+self.relative('/preview-guard.js')+'" defer></script><script src="'+self.relative('/preview-search.js')+'" defer></script>')
+  if tag=='head':self.result.append('<meta name="robots" content="noindex,nofollow"><style>[data-public-card][hidden]{display:none!important}</style><script src="'+self.relative('/preview-guard.js')+'" defer></script><script src="'+self.relative('/preview-search.js')+'?v='+PREVIEW_SEARCH_VERSION+'" defer></script>')
   self.result.append('</'+tag+'>')
  def handle_data(self,data):
   if not self.skip:self.result.append(data)

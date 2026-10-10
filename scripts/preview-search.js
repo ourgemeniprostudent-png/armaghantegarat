@@ -5,7 +5,7 @@
  const norm = value => String(value || '').toLocaleLowerCase('fa').replace(/ي/g,'ی').replace(/ك/g,'ک').replace(/\u200c/g,' ').replace(/\s+/g,' ').trim();
  const digits = value => String(value).replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
  const href = route => new URL(route.replace(/^\//,''),root).href;
- const loadIndex = () => fetch(new URL('public-index.json',root)).then(r => {if (!r.ok) throw Error('index'); return r.json();});
+ const loadIndex = () => fetch(new URL('public-index.json',root),{cache:'no-store'}).then(r => {if (!r.ok) throw Error('index'); return r.json();});
  const matches = (record, query) => norm(query).split(' ').filter(Boolean).every(word => norm(record.title+' '+record.body).includes(word));
  const params = () => new URLSearchParams(location.search);
  const remember = form => {

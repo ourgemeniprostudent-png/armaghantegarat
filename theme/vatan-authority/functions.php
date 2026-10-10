@@ -3,6 +3,7 @@ if (!defined('ABSPATH')) exit;
 require_once __DIR__.'/inc/sections.php';
 require_once __DIR__.'/inc/art-direction.php';
 require_once __DIR__.'/inc/public-search.php';
+require_once __DIR__.'/inc/search-page.php';
 require_once __DIR__.'/inc/capabilities.php';
 require_once __DIR__.'/inc/seo.php';
 require_once __DIR__.'/inc/breadcrumbs.php';

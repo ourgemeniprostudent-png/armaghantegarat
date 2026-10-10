@@ -15,6 +15,8 @@
  forms.forEach(form=>tags.forEach(key=>{if(form.elements[key]&&!form.elements[key].value)form.elements[key].value=attribution[key]||''}));
  const config=document.querySelector('[data-event-endpoint]');if(!config||document.documentElement.hasAttribute('data-static-preview'))return;
  const bar=document.querySelector('[data-analytics-consent]');let consent=false;
+ // This optional script-only prompt must never obstruct forms without JavaScript.
+ if(bar)bar.hidden=false;
  try{const choice=JSON.parse(localStorage.getItem('armaghan-event-consent')||'null');if(choice&&Date.now()-choice.at<180*86400000){consent=choice.accepted;if(bar)bar.hidden=true}}catch{}
  if(bar){bar.querySelectorAll('[data-event-choice]').forEach(button=>button.addEventListener('click',()=>{consent=button.dataset.eventChoice==='yes';try{localStorage.setItem('armaghan-event-consent',JSON.stringify({accepted:consent,at:Date.now()}))}catch{}bar.hidden=true}));document.querySelectorAll('[data-event-settings]').forEach(button=>button.addEventListener('click',()=>{bar.hidden=false;bar.querySelector('button')?.focus()}))}
  const track=event=>{if(!consent)return;window.dataLayer=window.dataLayer||[];window.dataLayer.push({event});fetch(config.dataset.eventEndpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({consent:true,event}),credentials:'omit',keepalive:true}).catch(()=>{})};

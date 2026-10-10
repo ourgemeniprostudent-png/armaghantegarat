@@ -6,7 +6,7 @@ root=Path(__file__).resolve().parent.parent;theme=root/'theme/vatan-authority';d
 base=['style.css','assets/video-hero.css','assets/home-story.css','assets/interior.css']
 plans={'site-home.css':base+['assets/capabilities.css','assets/product-revolver.css','assets/cooperation-gallery.css'],'site-interior.css':base+['assets/art-direction.css','assets/capabilities.css'],'site-gallery.css':base+['assets/art-direction.css','assets/capabilities.css','assets/product-revolver.css','assets/cooperation-gallery.css']}
 for name,files in plans.items():
- files=files+(['assets/page-opening.css'] if name!='site-home.css' else [])+['assets/brand-accent.css']+(['assets/authority-edition.css','assets/about-editorial.css','assets/approved-interiors.css'] if name!='site-home.css' else [])+['assets/media-library.css','assets/media-studio.css','assets/media-hub.css','assets/corner-radius.css','assets/appearance.css','assets/shared-header.css']
+ files=files+(['assets/page-opening.css'] if name!='site-home.css' else [])+['assets/brand-accent.css']+(['assets/authority-edition.css','assets/about-editorial.css','assets/approved-interiors.css'] if name!='site-home.css' else [])+['assets/media-library.css','assets/media-studio.css','assets/media-hub.css','assets/corner-radius.css','assets/appearance.css','assets/search-page.css','assets/shared-header.css']
  parts=[]
  for path in files:
   src=theme/path;css=src.read_text()

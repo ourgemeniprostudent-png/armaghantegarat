@@ -1,0 +1,68 @@
+{
+  "version": "1.18.4",
+  "filename": "Armaghan-WordPress-v1.18.4.zip",
+  "bytes": 195674758,
+  "sha256": "b0b901d9f03ce89ce80b4792c258cb663e70107796142e87b8635e5bee22d798",
+  "parts": [
+    {
+      "path": "part-01.bin",
+      "bytes": 16777216,
+      "sha256": "42ffbafe7ef7698a22a956c8720b83de00d9736c167dad7f1ae003464e4b17e5"
+    },
+    {
+      "path": "part-02.bin",
+      "bytes": 16777216,
+      "sha256": "e3ee208c89d5550111292881f9baca7d2dbcf4b5554981514e1622b198e63cfe"
+    },
+    {
+      "path": "part-03.bin",
+      "bytes": 16777216,
+      "sha256": "fb208b0fe814c85f5523b69b041455c2532f0d5f0885165334096d8a3f45e6ed"
+    },
+    {
+      "path": "part-04.bin",
+      "bytes": 16777216,
+      "sha256": "1535aab49cec44b2d101ed207a540533c12e07a2bdbc06802c605c4782933357"
+    },
+    {
+      "path": "part-05.bin",
+      "bytes": 16777216,
+      "sha256": "b15041c50e15ef89763f6db22022a79016573fa69c6adeccc3d923067475ac19"
+    },
+    {
+      "path": "part-06.bin",
+      "bytes": 16777216,
+      "sha256": "219c6599c91a8c6801c391b12762e220eaac20d8a8816389d7dbdc42968ba632"
+    },
+    {
+      "path": "part-07.bin",
+      "bytes": 16777216,
+      "sha256": "48fbe1b8505817395e2e23f49cf6d26fa3fe14073f01eb9dffeaf80a7893d2c7"
+    },
+    {
+      "path": "part-08.bin",
+      "bytes": 16777216,
+      "sha256": "e42b6b0c5eefa6f5f3e17610c19c19d4e7e7c7d4a65b0f6b984fb778423e040f"
+    },
+    {
+      "path": "part-09.bin",
+      "bytes": 16777216,
+      "sha256": "dee4b984ef3210815e041cb6e3493cff533babb2821ea196791b8d6373f21bd1"
+    },
+    {
+      "path": "part-10.bin",
+      "bytes": 16777216,
+      "sha256": "da501b95d45103d3e7ca2e63f23c76249d9c7e0fde210cc0e8302289fd187039"
+    },
+    {
+      "path": "part-11.bin",
+      "bytes": 16777216,
+      "sha256": "6bfab67a1bdb88d09517543616988535d65701a8d7cd287ca860709bb21718d5"
+    },
+    {
+      "path": "part-12.bin",
+      "bytes": 11125382,
+      "sha256": "3d5806d6014ac188fb756e8375eee22884cf1a52a71301e03f68eca63321dc2e"
+    }
+  ]
+}

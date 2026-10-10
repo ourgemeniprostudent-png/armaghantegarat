@@ -67,6 +67,11 @@ try:
     key=json.dumps(query,sort_keys=True,ensure_ascii=False)
     if label=='native':signatures[key]=signature
     else:assert signature==signatures[key],(query,signature,signatures[key])
+   page.goto(origin+'/search/?'+urlencode({'q':'تامین'}))
+   page.locator('.ag-pagination a',has_text='بعدی').click()
+   page.wait_for_function('new URLSearchParams(location.search).get("result_page")==="2"')
+   assert page.locator('.ag-search-result').count()>0
+   if label=='preview':assert 102<=page.locator('.ag-search-output').bounding_box()['y']<=150
    page.goto(origin+'/search/');page.locator('#ag-search-input').fill('قهوه');page.locator('#ag-search-scope').select_option('products');page.locator('.ag-search-form .button').click()
    page.wait_for_function('document.querySelector(".ag-search-count").textContent.includes("نتیجه")');assert page.locator('.ag-search-result').count()>0
    page.locator('.ag-search-examples a',has_text='برنج').click();page.wait_for_function('document.querySelector(".ag-search-count").textContent.includes("برنج")')

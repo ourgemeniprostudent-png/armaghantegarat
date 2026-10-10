@@ -80,7 +80,7 @@
      if(current>1)add(current-1,'قبلی');for(let number=1;number<=total;number++)add(number,digits(number));if(current<total)add(current+1,'بعدی');
     }
    };
-   const navigate=event=>{const link=event.target.closest('a');if(!link||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;event.preventDefault();history.pushState(null,'',link.href);render();};
+   const navigate=event=>{const link=event.target.closest('a');if(!link||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;event.preventDefault();const changingPage=pagination.contains(link);history.pushState(null,'',link.href);render();if(changingPage){output.scrollIntoView({block:'start'});count.tabIndex=-1;count.focus({preventScroll:true});}};
    search.addEventListener('submit',event=>{event.preventDefault();remember(search);render();});
    pagination.addEventListener('click',navigate);document.querySelector('.ag-search-examples').addEventListener('click',navigate);
    window.addEventListener('popstate',render);render();

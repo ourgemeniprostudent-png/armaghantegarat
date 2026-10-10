@@ -28,6 +28,7 @@
 .ag-search-examples>span{color:var(--search-muted);margin-inline-end:4px}
 .ag-search-examples>a{padding:8px 14px;color:var(--search-accent);background:var(--search-surface);border-radius:var(--ui-radius,8px);min-height:40px;display:inline-flex;align-items:center}
 .ag-search-route .ag-search-count{color:var(--search-accent);margin:26px 0 14px;font-size:16px;line-height:1.9}
+.ag-search-output{scroll-margin-top:120px}
 .ag-search-count:empty,.ag-search-route .ag-pagination:empty{display:none}
 .ag-search-route .ag-search-result{padding:22px 0;max-width:none;border-color:var(--search-line)}
 .ag-search-route .ag-search-result .eyebrow{color:var(--search-accent);font-size:13px}

@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
 """Read-only release checks for the transferred development site."""
-import json,re,sys
+import argparse,json,re,sys
 from pathlib import Path
 from urllib.request import urlopen,Request
 root=Path(__file__).resolve().parent.parent
-url=(root/'.runtime/site-url.txt').read_text().strip()
+p=argparse.ArgumentParser(description=__doc__)
+p.add_argument('--url',help='Test a separate host installation without changing the development URL.')
+p.add_argument('--report',type=Path,default=root/'.runtime/smoke-report.json')
+a=p.parse_args()
+url=(a.url or (root/'.runtime/site-url.txt').read_text().strip()).rstrip('/')
 routes=['/','/products/','/products/coffee/','/products/rice/','/products/dried-fruits/','/products/spices/','/products/legumes/','/solutions/','/solutions/b2b-supply/','/thank-you/','/about/','/contact/','/inquiry/','/media/','/blog/','/faq/','/privacy/','/search/','/blog/2026/10/06/follow-up-your-inquiry/','/blog/2026/10/06/business-inquiry-checklist/','/blog/2026/10/06/coffee-inquiry-guide/']
 routes += ['/blog/2026/10/08/'+g['slug']+'/' for g in json.loads((root/'content/editorial/guides-fa.json').read_text())]
 for media_route in ['/media/','/media/videos/','/media/podcasts/']:
@@ -37,5 +41,6 @@ except Exception as exc:
  if getattr(exc,'code',None)!=404:raise
 version=re.search(r'^Version:\s*(\S+)',(root/'theme/vatan-authority/style.css').read_text(),re.M).group(1)
 report={'site':url,'routes':results,'assets':'passed','pending_english':'404 as expected','home_design':'approved home layout, no blocking loader, section editable','theme_version':version}
-(root/'.runtime/smoke-report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
+a.report.parent.mkdir(parents=True,exist_ok=True)
+a.report.write_text(json.dumps(report,ensure_ascii=False,indent=2))
 print(f'Passed: {len(results)} public routes, CSS/JS/font/images/videos, homepage continuity, pending /en.')

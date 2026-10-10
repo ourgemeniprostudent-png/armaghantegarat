@@ -1,5 +1,5 @@
 {
-  "source_commit": "4a295e75ba39915bf123dcaddeaf4bf02f55792f",
+  "source_commit": "5a0b6cee5e6338c01b0f8f1946d83da3a53924ad",
   "routes": [
     {
       "route": "/",
@@ -244,6 +244,16 @@
       "sha256": "cb3a5ecc1ee634e5d3de9126d6ab561913af40e646829d8a3cd0a58304d01c43"
     },
     {
+      "path": "download/subfolder/download.js",
+      "bytes": 2092,
+      "sha256": "ec69870ef71790c256e3a3858c0effd6a53c0511f8fb22d273b790143b09fe69"
+    },
+    {
+      "path": "download/subfolder/index.html",
+      "bytes": 3141,
+      "sha256": "5983a8b25f5b639042f73bc6d9611b6af8f17bf7475b70dfdae1838b806ce83e"
+    },
+    {
       "path": "downloads/1.18.4/INSTALL-fa.txt",
       "bytes": 4632,
       "sha256": "a19e2b3d080e304c64cc52b66b9ea690f3537d28c2eaa6577bf5b5fac2449028"
@@ -317,6 +327,81 @@
       "path": "downloads/1.18.4/part-12.bin",
       "bytes": 11125382,
       "sha256": "3d5806d6014ac188fb756e8375eee22884cf1a52a71301e03f68eca63321dc2e"
+    },
+    {
+      "path": "downloads/1.18.4-subfolder/INSTALL-fa.txt",
+      "bytes": 6338,
+      "sha256": "edba46017ba13c5fc3c48ddc2ff8f117cab7ff087ce39301addf19571198e3c9"
+    },
+    {
+      "path": "downloads/1.18.4-subfolder/SHA256SUMS.txt",
+      "bytes": 107,
+      "sha256": "b697e2ef0d326c0abd1f9b4d8a406898257d31c8c3f660b80d16fd1a27ecd065"
+    },
+    {
+      "path": "downloads/1.18.4-subfolder/manifest.json",
+      "bytes": 2103,
+      "sha256": "b19d7ea50b769f5891265f61487ef5520bfb4566a4abbe9fa6a4a03fffe30507"
+    },
+    {
+      "path": "downloads/1.18.4-subfolder/part-01.bin",
+      "bytes": 16777216,
+      "sha256": "f8d1c78c6c164c056c722db819c24f4366fe1e26ad133598f358a3d82d4b6391"
+    },
+    {
+      "path": "downloads/1.18.4-subfolder/part-02.bin",
+      "bytes": 16777216,
+      "sha256": "926b2d9e5905db936c0c1d77b245c19d1b92e35a4ae743d104200625d0759944"
+    },
+    {
+      "path": "downloads/1.18.4-subfolder/part-03.bin",
+      "bytes": 16777216,
+      "sha256": "ba39e9ed7ea45802cb2e9db8fecd73bc4cd7935f75882c74c6ed5abb70115226"
+    },
+    {
+      "path": "downloads/1.18.4-subfolder/part-04.bin",
+      "bytes": 16777216,
+      "sha256": "b99aee392af0b2b06fd99fcee3dd0ad7d8d1e7113ca039774de695401460792e"
+    },
+    {
+      "path": "downloads/1.18.4-subfolder/part-05.bin",
+      "bytes": 16777216,
+      "sha256": "65efc5f0793a5b95b4ebbf96983262dba3d7beb3487126ffe997cc72bdfc4000"
+    },
+    {
+      "path": "downloads/1.18.4-subfolder/part-06.bin",
+      "bytes": 16777216,
+      "sha256": "769f08127a66e2001530b7fdd875dfeabf12632c625c42a868bd80c59186ccd5"
+    },
+    {
+      "path": "downloads/1.18.4-subfolder/part-07.bin",
+      "bytes": 16777216,
+      "sha256": "6c0a49202983819f18ee257b3678c59223dfb2f7e3c2c84e0839e03ba5af2a41"
+    },
+    {
+      "path": "downloads/1.18.4-subfolder/part-08.bin",
+      "bytes": 16777216,
+      "sha256": "fcfe401d971c69cd1570ce2717d750841b14ccdc9d3d1403a2c0735ccc3f29c4"
+    },
+    {
+      "path": "downloads/1.18.4-subfolder/part-09.bin",
+      "bytes": 16777216,
+      "sha256": "107a646feba66e72d5c1b2db7869427de044c3e70dc600b3a83b61989601da0f"
+    },
+    {
+      "path": "downloads/1.18.4-subfolder/part-10.bin",
+      "bytes": 16777216,
+      "sha256": "ba904faaa8190c251abe7ad05e7d9c51a5bec6857e46bdd5cb86d8b44efdd5e9"
+    },
+    {
+      "path": "downloads/1.18.4-subfolder/part-11.bin",
+      "bytes": 16777216,
+      "sha256": "677b2865ff42a124e74a6d2e354061e67be6b847f7ac83f5dc519017651540e1"
+    },
+    {
+      "path": "downloads/1.18.4-subfolder/part-12.bin",
+      "bytes": 11126430,
+      "sha256": "e5a28ef4e311d03de3b7e229a3adfd469a6f52d95381d550a65b7e61ac510af3"
     },
     {
       "path": "faq/index.html",
@@ -1416,8 +1501,13 @@
   ],
   "host_package": {
     "version": "1.18.4",
-    "filename": "Armaghan-WordPress-v1.18.4.zip",
-    "bytes": 195674758,
-    "sha256": "b0b901d9f03ce89ce80b4792c258cb663e70107796142e87b8635e5bee22d798"
-  }
+    "package_revision": "subfolder-1",
+    "source_commit": "5a0b6cee5e6338c01b0f8f1946d83da3a53924ad",
+    "filename": "Armaghan-WordPress-v1.18.4-subfolder.zip",
+    "bytes": 195675806,
+    "sha256": "125a73483d5b4baf671d0042ab285a564698d644f5b6a592b92bf0c605ccf964",
+    "download_page": "download/subfolder/"
+  },
+  "public_ui_source_commit": "4a295e75ba39915bf123dcaddeaf4bf02f55792f",
+  "download_update": "Added the subfolder installer package; existing public preview files are unchanged."
 }
